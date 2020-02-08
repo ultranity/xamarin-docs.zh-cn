@@ -103,6 +103,6 @@ Listview 和适配器不在此文档的讨论范围内，但它们在非常全�
 
 ## <a name="summary"></a>总结
 
-祝贺，你已完成第一个多屏 Android 应用程序！ 本指南介绍了 *Android 应用程序构建基块*和*意向*，并使用它们生成了一个多屏幕 Android 应用程序。 现在，你已具有坚实的基础，可开始开发自己的 Xamarin.Android 应用程序。
+祝贺，你已完成第一个多屏 Android 应用程序！ 本指南介绍了 *Android 应用程序构建基块* 和 *意向*，并使用它们生成了一个多屏幕 Android 应用程序。 现在，你已具有坚实的基础，可开始开发自己的 Xamarin.Android 应用程序。
 
 接下来，你会在[生成跨平台应用程序指南](~/cross-platform/app-fundamentals/building-cross-platform-applications/index.md)中了解如何使用 Xamarin 生成跨平台应用程序。

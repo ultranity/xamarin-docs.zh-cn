@@ -7,12 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 01/05/2018
-ms.openlocfilehash: ba7148ecabf7f534a953fda3c3d3021abeaa034c
-ms.sourcegitcommit: 57f815bf0024b1afe9754c0e28054fc0a53ce302
+ms.openlocfilehash: bdd28e1ce6d36a0a025ac43a709af2e38a313526
+ms.sourcegitcommit: 52fb214c0e0243587d4e9ad9306b75e92a8cc8b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70771568"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76940382"
 ---
 # <a name="xamarinforms-string-formatting"></a>Xamarin.Forms 字符串格式
 
@@ -39,12 +39,12 @@ ms.locfileid: "70771568"
 
 将在[绑定路径](binding-path.md)中的下一篇文章中看到，数据绑定可能会变得相当复杂且费解。 调试这些数据绑定时，可以将 `Label` 添加到带 `StringFormat` 的 XAML 文件中以显示某些中间结果。 即使仅用于显示对象类型，这仍然非常有用。
 
-字符串格式页面说明了 `StringFormat` 属性的多种用法  ：
+字符串格式页面说明了 `StringFormat` 属性的多种用法：
 
 ```xaml
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
              x:Class="DataBindingDemos.StringFormattingPage"
              Title="String Formatting">
 
@@ -123,13 +123,13 @@ XAML 文件的下一部分是 `StackLayout`，其中 `BindingContext` 设置为�
 
 下面是正在运行的程序：
 
-[![字符串格式](string-formatting-images/stringformatting-small.png "String Formatting")](string-formatting-images/stringformatting-large.png#lightbox "String Formatting")
+[![字符串格式设置](string-formatting-images/stringformatting-small.png "字符串格式设置")](string-formatting-images/stringformatting-large.png#lightbox "字符串格式设置")
 
 ## <a name="viewmodels-and-string-formatting"></a>Viewmodel 和字符串格式
 
 当使用 `Label` 和 `StringFormat` 显示同为 ViewModel 目标的视图的值时，可以将绑定定义为从视图到 `Label` 或从 ViewModel 到 `Label`。 一般情况下第二种方法最佳，因为它验证了试图和 ViewModel 之间的绑定是否正常运作。
 
-此方法展示在更好的颜色选择器示例中，其中使用与[绑定模式](binding-mode.md)一文中展示的简单颜色选择器程序使用的相同 ViewModel    ：
+此方法展示在更好的颜色选择器示例中，其中使用与[绑定模式](binding-mode.md)一文中展示的简单颜色选择器程序使用的相同 ViewModel：
 
 ```xaml
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
@@ -176,13 +176,13 @@ XAML 文件的下一部分是 `StackLayout`，其中 `BindingContext` 设置为�
 
 现在有三对 `Slider` 和 `Label` 元素绑定到了 `HslColorViewModel` 对象中的相同的源属性中。 唯一的区别在于 `Label` 有 `StringFormat` 属性来显示每个 `Slider` 值。
 
-[![更好的颜色选择器](string-formatting-images/bettercolorselector-small.png "Better Color Selector")](string-formatting-images/bettercolorselector-large.png#lightbox "Better Color Selector")
+[![更出色的颜色选择器](string-formatting-images/bettercolorselector-small.png "更出色的颜色选择器")](string-formatting-images/bettercolorselector-large.png#lightbox "更出色的颜色选择器")
 
 你可能想知道如何在传统的两位数十六进制格式中显示 RGB（红、绿、蓝）值。 这些整数值不是从 `Color` 结构中直接提供的。 一种解决方案是计算 ViewModel 中的颜色组件的整数值，并将其作为属性公开。 然后可以使用 `X2` 格式规范对这些值进行格式设置。
 
-另一种方法更常用：可以编写一个绑定值转换器  ，在后文[**绑定值转换器**](converters.md)中有所描述。
+另一种方法更常用：可以编写一个绑定值转换器，在后文[**绑定值转换器**](converters.md)中有所描述。
 
-但下一篇文章更详细地探讨了[绑定路径](binding-path.md)并展示了如何使用它来引用子属性和集合中的项  。
+但下一篇文章更详细地探讨了[绑定路径](binding-path.md)并展示了如何使用它来引用子属性和集合中的项。
 
 ## <a name="related-links"></a>相关链接
 

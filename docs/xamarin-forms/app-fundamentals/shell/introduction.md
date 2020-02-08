@@ -7,12 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 09/20/2019
-ms.openlocfilehash: 3e63a580bbdb1c220d44b100725cdc8ce387b405
-ms.sourcegitcommit: 21d8be9571a2fa89fb7d8ff0787ff4f957de0985
+ms.openlocfilehash: cb2ae3afe9db86d4db603d499ef0e75e7cbbf552
+ms.sourcegitcommit: 52fb214c0e0243587d4e9ad9306b75e92a8cc8b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72696516"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76940404"
 ---
 # <a name="xamarinforms-shell-introduction"></a>Xamarin.Forms Shell 简介
 
@@ -37,6 +37,8 @@ Xamarin.Forms Shell 在 iOS 和 Android 上完全可用，但在通用 Windows �
 ```csharp
 global::Xamarin.Forms.Forms.SetFlags("Shell_UWP_Experimental");
 ```
+
+有关如何向 Xamarin.Forms 解决方案添加 UWP 项目的信息，请参阅[设置 Windows 项目](~/xamarin-forms/platform/windows/installation/index.md)。
 
 ## <a name="shell-navigation-experience"></a>Shell 导航体验
 

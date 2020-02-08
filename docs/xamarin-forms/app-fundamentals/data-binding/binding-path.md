@@ -7,18 +7,18 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 01/05/2018
-ms.openlocfilehash: ca27b0ba0f9e434809250a78047f3bd503f80b50
-ms.sourcegitcommit: 57f815bf0024b1afe9754c0e28054fc0a53ce302
+ms.openlocfilehash: 79d8df3300b302512a7de4140968dbc4c8e79abc
+ms.sourcegitcommit: 52fb214c0e0243587d4e9ad9306b75e92a8cc8b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70771648"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76940345"
 ---
 # <a name="xamarinforms-binding-path"></a>Xamarin.Forms 绑定路径
 
 [![下载示例](~/media/shared/download.png) 下载示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/databindingdemos)
 
-在前面的所有数据绑定示例中，`Binding` 类的 [`Path`](xref:Xamarin.Forms.Binding.Path) 属性（或 `Binding` 标记扩展的 [`Path`](xref:Xamarin.Forms.Xaml.BindingExtension.Path) 属性）已设置为单个属性。 实际上，可以将 `Path` 设置为“子属性”（属性的属性），也可以设置为集合的成员  。
+在前面的所有数据绑定示例中，`Binding` 类的 [`Path`](xref:Xamarin.Forms.Binding.Path) 属性（或 `Binding` 标记扩展的 [`Path`](xref:Xamarin.Forms.Xaml.BindingExtension.Path) 属性）已设置为单个属性。 实际上，可以将 `Path` 设置为“子属性”（属性的属性），也可以设置为集合的成员。
 
 例如，假定你的页面包含 `TimePicker`：
 
@@ -35,12 +35,12 @@ ms.locfileid: "70771648"
 
 `Time` 属性的类型是 `TimeSpan`，该类型具有 `TotalSeconds` 属性。 `Time` 和 `TotalSeconds` 属性之间仅用一个句点连接。 `Path` 字符串中的项始终引用属性，而不是这些属性的类型。
 
-“路径变化”页中显示了该示例和其他几个示例  ：
+“路径变化”页中显示了该示例和其他几个示例：
 
 ```xaml
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:globe="clr-namespace:System.Globalization;assembly=mscorlib"
+             xmlns:globe="clr-namespace:System.Globalization;assembly=netstandard"
              x:Class="DataBindingDemos.PathVariationsPage"
              Title="Path Variations"
              x:Name="page">
@@ -95,7 +95,7 @@ ms.locfileid: "70771648"
 
 ## <a name="paths-with-indexers"></a>使用索引器的路径
 
-“路径变化”页中的第三个 `Label` 中的绑定引用 `System.Globalization` 命名空间中的 [`CultureInfo`](xref:System.Globalization.CultureInfo) 类  ：
+“路径变化”页中的第三个 `Label` 中的绑定引用 `System.Globalization` 命名空间中的 [`CultureInfo`](xref:System.Globalization.CultureInfo) 类：
 
 ```xaml
 <Label Text="{Binding Source={x:Static globe:CultureInfo.CurrentCulture},
@@ -138,7 +138,7 @@ ms.locfileid: "70771648"
 
 下面是正在运行的程序：
 
-[![路径变化](binding-path-images/pathvariations-small.png "路径变化")](binding-path-images/pathvariations-large.png#lightbox "路径变化")
+[![路径变体](binding-path-images/pathvariations-small.png "路径变体")](binding-path-images/pathvariations-large.png#lightbox "路径变体")
 
 ## <a name="debugging-complex-paths"></a>调试复杂路径
 

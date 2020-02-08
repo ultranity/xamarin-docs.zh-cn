@@ -7,16 +7,16 @@ ms.technology: xamarin-ios
 author: davidortinau
 ms.author: daortin
 ms.date: 05/29/2018
-ms.openlocfilehash: e93a12fec63dcb0a31e57de26b3d7ee8827e7864
-ms.sourcegitcommit: d0e6436edbf7c52d760027d5e0ccaba2531d9fef
+ms.openlocfilehash: 81377d790d695b60465319aeb166eb1e62483211
+ms.sourcegitcommit: 52fb214c0e0243587d4e9ad9306b75e92a8cc8b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75489058"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76940931"
 ---
 # <a name="pair-to-mac-for-xamarinios-development"></a>通过“与 Mac 配对”进行 Xamarin.iOS 开发
 
-本指南介绍如何使用“与 Mac 配对”将 Visual Studio 2019 连接到 Mac 生成主机。  这些说明也适用于 Visual Studio 2017。
+本指南介绍如何使用“与 Mac 配对”将 Visual Studio 2019 连接到 Mac 生成主机。这些说明也适用于 Visual Studio 2017。
 
 ## <a name="overview"></a>概述
 
@@ -54,13 +54,13 @@ Visual Studio 2019 的“与 Mac 配对”功能会发现、连接到 Mac 生成
 
 若要设置 Mac 生成主机，首先启用远程登录：
 
-1. 在 Mac 上，打开“系统首选项”并转到“共享”窗格  。
+1. 在 Mac 上，打开“系统首选项”并转到“共享”窗格。
 
-2. 选中“服务”列表中的“远程登录”   。
+2. 选中“服务”列表中的“远程登录”。
 
     ![启用远程登录](images/sharing.png "启用远程登录")
 
-    确保“远程登录”配置为“允许所有用户”访问，或确保 Mac 用户名或组包含在允许用户列表中  。
+    确保“远程登录”配置为“允许所有用户”访问，或确保 Mac 用户名或组包含在允许用户列表中。
 
 3. 如果出现提示，请配置 macOS 防火墙。
 
@@ -72,21 +72,21 @@ Visual Studio 2019 的“与 Mac 配对”功能会发现、连接到 Mac 生成
 
 启用远程连接后，将 Visual Studio 2019 连接到 Mac。
 
-1. 在 Visual Studio 2019 中，打开现有的 iOS 项目，或者通过选择“文件”>“新建”>“项目”，然后选择 iOS 项目模板来创建新的 iOS 项目  。
+1. 在 Visual Studio 2019 中，打开现有的 iOS 项目，或者通过选择“文件”>“新建”>“项目”，然后选择 iOS 项目模板来创建新的 iOS 项目。
 
-2. 打开“与 Mac 配对”对话框  。
+2. 打开“与 Mac 配对”对话框。
 
-    - 使用“与 Mac 配对”按钮 iOS 工具栏  ：
+    - 使用“与 Mac 配对”按钮 iOS 工具栏：
 
       ![iOS 工具栏，其中突出显示了“与 Mac 配对”按钮](images/ios-toolbar.png "iOS 工具栏，其中突出显示了“与 Mac 配对”按钮")
 
-    - 或者，选择“工具”>“iOS”>“与 Mac 配对”  。
+    - 或者，选择“工具”>“iOS”>“与 Mac 配对”。
 
-    - “与 Mac 配对”对话框显示所有之前连接的和当前可用的 Mac 生成主机的列表  ：
+    - “与 Mac 配对”对话框显示所有之前连接的和当前可用的 Mac 生成主机的列表：
 
       ![“与 Mac 配对”对话框](images/pairtomac.png "“与 Mac 配对”对话框")
 
-3. 选择列表中的 Mac。 单击“连接”  。
+3. 选择列表中的 Mac。 单击“连接” 。
 
 4. 输入用户名和密码。
 
@@ -97,7 +97,7 @@ Visual Studio 2019 的“与 Mac 配对”功能会发现、连接到 Mac 生成
       > [!TIP]
       > 登录时，使用系统用户名而不是全名。
 
-    - “与 Mac 配对”使用这些凭据创建到 Mac 的新 SSH 连接。 如果成功，会向 Mac 上的 authorized_keys 文件中添加一个密钥  。 以后连接该 Mac 时会自动登录。
+    - “与 Mac 配对”使用这些凭据创建到 Mac 的新 SSH 连接。 如果成功，会向 Mac 上的 authorized_keys 文件中添加一个密钥。 以后连接该 Mac 时会自动登录。
 
 5. “与 Mac 配对”会自动配置 Mac。
 
@@ -105,18 +105,18 @@ Visual Studio 2019 的“与 Mac 配对”功能会发现、连接到 Mac 生成
 
 6. 查找连接状态图标。
 
-    - Visual Studio 2019 连接到 Mac 时，“与 Mac 配对”对话框中该 Mac 的项会显示一个图标，指示当前已连接该设备  ：
+    - Visual Studio 2019 连接到 Mac 时，“与 Mac 配对”对话框中该 Mac 的项会显示一个图标，指示当前已连接该设备：
 
       ![已连接的 Mac](images/connected.png "已连接的 Mac")
 
       一次只能连接一个 Mac。
 
       > [!TIP]
-      > 右键单击“与 Mac 配对”列表中的任意 Mac 会打开上下文菜单，可在菜单中选择“连接...”、“忘记此 Mac”或“断开连接”     ：
+      > 右键单击“与 Mac 配对”列表中的任意 Mac 会打开上下文菜单，可在菜单中选择“连接...”、“忘记此 Mac”或“断开连接”：
       >
       > ![“与 Mac 配对”上下文菜单](images/contextmenu.png "“与 Mac 配对”上下文菜单")
       >
-      > 如果选择“忘记此 Mac”，系统将忘记所选 Mac 的凭据  。 若要重新连接到此 Mac，将需要重新输入用户名和密码。
+      > 如果选择“忘记此 Mac”，系统将忘记所选 Mac 的凭据。 若要重新连接到此 Mac，将需要重新输入用户名和密码。
 
 如果已成功配对 Mac 生成主机，则可以在 Visual Studio 2019 中生成 Xamarin.iOS 应用。 查看 [Xamarin.iOS for Visual Studio 简介](~/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio.md)指南。
 
@@ -124,11 +124,11 @@ Visual Studio 2019 的“与 Mac 配对”功能会发现、连接到 Mac 生成
 
 ## <a name="manually-add-a-mac"></a>手动添加 Mac
 
-如果未看到“与 Mac 配对”对话框中列出某特定 Mac，可手动添加  ：
+如果未看到“与 Mac 配对”对话框中列出某特定 Mac，可手动添加：
 
 1. 查找 Mac 的 IP 地址。
 
-    - 在 Mac 上打开“系统首选项”>“共享”>“远程登录”  ：
+    - 在 Mac 上打开“系统首选项”>“共享”>“远程登录”：
 
       [![“系统首选项”>“共享”中的 Mac IP 地址](images/sharing-ipaddress.png "“系统首选项”>“共享”中的 Mac IP 地址")](images/sharing.png#lightbox)
 
@@ -141,11 +141,11 @@ Visual Studio 2019 的“与 Mac 配对”功能会发现、连接到 Mac 生成
 
       根据网络配置，可能需要使用接口名称而不是 `en0`。 例如：`en1`、`en2` 等。
 
-2. 在 Visual Studio 2019 的“与 Mac 配对”对话框中，选择“添加 Mac...”   ：
+2. 在 Visual Studio 2019 的“与 Mac 配对”对话框中，选择“添加 Mac...”：
 
     [![“与 Mac 配对”对话框中的“添加 Mac”按钮](images/addtomac.png "“与 Mac 配对”对话框中的“添加 Mac”按钮")](images/addtomac-large.png#lightbox)
 
-3. 输入 Mac 的 IP 地址并单击“添加”  ：
+3. 输入 Mac 的 IP 地址并单击“添加”：
 
     ![输入 Mac 的 IP 地址](images/enteripaddress.png "输入 Mac 的 IP 地址")
 
@@ -156,7 +156,7 @@ Visual Studio 2019 的“与 Mac 配对”功能会发现、连接到 Mac 生成
    > [!TIP]
    > 登录时，使用系统用户名而不是全名。
 
-5. 单击“登录”，通过 SSH 将 Visual Studio 2019 连接到 Mac，并将其添加到已知计算机列表  。
+5. 单击“登录”，通过 SSH 将 Visual Studio 2019 连接到 Mac，并将其添加到已知计算机列表。
 
 ## <a name="automatic-mac-provisioning"></a>自动预配 Mac
 
@@ -187,8 +187,8 @@ Visual Studio 2019 [连接到 Mac](#connect-to-the-mac-from-visual-studio-2019) 
 > [!IMPORTANT]
 > “与 Mac 配对”不会把 Mac 上的 Xamarin.iOS 从 alpha/beta 版本降级为稳定版本。 如果已安装 Visual Studio for Mac，请设置[发布通道](https://docs.microsoft.com/visualstudio/mac/update)，如下所示：
 >
-> - 如果使用 Visual Studio 2019，选择 Visual Studio for Mac 中的“稳定”更新通道  。
-> - 如果使用 Visual Studio 2019 预览版，选择 Visual Studio for Mac 中的“Alpha”更新通道  。
+> - 如果使用 Visual Studio 2019，选择 Visual Studio for Mac 中的“稳定”更新通道。
+> - 如果使用 Visual Studio 2019 预览版，选择 Visual Studio for Mac 中的“Alpha”更新通道。
 
 安装过程中会出现各种提示，用于指示进度，如以下屏幕截图所示（点击放大）：
 
@@ -218,7 +218,7 @@ Visual Studio 2019 [连接到 Mac](#connect-to-the-mac-from-visual-studio-2019) 
 
 ### <a name="troubleshooting-automatic-mac-provisioning"></a>自动预配 Mac 疑难解答
 
-如果在使用“自动预配 Mac”的过程中遇到任何问题，请查看存储在 %LOCALAPPDATA%\Xamarin\Logs\16.0 中的 Visual Studio 2019 IDE 日志  。 这些日志可能包含错误消息，可帮助更好地诊断失败或获取支持。
+如果在使用“自动预配 Mac”的过程中遇到任何问题，请查看存储在 %LOCALAPPDATA%\Xamarin\Logs\16.0 中的 Visual Studio 2019 IDE 日志。 这些日志可能包含错误消息，可帮助更好地诊断失败或获取支持。
 
 ## <a name="build-ios-apps-from-the-windows-command-line"></a>从 Windows 命令行生成 iOS 应用
 
@@ -238,7 +238,7 @@ C:\samples\App1>msbuild App1.sln /p:ServerAddress=10.211.55.2 /p:ServerUser=xamU
 > [!NOTE]
 > Visual Studio 2019 将 `msbuild` 存储到以下目录中：**C:\Program Files (x86)\Microsoft Visual Studio\2019\\&lt;Version&gt;\MSBuild\Current\Bin**
 
-“与 Mac 配对”第一次从 Visual Studio 2019 或命令行登录到特定的 Mac 生成主机时，会设置 SSH 密钥。 借助这些密钥，之后登录时无需使用用户名或密码。 新创建的密钥存储在 %LOCALAPPDATA%\Xamarin\MonoTouch  。
+“与 Mac 配对”第一次从 Visual Studio 2019 或命令行登录到特定的 Mac 生成主机时，会设置 SSH 密钥。 借助这些密钥，之后登录时无需使用用户名或密码。 新创建的密钥存储在 %LOCALAPPDATA%\Xamarin\MonoTouch。
 
 如果从命令行生成调用中省略 `ServerPassword` 参数，“与 Mac 配对”会尝试使用保存的 SSH 密钥登录到 Mac 生成主机。
 

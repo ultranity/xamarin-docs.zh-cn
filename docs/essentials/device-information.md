@@ -5,12 +5,12 @@ ms.assetid: A1AC5373-926A-4FB6-8D7D-4B87EB8EB522
 author: jamesmontemagno
 ms.author: jamont
 ms.date: 11/04/2018
-ms.openlocfilehash: a7868277cd5e924d55ad688df1e8e07c81c5f074
-ms.sourcegitcommit: 5d4e6677224971e2bc0268f405d192d0358c74b8
+ms.openlocfilehash: 29b67e4410a3549e4e2cd63121ffa2e2205e0941
+ms.sourcegitcommit: 52fb214c0e0243587d4e9ad9306b75e92a8cc8b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58329320"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76940806"
 ---
 # <a name="xamarinessentials-device-information"></a>Xamarin.Essentials:设备信息
 
@@ -81,7 +81,7 @@ var deviceType = DeviceInfo.DeviceType;
 
 # <a name="iostabios"></a>[iOS](#tab/ios)
 
-iOS 不会向开发人员公开一个 API 来获取特定 iOS 设备的名称。 而是会返回一个硬件标识符，例如 iPhone10,6，这是指这些标识符的 iPhone X. A 映射不是由 Apple 提供的，但可以在 [The iPhone Wiki](https://www.theiphonewiki.com/wiki/Models)（一个非官方来源）上找到。
+iOS 不会向开发人员公开一个 API 来获取特定 iOS 设备的名称。 而是会返回一个硬件标识符，例如 iPhone10,6，这是指 iPhone X。这些标识符的映射不是由 Apple 提供，但可以在 [The iPhone Wiki](https://www.theiphonewiki.com/wiki/Models)（一个非官方来源）上找到。
 
 --------------
 
