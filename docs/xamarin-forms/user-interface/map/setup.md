@@ -6,13 +6,13 @@ ms.assetid: 59CD1344-8248-406C-9144-0C8A67141E5B
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 11/06/2019
-ms.openlocfilehash: 9213e893d222e26168940e09a93e158d1e74d8dc
-ms.sourcegitcommit: db422e33438f1b5c55852e6942c3d1d75dc025c4
+ms.date: 02/07/2020
+ms.openlocfilehash: eff7dff15fb75859d43923f71696bccf1b0e2cc5
+ms.sourcegitcommit: 87b818373d83fd3a6856c4b5a702b013a731b5ea
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76725575"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069647"
 ---
 # <a name="xamarinforms-map-initialization-and-configuration"></a>Xamarin。窗体映射初始化和配置
 
@@ -234,6 +234,9 @@ Xamarin.FormsMaps.Init("INSERT_AUTHENTICATION_TOKEN_HERE");
 ### <a name="universal-windows-platform"></a>通用 Windows 平台
 
 在 UWP 上，必须先对应用程序进行身份验证，然后才能显示地图并使用地图服务。 若要对应用程序进行身份验证，必须指定映射身份验证密钥。 有关详细信息，请参阅[请求映射身份验证密钥](/windows/uwp/maps-and-location/authentication-key)。 然后，应在 `FormsMaps.Init("AUTHORIZATION_TOKEN")` 方法调用中指定身份验证令牌，以便用 Bing 地图对应用程序进行身份验证。
+
+> [!NOTE]
+> 在 UWP 上，若要使用地图服务（如地理编码），还必须将 `MapService.ServiceToken` 属性设置为 "身份验证密钥" 值。 可以通过以下代码行完成此操作： `Windows.Services.Maps.MapService.ServiceToken = "INSERT_AUTH_TOKEN_HERE";`。
 
 此外，如果应用程序需要访问用户的位置，则必须在包清单中启用位置功能。 这可以通过以下操作实现：
 
