@@ -1,26 +1,26 @@
 ---
-title: Xamarin. 窗体编辑器
-description: 本文介绍如何使用 Xamarin 编辑器控件在应用程序中接受多行文本输入。
+title: Xamarin.Forms 编辑器
+description: 本文介绍如何使用 Xamarin.Forms 编辑器控件接受的应用程序中的多行文本输入。
 ms.prod: xamarin
 ms.assetid: 7074DB3A-30D2-4A6B-9A89-B029EEF20B07
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 09/26/2019
-ms.openlocfilehash: 0c610d7bdecc5d3454079be38c7e6ede5f0596e1
-ms.sourcegitcommit: 21d8be9571a2fa89fb7d8ff0787ff4f957de0985
+ms.openlocfilehash: 1ae176cfebdde31038c30895d1bf562ff3396eaa
+ms.sourcegitcommit: ccbf914615c0ce6b3f308d930f7a77418aeb4dbc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72696806"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131071"
 ---
-# <a name="xamarinforms-editor"></a>Xamarin. 窗体编辑器
+# <a name="xamarinforms-editor"></a>Xamarin.Forms 编辑器
 
 [![下载示例](~/media/shared/download.png) 下载示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-text)
 
 _多行文本输入_
 
-[@No__t_1](xref:Xamarin.Forms.Editor)控件用于接受多行输入。 本文包含以下内容：
+[`Editor`](xref:Xamarin.Forms.Editor)控件用于接受多行输入。 本文介绍：
 
 - **[自定义](#customization)** &ndash; 键盘和颜色选项。
 - **[交互](#interactivity)** &ndash; 可侦听以提供交互性的事件。
@@ -29,7 +29,7 @@ _多行文本输入_
 
 ### <a name="setting-and-reading-text"></a>设置和读取文本
 
-与其他文本显示视图一样， [`Editor`](xref:Xamarin.Forms.Editor)公开 `Text` 属性。 此属性可用于设置和读取 `Editor` 显示的文本。 下面的示例演示如何在 XAML 中设置 `Text` 属性：
+与其他文本显示视图一样， [`Editor`](xref:Xamarin.Forms.Editor)公开 `Text` 属性。 此属性可用于设置和读取 `Editor`显示的文本。 下面的示例演示如何在 XAML 中设置 `Text` 属性：
 
 ```xaml
 <Editor Text="I am an Editor" />
@@ -49,7 +49,7 @@ var text = MyEditor.Text;
 
 ### <a name="setting-placeholder-text"></a>设置占位符文本
 
-[@No__t_1](xref:Xamarin.Forms.Editor)可以设置为在不存储用户输入时显示占位符文本。 这是通过将[`Placeholder`](xref:Xamarin.Forms.Editor.Placeholder)属性设置为 `string` 来实现的，它通常用于指示适用于 `Editor` 的内容类型。 此外，可以通过将[`PlaceholderColor`](xref:Xamarin.Forms.Editor.PlaceholderColor)属性设置为[`Color`](xref:Xamarin.Forms.Color)来控制占位符文本颜色：
+[`Editor`](xref:Xamarin.Forms.Editor)可以设置为在不存储用户输入时显示占位符文本。 这是通过将[`Placeholder`](xref:Xamarin.Forms.InputView.Placeholder)属性设置为 `string`来实现的，它通常用于指示适用于 `Editor`的内容类型。 此外，可以通过将[`PlaceholderColor`](xref:Xamarin.Forms.InputView.PlaceholderColor)属性设置为[`Color`](xref:Xamarin.Forms.Color)来控制占位符文本颜色：
 
 ```xaml
 <Editor Placeholder="Enter text here" PlaceholderColor="Olive" />
@@ -61,7 +61,7 @@ var editor = new Editor { Placeholder = "Enter text here", PlaceholderColor = Co
 
 ### <a name="preventing-text-entry"></a>防止文本输入
 
-可以通过将默认值为 `false` 的 `IsReadOnly` 属性设置为 `true`，阻止用户修改[`Editor`](xref:Xamarin.Forms.Editor)中的文本：
+可以通过将默认值为 `false`的 `IsReadOnly` 属性设置为 `true`，阻止用户修改[`Editor`](xref:Xamarin.Forms.Editor)中的文本：
 
 ```xaml
 <Editor Text="This is a read-only Editor"
@@ -73,11 +73,11 @@ var editor = new Editor { Text = "This is a read-only Editor", IsReadOnly = true
 ```
 
 > [!NOTE]
-> @No__t_0 属性不会改变[`Editor`](xref:Xamarin.Forms.Editor)的视觉外观，这与同时将 `Editor` 的视觉外观更改为灰色的 `IsEnabled` 属性不同。
+> `IsReadonly` 属性不会改变[`Editor`](xref:Xamarin.Forms.Editor)的视觉外观，这与同时将 `Editor` 的视觉外观更改为灰色的 `IsEnabled` 属性不同。
 
-### <a name="limiting-input-length"></a>限制输入长度
+### <a name="limiting-input-length"></a>输入的长度限制
 
-[@No__t_1](xref:Xamarin.Forms.InputView.MaxLength)属性可用于限制[`Editor`](xref:Xamarin.Forms.Editor)允许的输入长度。 应将此属性设置为正整数：
+[`MaxLength`](xref:Xamarin.Forms.InputView.MaxLength)属性可用于限制[`Editor`](xref:Xamarin.Forms.Editor)允许的输入长度。 此属性应设置为一个正整数：
 
 ```xaml
 <Editor ... MaxLength="10" />
@@ -87,7 +87,7 @@ var editor = new Editor { Text = "This is a read-only Editor", IsReadOnly = true
 var editor = new Editor { ... MaxLength = 10 };
 ```
 
-如果[`MaxLength`](xref:Xamarin.Forms.InputView.MaxLength)属性值为0，则表示不允许任何输入，值为 `int.MaxValue` （这是[`Editor`](xref:Xamarin.Forms.Editor)的默认值）指示对于可输入的字符数没有有效限制。
+如果[`MaxLength`](xref:Xamarin.Forms.InputView.MaxLength)属性值为0，则表示不允许任何输入，值为 `int.MaxValue`（这是[`Editor`](xref:Xamarin.Forms.Editor)的默认值）指示对于可输入的字符数没有有效限制。
 
 ### <a name="character-spacing"></a>字符间距
 
@@ -107,9 +107,9 @@ Editor editor = new editor { CharacterSpacing = 10 };
 结果是[`Editor`](xref:Xamarin.Forms.Editor)显示的文本中的字符间距 `CharacterSpacing` 与设备无关的单位。
 
 > [!NOTE]
-> @No__t_0 属性值将应用于 `Text` 和 `Placeholder` 属性显示的文本。
+> `CharacterSpacing` 属性值将应用于 `Text` 和 `Placeholder` 属性显示的文本。
 
-### <a name="auto-sizing-an-editor"></a>自动调整编辑器大小
+### <a name="auto-sizing-an-editor"></a>自动调整大小编辑器
 
 可以通过将 " [`Editor.AutoSize`](xref:Xamarin.Forms.Editor.AutoSize) " 属性设置为 " [`TextChanges`](xref:Xamarin.Forms.EditorAutoSizeOption.TextChanges)" 来自动调整其内容的[`Editor`](xref:Xamarin.Forms.Editor) ，这是[`EditoAutoSizeOption`](xref:Xamarin.Forms.EditorAutoSizeOption)枚举的值。 此枚举有两个值：
 
@@ -192,9 +192,9 @@ editor.Keyboard = Keyboard.Create(KeyboardFlags.Suggestions | KeyboardFlags.Capi
 
 ### <a name="enabling-and-disabling-spell-checking"></a>启用和禁用拼写检查
 
-[@No__t_1](xref:Xamarin.Forms.InputView.IsSpellCheckEnabled)属性控制是否启用拼写检查。 默认情况下，属性设置为 `true`。 用户输入文本时，会显示拼写错误。
+[`IsSpellCheckEnabled`](xref:Xamarin.Forms.InputView.IsSpellCheckEnabled)属性控制是否启用拼写检查。 默认情况下，属性设置为 `true`。 当用户输入文本，指示拼写错误。
 
-但对于某些文本输入方案，如输入用户名，拼写检查会提供消极的体验，因此应通过将[`IsSpellCheckEnabled`](xref:Xamarin.Forms.InputView.IsSpellCheckEnabled)属性设置为 `false` 来禁用：
+但对于某些文本输入方案，如输入用户名，拼写检查会提供消极的体验，因此应通过将[`IsSpellCheckEnabled`](xref:Xamarin.Forms.InputView.IsSpellCheckEnabled)属性设置为 `false`来禁用：
 
 ```xaml
 <Editor ... IsSpellCheckEnabled="false" />
@@ -209,9 +209,9 @@ var editor = new Editor { ... IsSpellCheckEnabled = false };
 
 ### <a name="enabling-and-disabling-text-prediction"></a>启用和禁用文本预测
 
-@No__t_0 属性控制是否启用文本预测和自动文本更正。 默认情况下，属性设置为 `true`。 当用户输入文本时，将显示 word 预测。
+`IsTextPredictionEnabled` 属性控制是否启用文本预测和自动文本更正。 默认情况下，属性设置为 `true`。 当用户输入文本时，会显示 word 预测。
 
-但是，对于某些文本输入方案，例如输入用户名，文本预测和自动文本更正将提供消极的体验，并应通过将 `IsTextPredictionEnabled` 属性设置为 `false` 来禁用：
+但是，对于某些文本输入方案，例如输入用户名，文本预测和自动文本更正将提供消极的体验，并应通过将 `IsTextPredictionEnabled` 属性设置为 `false`来禁用：
 
 ```xaml
 <Editor ... IsTextPredictionEnabled="false" />
@@ -226,7 +226,7 @@ var editor = new Editor { ... IsTextPredictionEnabled = false };
 
 ### <a name="colors"></a>颜色
 
-可以通过 `BackgroundColor` 属性将 `Editor` 设置为使用自定义背景色。 需要特别注意，以确保每个平台的颜色都可用。 由于每个平台都有不同的文本颜色默认设置，因此可能需要为每个平台设置自定义背景色。 有关优化每个平台的 UI 的详细信息，请参阅[使用平台](~/xamarin-forms/platform/device.md)调整程序。
+可以通过 `BackgroundColor` 属性将 `Editor` 设置为使用自定义背景色。 特别注意有必要确保将每个平台上可用的颜色。 因为每个平台都有不同的文本颜色的默认值，可能需要设置每个平台的自定义背景颜色。 有关优化每个平台的 UI 的详细信息，请参阅[使用平台](~/xamarin-forms/platform/device.md)调整程序。
 
 在 C# 中：
 
@@ -245,7 +245,7 @@ public partial class EditorPage : ContentPage
 }
 ```
 
-在 XAML 中：
+在 XAML:
 
 ```xaml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -270,21 +270,21 @@ public partial class EditorPage : ContentPage
 
 ![](editor-images/textbackgroundcolor.png "Editor with BackgroundColor Example")
 
-请确保选择的背景和文本颜色在每个平台上都可用，而不会遮盖任何占位符文本。
+请确保你选择的背景和文本颜色为每个平台上可用，且变得模糊的任何占位符文本。
 
-## <a name="interactivity"></a>交互性
+## <a name="interactivity"></a>交互
 
 `Editor` 公开两个事件：
 
-- 当文本在编辑器中发生更改时， [TextChanged](xref:Xamarin.Forms.Editor.TextChanged) &ndash; 引发。 在更改前后提供文本。
+- 当文本在编辑器中发生更改时， [TextChanged](xref:Xamarin.Forms.InputView.TextChanged) &ndash; 引发。 更改之前和之后提供的文本。
 - [完成](xref:Xamarin.Forms.Editor.Completed)&ndash; 在用户通过按键盘上的 return 键结束输入时引发。
 
 > [!NOTE]
-> [@No__t_3](xref:Xamarin.Forms.Entry)从中继承的[`VisualElement`](xref:Xamarin.Forms.VisualElement)类也具有[`Focused`](xref:Xamarin.Forms.VisualElement.Focused)和[`Unfocused`](xref:Xamarin.Forms.VisualElement.Unfocused)事件。
+> [`Entry`](xref:Xamarin.Forms.Entry)从中继承的[`VisualElement`](xref:Xamarin.Forms.VisualElement)类也具有[`Focused`](xref:Xamarin.Forms.VisualElement.Focused)和[`Unfocused`](xref:Xamarin.Forms.VisualElement.Unfocused)事件。
 
 ### <a name="completed"></a>已完成
 
-@No__t_0 事件用于响应与 `Editor` 交互的完成。 如果用户通过输入键盘上的 return 键（或按 UWP 上的 Tab 键）来结束输入，则会引发 `Completed`。 事件的处理程序是一个泛型事件处理程序，用于获取发送方和 `EventArgs`：
+`Completed` 事件用于响应与 `Editor`交互的完成。 如果用户通过输入键盘上的 return 键（或按 UWP 上的 Tab 键）来结束输入，则会引发 `Completed`。 事件的处理程序是一个泛型事件处理程序，用于获取发送方和 `EventArgs`：
 
 ```csharp
 void EditorCompleted (object sender, EventArgs e)
@@ -293,7 +293,7 @@ void EditorCompleted (object sender, EventArgs e)
 }
 ```
 
-已完成的事件可以在代码和 XAML 中订阅：
+可以在代码和 XAML 中订阅的已完成的事件：
 
 在 C# 中：
 
@@ -312,7 +312,7 @@ public partial class EditorPage : ContentPage
 }
 ```
 
-在 XAML 中：
+在 XAML:
 
 ```xaml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -330,9 +330,9 @@ Title="Editor Demo">
 
 ### <a name="textchanged"></a>TextChanged
 
-@No__t_0 事件用于响应字段内容的更改。
+`TextChanged` 事件用于响应字段内容的更改。
 
-当 `Editor` 的 `Text` 更改时，将引发 `TextChanged`。 事件的处理程序采用 `TextChangedEventArgs` 的实例。 `TextChangedEventArgs` 通过 `OldTextValue` 和 `NewTextValue` 属性提供对 `Editor` `Text` 的新旧值的访问权限：
+当 `Editor` 的 `Text` 更改时，将引发 `TextChanged`。 事件的处理程序采用 `TextChangedEventArgs`的实例。 `TextChangedEventArgs` 通过 `OldTextValue` 和 `NewTextValue` 属性提供对 `Editor` `Text` 的新旧值的访问权限：
 
 ```csharp
 void EditorTextChanged (object sender, TextChangedEventArgs e)
@@ -342,7 +342,7 @@ void EditorTextChanged (object sender, TextChangedEventArgs e)
 }
 ```
 
-已完成的事件可以在代码和 XAML 中订阅：
+可以在代码和 XAML 中订阅的已完成的事件：
 
 在代码中：
 
@@ -361,7 +361,7 @@ public partial class EditorPage : ContentPage
 }
 ```
 
-在 XAML 中：
+在 XAML:
 
 ```xaml
 <?xml version="1.0" encoding="UTF-8"?>

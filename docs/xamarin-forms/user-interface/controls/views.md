@@ -7,12 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 12/13/2019
-ms.openlocfilehash: 7d53623ef1fb1eeb917cbf4cd6d65d461e525982
-ms.sourcegitcommit: db422e33438f1b5c55852e6942c3d1d75dc025c4
+ms.openlocfilehash: 286950104e9a85b6ec89f0c0f3f891f29dada4ec
+ms.sourcegitcommit: 07941cf9704ff88cf4087de5ebdea623ff54edb1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76724235"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77144658"
 ---
 # <a name="xamarinforms-views"></a>Xamarin.Forms 视图
 
@@ -22,7 +22,7 @@ _Xamarin. Forms 视图是跨平台移动用户界面的构建基块。_
 
 视图是用户界面对象（如标签、按钮和滑块），这些对象通常称为*控件*或其他图形编程环境中的*小组件*。 Xamarin 支持的视图全都派生自[`View`](xref:Xamarin.Forms.View)类。 它们可以划分为几个类别：
 
-## <a name="views-for-presentation"></a>演示文稿的视图
+## <a name="views-for-presentation"></a>用于演示的视图
 
 ### <a name="label"></a>Label
 
@@ -45,7 +45,7 @@ _Xamarin. Forms 视图是跨平台移动用户界面的构建基块。_
 | [`BoxView`](xref:Xamarin.Forms.BoxView)显示由[`Color`](xref:Xamarin.Forms.BoxView.Color)属性着色的实心矩形。 `BoxView` 的默认大小请求为40x40。 对于其他大小，请分配 " [`WidthRequest`](xref:Xamarin.Forms.VisualElement.WidthRequest) " 和 " [`HeightRequest`](xref:Xamarin.Forms.VisualElement.HeightRequest) " 属性。<br /><br />[API 文档](xref:Xamarin.Forms.BoxView) / [指南](~/xamarin-forms/user-interface/boxview.md) / [示例 1](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/boxview-basicboxview)、 [2](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/boxview-textdecoration)、 [3](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/boxview-listviewcolors/)、 [4](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/boxview-gameoflife)、 [5](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/boxview-dotmatrixclock)和[6](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/boxview-boxviewclock) | [![BoxView 示例](views-images/BoxView.png "BoxView 示例")](views-images/BoxView-Large.png#lightbox "BoxView 示例")<br />此页的代码 / [XAML 页](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/XamlExamples/BoxViewDemoPage.xaml) [ C# ](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/CodeExamples/BoxViewDemoPage.cs) |
 |     |     |
 
-### <a name="webview"></a>WebView
+### <a name="webview"></a>Web 视图
 
 |     |     |
 | --- | --- |
@@ -64,6 +64,13 @@ _Xamarin. Forms 视图是跨平台移动用户界面的构建基块。_
 |     |     |
 | --- | --- |
 | [`Map`](xref:Xamarin.Forms.Maps.Map)显示地图。 必须安装**Xamarin** NuGet 包。 Android 和通用 Windows 平台需要映射授权密钥。<br /><br />[API 文档](xref:Xamarin.Forms.Maps.Map) / [指南](~/xamarin-forms/user-interface/map/index.md) / [示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithmaps/) | [![地图示例](views-images/Map.png "地图示例")](views-images/Map-Large.png#lightbox "地图示例")<br />此页的代码 / [XAML 页](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/XamlExamples/MapDemoPage.xaml) [ C# ](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/CodeExamples/MapDemoPage.cs) |
+|     |     |
+
+### <a name="mediaelement"></a>MediaElement
+
+|     |     |
+| --- | --- |
+| `MediaElement` 显示视频或播放音频。 媒体可以通过 Web 下载，也可以作为资源嵌入到平台项目中。<br /><br />[指南](~/xamarin-forms/user-interface/mediaelement.md) / [示例](https://github.com/xamarin/xamarin-forms-samples/tree/pre-release/WorkingWithMediaElement) | |
 |     |     |
 
 ## <a name="views-that-initiate-commands"></a>启动命令的视图
@@ -89,11 +96,11 @@ _Xamarin. Forms 视图是跨平台移动用户界面的构建基块。_
 | `RefreshView` 是一种容器控件，为可滚动的内容提供了请求刷新功能。 当触发刷新时，将执行由 `Command` 属性定义的 `ICommand`，而 `IsRefreshing` 属性指示控件的当前状态。<br /><br /> [指南](~/xamarin-forms/user-interface/refreshview.md) / [示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/formsgallery) | [![RefreshView 示例](views-images/RefreshView.png "RefreshView 示例")](views-images/RefreshView-Large.png#lightbox "RefreshView 示例")<br /> 此页的代码 / 具有[代码隐藏](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/XamlExamples/RefreshViewDemoPage.xaml.cs)的[XAML 页](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/XamlExamples/RefreshViewDemoPage.xaml) [ C# ](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/CodeExamples/RefreshViewDemoPage.cs) |
 |     |     |
 
-### <a name="searchbar"></a>SearchBar
+### <a name="searchbar"></a>搜索栏
 
 |     |     |
 | --- | --- |
-| [`SearchBar`](xref:Xamarin.Forms.SearchBar)显示用户键入文本字符串的区域，以及指示应用程序执行搜索的按钮（或键盘键）。 [`Text`](xref:Xamarin.Forms.SearchBar.Text)属性提供对文本的访问， [`SearchButtonPressed`](xref:Xamarin.Forms.SearchBar.SearchButtonPressed)事件指示已按下该按钮。<br /><br />[API 文档](xref:Xamarin.Forms.SearchBar) / [指南](~/xamarin-forms/user-interface/searchbar.md) / [示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-searchbardemos/) | [![SearchBar 示例](views-images/SearchBar.png "SearchBar 示例")](views-images/SearchBar-Large.png#lightbox "SearchBar 示例")<br /> 此页的代码 / 具有[代码隐藏](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/XamlExamples/SearchBarDemoPage.xaml.cs)的[XAML 页](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/XamlExamples/SearchBarDemoPage.xaml) [ C# ](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/CodeExamples/SearchBarDemoPage.cs) |
+| [`SearchBar`](xref:Xamarin.Forms.SearchBar)显示用户键入文本字符串的区域，以及指示应用程序执行搜索的按钮（或键盘键）。 [`Text`](xref:Xamarin.Forms.InputView.Text)属性提供对文本的访问， [`SearchButtonPressed`](xref:Xamarin.Forms.SearchBar.SearchButtonPressed)事件指示已按下该按钮。<br /><br />[API 文档](xref:Xamarin.Forms.SearchBar) / [指南](~/xamarin-forms/user-interface/searchbar.md) / [示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-searchbardemos/) | [![SearchBar 示例](views-images/SearchBar.png "SearchBar 示例")](views-images/SearchBar-Large.png#lightbox "SearchBar 示例")<br /> 此页的代码 / 具有[代码隐藏](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/XamlExamples/SearchBarDemoPage.xaml.cs)的[XAML 页](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/XamlExamples/SearchBarDemoPage.xaml) [ C# ](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/CodeExamples/SearchBarDemoPage.cs) |
 |     |     |
 
 ### <a name="swipeview"></a>SwipeView
@@ -103,7 +110,7 @@ _Xamarin. Forms 视图是跨平台移动用户界面的构建基块。_
 | `SwipeView` 是一种容器控件，该控件环绕内容项，并提供通过轻扫手势显示的上下文菜单项。 每个菜单项都由一个 `SwipeItem`表示，该属性具有在点击项时执行 `ICommand` 的 `Command` 属性。<br /><br /> [指南](~/xamarin-forms/user-interface/swipeview.md) / [示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/formsgallery) | [![SwipeView 示例](views-images/SwipeView.png "SwipeView 示例")](views-images/SwipeView-Large.png#lightbox "SwipeView 示例")<br /> 此页的代码 / 具有[代码隐藏](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/XamlExamples/SwipeViewDemoPage.xaml.cs)的[XAML 页](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/XamlExamples/SwipeViewDemoPage.xaml) [ C# ](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/CodeExamples/SwipeViewDemoPage.cs) |
 |     |     |
 
-## <a name="views-for-setting-values"></a>对于设置值的视图
+## <a name="views-for-setting-values"></a>设置值的视图
 
 ### <a name="checkbox"></a>CheckBox
 
@@ -119,7 +126,7 @@ _Xamarin. Forms 视图是跨平台移动用户界面的构建基块。_
 | [`Slider`](xref:Xamarin.Forms.Slider)允许用户从使用[`Minimum`](xref:Xamarin.Forms.Slider.Minimum)和[`Maximum`](xref:Xamarin.Forms.Slider.Maximum)属性指定的连续范围中选择 `double` 值。<br /><br />[API 文档](xref:Xamarin.Forms.Slider) / [指南](~/xamarin-forms/user-interface/slider.md) / [示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-sliderdemos) | [![滑块示例](views-images/Slider.png "滑块示例")](views-images/Slider-Large.png#lightbox "滑块示例")<br />此页的代码 / [XAML 页](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/XamlExamples/SliderDemoPage.xaml) [ C# ](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/CodeExamples/SliderDemoPage.cs) |
 |     |     |
 
-### <a name="stepper"></a>分档器
+### <a name="stepper"></a>步进器
 
 |     |     |
 | --- | --- |
@@ -147,7 +154,7 @@ _Xamarin. Forms 视图是跨平台移动用户界面的构建基块。_
 | [`TimePicker`](xref:Xamarin.Forms.TimePicker)允许用户使用平台时间选取器选择时间。 [`Time`](xref:Xamarin.Forms.TimePicker.Time)属性是所选时间。 应用程序可以通过安装[`PropertyChanged`](xref:Xamarin.Forms.BindableObject.PropertyChanged)事件的处理程序来监视 `Time` 属性中的更改。<br /><br />[API 文档](xref:Xamarin.Forms.TimePicker) / [指南](~/xamarin-forms/user-interface/timepicker.md) / [示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-timepicker) | [![TimePicker 示例](views-images/TimePicker.png "TimePicker 示例")](views-images/TimePicker-Large.png#lightbox "TimePicker 示例")<br />此页的代码 / [XAML 页](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/XamlExamples/TimePickerDemoPage.xaml) [ C# ](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/CodeExamples/TimePickerDemoPage.cs) |
 |     |     |
 
-## <a name="views-for-editing-text"></a>编辑文本的视图
+## <a name="views-for-editing-text"></a>用于编辑文本的视图
 
 这两个类派生自[`InputView`](xref:Xamarin.Forms.InputView)类，该类定义[`Keyboard`](xref:Xamarin.Forms.InputView.Keyboard)属性。
 
@@ -155,17 +162,17 @@ _Xamarin. Forms 视图是跨平台移动用户界面的构建基块。_
 
 |     |     |
 | --- | --- |
-| [`Entry`](xref:Xamarin.Forms.Entry)允许用户输入和编辑单个文本行。 文本作为[`Text`](xref:Xamarin.Forms.Entry.Text)属性提供，并在文本更改时或用户通过点击 enter 键来指示完成时，将激发[`TextChanged`](xref:Xamarin.Forms.Entry.TextChanged)和[`Completed`](xref:Xamarin.Forms.Entry.Completed)事件。<br /><br />使用[`Editor`](#editor)输入和编辑多行文本。<br /><br />[API 文档](xref:Xamarin.Forms.Entry) / [指南](~/xamarin-forms/user-interface/text/entry.md) / [示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-text) | [![条目示例](views-images/Entry.png "条目示例")](views-images/Entry-Large.png#lightbox "条目示例")<br />此页的代码 / [XAML 页](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/XamlExamples/EntryDemoPage.xaml) [ C# ](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/CodeExamples/EntryDemoPage.cs) |
+| [`Entry`](xref:Xamarin.Forms.Entry)允许用户输入和编辑单个文本行。 文本作为[`Text`](xref:Xamarin.Forms.InputView.Text)属性提供，并在文本更改时或用户通过点击 enter 键来指示完成时，将激发[`TextChanged`](xref:Xamarin.Forms.InputView.TextChanged)和[`Completed`](xref:Xamarin.Forms.Entry.Completed)事件。<br /><br />使用[`Editor`](#editor)输入和编辑多行文本。<br /><br />[API 文档](xref:Xamarin.Forms.Entry) / [指南](~/xamarin-forms/user-interface/text/entry.md) / [示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-text) | [![条目示例](views-images/Entry.png "条目示例")](views-images/Entry-Large.png#lightbox "条目示例")<br />此页的代码 / [XAML 页](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/XamlExamples/EntryDemoPage.xaml) [ C# ](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/CodeExamples/EntryDemoPage.cs) |
 |     |     |
 
 ### <a name="editor"></a>编辑器
 
 |     |     |
 | --- | --- |
-| [`Editor`](xref:Xamarin.Forms.Editor)允许用户输入和编辑多行文本。 文本作为[`Text`](xref:Xamarin.Forms.Editor.Text)属性提供，并且当文本更改或用户指示完成时，将激发[`TextChanged`](xref:Xamarin.Forms.Editor.TextChanged)和[`Completed`](xref:Xamarin.Forms.Editor.Completed)事件。<br /><br />使用[`Entry`](#entry)视图输入和编辑单个文本行。<br /><br />[API 文档](xref:Xamarin.Forms.Editor) / [指南](~/xamarin-forms/user-interface/text/editor.md) / [示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-text) | [![条目示例](views-images/Editor.png "编辑器示例")](views-images/Editor-Large.png#lightbox "编辑器示例")<br />此页的代码 / [XAML 页](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/XamlExamples/EditorDemoPage.xaml) [ C# ](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/CodeExamples/EditorDemoPage.cs) |
+| [`Editor`](xref:Xamarin.Forms.Editor)允许用户输入和编辑多行文本。 文本作为[`Text`](xref:Xamarin.Forms.InputView.Text)属性提供，并且当文本更改或用户指示完成时，将激发[`TextChanged`](xref:Xamarin.Forms.InputView.TextChanged)和[`Completed`](xref:Xamarin.Forms.Editor.Completed)事件。<br /><br />使用[`Entry`](#entry)视图输入和编辑单个文本行。<br /><br />[API 文档](xref:Xamarin.Forms.Editor) / [指南](~/xamarin-forms/user-interface/text/editor.md) / [示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-text) | [![条目示例](views-images/Editor.png "编辑器示例")](views-images/Editor-Large.png#lightbox "编辑器示例")<br />此页的代码 / [XAML 页](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/XamlExamples/EditorDemoPage.xaml) [ C# ](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/CodeExamples/EditorDemoPage.cs) |
 |     |     |
 
-## <a name="views-to-indicate-activity"></a>若要指示活动的视图
+## <a name="views-to-indicate-activity"></a>指示活动的视图
 
 ### <a name="activityindicator"></a>ActivityIndicator
 

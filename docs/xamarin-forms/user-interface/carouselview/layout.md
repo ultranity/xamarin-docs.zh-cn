@@ -7,12 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 10/14/2019
-ms.openlocfilehash: 0149a66fedd98a94f1c9d96bf8e7e57715d1b90b
-ms.sourcegitcommit: d0e6436edbf7c52d760027d5e0ccaba2531d9fef
+ms.openlocfilehash: 38c891a095b2b3d41d906e747585b961516f9256
+ms.sourcegitcommit: ccbf914615c0ce6b3f308d930f7a77418aeb4dbc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75488252"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77130852"
 ---
 # <a name="xamarinforms-carouselview-layout"></a>Xamarin CarouselView 布局
 
@@ -47,7 +47,7 @@ ms.locfileid: "75488252"
 
 ## <a name="horizontal-layout"></a>水平布局
 
-默认情况下， [`CarouselView`](xref:Xamarin.Forms.CarouselView)会水平显示其项。 因此，无需将[`ItemsLayout`](xref:Xamarin.Forms.ItemsView.ItemsLayout)属性设置为使用此布局：
+默认情况下， [`CarouselView`](xref:Xamarin.Forms.CarouselView)会水平显示其项。 因此，无需将[`ItemsLayout`](xref:Xamarin.Forms.CarouselView.ItemsLayout)属性设置为使用此布局：
 
 ```xaml
 <CarouselView ItemsSource="{Binding Monkeys}">
@@ -87,7 +87,7 @@ ms.locfileid: "75488252"
 </CarouselView>
 ```
 
-此外，还可以通过将[`ItemsLayout`](xref:Xamarin.Forms.ItemsView.ItemsLayout)属性设置为 `LinearItemsLayout` 对象来实现此布局，并指定 `Horizontal` [`ItemsLayoutOrientation`](xref:Xamarin.Forms.ItemsLayoutOrientation)枚举成员作为 `Orientation` 属性值：
+此外，还可以通过将[`ItemsLayout`](xref:Xamarin.Forms.CarouselView.ItemsLayout)属性设置为 `LinearItemsLayout` 对象来实现此布局，并指定 `Horizontal` [`ItemsLayoutOrientation`](xref:Xamarin.Forms.ItemsLayoutOrientation)枚举成员作为 `Orientation` 属性值：
 
 ```xaml
 <CarouselView ItemsSource="{Binding Monkeys}">
@@ -112,7 +112,7 @@ CarouselView carouselView = new CarouselView
 
 ## <a name="vertical-layout"></a>垂直布局
 
-[`CarouselView`](xref:Xamarin.Forms.CarouselView)可以通过将[`ItemsLayout`](xref:Xamarin.Forms.ItemsView.ItemsLayout)属性设置为 `LinearItemsLayout` 对象，将 `Vertical` [`ItemsLayoutOrientation`](xref:Xamarin.Forms.ItemsLayoutOrientation)枚举成员指定为 `Orientation` 属性值，来垂直显示其项：
+[`CarouselView`](xref:Xamarin.Forms.CarouselView)可以通过将[`ItemsLayout`](xref:Xamarin.Forms.CarouselView.ItemsLayout)属性设置为 `LinearItemsLayout` 对象，将 `Vertical` [`ItemsLayoutOrientation`](xref:Xamarin.Forms.ItemsLayoutOrientation)枚举成员指定为 `Orientation` 属性值，来垂直显示其项：
 
 ```xaml
 <CarouselView ItemsSource="{Binding Monkeys}">
@@ -194,7 +194,7 @@ CarouselView carouselView = new CarouselView
 
 默认情况下， [`CarouselView`](xref:Xamarin.Forms.CarouselView)中的每一项周围没有任何空白区域。 可以通过在 `CarouselView`使用的项布局上设置属性来更改此行为。
 
-当[`CarouselView`](xref:Xamarin.Forms.CarouselView)将其[`ItemsLayout`](xref:Xamarin.Forms.ItemsView.ItemsLayout)属性设置为一个 `LinearItemsLayout` 对象时，`LinearItemsLayout.ItemSpacing` 属性可设置为表示每个项周围空白空间的 `double` 值：
+当[`CarouselView`](xref:Xamarin.Forms.CarouselView)将其[`ItemsLayout`](xref:Xamarin.Forms.CarouselView.ItemsLayout)属性设置为一个 `LinearItemsLayout` 对象时，`LinearItemsLayout.ItemSpacing` 属性可设置为表示每个项周围空白空间的 `double` 值：
 
 ```xaml
 <CarouselView ItemsSource="{Binding Monkeys}">

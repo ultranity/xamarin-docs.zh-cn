@@ -7,12 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 10/03/2019
-ms.openlocfilehash: 55944b422495c9c3a7c93c6a2eab90a2db790780
-ms.sourcegitcommit: 21d8be9571a2fa89fb7d8ff0787ff4f957de0985
+ms.openlocfilehash: 8359e5f5008205237d602d7d364ebea376b57cf0
+ms.sourcegitcommit: ccbf914615c0ce6b3f308d930f7a77418aeb4dbc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72697841"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131082"
 ---
 # <a name="xamarinforms-carouselview-emptyview"></a>Xamarin. Forms CarouselView EmptyView
 
@@ -22,8 +22,8 @@ ms.locfileid: "72697841"
 
 [`CarouselView`](xref:Xamarin.Forms.CarouselView)定义以下属性，这些属性可用于在没有要显示的数据时提供用户反馈：
 
-- [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView)，类型 `object`、字符串、绑定或视图，将在 `null` [`ItemsSource`](xref:Xamarin.Forms.ItemsView.ItemsSource)属性时或 `ItemsSource` 属性指定的集合 `null` 或为空时显示。 默认值为 `null`。
-- [`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate)类型[`DataTemplate`](xref:Xamarin.Forms.DataTemplate)，用于设置指定 `EmptyView` 格式的模板。 默认值为 `null`。
+- [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView)，类型 `object`、字符串、绑定或视图，将在 `null`[`ItemsSource`](xref:Xamarin.Forms.ItemsView.ItemsSource)属性时或 `ItemsSource` 属性指定的集合 `null` 或为空时显示。 默认值是 `null`。
+- [`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate)类型[`DataTemplate`](xref:Xamarin.Forms.DataTemplate)，用于设置指定 `EmptyView`格式的模板。 默认值是 `null`。
 
 这些属性是由[`BindableProperty`](xref:Xamarin.Forms.BindableProperty)对象支持的，这意味着属性可以是数据绑定的目标。
 
@@ -36,7 +36,7 @@ ms.locfileid: "72697841"
 
 ## <a name="display-a-string-when-data-is-unavailable"></a>数据不可用时显示字符串
 
-[@No__t_1](xref:Xamarin.Forms.ItemsView.EmptyView)属性可以设置为字符串，该字符串将在[`ItemsSource`](xref:Xamarin.Forms.ItemsView.ItemsSource)属性 `null` 时显示，或者当 `ItemsSource` 属性指定的集合 `null` 或为空时显示。 以下 XAML 显示了此方案的示例：
+[`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView)属性可以设置为字符串，该字符串将在[`ItemsSource`](xref:Xamarin.Forms.ItemsView.ItemsSource)属性 `null`时显示，或者当 `ItemsSource` 属性指定的集合 `null` 或为空时显示。 以下 XAML 显示了此方案的示例：
 
 ```xaml
 <CarouselView ItemsSource="{Binding EmptyMonkeys}"
@@ -53,11 +53,11 @@ CarouselView carouselView = new CarouselView
 carouselView.SetBinding(ItemsView.ItemsSourceProperty, "EmptyMonkeys");
 ```
 
-结果是，由于数据绑定集合是 `null` 的，因此将显示设置为[`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView)属性值的字符串。
+结果是，由于数据绑定集合是 `null`的，因此将显示设置为[`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView)属性值的字符串。
 
 ## <a name="display-views-when-data-is-unavailable"></a>数据不可用时显示视图
 
-[@No__t_1](xref:Xamarin.Forms.ItemsView.EmptyView)属性可以设置为一个视图，该视图将在[`ItemsSource`](xref:Xamarin.Forms.ItemsView.ItemsSource)属性 `null` 时，或者 `ItemsSource` 属性指定的集合 `null` 或为空时显示。 这可以是单个视图，也可以是包含多个子视图的视图。 下面的 XAML 示例显示了设置为包含多个子视图的视图的 `EmptyView` 属性：
+[`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView)属性可以设置为一个视图，该视图将在[`ItemsSource`](xref:Xamarin.Forms.ItemsView.ItemsSource)属性 `null`时，或者 `ItemsSource` 属性指定的集合 `null` 或为空时显示。 这可以是单个视图，也可以是包含多个子视图的视图。 下面的 XAML 示例显示了设置为包含多个子视图的视图的 `EmptyView` 属性：
 
 ```xaml
 <StackLayout Margin="20">
@@ -105,11 +105,11 @@ CarouselView carouselView = new CarouselView
 carouselView.SetBinding(ItemsView.ItemsSourceProperty, "Monkeys");
 ```
 
-当[`SearchBar`](xref:Xamarin.Forms.SearchBar)执行 `FilterCommand` 时，会针对存储在[`SearchBar.Text`](xref:Xamarin.Forms.SearchBar.Text)属性中的搜索词筛选[`CarouselView`](xref:Xamarin.Forms.CarouselView)显示的集合。 如果筛选操作不产生任何数据，则会显示[`StackLayout`](xref:Xamarin.Forms.StackLayout)设置为[`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView)属性值。
+当[`SearchBar`](xref:Xamarin.Forms.SearchBar)执行 `FilterCommand`时，会针对存储在[`SearchBar.Text`](xref:Xamarin.Forms.InputView.Text)属性中的搜索词筛选[`CarouselView`](xref:Xamarin.Forms.CarouselView)显示的集合。 如果筛选操作不产生任何数据，则会显示[`StackLayout`](xref:Xamarin.Forms.StackLayout)设置为[`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView)属性值。
 
 ## <a name="display-a-templated-custom-type-when-data-is-unavailable"></a>数据不可用时显示模板化自定义类型
 
-[@No__t_1](xref:Xamarin.Forms.ItemsView.EmptyView)属性可以设置为自定义类型，该类型的模板将在[`ItemsSource`](xref:Xamarin.Forms.ItemsView.ItemsSource)属性 `null` 时显示，或者当 `ItemsSource` 属性指定的集合 `null` 或为空时显示。 [@No__t_1](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate)属性可以设置为定义 `EmptyView` 外观的[`DataTemplate`](xref:Xamarin.Forms.DataTemplate) 。 以下 XAML 显示了此方案的示例：
+[`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView)属性可以设置为自定义类型，该类型的模板将在[`ItemsSource`](xref:Xamarin.Forms.ItemsView.ItemsSource)属性 `null`时显示，或者当 `ItemsSource` 属性指定的集合 `null` 或为空时显示。 [`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate)属性可以设置为定义 `EmptyView`外观的[`DataTemplate`](xref:Xamarin.Forms.DataTemplate) 。 以下 XAML 显示了此方案的示例：
 
 ```xaml
 <StackLayout Margin="20">
@@ -152,7 +152,7 @@ CarouselView carouselView = new CarouselView
 };
 ```
 
-@No__t_0 类型定义 `Filter` 属性和相应的[`BindableProperty`](xref:Xamarin.Forms.BindableProperty)：
+`FilterData` 类型定义 `Filter` 属性和相应的[`BindableProperty`](xref:Xamarin.Forms.BindableProperty)：
 
 ```csharp
 public class FilterData : BindableObject
@@ -167,7 +167,7 @@ public class FilterData : BindableObject
 }
 ```
 
-[@No__t_1](xref:Xamarin.Forms.ItemsView.EmptyView)属性设置为 `FilterData` 对象，`Filter` 属性数据绑定到[`SearchBar.Text`](xref:Xamarin.Forms.SearchBar.Text)属性。 当[`SearchBar`](xref:Xamarin.Forms.SearchBar)执行 `FilterCommand` 时，会针对存储在 `Filter` 属性中的搜索词筛选[`CarouselView`](xref:Xamarin.Forms.CarouselView)显示的集合。 如果筛选操作不生成任何数据，则会显示在[`DataTemplate`](xref:Xamarin.Forms.DataTemplate)中定义的[`Label`](xref:Xamarin.Forms.Label) ，并将其设置为[`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate)属性值。
+[`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView)属性设置为 `FilterData` 对象，`Filter` 属性数据绑定到[`SearchBar.Text`](xref:Xamarin.Forms.InputView.Text)属性。 当[`SearchBar`](xref:Xamarin.Forms.SearchBar)执行 `FilterCommand`时，会针对存储在 `Filter` 属性中的搜索词筛选[`CarouselView`](xref:Xamarin.Forms.CarouselView)显示的集合。 如果筛选操作不生成任何数据，则会显示在[`DataTemplate`](xref:Xamarin.Forms.DataTemplate)中定义的[`Label`](xref:Xamarin.Forms.Label) ，并将其设置为[`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate)属性值。
 
 > [!NOTE]
 > 当数据不可用时显示模板化自定义类型时，可以将[`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate)属性设置为包含多个子视图的视图。
@@ -239,7 +239,7 @@ void ToggleEmptyView(bool isToggled)
 }
 ```
 
-@No__t_0 方法根据[`ResourceDictionary`](xref:Xamarin.Forms.Switch.IsToggled)属性的值将 `carouselView` 对象的[`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView)属性设置为存储在[`Switch.IsToggled`](xref:Xamarin.Forms.ResourceDictionary)中的两个[`ContentView`](xref:Xamarin.Forms.ContentView)对象之一。 当[`SearchBar`](xref:Xamarin.Forms.SearchBar)执行 `FilterCommand` 时，会针对存储在[`SearchBar.Text`](xref:Xamarin.Forms.SearchBar.Text)属性中的搜索词筛选[`CarouselView`](xref:Xamarin.Forms.CarouselView)显示的集合。 如果筛选操作不生成任何数据，则会显示 `ContentView` 对象设置为 `EmptyView` 属性。
+`ToggleEmptyView` 方法根据[`ResourceDictionary`](xref:Xamarin.Forms.Switch.IsToggled)属性的值将 `carouselView` 对象的[`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView)属性设置为存储在[`Switch.IsToggled`](xref:Xamarin.Forms.ResourceDictionary)中的两个[`ContentView`](xref:Xamarin.Forms.ContentView)对象之一。 当[`SearchBar`](xref:Xamarin.Forms.SearchBar)执行 `FilterCommand`时，会针对存储在[`SearchBar.Text`](xref:Xamarin.Forms.InputView.Text)属性中的搜索词筛选[`CarouselView`](xref:Xamarin.Forms.CarouselView)显示的集合。 如果筛选操作不生成任何数据，则会显示 `ContentView` 对象设置为 `EmptyView` 属性。
 
 有关资源字典的详细信息，请参阅[Xamarin。 Forms 资源字典](~/xamarin-forms/xaml/resource-dictionaries.md)。
 
@@ -292,9 +292,9 @@ CarouselView carouselView = new CarouselView()
 carouselView.SetBinding(ItemsView.ItemsSourceProperty, "Monkeys");
 ```
 
-[@No__t_1](xref:Xamarin.Forms.ItemsView.EmptyView)属性设置为[`SearchBar.Text`](xref:Xamarin.Forms.SearchBar.Text)属性， [`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate)属性设置为 `SearchTermDataTemplateSelector` 对象。
+[`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView)属性设置为[`SearchBar.Text`](xref:Xamarin.Forms.InputView.Text)属性， [`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate)属性设置为 `SearchTermDataTemplateSelector` 对象。
 
-当[`SearchBar`](xref:Xamarin.Forms.SearchBar)执行 `FilterCommand` 时，会针对存储在[`SearchBar.Text`](xref:Xamarin.Forms.SearchBar.Text)属性中的搜索词筛选[`CarouselView`](xref:Xamarin.Forms.CarouselView)显示的集合。 如果筛选操作不生成任何数据，则 `SearchTermDataTemplateSelector` 对象选择的[`DataTemplate`](xref:Xamarin.Forms.DataTemplate)将设置为[`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate)属性并显示。
+当[`SearchBar`](xref:Xamarin.Forms.SearchBar)执行 `FilterCommand`时，会针对存储在[`SearchBar.Text`](xref:Xamarin.Forms.InputView.Text)属性中的搜索词筛选[`CarouselView`](xref:Xamarin.Forms.CarouselView)显示的集合。 如果筛选操作不生成任何数据，则 `SearchTermDataTemplateSelector` 对象选择的[`DataTemplate`](xref:Xamarin.Forms.DataTemplate)将设置为[`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate)属性并显示。
 
 下面的示例演示了 `SearchTermDataTemplateSelector` 类：
 
@@ -312,7 +312,7 @@ public class SearchTermDataTemplateSelector : DataTemplateSelector
 }
 ```
 
-@No__t_0 类定义设置为不同数据模板 `DefaultTemplate` 和 `OtherTemplate` [`DataTemplate`](xref:Xamarin.Forms.DataTemplate)属性。 如果搜索查询不等于 "xamarin"，则 `OnSelectTemplate` 重写将返回 `DefaultTemplate`，这将向用户显示一条消息。 如果搜索查询等于 "xamarin"，则 `OnSelectTemplate` 重写将返回 `OtherTemplate`，这将向用户显示基本消息。
+`SearchTermTemplateSelector` 类定义设置为不同数据模板 `DefaultTemplate` 和 `OtherTemplate` [`DataTemplate`](xref:Xamarin.Forms.DataTemplate)属性。 如果搜索查询不等于 "xamarin"，则 `OnSelectTemplate` 重写将返回 `DefaultTemplate`，这将向用户显示一条消息。 如果搜索查询等于 "xamarin"，则 `OnSelectTemplate` 重写将返回 `OtherTemplate`，这将向用户显示基本消息。
 
 有关数据模板选择器的详细信息，请参阅[Create a Xamarin. Forms 并重](~/xamarin-forms/app-fundamentals/templates/data-templates/selector.md)。
 
@@ -320,5 +320,5 @@ public class SearchTermDataTemplateSelector : DataTemplateSelector
 
 - [CarouselView （示例）](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-carouselviewdemos/)
 - [Xamarin. Forms 数据模板](~/xamarin-forms/app-fundamentals/templates/data-templates/index.md)
-- [Xamarin. Forms 资源字典](~/xamarin-forms/xaml/resource-dictionaries.md)
+- [Xamarin.Forms 资源字典](~/xamarin-forms/xaml/resource-dictionaries.md)
 - [创建 Xamarin. Forms 并重](~/xamarin-forms/app-fundamentals/templates/data-templates/selector.md)

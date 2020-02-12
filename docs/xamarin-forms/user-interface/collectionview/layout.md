@@ -7,12 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 08/22/2019
-ms.openlocfilehash: 901ea8a3b00a129d39e824e1ab0b053c8d5c743c
-ms.sourcegitcommit: 21d8be9571a2fa89fb7d8ff0787ff4f957de0985
+ms.openlocfilehash: 6c2b3d8bad621db3110fe25041125c5694f21180
+ms.sourcegitcommit: ccbf914615c0ce6b3f308d930f7a77418aeb4dbc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72696818"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77130991"
 ---
 # <a name="xamarinforms-collectionview-layout"></a>Xamarin CollectionView 布局
 
@@ -21,7 +21,7 @@ ms.locfileid: "72696818"
 [`CollectionView`](xref:Xamarin.Forms.CollectionView)定义控件布局的以下属性：
 
 - [`ItemsLayout`](xref:Xamarin.Forms.ItemsLayout)类型的[`IItemsLayout`](xref:Xamarin.Forms.IItemsLayout)中，指定要使用的布局。
-- [`ItemSizingStrategy`](xref:Xamarin.Forms.ItemsView.ItemSizingStrategy)类型[`ItemSizingStrategy`](xref:Xamarin.Forms.ItemSizingStrategy)，则指定要使用的项度量策略。
+- [`ItemSizingStrategy`](xref:Xamarin.Forms.StructuredItemsView.ItemSizingStrategy)类型[`ItemSizingStrategy`](xref:Xamarin.Forms.ItemSizingStrategy)，则指定要使用的项度量策略。
 
 这些属性是由[`BindableProperty`](xref:Xamarin.Forms.BindableProperty)对象支持的，这意味着属性可以是数据绑定的目标。
 
@@ -32,7 +32,7 @@ ms.locfileid: "72696818"
 - 垂直网格–在添加新项时垂直增长的多列网格。
 - 水平网格–在添加新项时水平增长的多行网格。
 
-可以通过将[`ItemsLayout`](xref:Xamarin.Forms.ItemsView.ItemsLayout)属性设置为从[`ItemsLayout`](xref:Xamarin.Forms.ItemsLayout)类派生的类来指定这些布局。 此类定义以下属性：
+可以通过将[`ItemsLayout`](xref:Xamarin.Forms.StructuredItemsView.ItemsLayout)属性设置为从[`ItemsLayout`](xref:Xamarin.Forms.ItemsLayout)类派生的类来指定这些布局。 此类定义以下属性：
 
 - [`Orientation`](xref:Xamarin.Forms.ItemsLayout.Orientation)，类型为[`ItemsLayoutOrientation`](xref:Xamarin.Forms.ItemsLayoutOrientation)指定添加项时[`CollectionView`](xref:Xamarin.Forms.CollectionView)展开的方向。
 - [`SnapPointsAlignment`](xref:Xamarin.Forms.SnapPointsAlignment)类型的[`SnapPointsAlignment`](xref:Xamarin.Forms.ItemsLayout.SnapPointsAlignment)指定对齐点如何与项对齐。
@@ -40,18 +40,18 @@ ms.locfileid: "72696818"
 
 这些属性是由[`BindableProperty`](xref:Xamarin.Forms.BindableProperty)对象支持的，这意味着属性可以是数据绑定的目标。 有关对齐点的详细信息，请参阅[Xamarin CollectionView 滚动](scrolling.md)指南中的 "[对齐点](scrolling.md#snap-points)"。
 
-[@No__t_1](xref:Xamarin.Forms.ItemsLayoutOrientation)枚举定义以下成员：
+[`ItemsLayoutOrientation`](xref:Xamarin.Forms.ItemsLayoutOrientation)枚举定义以下成员：
 
 - `Vertical` 指示[`CollectionView`](xref:Xamarin.Forms.CollectionView)在添加项目时将垂直扩展。
 - `Horizontal` 指示[`CollectionView`](xref:Xamarin.Forms.CollectionView)在添加项目时水平展开。
 
-@No__t_0 类继承自[`ItemsLayout`](xref:Xamarin.Forms.ItemsLayout)类，并定义了一个类型 `double` 的 `ItemSpacing` 属性，该属性表示每个项周围的空白区域。 此属性的默认值为0，其值必须始终大于或等于0。 @No__t_0 类还定义静态 `Vertical` 和 `Horizontal` 成员。 这些成员可以分别用来创建垂直或水平列表。 或者，可以创建一个 `LinearItemsLayout` 对象，将[`ItemsLayoutOrientation`](xref:Xamarin.Forms.ItemsLayoutOrientation)枚举成员指定为一个参数。
+`LinearItemsLayout` 类继承自[`ItemsLayout`](xref:Xamarin.Forms.ItemsLayout)类，并定义了一个类型 `double`的 `ItemSpacing` 属性，该属性表示每个项周围的空白区域。 此属性的默认值为0，其值必须始终大于或等于0。 `LinearItemsLayout` 类还定义静态 `Vertical` 和 `Horizontal` 成员。 这些成员可以分别用来创建垂直或水平列表。 或者，可以创建一个 `LinearItemsLayout` 对象，将[`ItemsLayoutOrientation`](xref:Xamarin.Forms.ItemsLayoutOrientation)枚举成员指定为一个参数。
 
-[@No__t_1](xref:Xamarin.Forms.GridItemsLayout)类继承自[`ItemsLayout`](xref:Xamarin.Forms.ItemsLayout)类，并定义以下属性：
+[`GridItemsLayout`](xref:Xamarin.Forms.GridItemsLayout)类继承自[`ItemsLayout`](xref:Xamarin.Forms.ItemsLayout)类，并定义以下属性：
 
-- `double` 类型的 `VerticalItemSpacing`，表示每个项周围的垂直空白空间。 此属性的默认值为0，其值必须始终大于或等于0。
-- `double` 类型的 `HorizontalItemSpacing`，它表示每个项周围的水平空白空间。 此属性的默认值为0，其值必须始终大于或等于0。
-- `int` 类型的 `Span`，它表示要在网格中显示的列数或行数。 此属性的默认值为1，并且它的值必须始终大于或等于1。
+- `double`类型的 `VerticalItemSpacing`，表示每个项周围的垂直空白空间。 此属性的默认值为0，其值必须始终大于或等于0。
+- `double`类型的 `HorizontalItemSpacing`，它表示每个项周围的水平空白空间。 此属性的默认值为0，其值必须始终大于或等于0。
+- `int`类型的 `Span`，它表示要在网格中显示的列数或行数。 此属性的默认值为1，并且它的值必须始终大于或等于1。
 
 这些属性是由[`BindableProperty`](xref:Xamarin.Forms.BindableProperty)对象支持的，这意味着属性可以是数据绑定的目标。
 
@@ -60,7 +60,7 @@ ms.locfileid: "72696818"
 
 ## <a name="vertical-list"></a>垂直列表
 
-默认情况下， [`CollectionView`](xref:Xamarin.Forms.CollectionView)会在垂直列表布局中显示其项。 因此，无需将[`ItemsLayout`](xref:Xamarin.Forms.ItemsView.ItemsLayout)属性设置为使用此布局：
+默认情况下， [`CollectionView`](xref:Xamarin.Forms.CollectionView)会在垂直列表布局中显示其项。 因此，无需将[`ItemsLayout`](xref:Xamarin.Forms.StructuredItemsView.ItemsLayout)属性设置为使用此布局：
 
 ```xaml
 <CollectionView ItemsSource="{Binding Monkeys}">
@@ -94,7 +94,7 @@ ms.locfileid: "72696818"
 </CollectionView>
 ```
 
-但是，为了完整性，可以通过将[`CollectionView`](xref:Xamarin.Forms.CollectionView)的[`ItemsLayout`](xref:Xamarin.Forms.ItemsView.ItemsLayout)属性设置为 `VerticalList`，将其设置为在垂直列表中显示其项：
+但是，为了完整性，可以通过将[`CollectionView`](xref:Xamarin.Forms.CollectionView)的[`ItemsLayout`](xref:Xamarin.Forms.StructuredItemsView.ItemsLayout)属性设置为 `VerticalList`，将其设置为在垂直列表中显示其项：
 
 ```xaml
 <CollectionView ItemsSource="{Binding Monkeys}"
@@ -103,7 +103,7 @@ ms.locfileid: "72696818"
 </CollectionView>
 ```
 
-此外，也可以通过将[`ItemsLayout`](xref:Xamarin.Forms.ItemsView.ItemsLayout)属性设置为 `LinearItemsLayout` 对象来完成此操作，将 `Vertical` [`ItemsLayoutOrientation`](xref:Xamarin.Forms.ItemsLayoutOrientation)枚举成员指定为 `Orientation` 属性值：
+此外，也可以通过将[`ItemsLayout`](xref:Xamarin.Forms.StructuredItemsView.ItemsLayout)属性设置为 `LinearItemsLayout` 对象来完成此操作，将 `Vertical` [`ItemsLayoutOrientation`](xref:Xamarin.Forms.ItemsLayoutOrientation)枚举成员指定为 `Orientation` 属性值：
 
 ```xaml
 <CollectionView ItemsSource="{Binding Monkeys}">
@@ -130,7 +130,7 @@ CollectionView collectionView = new CollectionView
 
 ## <a name="horizontal-list"></a>水平列表
 
-[`CollectionView`](xref:Xamarin.Forms.CollectionView)可以通过将其[`ItemsLayout`](xref:Xamarin.Forms.ItemsView.ItemsLayout)属性设置为 `HorizontalList`，在水平列表中显示其项：
+[`CollectionView`](xref:Xamarin.Forms.CollectionView)可以通过将其[`ItemsLayout`](xref:Xamarin.Forms.StructuredItemsView.ItemsLayout)属性设置为 `HorizontalList`，在水平列表中显示其项：
 
 ```xaml
 <CollectionView ItemsSource="{Binding Monkeys}"
@@ -167,7 +167,7 @@ CollectionView collectionView = new CollectionView
 </CollectionView>
 ```
 
-此外，还可以通过将[`ItemsLayout`](xref:Xamarin.Forms.ItemsView.ItemsLayout)属性设置为 `LinearItemsLayout` 对象来实现此布局，并指定 `Horizontal` [`ItemsLayoutOrientation`](xref:Xamarin.Forms.ItemsLayoutOrientation)枚举成员作为 `Orientation` 属性值：
+此外，还可以通过将[`ItemsLayout`](xref:Xamarin.Forms.StructuredItemsView.ItemsLayout)属性设置为 `LinearItemsLayout` 对象来实现此布局，并指定 `Horizontal` [`ItemsLayoutOrientation`](xref:Xamarin.Forms.ItemsLayoutOrientation)枚举成员作为 `Orientation` 属性值：
 
 ```xaml
 <CollectionView ItemsSource="{Binding Monkeys}">
@@ -194,7 +194,7 @@ CollectionView collectionView = new CollectionView
 
 ## <a name="vertical-grid"></a>垂直网格
 
-[`CollectionView`](xref:Xamarin.Forms.CollectionView)可以通过将其[`ItemsLayout`](xref:Xamarin.Forms.ItemsView.ItemsLayout)属性设置为其[`Orientation`](xref:Xamarin.Forms.ItemsLayout.Orientation)属性设置为 `Vertical` 的[`GridItemsLayout`](xref:Xamarin.Forms.GridItemsLayout)对象，在垂直网格中显示其项：
+[`CollectionView`](xref:Xamarin.Forms.CollectionView)可以通过将其[`ItemsLayout`](xref:Xamarin.Forms.StructuredItemsView.ItemsLayout)属性设置为其[`Orientation`](xref:Xamarin.Forms.ItemsLayout.Orientation)属性设置为 `Vertical`的[`GridItemsLayout`](xref:Xamarin.Forms.GridItemsLayout)对象，在垂直网格中显示其项：
 
 ```xaml
 <CollectionView ItemsSource="{Binding Monkeys}">
@@ -250,7 +250,7 @@ CollectionView collectionView = new CollectionView
 
 ## <a name="horizontal-grid"></a>水平网格
 
-[`CollectionView`](xref:Xamarin.Forms.CollectionView)可以通过将其[`ItemsLayout`](xref:Xamarin.Forms.ItemsView.ItemsLayout)属性设置为其[`Orientation`](xref:Xamarin.Forms.ItemsLayout.Orientation)属性设置为 `Horizontal` 的[`GridItemsLayout`](xref:Xamarin.Forms.GridItemsLayout)对象，在水平网格中显示其项：
+[`CollectionView`](xref:Xamarin.Forms.CollectionView)可以通过将其[`ItemsLayout`](xref:Xamarin.Forms.StructuredItemsView.ItemsLayout)属性设置为其[`Orientation`](xref:Xamarin.Forms.ItemsLayout.Orientation)属性设置为 `Horizontal`的[`GridItemsLayout`](xref:Xamarin.Forms.GridItemsLayout)对象，在水平网格中显示其项：
 
 ```xaml
 <CollectionView ItemsSource="{Binding Monkeys}">
@@ -310,10 +310,10 @@ CollectionView collectionView = new CollectionView
 
 [`CollectionView`](xref:Xamarin.Forms.CollectionView)为指定页眉和页脚定义以下属性：
 
-- `Header` 类型 `object`，指定将显示在列表开头的字符串、绑定或视图。
-- `HeaderTemplate` 类型[`DataTemplate`](xref:Xamarin.Forms.DataTemplate)，指定用于设置 `Header` 格式的 `DataTemplate`。
-- `Footer` 类型 `object`，指定将显示在列表末尾的字符串、绑定或视图。
-- `FooterTemplate` 类型[`DataTemplate`](xref:Xamarin.Forms.DataTemplate)，指定用于设置 `Footer` 格式的 `DataTemplate`。
+- `Header`类型 `object`，指定将显示在列表开头的字符串、绑定或视图。
+- `HeaderTemplate`类型[`DataTemplate`](xref:Xamarin.Forms.DataTemplate)，指定用于设置 `Header`格式的 `DataTemplate`。
+- `Footer`类型 `object`，指定将显示在列表末尾的字符串、绑定或视图。
+- `FooterTemplate`类型[`DataTemplate`](xref:Xamarin.Forms.DataTemplate)，指定用于设置 `Footer`格式的 `DataTemplate`。
 
 这些属性是由[`BindableProperty`](xref:Xamarin.Forms.BindableProperty)对象支持的，这意味着属性可以是数据绑定的目标。
 
@@ -321,7 +321,7 @@ CollectionView collectionView = new CollectionView
 
 ### <a name="display-strings-in-the-header-and-footer"></a>在页眉和页脚中显示字符串
 
-@No__t_0 和 `Footer` 属性可以设置为 `string` 值，如下面的示例中所示：
+`Header` 和 `Footer` 属性可以设置为 `string` 值，如下面的示例中所示：
 
 ```xaml
 <CollectionView ItemsSource="{Binding Monkeys}"
@@ -348,7 +348,7 @@ collectionView.SetBinding(ItemsView.ItemsSourceProperty, "Monkeys");
 
 ### <a name="display-views-in-the-header-and-footer"></a>在页眉和页脚中显示视图
 
-@No__t_0 和 `Footer` 属性都可以设置为视图。 这可以是单个视图，也可以是包含多个子视图的视图。 下面的示例演示每个 `Header` 和 `Footer` 属性设置为包含[`Label`](xref:Xamarin.Forms.Label)对象的[`StackLayout`](xref:Xamarin.Forms.StackLayout)对象：
+`Header` 和 `Footer` 属性都可以设置为视图。 这可以是单个视图，也可以是包含多个子视图的视图。 下面的示例演示每个 `Header` 和 `Footer` 属性设置为包含[`Label`](xref:Xamarin.Forms.Label)对象的[`StackLayout`](xref:Xamarin.Forms.StackLayout)对象：
 
 ```xaml
 <CollectionView ItemsSource="{Binding Monkeys}">
@@ -456,9 +456,9 @@ collectionView.SetBinding(ItemsView.ItemsSourceProperty, "Monkeys");
 
 ## <a name="item-spacing"></a>项间距
 
-默认情况下， [`CollectionView`](xref:Xamarin.Forms.CollectionView)中的每一项周围没有任何空白区域。 可以通过在 `CollectionView` 使用的项布局上设置属性来更改此行为。
+默认情况下， [`CollectionView`](xref:Xamarin.Forms.CollectionView)中的每一项周围没有任何空白区域。 可以通过在 `CollectionView`使用的项布局上设置属性来更改此行为。
 
-当[`CollectionView`](xref:Xamarin.Forms.CollectionView)将其[`ItemsLayout`](xref:Xamarin.Forms.ItemsView.ItemsLayout)属性设置为一个 `LinearItemsLayout` 对象时，`LinearItemsLayout.ItemSpacing` 属性可设置为表示每个项周围空白空间的 `double` 值：
+当[`CollectionView`](xref:Xamarin.Forms.CollectionView)将其[`ItemsLayout`](xref:Xamarin.Forms.StructuredItemsView.ItemsLayout)属性设置为一个 `LinearItemsLayout` 对象时，`LinearItemsLayout.ItemSpacing` 属性可设置为表示每个项周围空白空间的 `double` 值：
 
 ```xaml
 <CollectionView ItemsSource="{Binding Monkeys}">
@@ -471,7 +471,7 @@ collectionView.SetBinding(ItemsView.ItemsSourceProperty, "Monkeys");
 ```
 
 > [!NOTE]
-> @No__t_0 属性具有一个验证回调集，它可确保属性的值始终大于或等于0。
+> `LinearItemsLayout.ItemSpacing` 属性具有一个验证回调集，它可确保属性的值始终大于或等于0。
 
 等效 C# 代码如下：
 
@@ -490,7 +490,7 @@ CollectionView collectionView = new CollectionView
 
 [![在 iOS 和 Android 上具有项间距的 CollectionView 的屏幕截图](layout-images/vertical-list-spacing.png "CollectionView 项间距")](layout-images/vertical-list-spacing-large.png#lightbox "CollectionView 项间距")
 
-当[`CollectionView`](xref:Xamarin.Forms.CollectionView)将其[`ItemsLayout`](xref:Xamarin.Forms.ItemsView.ItemsLayout)属性设置为一个[`GridItemsLayout`](xref:Xamarin.Forms.GridItemsLayout)对象时，可以将 `GridItemsLayout.VerticalItemSpacing` 和 `GridItemsLayout.HorizontalItemSpacing` 属性设置为 `double` 在每个项周围垂直和水平表示空白空间的值：
+当[`CollectionView`](xref:Xamarin.Forms.CollectionView)将其[`ItemsLayout`](xref:Xamarin.Forms.StructuredItemsView.ItemsLayout)属性设置为一个[`GridItemsLayout`](xref:Xamarin.Forms.GridItemsLayout)对象时，可以将 `GridItemsLayout.VerticalItemSpacing` 和 `GridItemsLayout.HorizontalItemSpacing` 属性设置为 `double` 在每个项周围垂直和水平表示空白空间的值：
 
 ```xaml
 <CollectionView ItemsSource="{Binding Monkeys}">
@@ -505,7 +505,7 @@ CollectionView collectionView = new CollectionView
 ```
 
 > [!NOTE]
-> @No__t_0 和 `GridItemsLayout.HorizontalItemSpacing` 属性设置了验证回叫，这可确保属性的值始终大于或等于0。
+> `GridItemsLayout.VerticalItemSpacing` 和 `GridItemsLayout.HorizontalItemSpacing` 属性设置了验证回叫，这可确保属性的值始终大于或等于0。
 
 等效 C# 代码如下：
 
@@ -527,15 +527,15 @@ CollectionView collectionView = new CollectionView
 
 ## <a name="item-sizing"></a>项大小调整
 
-默认情况下， [`CollectionView`](xref:Xamarin.Forms.CollectionView)中的每个项分别进行测量和调整大小，前提是[`DataTemplate`](xref:Xamarin.Forms.DataTemplate)中的 UI 元素不指定固定的大小。 此行为（可更改）由[`CollectionView.ItemSizingStrategy`](xref:Xamarin.Forms.ItemsView.ItemSizingStrategy)属性值指定。 此属性值可以设置为[`ItemSizingStrategy`](xref:Xamarin.Forms.ItemSizingStrategy)枚举成员之一：
+默认情况下， [`CollectionView`](xref:Xamarin.Forms.CollectionView)中的每个项分别进行测量和调整大小，前提是[`DataTemplate`](xref:Xamarin.Forms.DataTemplate)中的 UI 元素不指定固定的大小。 此行为（可更改）由[`CollectionView.ItemSizingStrategy`](xref:Xamarin.Forms.StructuredItemsView.ItemSizingStrategy)属性值指定。 此属性值可以设置为[`ItemSizingStrategy`](xref:Xamarin.Forms.ItemSizingStrategy)枚举成员之一：
 
-- `MeasureAllItems` –每个项都单独进行度量。 此为默认值。
+- `MeasureAllItems` –每个项都单独进行度量。 这是默认值。
 - `MeasureFirstItem` –仅度量第一项，并为所有后续项提供与第一个项相同的大小。
 
 > [!IMPORTANT]
 > 如果在项大小旨在跨所有项进行统一，则使用 `MeasureFirstItem` 大小调整策略会提高性能。
 
-下面的代码示例演示如何设置[`ItemSizingStrategy`](xref:Xamarin.Forms.ItemsView.ItemSizingStrategy)属性：
+下面的代码示例演示如何设置[`ItemSizingStrategy`](xref:Xamarin.Forms.StructuredItemsView.ItemSizingStrategy)属性：
 
 ```xaml
 <CollectionView ...
@@ -556,7 +556,7 @@ CollectionView collectionView = new CollectionView
 
 ## <a name="dynamic-resizing-of-items"></a>动态调整项的大小
 
-[@No__t_1](xref:Xamarin.Forms.CollectionView)中的项可以在运行时通过更改[`DataTemplate`](xref:Xamarin.Forms.DataTemplate)中元素的与布局相关的属性，在运行时动态调整大小。 例如，下面的代码示例更改[`Image`](xref:Xamarin.Forms.Image)对象的[`HeightRequest`](xref:Xamarin.Forms.VisualElement.HeightRequest)和[`WidthRequest`](xref:Xamarin.Forms.VisualElement.WidthRequest)属性：
+[`CollectionView`](xref:Xamarin.Forms.CollectionView)中的项可以在运行时通过更改[`DataTemplate`](xref:Xamarin.Forms.DataTemplate)中元素的与布局相关的属性，在运行时动态调整大小。 例如，下面的代码示例更改[`Image`](xref:Xamarin.Forms.Image)对象的[`HeightRequest`](xref:Xamarin.Forms.VisualElement.HeightRequest)和[`WidthRequest`](xref:Xamarin.Forms.VisualElement.WidthRequest)属性：
 
 ```csharp
 void OnImageTapped(object sender, EventArgs e)
@@ -566,7 +566,7 @@ void OnImageTapped(object sender, EventArgs e)
 }
 ```
 
-@No__t_0 事件处理程序将执行，以响应点击的[`Image`](xref:Xamarin.Forms.Image)对象，并更改图像的尺寸，以便更轻松地进行查看：
+`OnImageTapped` 事件处理程序将执行，以响应点击的[`Image`](xref:Xamarin.Forms.Image)对象，并更改图像的尺寸，以便更轻松地进行查看：
 
 [![在 iOS 和 Android 上动态调整项大小的 CollectionView 屏幕截图](layout-images/runtime-resizing.png "CollectionView 动态项大小调整")](layout-images/runtime-resizing-large.png#lightbox "CollectionView 动态项大小调整")
 
