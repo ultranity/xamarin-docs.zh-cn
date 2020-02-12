@@ -250,6 +250,17 @@
               href: app-fundamentals/dependency-service/registration-and-resolution.md
             - name: 从照片库中选取
               href: app-fundamentals/dependency-service/photo-picker.md
+        - name: 双屏幕
+          href: app-fundamentals/dual-screen/index.md
+          items:
+            - name: 双屏幕模式
+              href: app-fundamentals/dual-screen/design-patterns.md
+            - name: TwoPaneView
+              href: app-fundamentals/dual-screen/twopaneview.md
+            - name: DualScreenInfo
+              href: app-fundamentals/dual-screen/dual-screen-info.md
+            - name: DualScreenHelper
+              href: app-fundamentals/dual-screen/dual-screen-helper.md
         - name: 效果
           href: app-fundamentals/effects/index.md
           items:
