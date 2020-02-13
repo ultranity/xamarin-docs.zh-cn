@@ -7,12 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 12/18/2018
-ms.openlocfilehash: 92e2ceeea901e2acea70118e75d936f3b3ac94db
-ms.sourcegitcommit: 1e3a0d853669dcc57d5dee0894d325d40c7d8009
+ms.openlocfilehash: 12c6229c1922f0bd4a4d25ca796bcb46141a326c
+ms.sourcegitcommit: ccbf914615c0ce6b3f308d930f7a77418aeb4dbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2019
-ms.locfileid: "70199990"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131130"
 ---
 # <a name="automation-properties-in-xamarinforms"></a>Xamarin.Forms 中的自动化属性
 
@@ -113,7 +113,7 @@ AutomationProperties.SetHelpText(button, "Tap to toggle the activity indicator")
 > [!NOTE]
 > 请注意，[`SetValue`](xref:Xamarin.Forms.BindableObject.SetValue(Xamarin.Forms.BindableProperty,System.Object)) 方法还可用于设置 `AutomationProperties.HelpText` 附加属性 - `button.SetValue(AutomationProperties.HelpTextProperty, "Tap to toggle the activity indicator");`
 
-在某些平台上，为了编辑控件例如 [`Entry`](xref:Xamarin.Forms.Entry)，有时可以省略 `HelpText` 属性并将其替换为占位符文本。 例如，“在此输入名字”是 [`Entry.Placeholder`](xref:Xamarin.Forms.Entry.Placeholder) 属性的一个很好的候选对象，它在用户实际输入之前将文本放在控件中。
+在某些平台上，为了编辑控件例如 [`Entry`](xref:Xamarin.Forms.Entry)，有时可以省略 `HelpText` 属性并将其替换为占位符文本。 例如，“在此输入名字”是 [`Entry.Placeholder`](xref:Xamarin.Forms.InputView.Placeholder) 属性的一个很好的候选对象，它在用户实际输入之前将文本放在控件中。
 
 <a name="labeledby" />
 
