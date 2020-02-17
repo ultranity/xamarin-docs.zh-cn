@@ -7,18 +7,18 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 04/06/2016
-ms.openlocfilehash: ab39c79c59855c9f78184614176b1658ee0e29b2
-ms.sourcegitcommit: 57f815bf0024b1afe9754c0e28054fc0a53ce302
+ms.openlocfilehash: 7d16eef4fe5422fb5cf3c039c66d1b0f113727fd
+ms.sourcegitcommit: ccbf914615c0ce6b3f308d930f7a77418aeb4dbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772117"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131121"
 ---
 # <a name="attached-behaviors"></a>附加行为
 
 [![下载示例](~/media/shared/download.png) 下载示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/behaviors-attachednumericvalidationbehavior)
 
-“附加行为是具有一个或多个附加属性的静态类。本文演示如何创建和使用附加行为。”_
+“附加行为是具有一个或多个附加属性的静态类。本文演示如何创建和使用附加行为。”
 
 ## <a name="overview"></a>概述
 
@@ -80,7 +80,7 @@ public static class NumericValidationBehavior
 }
 ```
 
-`NumericValidationBehavior` 类包含带有 `static` getter 和 setter 且名为 `AttachBehavior` 的附加属性，该属性控制将附加行为的控件添加和删除行为。 该附加属性注册属性值更改时执行的 `OnAttachBehaviorChanged` 方法。 此方法根据 `AttachBehavior` 附加属性的值为 [`TextChanged`](xref:Xamarin.Forms.Entry.TextChanged) 事件注册或注销事件处理程序。 该行为的核心功能由 `OnEntryTextChanged` 方法提供，该方法解析用户输入到 [`Entry`](xref:Xamarin.Forms.Entry) 中的值，如果该值不是 `double`，则将 `TextColor` 属性设置为红色。
+`NumericValidationBehavior` 类包含带有 `static` getter 和 setter 且名为 `AttachBehavior` 的附加属性，该属性控制将附加行为的控件添加和删除行为。 该附加属性注册属性值更改时执行的 `OnAttachBehaviorChanged` 方法。 此方法根据 `AttachBehavior` 附加属性的值为 [`TextChanged`](xref:Xamarin.Forms.InputView.TextChanged) 事件注册或注销事件处理程序。 该行为的核心功能由 `OnEntryTextChanged` 方法提供，该方法解析用户输入到 [`Entry`](xref:Xamarin.Forms.Entry) 中的值，如果该值不是 `double`，则将 `TextColor` 属性设置为红色。
 
 ## <a name="consuming-an-attached-behavior"></a>使用附加行为
 
@@ -103,7 +103,7 @@ NumericValidationBehavior.SetAttachBehavior (entry, true);
 
 在运行时，根据行为实现，行为将响应与控件的交互。 以下屏幕截图演示了响应无效输入的附加行为：
 
-[![](attached-images/screenshots-sml.png "附加行为的示例应用程序")](attached-images/screenshots.png#lightbox "")
+[![](attached-images/screenshots-sml.png "Sample Application with Attached Behavior")](attached-images/screenshots.png#lightbox "Sample Application with Attached Behavior")
 
 > [!NOTE]
 > 附加行为是为特定的控件类型（或者可以应用于许多控件的超类）编写的，它们只应添加到可兼容的控件中。 试图将行为附加到不可兼容的控件将导致未知行为，且这取决于行为实现。
@@ -123,7 +123,7 @@ var entry = new Entry { Placeholder = "Enter a System.Double" };
 NumericValidationBehavior.SetAttachBehavior (entry, false);
 ```
 
-在运行时，如果 `AttachBehavior` 附加属性的值设置为 `false` 时，则将执行 `OnAttachBehaviorChanged` 方法。 然后，`OnAttachBehaviorChanged` 方法将注销 [`TextChanged`](xref:Xamarin.Forms.Entry.TextChanged) 事件的事件处理程序，确保用户与控件交互时不执行该行为。
+在运行时，如果 `AttachBehavior` 附加属性的值设置为 `false` 时，则将执行 `OnAttachBehaviorChanged` 方法。 然后，`OnAttachBehaviorChanged` 方法将注销 [`TextChanged`](xref:Xamarin.Forms.InputView.TextChanged) 事件的事件处理程序，确保用户与控件交互时不执行该行为。
 
 ## <a name="summary"></a>总结
 

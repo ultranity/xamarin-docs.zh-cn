@@ -7,12 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 07/01/2016
-ms.openlocfilehash: 056bb16c76887661f054422b2c682a91e6bfa466
-ms.sourcegitcommit: d0e6436edbf7c52d760027d5e0ccaba2531d9fef
+ms.openlocfilehash: d046962bf08b85069b1a698324db76a4ac3286d9
+ms.sourcegitcommit: 07941cf9704ff88cf4087de5ebdea623ff54edb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75489890"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77144646"
 ---
 # <a name="xamarinforms-triggers"></a>Xamarin.Forms 触发器
 
@@ -22,7 +22,7 @@ ms.locfileid: "75489890"
 
 可以直接分配控件触发器，或将其添加到页面级别或应用级别的资源词典中，以应用到多个控件。
 
-有四种类型触发器：
+有多种类型的触发器：
 
 - [属性触发器](#property) - 将控件上的属性设置为特定值时发生。
 
@@ -31,6 +31,20 @@ ms.locfileid: "75489890"
 - [事件触发器](#event) - 当控件上发生某事件时发生。
 
 - [多触发器](#multi) - 允许操作发生前设置多个触发条件。
+
+- [自适应触发器](#adaptive)（预览版）- 对应用程序窗口宽度和长度的变化做出回应。
+
+- [比较触发器](#compare)（预览）- 在比较两个值时发生。
+
+- [设备触发器](#device)（预览版）- 在指定的设备上运行时发生。 
+
+- [方向触发器](#orientation)（预览版）- 当设备方向改变时发生。
+
+要使用预览版触发器，请确保使用 `App.xaml.cs` 中的功能标志启用它们：
+
+```csharp
+Device.SetFlags(new string[]{ "StateTriggers_Experimental" });
+```
 
 <a name="property" />
 
@@ -269,8 +283,8 @@ XAML 如下所示。 请注意下面的示例与第一个触发器示例之间�
 </Button>
 ```
 
-这些屏幕截图显示了上述两个多触发器示例之间的差异。 在屏幕的顶部，仅一个 `Entry` 中的文本输入便足以启用“保存”按钮  。
-在屏幕的底部，“登录”按钮在两个字段均包含数据迁保持非活动状态  。
+这些屏幕截图显示了上述两个多触发器示例之间的差异。 在屏幕的顶部，仅一个 `Entry` 中的文本输入便足以启用“保存”按钮。
+在屏幕的底部，“登录”按钮在两个字段均包含数据迁保持非活动状态。
 
 ![](triggers-images/multi-requireall.png "MultiTrigger Examples")
 
@@ -285,7 +299,7 @@ XAML 如下所示。 请注意下面的示例与第一个触发器示例之间�
 > [!NOTE]
 > [`EventTrigger`](xref:Xamarin.Forms.EventTrigger) 类将忽略 `EnterActions` 和 `ExitActions` 集合中定义的 [`TriggerAction`](xref:Xamarin.Forms.TriggerAction) 对象。    
 
-可以在触发器中同时提供 `EnterActions` 和 `ExitActions`，以及 `Setter`，但注意，将立即调用 `Setter`（它们不等待 `EnterAction` 或 `ExitAction` 完成）  。 或者，可以在代码中执行所有内容，根本无需使用 `Setter`。
+可以在触发器中同时提供 `EnterActions` 和 `ExitActions`，以及 `Setter`，但注意，将立即调用 `Setter`（它们不等待 `EnterAction` 或 `ExitAction` 完成）。 或者，可以在代码中执行所有内容，根本无需使用 `Setter`。
 
 ```xaml
 <Entry Placeholder="enter job title">
@@ -333,6 +347,141 @@ public class FadeTriggerAction : TriggerAction<VisualElement>
     }
 }
 ```
+
+<a name="adaptive" />
+
+## <a name="adaptive-trigger-preview"></a>自适应触发器（预览版）
+
+当窗口为指定的高度或宽度时，`AdaptiveTrigger` 自动触发。 `AdaptiveTrigger` 采用下面两个可能的属性：
+
+- **MinWindowHeight**
+- **MinWindowWidth**
+
+<a name="compare"/>
+
+## <a name="compare-trigger-preview"></a>比较触发器（预览版）
+
+`CompareStateTrigger` 是一种超级通用的 `StateTrigger`，它在值与属性相等时触发。
+
+```xaml
+<Grid>
+    <VisualStateManager.VisualStateGroups>
+        <VisualStateGroup>
+            <VisualState x:Name="Checked">
+                <VisualState.StateTriggers>
+                    <CompareStateTrigger Property="{Binding IsChecked, Source={x:Reference CheckBox}}" Value="True" />
+                </VisualState.StateTriggers>
+                <VisualState.Setters>
+                    <Setter Property="BackgroundColor" Value="Green" />
+                </VisualState.Setters>
+            </VisualState>
+            <VisualState x:Name="UnChecked">
+                <VisualState.StateTriggers>
+                    <CompareStateTrigger Property="{Binding IsChecked, Source={x:Reference CheckBox}}" Value="False" />
+                </VisualState.StateTriggers>
+                <VisualState.Setters>
+                    <Setter Property="BackgroundColor" Value="Red" />
+                </VisualState.Setters>
+            </VisualState>
+        </VisualStateGroup>     
+    </VisualStateManager.VisualStateGroups>  
+    <Frame
+        HorizontalOptions="Center"
+        VerticalOptions="Center"
+        BackgroundColor="White"
+        Margin="24">
+        <StackLayout
+            Orientation="Horizontal">
+            <CheckBox 
+                x:Name="CheckBox"
+                VerticalOptions="Center"/>
+            <Label
+                Text="Checked/Uncheck the CheckBox to modify the Grid BackgroundColor"
+                VerticalOptions="Center"/>
+        </StackLayout>
+    </Frame>
+</Grid>
+```
+
+此示例展示了如何根据 CheckBox IsChecked 属性的状态修改网格的 BackgroundColor 。 StateTrigger 支持绑定，使你能够采用多种方式来比较 UI 元素的值和 BindingContext 中的值。
+
+<a name="device" />
+
+## <a name="device-trigger-preview"></a>设备触发器（预览版）
+
+通过 `DeviceTrigger`，可控制在特定设备平台上运行时如何应用状态，这与使用 `OnPlatform` 类似。
+
+```xaml
+<Grid>
+    <VisualStateManager.VisualStateGroups>
+        <VisualStateGroup>
+            <VisualState
+                x:Name="Android">
+                <VisualState.StateTriggers>
+                    <DeviceStateTrigger Device="Android" />
+                </VisualState.StateTriggers>
+                <VisualState.Setters>
+                    <Setter Property="BackgroundColor" Value="Blue" />
+                </VisualState.Setters>
+            </VisualState>
+            <VisualState
+                x:Name="iOS">
+                <VisualState.StateTriggers>
+                    <DeviceStateTrigger Device="iOS" />
+                </VisualState.StateTriggers>
+                <VisualState.Setters>
+                    <Setter Property="BackgroundColor" Value="Red" />
+                </VisualState.Setters>
+            </VisualState>
+        </VisualStateGroup>  
+    </VisualStateManager.VisualStateGroups>  
+    <Label
+        Text="This page changes the color based on the device where the App is running."
+        HorizontalOptions="Center"
+        VerticalOptions="Center"/>
+</Grid>
+```
+
+在上例中，背景色在 Android 设备上为蓝色，在 iOS 上为红色。
+
+<a name="orientation" />
+
+## <a name="orientation-trigger-preview"></a>方向触发器（预览版）
+
+当设备在纵向和横向之间切换时，`OrientationTrigger` 支持更改视图状态。
+
+```xaml
+<Grid>
+    <VisualStateManager.VisualStateGroups>
+        <VisualStateGroup>
+            <VisualState
+                x:Name="Landscape">
+                <VisualState.StateTriggers>
+                    <OrientationStateTrigger Orientation="Landscape" />
+                </VisualState.StateTriggers>
+                <VisualState.Setters>
+                    <Setter Property="BackgroundColor" Value="Blue" />
+                </VisualState.Setters>
+            </VisualState>
+            <VisualState
+                x:Name="Portrait">
+                <VisualState.StateTriggers>
+                    <OrientationStateTrigger Orientation="Portrait" />
+                </VisualState.StateTriggers>
+                <VisualState.Setters>
+                    <Setter Property="BackgroundColor" Value="Red" />
+                </VisualState.Setters>
+            </VisualState>
+        </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>  
+    <Label
+        Text="This Grid changes the color based on the orientation device where the App is running."
+        HorizontalOptions="Center"
+        VerticalOptions="Center"/>
+</Grid>
+```
+
+在上例中，当设备横向显示时，背景为蓝色，纵向显示时为红色。
 
 ## <a name="related-links"></a>相关链接
 

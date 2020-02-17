@@ -7,12 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 04/06/2016
-ms.openlocfilehash: a3b9653651e3000b954cb6d16154cddc8d5d363a
-ms.sourcegitcommit: 57f815bf0024b1afe9754c0e28054fc0a53ce302
+ms.openlocfilehash: 42ad56a7ae34bcef638ed25bea267dcabd21e20c
+ms.sourcegitcommit: ccbf914615c0ce6b3f308d930f7a77418aeb4dbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772100"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131092"
 ---
 # <a name="create-xamarinforms-behaviors"></a>创建 Xamarin.Forms 行为
 
@@ -84,7 +84,7 @@ public class NumericValidationBehavior : Behavior<Entry>
 }
 ```
 
-`NumericValidationBehavior` 派生自 [`Behavior<T>`](xref:Xamarin.Forms.Behavior`1) 类，其中 `T` 是 [`Entry`](xref:Xamarin.Forms.Entry)。 [`OnAttachedTo`](xref:Xamarin.Forms.Behavior`1.OnAttachedTo(Xamarin.Forms.BindableObject)) 方法注册 [`TextChanged`](xref:Xamarin.Forms.Entry.TextChanged) 事件的事件处理程序，并使用 [`OnDetachingFrom`](xref:Xamarin.Forms.Behavior`1.OnDetachingFrom(Xamarin.Forms.BindableObject)) 方法注销 `TextChanged` 事件以防止内存泄漏。 该行为的核心功能由 `OnEntryTextChanged` 方法提供，该方法将用户输入的值解析为 `Entry`，如果该值不是 `double`，则将 [`TextColor`](xref:Xamarin.Forms.Entry.TextColor) 属性设置为红色。
+`NumericValidationBehavior` 派生自 [`Behavior<T>`](xref:Xamarin.Forms.Behavior`1) 类，其中 `T` 是 [`Entry`](xref:Xamarin.Forms.Entry)。 [`OnAttachedTo`](xref:Xamarin.Forms.Behavior`1.OnAttachedTo(Xamarin.Forms.BindableObject)) 方法注册 [`TextChanged`](xref:Xamarin.Forms.InputView.TextChanged) 事件的事件处理程序，并使用 [`OnDetachingFrom`](xref:Xamarin.Forms.Behavior`1.OnDetachingFrom(Xamarin.Forms.BindableObject)) 方法注销 `TextChanged` 事件以防止内存泄漏。 该行为的核心功能由 `OnEntryTextChanged` 方法提供，该方法将用户输入的值解析为 `Entry`，如果该值不是 `double`，则将 [`TextColor`](xref:Xamarin.Forms.InputView.TextColor) 属性设置为红色。
 
 > [!NOTE]
 > Xamarin.Forms 不会设置行为的 `BindingContext`，因为可以通过样式共享行为并将其应用于多个控件。
@@ -110,7 +110,7 @@ entry.Behaviors.Add (new NumericValidationBehavior ());
 
 在运行时，根据行为实现，行为将响应与控件的交互。 以下屏幕截图演示了响应无效输入的行为：
 
-[![](creating-images/screenshots-sml.png "具有 Xamarin.Forms 行为的示例应用程序")](creating-images/screenshots.png#lightbox "Sample Application with Xamarin.Forms Behavior")
+[![](creating-images/screenshots-sml.png "Sample Application with Xamarin.Forms Behavior")](creating-images/screenshots.png#lightbox "Sample Application with Xamarin.Forms Behavior")
 
 > [!NOTE]
 > 行为是为特定的控件类型（或者可以应用于许多控件的超类）编写的，它们只应添加到兼容的控件中。 试图将行为附加到不兼容控件将引发异常。
@@ -164,7 +164,7 @@ public class NumericValidationBehavior : Behavior<Entry>
 
 `NumericValidationBehavior` 类包含带有 `static` getter 和 setter 且名为 `AttachBehavior` 的附加属性，该属性控制将附加行为的控件添加和删除行为。 该附加属性注册属性值更改时执行的 `OnAttachBehaviorChanged` 方法。 该方法根据 `AttachBehavior` 附加属性的值向控件添加或移除行为。
 
-下面的代码示例显示使用 `AttachBehavior` 附加属性的 `NumericValidationBehavior` 的显式样式，该样式可应用于 [`Entry`](xref:Xamarin.Forms.Entry) 控件  ：
+下面的代码示例显示使用 `AttachBehavior` 附加属性的 `NumericValidationBehavior` 的显式样式，该样式可应用于 [`Entry`](xref:Xamarin.Forms.Entry) 控件：
 
 ```xaml
 <Style x:Key="NumericValidationStyle" TargetType="Entry">
