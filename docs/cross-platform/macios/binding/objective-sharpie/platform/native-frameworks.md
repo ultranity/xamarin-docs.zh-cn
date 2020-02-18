@@ -6,12 +6,12 @@ ms.assetid: 91AE058A-3A1F-41A9-9DE4-4B96880A1869
 author: davidortinau
 ms.author: daortin
 ms.date: 01/15/2016
-ms.openlocfilehash: 78c489518833705432610e83453c3c04bf1cca53
-ms.sourcegitcommit: 2fbe4932a319af4ebc829f65eb1fb1816ba305d3
+ms.openlocfilehash: 0733e2b406f5032a2e2717df66c96dcb28301f09
+ms.sourcegitcommit: 24883be72e485e5311dd0eb91f9a22f78eeec11a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73016097"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77374126"
 ---
 # <a name="binding-native-frameworks"></a>绑定本机框架
 
@@ -21,13 +21,13 @@ ms.locfileid: "73016097"
 
 ```
 $ sharpie bind \
-    -framework AdobeCreativeSDKFoundation.framework \
+    -framework ./AdobeCreativeSDKFoundation.framework \
     -sdk iphoneos8.1
 ```
 
 在某些情况下，框架将指定**info.plist** ，它指示框架应编译到的 SDK。 如果此信息存在并且未传递显式 `-sdk` 选项，则目标 Sharpie 将从框架的**info.plist** （`DTSDKName` 键或 `DTPlatformName` 和 `DTPlatformVersion` 键的组合）中推断出此信息。
 
-`-framework` 选项不允许传递显式标头文件。 根据框架名称，按约定选择伞标头文件。 如果找不到伞标头，则目标 Sharpie 不会尝试绑定框架，并且必须通过提供要分析的正确伞头文件以及 clang 的任何框架自变量（如 `-F`框架搜索路径选项）。
+`-framework` 选项不允许传递显式标头文件。 根据框架名称，按约定选择伞标头文件。 如果找不到伞标头，则目标 Sharpie 不会尝试绑定框架，并且必须通过提供要分析的正确伞头文件以及 clang 的任何框架自变量（如 `-F` framework 搜索路径选项），手动执行绑定。
 
 在后台，指定 `-framework` 只是一个快捷方式。 以下绑定参数与上述 `-framework` 简写相同。
 特别重要的是提供给 clang 的 `-F .` 框架搜索路径（请注意，这是命令的一部分所需的空间和句点）。
@@ -35,7 +35,7 @@ $ sharpie bind \
 ```
 $ sharpie bind \
     -sdk iphoneos8.1 \
-    AdobeCreativeSDKFoundation.framework/Headers/AdobeCreativeSDKFoundation.h \
+    ./AdobeCreativeSDKFoundation.framework/Headers/AdobeCreativeSDKFoundation.h \
     -scope AdobeCreativeSDKFoundation.framework/Headers \
     -c -F .
 ```

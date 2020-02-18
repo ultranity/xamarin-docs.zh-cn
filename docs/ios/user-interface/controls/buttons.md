@@ -7,12 +7,12 @@ ms.technology: xamarin-ios
 author: davidortinau
 ms.author: daortin
 ms.date: 07/11/2018
-ms.openlocfilehash: a8dfd267fe9f5f838927fc216d53c2475398ed16
-ms.sourcegitcommit: 2fbe4932a319af4ebc829f65eb1fb1816ba305d3
+ms.openlocfilehash: 0619488199c202e1877e4cfa60d622ef247e2b3f
+ms.sourcegitcommit: 24883be72e485e5311dd0eb91f9a22f78eeec11a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73022117"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77374117"
 ---
 # <a name="buttons-in-xamarinios"></a>Xamarin 中的按钮
 
@@ -69,7 +69,7 @@ ms.locfileid: "73022117"
 若要响应按钮点击，请为按钮的 `TouchUpInside` 事件提供处理程序：
 
 ```csharp
-button.TouchUpInside += (sender, e) => {
+myButton.TouchUpInside += (sender, e) => {
     DoSomething();
 };
 ```
@@ -91,13 +91,13 @@ button.TouchUpInside += (sender, e) => {
 
 > [!NOTE]
 > 有关所有 `UIControlState` 值的完整列表，请查看[`UIKit.UIControlState enumeration`](xref:UIKit.UIControlState)
-> 关于.
+> 文档。
 
 例如，若要为 `UIControlState.Normal`设置标题颜色和阴影颜色：
 
 ```csharp
-button.SetTitleColor(UIColor.White, UIControlState.Normal);
-button.SetTitleShadowColor(UIColor.Black, UIControlState.Normal);
+myButton.SetTitleColor(UIColor.White, UIControlState.Normal);
+myButton.SetTitleShadowColor(UIColor.Black, UIControlState.Normal);
 ```
 
 下面的代码将按钮标题设置为 `UIControlState.Normal` 和 `UIControlState.Highlighted`的特性化（风格化）字符串：
@@ -115,9 +115,9 @@ myButton.SetAttributedTitle(highlightedAttributedTitle, UIControlState.Highlight
 `UIButtonType` 为 `Custom` 的按钮没有默认样式。 但是，可以通过设置图像的不同状态来配置按钮的外观：
 
 ```csharp
-button4.SetImage (UIImage.FromBundle ("Buttons/MagicWand.png"), UIControlState.Normal);
-button4.SetImage (UIImage.FromBundle ("Buttons/MagicWand_Highlight.png"), UIControlState.Highlighted);
-button4.SetImage (UIImage.FromBundle ("Buttons/MagicWand_On.png"), UIControlState.Selected);
+myButton.SetImage (UIImage.FromBundle ("Buttons/MagicWand.png"), UIControlState.Normal);
+myButton.SetImage (UIImage.FromBundle ("Buttons/MagicWand_Highlight.png"), UIControlState.Highlighted);
+myButton.SetImage (UIImage.FromBundle ("Buttons/MagicWand_On.png"), UIControlState.Selected);
 ```
 
 根据用户是否接触按钮，它将呈现为以下图像之一（`UIControlState.Normal`、`UIControlState.Highlighted` 和 `UIControlState.Selected` 状态）：
