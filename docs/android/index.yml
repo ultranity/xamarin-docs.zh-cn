@@ -1,118 +1,177 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Xamarin.Android
+summary: Xamarin.Android 为 .NET 开发人员提供了完整的 Android SDK。 在 Visual Studio 中使用 C# 或 F# 生成完全本机的 Android 应用。
 metadata:
+  title: Xamarin.Android
   description: Xamarin.Android 为 .NET 开发人员提供了完整的 Android SDK。
-  author: davidortinau
-  ms.author: daortin
-  ms.date: 07/27/2018
   ms.topic: landing-page
+  ms.prod: xamarin
   ms.technology: xamarin-android
-abstract:
-  description: 'Xamarin.Android 为 .NET 开发人员提供了完整的 Android SDK。 在 Visual Studio 中使用 C# 或 F# 生成完全本机的 Android 应用。'
-  menu:
-    items:
-      - href: ~/android/samples/index.md
-        text: Android 示例
-      - href: 'https://docs.microsoft.com/xamarin/android/release-notes/'
-        text: 发行说明
-      - href: 'https://developers.google.com/'
-        text: Google 开发人员文档
-      - href: /visualstudio/
-        text: Visual Studio
-sections:
-  - title: 开始操作
-    items:
-      - type: paragraph
-        text: '了解如何使用 Xamarin 和 C# 生成首个 Android 应用。'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_setup.svg'
-            text: 安装
-            href: ~/android/get-started/installation/index.md
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_mobileapp.svg'
-            text: 了解 Android
-            href: ~/android/get-started/hello-android/hello-android-quickstart.md
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_mobileapp.svg'
-            text: 多屏幕应用
-            href: ~/android/get-started/hello-android-multiscreen/hello-android-multiscreen-quickstart.md
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_mobile-app-developement.svg'
-            text: Android 10
-            href: ~/android/platform/android-10.md
-  - title: 参考线
-    items:
-      - type: list
-        style: cards
-        className: cardsB
-        items:
-          - href: ~/android/get-started/index.md
-            html: 通过 Xamarin.Android 启动和运行的相关教程。 请确保正确安装所有项目，并生成首个 Android 应用。
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_get-started.svg'
-              href: ~/android/get-started/index.md
-            title: 入门
-          - href: ~/android/app-fundamentals/index.md
-            html: 生成 Android 应用需要了解的所有内容，例如使用文件、映像、数据库等。
-            image:
-              src: ~/media/icons/i_app-build.svg
-              href: ~/android/app-fundamentals/index.md
-            title: 应用程序基础知识
-          - href: ~/android/user-interface/index.md
-            html: 了解适用于Android 的用户界面控件小组件的完整集合。
-            image:
-              src: ~/media/icons/i_user-interface.svg
-              href: ~/android/user-interface/index.md
-            title: 用户界面
-          - href: ~/android/platform/index.md
-            html: 使用 Android 平台功能，例如指纹身份验证和 Android 8.0 Oreo 中的最新功能。
-            image:
-              src: ~/media/icons/i_platform.svg
-              href: ~/android/platform/index.md
-            title: 平台功能
-          - href: ~/essentials/index.md?context=xamarin/android
-            html: 用于移动应用程序的跨平台 API。
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_multi-connect.svg'
-              href: ~/essentials/index.md?context=xamarin/android
-            title: Xamarin.Essentials
-          - href: ~/android/data-cloud/index.md
-            html: 本地和远程数据存储和检索，以及其他基于云的服务。
-            image:
-              src: ~/media/icons/i_data-cloud.svg
-              href: ~/android/data-cloud/index.md
-            title: 数据和云服务
-          - href: ~/android/deploy-test/index.md
-            html: 有关生成应用并将其部署到 Google Play 的说明，和事先对其进行测试的提示！
-            image:
-              src: ~/media/icons/i_deploy-test.svg
-              href: ~/android/deploy-test/index.md
-            title: 部署和测试
-          - href: ~/android/internals/index.md
-            html: 有关 Xamarin.Android 内部机制的其他信息，以及有关本地化和辅助功能等功能的帮助。
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_advanced.svg'
-              href: ~/android/internals/index.md
-            title: 高级概念和内部机制
-          - href: ~/android/wear/index.md
-            html: 生成适用于Android 穿戴设备的应用。
-            image:
-              src: ~/media/icons/i_android-wear.svg
-              href: ~/android/wear/index.md
-            title: Android 穿戴设备
-  - title: 参考
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: API
-            href: 'https://docs.microsoft.com/dotnet/api/?view=xamarin-android-sdk-9'
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/?view=xamarin-android-sdk-9">Android API 文档</a></p><p><a href="https://docs.microsoft.com/dotnet/api/?view=xamarinandroid-7.1">基类库</a></p>'
-          - title: 示例
-            href: 'https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.Android'
-            html: '<p><a href="https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.Android">Android 示例</a></p>'
+  author: davidbritch
+  ms.author: dabritch
+  ms.date: 01/27/2020
+  ms.openlocfilehash: 394812b5150f7bbea46dff476bd2f896083b9a74
+  ms.sourcegitcommit: 24883be72e485e5311dd0eb91f9a22f78eeec11a
+  ms.translationtype: HT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 02/17/2020
+  ms.locfileid: "77374079"
+landingContent:
+- title: 入门
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Xamarin.Android 入门
+      url: ~/android/get-started/index.md
+    - text: 设置和安装
+      url: ~/android/get-started/installation/index.md
+    - text: 生成首个应用
+      url: ~/android/get-started/hello-android/index.md
+    - text: 扩展首个应用
+      url: ~/android/get-started/hello-android-multiscreen/index.md
+    - text: 面向 Java 开发者的 Xamarin
+      url: ~/android/get-started/java-developers.md
+- title: 应用程序基础知识
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 可访问性
+      url: ~/android/app-fundamentals/accessibility.md
+    - text: Android API 级别
+      url: ~/android/app-fundamentals/android-api-levels.md
+    - text: 活动生命周期
+      url: ~/android/app-fundamentals/activity-lifecycle/index.md
+    - text: 广播接收器
+      url: ~/android/app-fundamentals/broadcast-receivers.md
+    - text: 图形和动画
+      url: ~/android/app-fundamentals/graphics-and-animation.md
+    - text: 本地化
+      url: ~/android/app-fundamentals/localization.md
+    - text: 通知
+      url: ~/android/app-fundamentals/notifications/index.md
+    - text: 权限
+      url: ~/android/app-fundamentals/permissions.md
+    - text: 触控和手势
+      url: ~/android/app-fundamentals/touch/index.md
+    - text: 查看更多信息 >
+      url: ~/android/app-fundamentals/index.md
+- title: 用户界面
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Android 设计器
+      url: ~/android/user-interface/android-designer/index.md
+    - text: 材料主题
+      url: ~/android/user-interface/material-theme.md
+    - text: 用户配置文件
+      url: ~/android/user-interface/user-profile.md
+    - text: 初始屏幕
+      url: ~/android/user-interface/splash-screen.md
+    - text: 布局
+      url: ~/android/user-interface/layouts/index.md
+    - text: 控件
+      url: ~/android/user-interface/controls/index.md
+- title: 平台功能
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 应用链接
+      url: ~/android/platform/app-linking.md
+    - text: 绑定 Java 库
+      url: ~/android/platform/binding-java-library/index.md
+    - text: 内容提供商
+      url: ~/android/platform/content-providers/index.md
+    - text: 文件访问
+      url: ~/android/platform/files/index.md
+    - text: 指纹身份验证
+      url: ~/android/platform/fingerprint-authentication/index.md
+    - text: 片段
+      url: ~/android/platform/fragments/index.md
+    - text: Java 集成
+      url: ~/android/platform/java-integration/index.md
+    - text: 作业计划程序
+      url: ~/android/platform/android-job-scheduler.md
+    - text: 地图和位置
+      url: ~/android/platform/maps-and-location/index.md
+    - text: 查看更多信息 >
+      url: ~/android/platform/index.md
+- title: Xamarin.Essentials
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: About
+      url: ~/essentials/index.md?context=xamarin/android
+    - text: 入门
+      url: ~/essentials/get-started.md?context=xamarin/android
+    - text: 平台和功能支持
+      url: ~/essentials/platform-feature-support.md?context=xamarin/android
+    - text: 疑难解答
+      url: ~/essentials/troubleshooting.md?context=xamarin/android
+    - text: 发行说明
+      url: https://docs.microsoft.com/xamarin/essentials/release-notes/
+- title: 数据和云服务
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure Active Directory
+      url: ~/cross-platform/data-cloud/active-directory/index.md?context=xamarin/android
+    - text: Azure 移动应用
+      url: ~/cross-platform/data-cloud/mobile-apps.md
+    - text: 数据访问
+      url: ~/android/data-cloud/data-access/index.md
+    - text: Google 消息传送
+      url: ~/android/data-cloud/google-messaging/index.md
+    - text: Web 服务简介
+      url: ~/cross-platform/data-cloud/web-services/index.md?context=xamarin/android
+- title: 部署和测试
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 应用包大小
+      url: ~/android/deploy-test/app-package-size.md
+    - text: 生成应用
+      url: ~/android/deploy-test/building-apps/index.md
+    - text: 链接
+      url: ~/android/deploy-test/linker.md
+    - text: 多核设备
+      url: ~/android/deploy-test/multicore-devices.md
+    - text: 性能
+      url: ~/android/deploy-test/performance.md
+    - text: 分析
+      url: ~/android/deploy-test/profiling.md
+    - text: 准备发布
+      url: ~/android/deploy-test/release-prep/index.md
+    - text: 对 APK 进行签名
+      url: ~/android/deploy-test/signing/index.md
+    - text: 发布应用
+      url: ~/android/deploy-test/publishing/index.md
+    - text: 查看更多信息 >
+      url: ~/android/deploy-test/index.md
+- title: 高级概念和内部信息
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 体系结构
+      url: ~/android/internals/architecture.md
+    - text: 可用程序集
+      url: ~/cross-platform/internals/available-assemblies.md?context=xamarin/android
+    - text: API 设计
+      url: ~/android/internals/api-design.md
+    - text: 垃圾回收
+      url: ~/android/internals/garbage-collection.md
+    - text: 限制
+      url: ~/android/internals/limitations.md
+- title: Android 穿戴设备
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 入门
+      url: ~/android/wear/get-started/index.md
+    - text: 用户界面
+      url: ~/android/wear/user-interface/index.md
+    - text: 平台功能
+      url: ~/android/wear/platform/index.md
+    - text: 屏幕大小
+      url: ~/android/wear/screen-sizes.md
+    - text: 部署和测试
+      url: ~/android/wear/deploy-test/index.md

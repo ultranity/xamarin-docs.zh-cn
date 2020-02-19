@@ -1,124 +1,215 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Xamarin.iOS
+summary: Xamarin.iOS 为 .NET 开发人员提供了完整的 iOS SDK。 在 Visual Studio 中使用 C# 或 F# 生成完全本机的 iOS 应用。
 metadata:
+  title: Xamarin.iOS
   description: Xamarin.iOS 为 .NET 开发人员提供了完整的 iOS SDK。
-  author: davidortinau
-  ms.author: daortin
-  ms.date: 09/28/2018
   ms.topic: landing-page
-  ms.technology: xamarin-ios
-abstract:
-  description: 'Xamarin.iOS 为 .NET 开发人员提供了完整的 iOS SDK。 在 Visual Studio 中使用 C# 或 F# 生成完全本机的 iOS 应用。'
-  menu:
-    items:
-      - href: ~/ios/samples/index.md
-        text: iOS 示例
-      - href: 'https://docs.microsoft.com/xamarin/ios/release-notes/'
-        text: 发行说明
-      - href: 'https://developer.apple.com/documentation/'
-        text: Apple 开发人员文档
-      - href: /visualstudio/
-        text: Visual Studio
-sections:
-  - title: 开始操作
-    items:
-      - type: paragraph
-        text: '了解如何使用 Xamarin 和 C# 生成首个 iOS 应用。'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_setup.svg'
-            text: 安装
-            href: ~/ios/get-started/installation/index.md
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_mobileapp.svg'
-            text: Hello，iOS
-            href: ~/ios/get-started/hello-ios/hello-ios-quickstart.md
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_mobileapp.svg'
-            text: 多屏幕应用
-            href: ~/ios/get-started/hello-ios-multiscreen/hello-ios-multiscreen-quickstart.md
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_mobile-app-developement.svg'
-            text: iOS 13
-            href: ~/ios/platform/ios13/index.md
-  - title: 参考线
-    items:
-      - type: list
-        style: cards
-        className: cardsB
-        items:
-          - href: ~/ios/get-started/index.md
-            html: 通过 Xamarin.iOS 启动和运行的相关教程。 请确保正确安装所有项目，并生成首个 iOS 应用。
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_get-started.svg'
-              href: ~/ios/get-started/index.md
-            title: 入门
-          - href: ~/ios/app-fundamentals/index.md
-            html: 生成 iOS 应用需要了解的所有内容，例如使用文件、映像、数据库等。
-            image:
-              src: ~/media/icons/i_app-build.svg
-              href: ~/ios/app-fundamentals/index.md
-            title: 应用程序基础知识
-          - href: ~/ios/user-interface/index.md
-            html: 了解可在 UIKit 中用于 iOS 的用户界面控件的完整集合。
-            image:
-              src: ~/media/icons/i_user-interface.svg
-              href: ~/ios/user-interface/index.md
-            title: 用户界面
-          - href: ~/ios/platform/index.md
-            html: 使用 iOS 平台功能，如 ARKit 和 CoreML 以及 iOS 11 中的其他新功能。
-            image:
-              src: ~/media/icons/i_platform.svg
-              href: ~/ios/platform/index.md
-            title: 平台功能
-          - href: ~/essentials/index.md?context=xamarin/ios
-            html: 用于移动应用程序的跨平台 API。
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_multi-connect.svg'
-              href: ~/essentials/index.md?context=xamarin/ios
-            title: Xamarin.Essentials
-          - href: ~/ios/data-cloud/index.md
-            html: 本地和远程数据存储和检索，以及其他基于云的服务。
-            image:
-              src: ~/media/icons/i_data-cloud.svg
-              href: ~/ios/data-cloud/index.md
-            title: 数据和云服务
-          - href: ~/ios/deploy-test/index.md
-            html: 有关生成应用并将其部署到 App Store 的说明，和事先对其进行测试的提示！
-            image:
-              src: ~/media/icons/i_deploy-test.svg
-              href: ~/ios/deploy-test/index.md
-            title: 部署和测试
-          - href: ~/ios/internals/index.md
-            html: 有关 Xamarin.iOS 工作原理的详细信息。
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_config-tools.svg'
-              href: ~/ios/internals/index.md
-            title: 高级概念和内部机制
-          - href: ~/ios/watchos/index.md
-            html: 生成 Apple Watch 应用！
-            image:
-              src: ~/media/icons/i_watchos.svg
-              href: ~/ios/watchos/index.md
-            title: watchOS
-          - href: ~/ios/tvos/index.md
-            html: 生成 Apple TV 应用！
-            image:
-              src: ~/media/icons/i_tvos.svg
-              href: ~/ios/tvos/index.md
-            title: tvOS
-  - title: 参考
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: API
-            href: 'https://docs.microsoft.com/dotnet/api/?view=xamarin-ios-sdk-12'
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/?view=xamarin-ios-sdk-12">iOS API 文档</a></p><p><a href="https://docs.microsoft.com/dotnet/api/?view=xamarinios-10.8">基类库</a></p>'
-          - title: 示例
-            href: 'https://developer.xamarin.com/samples'
-            html: '<p><a href="https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.iOS">iOS 示例</a></p><p><a href="https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.iOS">watchOS 示例</a></p><p><a href="https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.iOS">tvOS 示例</a></p>'
+  ms.prod: xamarin
+  ms.assetid: 7DF889E9-23F6-408F-B836-E0FDF5F0FA9B
+  author: davidbritch
+  ms.author: dabritch
+  ms.date: 01/24/2020
+  ms.openlocfilehash: f800b61bfdf9d1e79eed6e943c2b49e4724ef641
+  ms.sourcegitcommit: 24883be72e485e5311dd0eb91f9a22f78eeec11a
+  ms.translationtype: HT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 02/17/2020
+  ms.locfileid: "77374105"
+landingContent:
+- title: 入门
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Xamarin.iOS 入门
+      url: ~/ios/get-started/index.md
+    - text: 设置和安装
+      url: ~/ios/get-started/installation/index.md
+    - text: 生成首个应用
+      url: ~/ios/get-started/hello-ios/index.md
+    - text: 扩展首个应用
+      url: ~/ios/get-started/hello-ios-multiscreen/index.md
+    - text: Objective-C 开发人员
+      url: ~/ios/get-started/objective-c-developers/index.md
+- title: 应用程序基础知识
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 可访问性
+      url: ~/ios/app-fundamentals/accessibility.md
+    - text: 后台处理
+      url: ~/ios/app-fundamentals/backgrounding/index.md
+    - text: 异常封送处理
+      url: ~/ios/platform/exception-marshaling.md
+    - text: 事件、协议和委托
+      url: ~/ios/app-fundamentals/delegates-protocols-and-events.md
+    - text: 文件系统
+      url: ~/ios/app-fundamentals/file-system.md
+    - text: 图像和图标
+      url: ~/ios/app-fundamentals/images-icons/index.md
+    - text: 本地化
+      url: ~/ios/app-fundamentals/localization/index.md
+    - text: 安全和隐私
+      url: ~/ios/app-fundamentals/security-privacy.md
+    - text: 触控
+      url: ~/ios/app-fundamentals/touch/index.md
+    - text: 查看更多信息 >
+      url: ~/ios/app-fundamentals/index.md
+- title: 用户界面
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: iOS 设计器
+      url: ~/ios/user-interface/designer/index.md
+    - text: 情节提要
+      url: ~/ios/user-interface/storyboards/index.md
+    - text: 用户界面
+      url: ~/ios/user-interface/ios-ui/index.md
+    - text: 控件
+      url: ~/ios/user-interface/controls/index.md
+    - text: 编程布局约束
+      url: ~/ios/user-interface/programmatic-layout-constraints.md
+    - text: MonoTouch.Dialog
+      url: ~/ios/user-interface/monotouch.dialog/index.md
+- title: 平台功能
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Apple Pay
+      url: ~/ios/platform/apple-pay.md
+    - text: ARKit
+      url: ~/ios/platform/introduction-to-ios11/arkit/index.md
+    - text: 图形和动画
+      url: ~/ios/platform/graphics-animation-ios/index.md
+    - text: PassKit
+      url: ~/ios/platform/passkit.md
+    - text: PhotoKit
+      url: ~/ios/platform/photokit.md
+    - text: 搜索
+      url: ~/ios/platform/search/index.md
+    - text: SiriKit
+      url: ~/ios/platform/sirikit/index.md
+    - text: 3D Touch
+      url: ~/ios/platform/3d-touch.md
+    - text: Touch ID 和 Face ID
+      url: ~/ios/platform/touch-id-face-id.md
+    - text: 查看更多信息 >
+      url: ~/ios/platform/index.md
+- title: Xamarin.Essentials
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: About
+      url: ~/essentials/index.md?context=xamarin/ios
+    - text: 入门
+      url: ~/essentials/get-started.md?context=xamarin/ios
+    - text: 平台和功能支持
+      url: ~/essentials/platform-feature-support.md?context=xamarin/ios
+    - text: 疑难解答
+      url: ~/essentials/troubleshooting.md?context=xamarin/ios
+    - text: 发行说明
+      url: https://docs.microsoft.com/xamarin/essentials/release-notes/
+- title: 数据和云服务
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure Active Directory
+      url: ~/cross-platform/data-cloud/active-directory/index.md?context=xamarin/ios
+    - text: Azure 移动应用
+      url: ~/cross-platform/data-cloud/mobile-apps.md
+    - text: 数据访问
+      url: ~/ios/data-cloud/data/index.md
+    - text: System.Data
+      url: ~/ios/data-cloud/system.data.md
+    - text: iCloud
+      url: ~/ios/data-cloud/introduction-to-icloud.md
+    - text: CloudKit
+      url: ~/ios/data-cloud/intro-to-cloudkit.md
+    - text: Web 服务简介
+      url: ~/cross-platform/data-cloud/web-services/index.md?context=xamarin/ios
+- title: 部署和测试
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 应用分发
+      url: ~/ios/deploy-test/app-distribution/index.md
+    - text: 代码签名和预配
+      url: ~/ios/deploy-test/provisioning/index.md
+    - text: 针对不同的设备进行编译
+      url: ~/ios/deploy-test/compiling-for-different-devices.md
+    - text: iOS 生成机制
+      url: ~/ios/deploy-test/ios-build-mechanics.md
+    - text: 链接 Xamarin.iOS 应用
+      url: ~/ios/deploy-test/linker.md
+    - text: 分析
+      url: ~/ios/deploy-test/using-instruments-to-detect-native-leaks-using-markheap.md
+    - text: 性能
+      url: ~/ios/deploy-test/performance.md
+    - text: 单元测试
+      url: ~/ios/deploy-test/touch.unit.md
+    - text: 无线部署
+      url: ~/ios/deploy-test/wireless-deployment.md
+    - text: 查看更多信息 >
+      url: ~/ios/deploy-test/index.md
+- title: 高级概念和内部信息
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: API
+      url: ~/ios/internals/api.md
+    - text: API 设计
+      url: ~/ios/internals/api-design/index.md
+    - text: 可用程序集
+      url: ~/cross-platform/internals/available-assemblies.md?context=xamarin/ios
+    - text: 浮点
+      url: ~/ios/internals/floating-point.md
+    - text: XIB 代码生成
+      url: ~/ios/internals/xib-code-generation.md
+    - text: iOS 体系结构
+      url: ~/ios/internals/architecture.md
+    - text: 限制
+      url: ~/ios/internals/limitations.md
+    - text: 新的引用计数
+      url: ~/ios/internals/newrefcount.md
+    - text: Objective-C 选择器
+      url: ~/ios/internals/objective-c-selectors.md
+    - text: 注册器
+      url: ~/ios/internals/registrar.md
+- title: watchOS
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 入门
+      url: ~/ios/watchos/get-started/index.md
+    - text: 应用程序基础知识
+      url: ~/ios/watchos/app-fundamentals/index.md
+    - text: 用户界面
+      url: ~/ios/watchos/user-interface/index.md
+    - text: 平台功能
+      url: ~/ios/watchos/platform/index.md
+    - text: 适用于 watchOS 的 Xamarin.Essentials
+      url: ~/essentials/index.md?context=xamarin/watchos
+    - text: 部署和测试
+      url: ~/ios/watchos/deploy-test/index.md
+    - text: 疑难解答
+      url: ~/ios/watchos/troubleshooting.md
+- title: tvOS
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 入门
+      url: ~/ios/tvos/get-started/index.md
+    - text: 应用程序基础知识
+      url: ~/ios/tvos/app-fundamentals/index.md
+    - text: 用户界面
+      url: ~/ios/tvos/user-interface/index.md
+    - text: 平台功能
+      url: ~/ios/tvos/platform/index.md
+    - text: 适用于 tvOS 的 Xamarin.Essentials
+      url: ~/essentials/index.md?context=xamarin/tvos
+    - text: 部署和测试
+      url: ~/ios/tvos/deploy-test/index.md
+    - text: 内部机制
+      url: ~/ios/tvos/internals/index.md
+    - text: 疑难解答
+      url: ~/ios/tvos/troubleshooting.md
