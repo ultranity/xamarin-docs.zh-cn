@@ -7,12 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 12/17/2019
-ms.openlocfilehash: 6b7845011470d83d8f2187e0227950c23e46d52d
-ms.sourcegitcommit: d0e6436edbf7c52d760027d5e0ccaba2531d9fef
+ms.openlocfilehash: a5a9daa39dcc94bbf77d9c91ea651bda6ec5747b
+ms.sourcegitcommit: 524fc148bad17272bda83c50775771daa45bfd7e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75490516"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77480552"
 ---
 # <a name="xamarinforms-indicatorview"></a>Xamarin. Forms IndicatorView
 
@@ -33,16 +33,16 @@ Forms.SetFlags("IndicatorView_Experimental");
 `IndicatorView` 定义以下属性：
 
 - `Count`，类型 `int`，指示符的数目。
-- `HideSingle`，类型 `bool`，指示指示器是否应仅在存在时隐藏。 默认值为 `true`。
+- `HideSingle`，类型 `bool`，指示指示器是否应仅在存在时隐藏。 默认值是 `true`。
 - `IndicatorColor`，类型 `Color`，指示符的颜色。
 - `double`类型的 `IndicatorSize`，指示器的大小。 默认值为6.0。
 - `Layout<View>`类型的 `IndicatorLayout`定义用于呈现 `IndicatorView`的布局类。 此属性由 Xamarin 设置，并且通常不需要由开发人员设置。
 - `IndicatorTemplate`类型 `DataTemplate`，用于定义每个指示器的外观的模板。
 - `IndicatorShape`类型的 `IndicatorsShape`，每个指示器的形状。
-- `ItemsSource`类型 `IEnumerable`，将为其显示指示器的集合。 设置 `ItemsSourceBy` 属性时，将自动设置此属性。
-- `ItemsSourceBy`类型 `VisualElement`，则为要显示其指示器的 `CarouselView` 对象。
-- `MaximumVisible`，类型 `int`，可见指示器的最大数目。 默认值为 `int.MaxValue`。
-- `Position`类型 `int`，即当前选定的指示器索引。 此属性使用 `TwoWay` 绑定。 设置 `ItemsSourceBy` 属性时，将自动设置此属性。
+- `ItemsSource`类型 `IEnumerable`，将为其显示指示器的集合。 设置 `ItemsSourceBy` 附加属性后，将自动设置此属性。
+- `ItemsSourceBy`类型 `VisualElement`，则为要显示其指示器的 `CarouselView` 对象。 这是一个附加属性。
+- `MaximumVisible`，类型 `int`，可见指示器的最大数目。 默认值是 `int.MaxValue`。
+- `Position`类型 `int`，即当前选定的指示器索引。 此属性使用 `TwoWay` 绑定。 设置 `ItemsSourceBy` 附加属性后，将自动设置此属性。
 - `Color`类型的 `SelectedIndicatorColor`，表示 `CarouselView`中当前项的指示器的颜色。
 
 这些属性是由[`BindableProperty`](xref:Xamarin.Forms.BindableProperty)对象支持的，这意味着它们可以是数据绑定的目标和样式。
@@ -59,17 +59,17 @@ Forms.SetFlags("IndicatorView_Experimental");
             <!-- DataTemplate that defines item appearance -->
         </CarouselView.ItemTemplate>
     </CarouselView>
-    <IndicatorView ItemsSourceBy="carouselView"
+    <IndicatorView IndicatorView.ItemsSourceBy="carouselView"
                    IndicatorColor="LightGray"
                    SelectedIndicatorColor="DarkGray"
                    HorizontalOptions="Center" />
 </StackLayout>
 ```
 
-在此示例中，`IndicatorView` 呈现在 `CarouselView`下，并且 `CarouselView`中的每一项都有一个指示符。 使用数据填充 `IndicatorView`，方法是将 `ItemsSourceBy` 属性设置为 `CarouselView` 对象。 每个指示器都是浅灰色圆圈，而表示 `CarouselView` 中当前项的指示器是深灰色。
+在此示例中，`IndicatorView` 呈现在 `CarouselView`下，并且 `CarouselView`中的每一项都有一个指示符。 使用数据填充 `IndicatorView`，方法是将 `ItemsSourceBy` 附加属性设置为 `CarouselView` 对象。 每个指示器都是浅灰色圆圈，而表示 `CarouselView` 中当前项的指示器是深灰色。
 
 > [!IMPORTANT]
-> 设置 `ItemsSourceBy` 属性会导致 `Position` 属性绑定到 `CarouselView.Position` 属性，并将 `ItemsSource` 属性绑定到 `CarouselView.ItemsSource` 属性。
+> 设置 `ItemsSourceBy` 附加属性会导致 `Position` 属性绑定到 `CarouselView.Position` 属性，并将 `ItemsSource` 属性绑定到 `CarouselView.ItemsSource` 属性。
 
 ## <a name="change-indicator-shape"></a>更改指示器形状
 
@@ -82,7 +82,7 @@ Forms.SetFlags("IndicatorView_Experimental");
 
 ```xaml
 <IndicatorView IndicatorsShape="Square"
-               ItemsSourceBy="carouselView"
+               IndicatorView.ItemsSourceBy="carouselView"
                IndicatorColor="LightGray"
                SelectedIndicatorColor="DarkGray" />
 ```
@@ -99,7 +99,7 @@ Forms.SetFlags("IndicatorView_Experimental");
             <!-- DataTemplate that defines item appearance -->
         </CarouselView.ItemTemplate>
     </CarouselView>
-    <IndicatorView ItemsSourceBy="carouselView"
+    <IndicatorView IndicatorView.ItemsSourceBy="carouselView"
                    IndicatorColor="LightGray"
                    SelectedIndicatorColor="Black"
                    HorizontalOptions="Center">

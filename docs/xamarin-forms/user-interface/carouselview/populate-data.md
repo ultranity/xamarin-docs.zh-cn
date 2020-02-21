@@ -7,12 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 12/17/2019
-ms.openlocfilehash: 7d1183bf0c741b5a7ca02b43c4edb0c640ee1ac2
-ms.sourcegitcommit: d0e6436edbf7c52d760027d5e0ccaba2531d9fef
+ms.openlocfilehash: 8ec66a8d39f373b624e3a597e62014e3b1c72f56
+ms.sourcegitcommit: 524fc148bad17272bda83c50775771daa45bfd7e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75488214"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77480562"
 ---
 # <a name="xamarinforms-carouselview-data"></a>Xamarin CarouselView 数据
 
@@ -270,23 +270,23 @@ public class MonkeyDataTemplateSelector : DataTemplateSelector
             <!-- DataTemplate that defines item appearance -->
         </CarouselView.ItemTemplate>
     </CarouselView>
-    <IndicatorView ItemsSourceBy="carouselView"
+    <IndicatorView IndicatorView.ItemsSourceBy="carouselView"
                    IndicatorColor="LightGray"
                    SelectedIndicatorColor="DarkGray"
                    HorizontalOptions="Center" />
 </StackLayout>
 ```
 
-在此示例中，`IndicatorView` 呈现在 `CarouselView`下，并且 `CarouselView`中的每一项都有一个指示符。 使用数据填充 `IndicatorView`，方法是将 `ItemsSourceBy` 属性设置为 `CarouselView` 对象。 每个指示器都是浅灰色圆圈，而表示 `CarouselView` 中当前项的指示器是深灰色：
+在此示例中，`IndicatorView` 呈现在 `CarouselView`下，并且 `CarouselView`中的每一项都有一个指示符。 使用数据填充 `IndicatorView`，方法是将 `ItemsSourceBy` 附加属性设置为 `CarouselView` 对象。 每个指示器都是浅灰色圆圈，而表示 `CarouselView` 中当前项的指示器是深灰色：
 
 [![IOS 和 Android 上的 CarouselView 和 IndicatorView 屏幕截图](populate-data-images/indicators.png "IndicatorView 圆圈")](populate-data-images/indicators-large.png#lightbox "IndicatorView 圆圈")
 
 > [!IMPORTANT]
-> 设置 `ItemsSourceBy` 属性会导致 `IndicatorView.Position` 属性绑定到 `CarouselView.Position` 属性，并将 `IndicatorView.ItemsSource` 属性绑定到 `CarouselView.ItemsSource` 属性。
+> 设置 `IndicatorView.ItemsSourceBy` 附加属性会导致 `IndicatorView.Position` 属性绑定到 `CarouselView.Position` 属性，并将 `IndicatorView.ItemsSource` 属性绑定到 `CarouselView.ItemsSource` 属性。
 
 有关指示器的详细信息，请参阅[Xamarin. Forms IndicatorView](~/xamarin-forms/user-interface/indicatorview.md)。
 
-## <a name="pull-to-refresh"></a>下拉以刷新
+## <a name="pull-to-refresh"></a>请求刷新
 
 [`CarouselView`](xref:Xamarin.Forms.CarouselView)支持通过 `RefreshView`拉取到刷新功能，这样就可以通过下拉项来刷新要显示的数据。 `RefreshView` 是一种容器控件，该控件提供向其子级提供刷新功能的拉取，前提是子级支持可滚动的内容。 因此，通过将 `CarouselView` 设置为 `RefreshView`的子项来实现对该的拉取：
 
@@ -381,6 +381,6 @@ void OnCollectionViewRemainingItemsThresholdReached(object sender, EventArgs e)
 - [CarouselView （示例）](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-carouselviewdemos/)
 - [Xamarin. Forms IndicatorView](~/xamarin-forms/user-interface/indicatorview.md)
 - [Xamarin. Forms RefreshView](~/xamarin-forms/user-interface/refreshview.md)
-- [Xamarin. 窗体数据绑定](~/xamarin-forms/app-fundamentals/data-binding/index.md)
+- [Xamarin.Forms 数据绑定](~/xamarin-forms/app-fundamentals/data-binding/index.md)
 - [Xamarin. Forms 数据模板](~/xamarin-forms/app-fundamentals/templates/data-templates/index.md)
 - [创建 Xamarin. Forms 并重](~/xamarin-forms/app-fundamentals/templates/data-templates/selector.md)

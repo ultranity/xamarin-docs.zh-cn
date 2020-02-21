@@ -7,12 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 12/13/2019
-ms.openlocfilehash: 286950104e9a85b6ec89f0c0f3f891f29dada4ec
-ms.sourcegitcommit: 07941cf9704ff88cf4087de5ebdea623ff54edb1
+ms.openlocfilehash: 06b802a90ef350dcbd0b056f801109609dcd7a35
+ms.sourcegitcommit: 524fc148bad17272bda83c50775771daa45bfd7e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77144658"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77480629"
 ---
 # <a name="xamarinforms-views"></a>Xamarin.Forms 视图
 
@@ -208,7 +208,7 @@ _Xamarin. Forms 视图是跨平台移动用户界面的构建基块。_
 
 |     |     |
 | --- | --- |
-| `IndicatorView` 显示 `CarouselView`中的项数。 将 `ItemsSourceBy` 属性设置为要显示其指示器的 `CarouselView` 对象。 <br /><br />[指南](~/xamarin-forms/user-interface/indicatorview.md) / [示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-indicatorviewdemos/) | [![IndicatorView 示例](views-images/IndicatorView.png "IndicatorView 示例")](views-images/IndicatorView-Large.png#lightbox "IndicatorView 示例")<br />此页的代码 / [XAML 页](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/XamlExamples/IndicatorViewDemoPage.xaml) [ C# ](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/CodeExamples/IndicatorViewDemoPage.cs) |
+| `IndicatorView` 显示 `CarouselView`中的项数。 将 `IndicatorView.ItemsSourceBy` 附加属性设置为要显示其指示器的 `CarouselView` 对象。 <br /><br />[指南](~/xamarin-forms/user-interface/indicatorview.md) / [示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-indicatorviewdemos/) | [![IndicatorView 示例](views-images/IndicatorView.png "IndicatorView 示例")](views-images/IndicatorView-Large.png#lightbox "IndicatorView 示例")<br />此页的代码 / [XAML 页](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/XamlExamples/IndicatorViewDemoPage.xaml) [ C# ](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/CodeExamples/IndicatorViewDemoPage.cs) |
 |     |     |
 
 ### <a name="listview"></a>ListView
