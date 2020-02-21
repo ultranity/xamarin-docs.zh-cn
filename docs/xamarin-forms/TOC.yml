@@ -555,7 +555,12 @@
                 - name: 使用级联样式表设置 Xamarin.Forms 应用的样式 (CSS)
                   href: user-interface/styles/css/index.md
             - name: 主题设置
-              href: user-interface/theming.md
+              href: user-interface/theming/index.md
+              items:
+                - name: 设置应用程序主题
+                  href: user-interface/theming/theming.md
+                - name: 检测深色模式
+                  href: user-interface/theming/dark-mode.md
             - name: 视觉对象
               href: user-interface/visual/index.md
               items:

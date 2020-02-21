@@ -22,11 +22,11 @@ ms.locfileid: "73025419"
 *限定符*是用于标识特定设备配置的名称。
 名称中可能有多个限定符，其中每个限定符都用破折号分隔。 例如，下面的屏幕截图显示了一个简单的项目，其中包含不同配置的备用资源，如区域设置、屏幕密度、屏幕大小和方向：
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 ![备用资源](alternate-resources-images/alternate-resources-vs.png)
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 ![备用资源](alternate-resources-images/alternate-resources-xs.png)
 
@@ -46,7 +46,7 @@ ms.locfileid: "73025419"
   有关移动国家/地区代码和移动网络代码的完整列表，请参阅 <http://mcc-mnc.com/>。
 
 - **Language** &ndash; 两字母[iso 639-1 语言代码](https://en.wikipedia.org/wiki/ISO_639-1)，并可选择后跟两个字母的[iso-3166-2 个区域代码](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)。 
-  如果同时提供了这两个限定符，则使用 `-r`分隔它们。 例如，若要以法语区域设置为目标，则使用 `fr` 的限定符。 若要以法语加拿大区域设置为目标，将使用 `fr-rCA`。 有关语言代码和区域代码的完整列表，请参阅语言名称和[国家名称和代码元素](https://www.iso.org/iso-3166-country-codes.html)[名称表示形式的代码](https://www.loc.gov/standards/iso639-2/php/English_list.php)。
+  如果同时提供了这两个限定符，则使用 `-r`分隔它们。 例如，若要以法语区域设置为目标，则使用 `fr` 的限定符。 若要以法语加拿大区域设置为目标，将使用 `fr-rCA`。 有关语言代码和区域代码的完整列表，请参阅语言名称和[国家/地区名称和代码元素](https://www.iso.org/iso-3166-country-codes.html)[名称表示形式的代码](https://www.loc.gov/standards/iso639-2/php/English_list.php)。
 
 - **最小宽度**&ndash; 指定应用程序要在其上执行的最小屏幕宽度。 更详细地介绍[了如何为不同的屏幕创建资源](~/android/app-fundamentals/resources-in-android/resources-for-varying-screens.md)。 
   在 API 级别13（Android 3.2）及更高版本中可用。 例如，限定符 `sw320dp` 用于将高度和宽度至少为320dp 的设备设定为目标。

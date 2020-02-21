@@ -8,12 +8,12 @@ ms.technology: xamarin-android
 author: davidortinau
 ms.author: daortin
 ms.date: 08/27/2018
-ms.openlocfilehash: 1199cdf00a5fa93b7ed7a4351ea5838a2065eddd
-ms.sourcegitcommit: 2fbe4932a319af4ebc829f65eb1fb1816ba305d3
+ms.openlocfilehash: a724a21dfffead307ca3d65d5ff134cf2d7c90db
+ms.sourcegitcommit: 24883be72e485e5311dd0eb91f9a22f78eeec11a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73020857"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77374031"
 ---
 # <a name="hardware-acceleration-for-emulator-performance-hyper-v--haxm"></a>通过硬件加速提高仿真器性能 (Hyper-V & HAXM)
 
@@ -42,7 +42,7 @@ Visual Studio 便于开发人员在无法使用 Android 设备的情况下通过
 2. **Intel 硬件加速执行管理器 (HAXM)** 。
    HAXM 是运行 Intel CPU 的计算机所用的虚拟化引擎。
 
-为了在 Windows 上获得最佳体验，建议使用 HAXM 来加速 Android 仿真器。 如果 HAXM 在你的计算机上不可用，则可以使用 Windows 虚拟机监控程序平台 (WHPX)。 如果满足以下条件，Android Emulator 将自动使用硬件加速：
+为了在 Windows 上获得最佳体验，建议使用 WHPX 来加速 Android Emulator。 如果计算机没有 Hyper-V，则可使用 HAXM。 如果满足以下条件，Android Emulator 将自动使用硬件加速：
 
 - 硬件加速在开发计算机上可用并已启用。
 
@@ -89,7 +89,7 @@ Hyper-V 在 Windows 虚拟机监控程序平台上运行。 若要将 Android Em
 systeminfo
 ```
 
-如果列出的所有 Hyper-V 要求的值均为“是”，则计算机可以支持 Hyper-V  。 例如:
+如果列出的所有 Hyper-V 要求的值均为“是”，则计算机可以支持 Hyper-V  。 例如：
 
 [![示例 Systeminfo 输出](hardware-acceleration-images/win/02-systeminfo-w158-sml.png)](hardware-acceleration-images/win/02-systeminfo-w158.png#lightbox)
 
@@ -102,6 +102,10 @@ systeminfo
     [![启用 Hyper-V 和 Windows 虚拟机监控程序平台](hardware-acceleration-images/win/03-hyper-v-settings-w158-sml.png)](hardware-acceleration-images/win/03-hyper-v-settings-w158.png#lightbox)
 
    进行这些更改后，重新启动计算机。
+   
+> [!IMPORTANT]
+>
+> 在 Windows 10 2018 年 10 月更新(RS5) 及更高版本中，你只需启用 Hyper-V 即可，因为它将自动使用 Windows 虚拟机监控程序平台 (WHPX)。
 
 2. 安装 [Visual Studio 15.8 或更高版本](https://visualstudio.microsoft.com/vs/)（此版本 Visual Studio 通过 Hyper-V 提供用于运行 Android Emulator 的 IDE 支持）  。
 
@@ -126,7 +130,7 @@ systeminfo
     sc query intelhaxm
     ```
 
-2. 检查输出，查看 HAXM 进程是否正在运行。 如果它正在运行，你会看到将 `intelhaxm` 状态列为 `RUNNING` 的输出。 例如:
+2. 检查输出，查看 HAXM 进程是否正在运行。 如果它正在运行，你会看到将 `intelhaxm` 状态列为 `RUNNING` 的输出。 例如：
 
     ![HAXM 可用时 sc 查询命令的输出](hardware-acceleration-images/win/05-sc_query-w158.png)
 

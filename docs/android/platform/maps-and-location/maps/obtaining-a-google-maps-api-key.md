@@ -31,7 +31,7 @@ ms.locfileid: "75488967"
 
 <!-- markdownlint-disable MD001 -->
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 默认情况下，可在以下位置找到用于对 Xamarin Android 应用程序的调试版本进行签名的密钥存储：
 
@@ -41,7 +41,7 @@ ms.locfileid: "75488967"
 
 **C：\\程序文件\\Android\\jdk\\microsoft_dist_openjdk_ [版本]\\bin\\keytool**
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 默认情况下，可在以下位置找到用于对 Xamarin Android 应用程序的调试版本进行签名的密钥存储：
 
@@ -63,13 +63,13 @@ keytool -list -v -keystore [STORE FILENAME] -alias [KEY NAME] -storepass [STORE 
 
 对于默认调试密钥（为调试自动创建），请使用此命令：
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 ```cmd
 keytool.exe -list -v -keystore "C:\Users\[USERNAME]\AppData\Local\Xamarin\Mono for Android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
 ```
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 ```bash
 keytool -list -v -keystore /Users/[USERNAME]/.local/share/Xamarin/Mono\ for\ Android/debug.keystore -alias androiddebugkey -storepass android -keypass android
@@ -125,7 +125,7 @@ Certificate fingerprints:
 
    [![单击 "仪表板" 部分中的 "启用" 按钮](obtaining-a-google-maps-api-key-images/04-enable-api-vs-sml.png)](obtaining-a-google-maps-api-key-images/04-enable-api-vs.png#lightbox)
 
-此时，已创建 API 项目，并已向其添加了 Google Maps Android API v2。 但是，在为其创建凭据之前，不能在项目中使用此 API。 下一节将介绍如何创建 API 密钥并为 Xamarin Android 应用程序创建白名单，以便有权使用此密钥。
+此时，已创建 API 项目，并已向其添加了 Google Maps Android API v2。 但是，在为其创建凭据之前，不能在项目中使用此 API。 下一节将介绍如何创建 API 密钥并为 Xamarin Android 应用程序创建允许列表，以便有权使用此密钥。
 
 ## <a name="obtaining-the-api-key"></a>获取 API 密钥
 
