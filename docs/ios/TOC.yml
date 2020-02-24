@@ -508,6 +508,8 @@
           href: ~/essentials/accelerometer.md?context=xamarin/ios
         - name: 应用信息
           href: ~/essentials/app-information.md?context=xamarin/ios
+        - name: 应用主题
+          href: ~/essentials/app-theme.md?context=xamarin/ios
         - name: 气压计
           href: ~/essentials/barometer.md?context=xamarin/ios
         - name: 电池
@@ -550,6 +552,8 @@
           href: ~/essentials/open-browser.md?context=xamarin/ios
         - name: 方向传感器
           href: ~/essentials/orientation-sensor.md?context=xamarin/ios
+        - name: 权限
+          href: ~/essentials/permissions.md?context=xamarin/ios
         - name: 电话拨号程序
           href: ~/essentials/phone-dialer.md?context=xamarin/ios
         - name: 平台扩展（Size、Rect、Point）
@@ -942,6 +946,8 @@
               href: ~/essentials/accelerometer.md?context=xamarin/watchos
             - name: 应用信息
               href: ~/essentials/app-information.md?context=xamarin/watchos
+            - name: 应用主题
+              href: ~/essentials/app-theme.md?context=xamarin/watchos
             - name: 气压计
               href: ~/essentials/barometer.md?context=xamarin/watchos
             - name: 电池
@@ -968,6 +974,8 @@
               href: ~/essentials/maps.md?context=xamarin/watchos
             - name: 方向传感器
               href: ~/essentials/orientation-sensor.md?context=xamarin/watchos
+            - name: 权限
+              href: ~/essentials/permissions.md?context=xamarin/watchos
             - name: 平台扩展（Size、Rect、Point）
               href: ~/essentials/platform-extensions.md?context=xamarin/watchos
             - name: 首选项
@@ -1043,6 +1051,8 @@
               href: ~/essentials/platform-feature-support.md?context=xamarin/tvos
             - name: 应用信息
               href: ~/essentials/app-information.md?context=xamarin/tvos
+            - name: 应用主题
+              href: ~/essentials/app-theme.md?context=xamarin/tvos
             - name: 颜色转换器
               href: ~/essentials/color-converters.md?context=xamarin/tvos
             - name: 连接性
@@ -1055,6 +1065,8 @@
               href: ~/essentials/geocoding.md?context=xamarin/tvos
             - name: 主线程
               href: ~/essentials/main-thread.md?context=xamarin/tvos
+            - name: 权限
+              href: ~/essentials/permissions.md?context=xamarin/tvos
             - name: 平台扩展（Size、Rect、Point）
               href: ~/essentials/platform-extensions.md?context=xamarin/tvos
             - name: 首选项
