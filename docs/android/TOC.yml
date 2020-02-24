@@ -373,6 +373,11 @@
                   href: platform/binding-java-library/customizing-bindings/naming-parameters-with-javadoc.md
             - name: 绑定疑难解答
               href: platform/binding-java-library/troubleshooting-bindings.md
+        - name: 绑定 Kotlin 库
+          href: platform/binding-kotlin-library/index.md
+          items:
+            - name: 演练
+              href: platform/binding-kotlin-library/walkthrough.md
         - name: 使用本机库
           href: platform/native-libraries.md
         - name: Renderscript
@@ -476,7 +481,7 @@
           items:
             - name: 介绍
               href: data-cloud/data-access/introduction.md
-            - name: 配置
+            - name: Configuration
               href: data-cloud/data-access/configuration.md
             - name: 使用 SQLite.NET ORM
               href: data-cloud/data-access/using-sqlite-orm.md

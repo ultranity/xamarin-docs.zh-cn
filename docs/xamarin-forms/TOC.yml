@@ -778,6 +778,8 @@
           href: ~/essentials/accelerometer.md?context=xamarin/xamarin-forms
         - name: 应用信息
           href: ~/essentials/app-information.md?context=xamarin/xamarin-forms
+        - name: 应用主题
+          href: ~/essentials/app-theme.md?context=xamarin/xamarin-forms
         - name: 气压计
           href: ~/essentials/barometer.md?context=xamarin/xamarin-forms
         - name: 电池
@@ -820,6 +822,8 @@
           href: ~/essentials/open-browser.md?context=xamarin/xamarin-forms
         - name: 方向传感器
           href: ~/essentials/orientation-sensor.md?context=xamarin/xamarin-forms
+        - name: 权限
+          href: ~/essentials/permissions.md?context=xamarin/xamarin-forms
         - name: 电话拨号程序
           href: ~/essentials/phone-dialer.md?context=xamarin/xamarin-forms
         - name: 平台扩展（Size、Rect、Point）

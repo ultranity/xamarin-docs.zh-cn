@@ -322,6 +322,11 @@
           items:
             - name: 演练 - 绑定 iOS Objective-C 库
               href: platform/binding-objective-c/walkthrough.md
+        - name: 绑定 iOS Swift 库
+          href: platform/binding-swift/index.md
+          items:
+            - name: 演练
+              href: platform/binding-swift/walkthrough.md
         - name: CallKit
           href: platform/callkit.md
         - name: 联系人和 ContactsUI
