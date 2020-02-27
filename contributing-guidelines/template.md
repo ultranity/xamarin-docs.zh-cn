@@ -8,12 +8,12 @@ ms.date: 02/26/2018
 ms.topic: conceptual
 ms.assetid: 11111111-2222-3333-4444-555555555555
 ms.prod: xamarin
-ms.openlocfilehash: d6300d6d3fdebf851c3710aa2a949575e6fe3f68
-ms.sourcegitcommit: 699de58432b7da300ddc2c85842e5d9e129b0dc5
+ms.openlocfilehash: f26a786f3da909c7d948fe99b4b3a1423352ecbe
+ms.sourcegitcommit: ec62c7f28abc8e121656f1b93146657d90a4cab4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71249567"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77553571"
 ---
 # <a name="metadata-and-markdown-template"></a>元数据和 Markdown 模板
 
@@ -95,7 +95,7 @@ Markdown 使用特殊字符如 \*、\` 和 \# 进行格式化。 如果要在内
 
 ## <a name="text-styling"></a>文本样式
 
-*斜体*用于文件、文件夹、路径（对于较长的项，将其拆分到各自行）- 新术语 - URL（除非呈现为链接，链接为默认值）。
+_斜体_用于文件、文件夹、路径（对于较长的项，将其拆分到各自行）- 新术语 - URL（除非呈现为链接，链接为默认值）。
 
 **粗体**用于 UI 元素。
 
@@ -148,7 +148,7 @@ ID 是基于标头文本自动生成的。 因此，例如，如果某个唯一�
 当 UID 包含特殊字符 \` 或 \# 时，UID 值需要分别使用 HTML 编码为 60% 和 %23，如下面的示例所示：
 
 - 示例：@System.Threading.Tasks.Task\`1 变为 `@System.Threading.Tasks.Task%601`
-- 示例：@System.Exception \#ctor 变为 `@System.Exception.%23ctor`
+- 示例：@System.Exception\#ctor 变为 `@System.Exception.%23ctor`
 
 ## <a name="lists"></a>列表
 
