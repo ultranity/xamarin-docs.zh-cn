@@ -6,13 +6,13 @@ ms.assetId: 602456B5-701B-4948-B454-B1F31283F1CF
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 12/11/2019
-ms.openlocfilehash: 4119a650c431013bb0c8e680de600ed4e73d0c93
-ms.sourcegitcommit: d0e6436edbf7c52d760027d5e0ccaba2531d9fef
+ms.date: 02/11/2020
+ms.openlocfilehash: 6131287b200846a033e0c476d7039dfd774cab68
+ms.sourcegitcommit: 10b4d7952d78f20f753372c53af6feb16918555c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75490504"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77635587"
 ---
 # <a name="xamarinforms-swipeview"></a>Xamarin. Forms SwipeView
 
@@ -57,7 +57,7 @@ Forms.SetFlags("SwipeView_Experimental");
 
 `SwipeView` 必须定义 `SwipeView` 环绕的内容，并使用滑动手势显示的滑动项。 "轻扫" 项是放置在四个 `SwipeView` 方向集合之一中的一个或多个 `SwipeItem` 对象-`LeftItems`、`RightItems`、`TopItems`或 `BottomItems`。
 
-下面的示例演示如何实例化`SwipeView`在 XAML 中：
+下面的示例演示如何在 XAML 中实例化 `SwipeView`：
 
 ```xaml
 <SwipeView>
@@ -82,6 +82,49 @@ Forms.SetFlags("SwipeView_Experimental");
                VerticalOptions="Center" />
     </Grid>
 </SwipeView>
+```
+
+等效 C# 代码如下：
+
+```csharp
+// SwipeItems
+SwipeItem favoriteSwipeItem = new SwipeItem
+{
+    Text = "Favorite",
+    IconImageSource = "favorite.png",
+    BackgroundColor = Color.LightGreen
+};
+favoriteSwipeItem.Invoked += OnFavoriteSwipeItemInvoked;
+
+SwipeItem deleteSwipeItem = new SwipeItem
+{
+    Text = "Delete",
+    IconImageSource = "delete.png",
+    BackgroundColor = Color.LightPink
+};
+deleteSwipeItem.Invoked += OnDeleteSwipeItemInvoked;
+
+List<SwipeItem> swipeItems = new List<SwipeItem>() { favoriteSwipeItem, deleteSwipeItem };
+
+// SwipeView content
+Grid grid = new Grid
+{
+    HeightRequest = 60,
+    WidthRequest = 300,
+    BackgroundColor = Color.LightGray
+};
+grid.Children.Add(new Label
+{
+    Text = "Swipe right",
+    HorizontalOptions = LayoutOptions.Center,
+    VerticalOptions = LayoutOptions.Center
+});
+
+SwipeView swipeView = new SwipeView
+{
+    LeftItems = new SwipeItems(swipeItems),
+    Content = grid
+};
 ```
 
 在此示例中，`SwipeView` 内容是包含[`Label`](xref:Xamarin.Forms.Label)的[`Grid`](xref:Xamarin.Forms.Grid) ：
@@ -136,14 +179,16 @@ Forms.SetFlags("SwipeView_Experimental");
 </SwipeView>
 ```
 
-每个 `SwipeItem` 的外观由 `Text`、`IconImageSource`和 `BackgroundColor` 属性定义：
+每个 `SwipeItem` 的外观由 `Text`、`IconImageSource`和 `BackgroundColor` 属性的组合定义：
 
 [![IOS 和 Android 上的 SwipeView 刷卡器项的屏幕截图](swipeview-images/swipeview-swipeitems.png "SwipeView 刷物品")](swipeview-images/swipeview-swipeitems-large.png#lightbox "SwipeView 刷物品")
 
 点击 `SwipeItem` 时，将激发其 `Invoked` 事件，并由其注册事件处理程序进行处理。 或者，可以将 `Command` 属性设置为在调用 `SwipeItem` 时将执行的 `ICommand` 实现。
 
 > [!NOTE]
-> 除了将 "轻扫" 项定义为 `SwipeItem` 对象外，还可以定义自定义的轻扫项目视图。 有关详细信息，请参阅[自定义滑动项](#custom-swipe-items)。
+> 如果仅使用 `Text` 或 `IconImageSource` 属性定义 `SwipeItem` 的外观，则内容始终处于中心位置。
+
+除了将 "轻扫" 项定义为 `SwipeItem` 对象外，还可以定义自定义的轻扫项目视图。 有关详细信息，请参阅[自定义滑动项](#custom-swipe-items)。
 
 ## <a name="swipe-direction"></a>滑动方向
 
@@ -288,4 +333,4 @@ Forms.SetFlags("SwipeView_Experimental");
 ## <a name="related-links"></a>相关链接
 
 - [SwipeView （示例）](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-swipeviewdemos/)
-- [Xamarin。窗体 MenuItem](~/xamarin-forms/user-interface/menuitem.md)
+- [Xamarin.Forms MenuItem](~/xamarin-forms/user-interface/menuitem.md)

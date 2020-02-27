@@ -1,67 +1,71 @@
 ---
-title: Windows Platform Features
-description: This article explains the Windows platform support that's available in Xamarin.Forms.
+title: Windows 平台功能
+description: 本文介绍了 Xamarin 中提供的 Windows 平台支持。
 ms.prod: xamarin
 ms.assetid: F6EA9E49-FB3E-442F-AF13-B7AD0C80D11F
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 09/20/2019
-ms.openlocfilehash: 550ad9b068e71e53a98329663d2ee9b55be1864e
-ms.sourcegitcommit: a3b7e016fb25584dbf57bae89b64a9f98031e7c9
+ms.date: 01/16/2020
+ms.openlocfilehash: 694ec24697937b114036eceab1cafd5aae3617d8
+ms.sourcegitcommit: 10b4d7952d78f20f753372c53af6feb16918555c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549974"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77635547"
 ---
-# <a name="windows-platform-features"></a>Windows Platform Features
+# <a name="windows-platform-features"></a>Windows 平台功能
 
-Developing Xamarin.Forms applications for Windows platforms requires Visual Studio. The [supported platforms page](~/get-started/supported-platforms.md) contains more information about the pre-requisites.
+为 Windows 平台开发 Xamarin. Forms 应用程序需要 Visual Studio。 "[支持的平台" 页](~/get-started/supported-platforms.md)包含有关先决条件的详细信息。
 
 ![](images/allhanselman.png "Xamarin.Forms Applications Running on Windows")
 
-## <a name="platform-specifics"></a>Platform-specifics
+## <a name="platform-specifics"></a>平台特定内容
 
 平台特定信息，可使用的功能仅适用于特定的平台，而无需实现自定义呈现器或效果。
 
-The following platform-specific functionality is provided for Xamarin.Forms views, pages, and layouts on the Universal Windows Platform (UWP):
+以下特定于平台的功能是为 Xamarin 提供的 "窗体视图"、"页面" 和 "布局" 通用 Windows 平台（UWP）：
 
-- 设置的访问密钥[ `VisualElement` ](xref:Xamarin.Forms.VisualElement)。 For more information, see [VisualElement Access Keys on Windows](visualelement-access-keys.md).
-- 禁用上受支持的旧颜色模式[ `VisualElement` ](xref:Xamarin.Forms.VisualElement)。 For more information, see [VisualElement Legacy Color Mode on Windows](legacy-color-mode.md).
+- 为[`VisualElement`](xref:Xamarin.Forms.VisualElement)设置访问密钥。 有关详细信息，请参阅[Windows 上的 VisualElement 访问密钥](visualelement-access-keys.md)。
+- 禁用受支持[`VisualElement`](xref:Xamarin.Forms.VisualElement)上的旧版颜色模式。 有关详细信息，请参阅[VisualElement 旧版 Color Mode On Windows](legacy-color-mode.md)。
 
-The following platform-specific functionality is provided for Xamarin.Forms views on UWP:
+以下特定于平台的功能适用于 UWP 上的 Xamarin 窗体视图：
 
-- 检测文本中的内容从读取顺序[ `Entry` ](xref:Xamarin.Forms.Entry)， [ `Editor` ](xref:Xamarin.Forms.Editor)，以及[ `Label` ](xref:Xamarin.Forms.Label)实例。 For more information, see [InputView Reading Order on Windows](inputview-reading-order.md).
-- 启用中的点击手势支持[ `ListView` ](xref:Xamarin.Forms.ListView)。 For more information, see [ListView SelectionMode on Windows](listview-selectionmode.md).
-- Enabling the pull direction of a `RefreshView` to be changed. For more information, see [RefreshView Pull Direction on Windows](refreshview-pulldirection.md).
-- 启用[ `SearchBar` ](xref:Xamarin.Forms.SearchBar)与拼写检查引擎进行交互。 For more information, see [SearchBar Spell Check on Windows](searchbar-spell-check.md).
-- 启用[ `WebView` ](xref:Xamarin.Forms.WebView) UWP 消息对话框中显示 JavaScript 警报。 For more information, see [WebView JavaScript Alerts on Windows](webview-javascript-alert.md).
+- 检测[`Entry`](xref:Xamarin.Forms.Entry)、 [`Editor`](xref:Xamarin.Forms.Editor)和[`Label`](xref:Xamarin.Forms.Label)实例中的文本内容的读取顺序。 有关详细信息，请参阅[Windows 上的 InputView 读取顺序](inputview-reading-order.md)。
+- 在[`ListView`](xref:Xamarin.Forms.ListView)中启用点击手势支持。 有关详细信息，请参阅[ListView SelectionMode On Windows](listview-selectionmode.md)。
+- 启用要更改的 `RefreshView` 的请求方向。 有关详细信息，请参阅[Windows 上的 RefreshView 拉取方向](refreshview-pulldirection.md)。
+- 使[`SearchBar`](xref:Xamarin.Forms.SearchBar)能够与拼写检查引擎进行交互。 有关详细信息，请参阅[Windows 上的 SearchBar 拼写检查](searchbar-spell-check.md)。
+- 启用[`WebView`](xref:Xamarin.Forms.WebView)以显示 UWP 消息对话框中的 JavaScript 警报。 有关详细信息，请参阅[Windows 上的 Web 视图 JavaScript 警报](webview-javascript-alert.md)。
 
-The following platform-specific functionality is provided for Xamarin.Forms pages on UWP:
+以下特定于平台的功能适用于 UWP 上的 Xamarin 窗体页：
 
-- 折叠[ `MasterDetailPage` ](xref:Xamarin.Forms.MasterDetailPage)导航栏。 For more information, see [MasterDetailPage Navigation Bar on Windows](masterdetailpage-navigation-bar.md).
-- 设置工具栏的放置选项。 For more information, see [Page Toolbar Placement on Windows](page-toolbar-placement.md).
-- 启用页面图标上显示[ `TabbedPage` ](xref:Xamarin.Forms.TabbedPage)工具栏。 有关详细信息，请参阅 [Windows 上的 TabbedPage 图标](tabbedpage-icons.md)。
+- 折叠[`MasterDetailPage`](xref:Xamarin.Forms.MasterDetailPage)导航栏。 有关详细信息，请参阅[Windows 上的 MasterDetailPage 导航栏](masterdetailpage-navigation-bar.md)。
+- 设置工具栏的放置选项。 有关详细信息，请参阅[在 Windows 上放置页面工具栏](page-toolbar-placement.md)。
+- 允许在[`TabbedPage`](xref:Xamarin.Forms.TabbedPage)工具栏上显示页面图标。 有关详细信息，请参阅 [Windows 上的 TabbedPage 图标](tabbedpage-icons.md)。
+
+以下特定于平台的功能适用于 UWP 上的 Xamarin [`Application`](xref:Xamarin.Forms.Application)类：
+
+- 指定将从其加载图像资产的项目中的目录。 有关详细信息，请参阅[Windows 上的默认图像目录](default-image-directory.md)。
 
 ## <a name="platform-support"></a>平台支持
 
-The Xamarin.Forms templates available in Visual Studio contain a Universal Windows Platform (UWP) project.
+Visual Studio 中提供的 Xamarin 模板包含一个通用 Windows 平台（UWP）项目。
 
 > [!NOTE]
-> Xamarin.Forms 1.x and 2.x support _Windows Phone 8 Silverlight_, _Windows Phone 8.1_, and _Windows 8.1_ application development. However, these project types have been deprecated.
+> Xamarin; Forms 1.x 和2.x 支持_Windows Phone 8 个 Silverlight_、 _Windows Phone 8.1_和_Windows 8.1_应用程序开发。 但是，这些项目类型已弃用。
 
 ## <a name="getting-started"></a>入门
 
-Go to **File > New > Project** in Visual Studio and choose one of the **Cross-Platform > Blank App (Xamarin.Forms)** templates to get started.
+转到文件 > Visual Studio 中的**新 > 项目**，然后选择一个**跨平台 > 空白应用（Xamarin）** 模板以开始。
 
-Older Xamarin.Forms solutions, or those created on macOS, will not have all the Windows projects listed above (but they need to be manually added). If the Windows platform you wish to target isn't already in your solution, visit the [setup instructions](installation/index.md) to add the desired Windows project type/s.
+旧的 Xamarin. Forms 解决方案或在 macOS 上创建的解决方案将不会具有上面列出的所有 Windows 项目（但需要手动添加）。 如果你想要作为目标的 Windows 平台尚未处于解决方案中，请访问[设置说明](installation/index.md)以添加所需的 windows 项目类型。
 
 ## <a name="samples"></a>示例
 
-[All the samples](https://github.com/xamarin/xamarin-forms-book-preview-2) for Charles Petzold's book [*Creating Mobile Apps with Xamarin.Forms*](~/xamarin-forms/creating-mobile-apps-xamarin-forms/index.md) include Universal Windows Platform (for Windows 10) projects.
+Charles Petzold 的[所有示例都](https://github.com/xamarin/xamarin-forms-book-preview-2)是[*用 Xamarin 创建移动应用，其中*](~/xamarin-forms/creating-mobile-apps-xamarin-forms/index.md)包括通用 Windows 平台（适用于 Windows 10）项目。
 
-The ["Scott Hanselman" demo app](https://github.com/jamesmontemagno/Hanselman.Forms) is available separately, and also includes Apple Watch and Android Wear projects (using Xamarin.iOS and Xamarin.Android respectively, Xamarin.Forms does not run on those platforms).
+["Scott Hanselman" 演示应用](https://github.com/jamesmontemagno/Hanselman.Forms)单独提供，还包括 Apple Watch 和 android 磨损项目（分别使用 Xamarin 和 xamarin），而 xamarin 则不会在这些平台上运行。
 
 ## <a name="related-links"></a>相关链接
 
-- [Setup Windows Projects](~/xamarin-forms/platform/windows/installation/index.md)
+- [设置 Windows 项目](~/xamarin-forms/platform/windows/installation/index.md)

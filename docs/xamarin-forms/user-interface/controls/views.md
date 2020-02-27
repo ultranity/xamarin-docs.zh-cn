@@ -6,13 +6,13 @@ ms.assetid: AC070686-A423-4A98-8BB6-0B9F94C062CC
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 12/13/2019
-ms.openlocfilehash: 06b802a90ef350dcbd0b056f801109609dcd7a35
-ms.sourcegitcommit: 524fc148bad17272bda83c50775771daa45bfd7e
+ms.date: 02/14/2020
+ms.openlocfilehash: 1e8b6f5e1ea090abc8ebd6084095bf6b34663a42
+ms.sourcegitcommit: 10b4d7952d78f20f753372c53af6feb16918555c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77480629"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77635862"
 ---
 # <a name="xamarinforms-views"></a>Xamarin.Forms 视图
 
@@ -70,7 +70,7 @@ _Xamarin. Forms 视图是跨平台移动用户界面的构建基块。_
 
 |     |     |
 | --- | --- |
-| `MediaElement` 显示视频或播放音频。 媒体可以通过 Web 下载，也可以作为资源嵌入到平台项目中。<br /><br />[指南](~/xamarin-forms/user-interface/mediaelement.md) / [示例](https://github.com/xamarin/xamarin-forms-samples/tree/pre-release/WorkingWithMediaElement) | |
+| [`MediaElement`](xref:Xamarin.Forms.MediaElement)播放视频或音频。 根据[`Source`](xref:Xamarin.Forms.MediaElement.Source)属性是设置为[`UriMediaSource`](xref:Xamarin.Forms.UriMediaSource)还是[`FileMediaSource`](xref:Xamarin.Forms.FileMediaSource)，可以从 URL 或本地文件播放媒体。<br /><br />[API 文档](xref:Xamarin.Forms.MediaElement) / [指南](~/xamarin-forms/user-interface/mediaelement.md) / [示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-mediaelementdemos) | [![MediaElement 示例](views-images/MediaElement.png "MediaElement 示例")](views-images/MediaElement-Large.png#lightbox "MediaElement 示例")<br />此页的代码 / [XAML 页](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/XamlExamples/MediaElementDemoPage.xaml) [ C# ](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/CodeExamples/MediaElementDemoPage.cs) |
 |     |     |
 
 ## <a name="views-that-initiate-commands"></a>启动命令的视图

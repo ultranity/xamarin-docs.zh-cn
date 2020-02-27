@@ -6,13 +6,13 @@ ms.assetid: 46AB0D5E-0025-4A8A-9D00-3E66C3D0BA2E
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 09/25/2019
-ms.openlocfilehash: 83aca8c9e64ffb01eb9773c17b42333f73c1aab5
-ms.sourcegitcommit: 9fa7cf9fae44ed092bc9cab17c843a443001734e
+ms.date: 01/17/2020
+ms.openlocfilehash: c71153cdaa94a7983b89968abc828011a648f2b1
+ms.sourcegitcommit: 10b4d7952d78f20f753372c53af6feb16918555c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72971253"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77636094"
 ---
 # <a name="display-pop-ups"></a>显示弹出窗口
 
@@ -22,7 +22,7 @@ ms.locfileid: "72971253"
 
 ## <a name="display-an-alert"></a>显示警报
 
-所有 Xamarin.Forms 支持的平台都会弹出一个模式，提醒用户或向用户提出简单的问题。 要在 Xamarin.Forms 中显示这些警报，请在任何 [`Page`](xref:Xamarin.Forms.Page) 上使用 [`DisplayAlert`](xref:Xamarin.Forms.Page.DisplayAlert*) 方法。 以下代码行向用户显示一个简单的消息：
+所有 Xamarin.Forms 支持的平台都会弹出一个模式，提醒用户或向用户提出简单的问题。 要在 Xamarin.Forms 中显示这些警报，请在任何 [`DisplayAlert`](xref:Xamarin.Forms.Page.DisplayAlert*) 上使用 [`Page`](xref:Xamarin.Forms.Page) 方法。 以下代码行向用户显示一个简单的消息：
 
 ```csharp
 await DisplayAlert ("Alert", "You have been alerted", "OK");
@@ -48,7 +48,7 @@ async void OnAlertYesNoClicked (object sender, EventArgs e)
 
 [UIActionSheet](https://developer.apple.com/library/ios/documentation/uikit/reference/uiactionsheet_class/Reference/Reference.html) 是 iOS 中的常见 UI 元素。 Xamarin.Forms[`DisplayActionSheet`](xref:Xamarin.Forms.Page.DisplayActionSheet*) 方法可以在跨平台应用程序中包含此控件，并在 Android 和 UWP 中呈现本机备选方案。
 
-要显示操作表（任何 [`Page`](xref:Xamarin.Forms.Page) 中的 `await`[`DisplayActionSheet`](xref:Xamarin.Forms.Page.DisplayActionSheet*)），请将消息和按钮标签作为字符串传递。 该方法返回供用户单击的按钮的字符串标签。 下面是简单示例：
+若要显示操作表，请在任意[`Page`](xref:Xamarin.Forms.Page)中 `await` [`DisplayActionSheet`](xref:Xamarin.Forms.Page.DisplayActionSheet*) ，并以字符串的形式传递消息和按钮标签。 该方法返回供用户单击的按钮的字符串标签。 下面是简单示例：
 
 ```csharp
 async void OnActionSheetSimpleClicked (object sender, EventArgs e)
@@ -84,25 +84,26 @@ string result = await DisplayPromptAsync("Question 1", "What's your name?");
 
 [![IOS 和 Android 上的模式提示屏幕截图](pop-ups-images/simple-prompt.png "模式提示")](pop-ups-images/simple-prompt-large.png#lightbox "模式提示")
 
-如果点击 "确定" 按钮，则输入的响应将作为 `string` 返回。 如果点击 "取消" 按钮，则返回 `null`。
+如果点击 "确定" 按钮，则输入的响应将作为 `string`返回。 如果点击 "取消" 按钮，则返回 `null`。
 
 `DisplayPromptAsync` 方法的完整参数列表为：
 
-- `string` 类型的 `title`，则是要在提示中显示的标题。
+- `string`类型的 `title`，则是要在提示中显示的标题。
 - `message`，类型 `string`，是要在提示符处显示的消息。
-- `string` 类型的 `accept` 是 "接受" 按钮的文本。 这是一个可选参数，其默认值为 "正常"。
-- `string` 类型的 `cancel` 是 "取消" 按钮的文本。 这是一个可选参数，其默认值为 "取消"。
-- `string` 类型的 `placeholder` 是要在提示符处显示的占位符文本。 这是一个可选参数，其默认值为 `null`。
-- `int` 类型的 `maxLength` 是用户响应的最大长度。 这是一个可选参数，其默认值为-1。
-- 类型 `Keyboard` `keyboard`，是用于用户响应的键盘类型。 这是一个可选参数，其默认值为 `Keyboard.Default`。
+- `string`类型的 `accept`是 "接受" 按钮的文本。 这是一个可选参数，其默认值为 "正常"。
+- `string`类型的 `cancel`是 "取消" 按钮的文本。 这是一个可选参数，其默认值为 "取消"。
+- `string`类型的 `placeholder`是要在提示符处显示的占位符文本。 这是一个可选参数，其默认值为 `null`。
+- `int`类型的 `maxLength`是用户响应的最大长度。 这是一个可选参数，其默认值为-1。
+- 类型 `Keyboard``keyboard`，是用于用户响应的键盘类型。 这是一个可选参数，其默认值为 `Keyboard.Default`。
+- `string`类型的 `initialValue`是将显示的预定义的响应，可对其进行编辑。 这是一个可选参数，其默认值为空 `string`。
 
 下面的示例演示如何设置一些可选参数：
 
 ```csharp
-string result = await DisplayPromptAsync("Question 2", "What's 5 + 5?", maxLength: 2, keyboard: Keyboard.Numeric);
+string result = await DisplayPromptAsync("Question 2", "What's 5 + 5?", initialValue: "10", maxLength: 2, keyboard: Keyboard.Numeric);
 ```
 
-此代码会将可输入的字符数限制为2，并显示用户输入的数字键盘：
+此代码显示预定义的10个响应，限制可输入的字符数2，并显示用户输入的数字键盘：
 
 [![IOS 和 Android 上的模式提示屏幕截图](pop-ups-images/keyboard-prompt.png "模式提示")](pop-ups-images/keyboard-prompt-large.png#lightbox "模式提示")
 

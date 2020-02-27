@@ -6,13 +6,13 @@ ms.assetid: 92D7B618-07FA-4343-9D0F-212525E92C39
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 10/14/2019
-ms.openlocfilehash: ce0e0b63206ab918b5d761be3e619370aec1eec7
-ms.sourcegitcommit: d0e6436edbf7c52d760027d5e0ccaba2531d9fef
+ms.date: 01/28/2020
+ms.openlocfilehash: 735a572f4aadfc224e545e371525b96f29c9552e
+ms.sourcegitcommit: 10b4d7952d78f20f753372c53af6feb16918555c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75489747"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77635902"
 ---
 # <a name="xamarinforms-carouselview-scrolling"></a>Xamarin CarouselView 滚动
 
@@ -24,7 +24,7 @@ ms.locfileid: "75489747"
 
 - `HorizontalScrollBarVisibility`，类型为 `ScrollBarVisibility`，用于指定水平滚动条可见的时间。
 - `bool`类型的 `IsDragging`，指示 `CarouselView` 是否正在滚动。 这是一个只读属性，其默认值为 `false`。
-- `IsScrollAnimated`类型 `bool`，用于指定滚动 `CarouselView`时是否会发生动画。 默认值为 `true`。
+- `IsScrollAnimated`类型 `bool`，用于指定滚动 `CarouselView`时是否会发生动画。 默认值是 `true`。
 - `ItemsUpdatingScrollMode`类型的 `ItemsUpdatingScrollMode`，它表示在添加新项时 `CarouselView` 的滚动行为。
 - `ScrollBarVisibility`类型的 `VerticalScrollBarVisibility`，它指定垂直滚动条何时可见。
 
@@ -132,7 +132,7 @@ carouselView.ScrollTo(monkey, position: ScrollToPosition.MakeVisible);
 > [!NOTE]
 > 默认情况下，如果在调用 `ScrollTo` 方法时未指定 `position` 参数，则默认情况下使用[`ScrollToPosition.MakeVisible`](xref:Xamarin.Forms.ScrollToPosition)成员。
 
-### <a name="start"></a>启动
+### <a name="start"></a>开始
 
 [`ScrollToPosition.Start`](xref:Xamarin.Forms.ScrollToPosition)成员指示该项应滚动到视图的开头：
 
@@ -142,7 +142,7 @@ carouselView.ScrollTo(monkey, position: ScrollToPosition.Start);
 
 此示例代码会将项滚动到视图的开头。
 
-### <a name="center"></a>居中
+### <a name="center"></a>中心
 
 [`ScrollToPosition.Center`](xref:Xamarin.Forms.ScrollToPosition)成员指示该项应滚动到视图的中心：
 
@@ -152,7 +152,7 @@ carouselViewView.ScrollTo(monkey, position: ScrollToPosition.Center);
 
 此示例代码会将项滚动到视图的中心。
 
-### <a name="end"></a>End — 结束
+### <a name="end"></a>结束
 
 [`ScrollToPosition.End`](xref:Xamarin.Forms.ScrollToPosition)成员指示该项应滚动到视图的末尾：
 
@@ -195,7 +195,7 @@ CarouselView carouselView = new CarouselView
 - [`Always`](xref:Xamarin.Forms.ScrollBarVisibility)指示滚动条可见，即使在视图中显示了内容也是如此。
 - [`Never`](xref:Xamarin.Forms.ScrollBarVisibility)指示滚动条将不可见，即使内容无法在视图中显示也是如此。
 
-## <a name="snap-points"></a>贴靠点
+## <a name="snap-points"></a>对齐点
 
 当用户 swipes 启动滚动时，可以控制滚动的结束位置，以便完全显示项。 此功能称为 "对齐"，因为当滚动停止时，项会对齐到位置，并且由[`ItemsLayout`](xref:Xamarin.Forms.ItemsLayout)类中的以下属性控制：
 
@@ -217,6 +217,10 @@ CarouselView carouselView = new CarouselView
 
 默认情况下，在[`CarouselView`](xref:Xamarin.Forms.CarouselView)上， [`SnapPointsType`](xref:Xamarin.Forms.ItemsLayout.SnapPointsType)属性设置为 `SnapPointsType.MandatorySingle`，这可确保滚动一次只滚动一项。
 
+以下屏幕截图显示了一个关闭对齐的[`CarouselView`](xref:Xamarin.Forms.CarouselView) ：
+
+[![IOS 和 Android 上不带对齐点的 CarouselView 的屏幕截图](scrolling-images/snappoints-none.png "不带对齐点的 CarouselView")](scrolling-images/snappoints-none-large.png#lightbox "不带对齐点的 CarouselView")
+
 ### <a name="snap-points-alignment"></a>对齐点对齐
 
 [`SnapPointsAlignment`](xref:Xamarin.Forms.SnapPointsAlignment)枚举定义 `Start`、`Center`和 `End` 成员。
@@ -224,7 +228,7 @@ CarouselView carouselView = new CarouselView
 > [!IMPORTANT]
 > 仅当[`SnapPointsType`](xref:Xamarin.Forms.ItemsLayout.SnapPointsType)属性设置为 `Mandatory`或 `MandatorySingle`时，才考虑[`SnapPointsAlignment`](xref:Xamarin.Forms.ItemsLayout.SnapPointsAlignment)属性的值。
 
-#### <a name="start"></a>启动
+#### <a name="start"></a>开始
 
 `SnapPointsAlignment.Start` 成员指示对齐点与项的开头边缘对齐。 下面的 XAML 示例演示如何设置此枚举成员：
 
@@ -254,9 +258,11 @@ CarouselView carouselView = new CarouselView
 };
 ```
 
-当用户 swipes 在水平滚动[`CarouselView`](xref:Xamarin.Forms.CarouselView)中启动滚动时，左侧项目将与视图的左侧对齐。
+当用户 swipes 在水平滚动[`CarouselView`](xref:Xamarin.Forms.CarouselView)中启动滚动时，左侧项目将与视图的左侧对齐：
 
-#### <a name="center"></a>居中
+[![IOS 和 Android 上的 CarouselView 与开始对齐点的屏幕截图](scrolling-images/snappoints-start.png "具有开始对齐点的 CarouselView")](scrolling-images/snappoints-start-large.png#lightbox "具有开始对齐点的 CarouselView")
+
+#### <a name="center"></a>中心
 
 `SnapPointsAlignment.Center` 成员指示对齐点与项的中心对齐。
 
@@ -288,9 +294,11 @@ CarouselView carouselView = new CarouselView
 };
 ```
 
-当用户 swipes 在水平滚动[`CarouselView`](xref:Xamarin.Forms.CarouselView)中启动滚动时，中心项将与视图中心对齐。
+当用户 swipes 在水平滚动[`CarouselView`](xref:Xamarin.Forms.CarouselView)中启动滚动时，中心项将与视图中心对齐：
 
-#### <a name="end"></a>End — 结束
+[![IOS 和 Android 上包含中心对齐点的 CarouselView 的屏幕截图](scrolling-images/snappoints-center.png "具有中心对齐点的 CarouselView")](scrolling-images/snappoints-center-large.png#lightbox "具有中心对齐点的 CarouselView")
+
+#### <a name="end"></a>结束
 
 `SnapPointsAlignment.End` 成员指示对齐点与项的尾部边缘对齐。 下面的 XAML 示例演示如何设置此枚举成员：
 
@@ -321,6 +329,8 @@ CarouselView carouselView = new CarouselView
 ```
 
 当用户 swipes 在水平滚动[`CarouselView`](xref:Xamarin.Forms.CarouselView)中启动滚动时，右侧项目将与视图的右侧对齐。
+
+[![IOS 和 Android 上带有结束对齐点的 CarouselView 的屏幕截图](scrolling-images/snappoints-end.png "结束对齐点的 CarouselView")](scrolling-images/snappoints-end-large.png#lightbox "结束对齐点的 CarouselView")
 
 ## <a name="related-links"></a>相关链接
 

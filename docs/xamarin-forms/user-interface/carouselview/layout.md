@@ -6,13 +6,13 @@ ms.assetid: fede0382-c972-4023-a4ea-fe5cadec91a6
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 10/14/2019
-ms.openlocfilehash: 38c891a095b2b3d41d906e747585b961516f9256
-ms.sourcegitcommit: ccbf914615c0ce6b3f308d930f7a77418aeb4dbc
+ms.date: 01/28/2020
+ms.openlocfilehash: 2e3d3ccd42907ef3678ccfb634c036930800a145
+ms.sourcegitcommit: 10b4d7952d78f20f753372c53af6feb16918555c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77130852"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77636112"
 ---
 # <a name="xamarinforms-carouselview-layout"></a>Xamarin CarouselView 布局
 
@@ -108,7 +108,9 @@ CarouselView carouselView = new CarouselView
 };
 ```
 
-这会导致在添加新项时布局水平增长。
+这会导致布局在添加新项时水平增长：
+
+[![IOS 和 Android 上的 CarouselView 水平布局屏幕截图](layout-images/horizontal.png "CarouselView 水平布局")](layout-images/horizontal-large.png#lightbox "CarouselView 水平布局")
 
 ## <a name="vertical-layout"></a>垂直布局
 
@@ -165,7 +167,9 @@ CarouselView carouselView = new CarouselView
 };
 ```
 
-这会导致在添加新项时布局垂直增长。
+这会导致在添加新项时布局垂直增长：
+
+[![IOS 和 Android 上的 CarouselView 垂直布局屏幕截图](layout-images/vertical.png "CarouselView 垂直布局")](layout-images/vertical-large.png#lightbox "CarouselView 垂直布局")
 
 ## <a name="partially-visible-adjacent-items"></a>部分可见的相邻项
 
@@ -188,7 +192,9 @@ CarouselView carouselView = new CarouselView
 };
 ```
 
-结果是在屏幕上部分公开相邻项。
+结果是在屏幕上部分公开相邻项：
+
+[![IOS 和 Android 上包含部分可见的相邻项的 CollectionView 的屏幕截图](layout-images/peek-items.png "CarouselView 速览区域嵌入")](layout-images/peek-items-large.png#lightbox "CarouselView 峰值区域插入")
 
 ## <a name="item-spacing"></a>项间距
 
@@ -238,7 +244,9 @@ void OnImageTapped(object sender, EventArgs e)
 }
 ```
 
-`OnImageTapped` 事件处理程序将执行，以响应点击的[`Image`](xref:Xamarin.Forms.Image)对象，并更改图像的尺寸（及其父框架），以便更轻松地查看。
+`OnImageTapped` 事件处理程序将执行，以响应点击的[`Image`](xref:Xamarin.Forms.Image)对象，并更改图像（及其父 `Frame`）的尺寸，使其更易于查看：
+
+[![在 iOS 和 Android 上动态调整项大小的 CarouselView 屏幕截图](layout-images/runtime-resizing.png "CarouselView 动态项大小调整")](layout-images/runtime-resizing-large.png#lightbox "CarouselView 动态项大小调整")
 
 ## <a name="right-to-left-layout"></a>从右到左布局
 
