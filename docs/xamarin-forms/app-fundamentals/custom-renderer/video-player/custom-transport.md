@@ -7,12 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 02/12/2018
-ms.openlocfilehash: e0694598fe5637f6e63ebf64dce4a7d9768eba5f
-ms.sourcegitcommit: 57f815bf0024b1afe9754c0e28054fc0a53ce302
+ms.openlocfilehash: efe41fa5f25f6257587fd97a2711e9037b94dc6e
+ms.sourcegitcommit: 10b4d7952d78f20f753372c53af6feb16918555c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70771833"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77636011"
 ---
 # <a name="custom-video-transport-controls"></a>自定义视频传输控件
 
@@ -613,7 +613,7 @@ namespace FormsVideoLibrary.UWP
 </ContentPage>
 ```
 
-[数据触发器](~/xamarin-forms/app-fundamentals/triggers.md#data)一文中详细介绍了数据触发器。
+[数据触发器](~/xamarin-forms/app-fundamentals/triggers.md#data-triggers)一文中详细介绍了数据触发器。
 
 代码隐藏文件包含按钮 `Clicked` 事件的处理程序：
 
@@ -649,11 +649,11 @@ namespace VideoPlayerDemos
 
 由于“CustomTransport.xaml”文件中的 `AutoPlay` 设置为 `false`，因此启用视频后，需要按下“播放”按钮，   。 定义按钮使得上述 Unicode 字符附带其文本等效项。 播放视频时，按钮在每个平台上都具有一致的外观：
 
-[![自定义传输播放](custom-transport-images/customtransportplaying-small.png "Custom Transport Playing")](custom-transport-images/customtransportplaying-large.png#lightbox "自定义传输播放")
+[![自定义传输正在播放](custom-transport-images/customtransportplaying-small.png "自定义传输正在播放")](custom-transport-images/customtransportplaying-large.png#lightbox "自定义传输正在播放")
 
 但在 Android 和 UWP 上，当视频暂停时，“播放”按钮看起来大不相同  ：
 
-[![自定义传输暂停](custom-transport-images/customtransportpaused-small.png "Custom Transport Paused")](custom-transport-images/customtransportpaused-large.png#lightbox "自定义传输暂停")
+[![自定义传输已暂停](custom-transport-images/customtransportpaused-small.png "自定义传输已暂停")](custom-transport-images/customtransportpaused-large.png#lightbox "自定义传输已暂停")
 
 在生产应用程序中，你可能希望使用自己的位图作为按钮来实现视觉对象一致性。
 

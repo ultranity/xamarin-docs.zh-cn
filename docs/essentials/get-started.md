@@ -6,12 +6,12 @@ author: jamesmontemagno
 ms.author: jamont
 ms.custom: video
 ms.date: 07/10/2019
-ms.openlocfilehash: e388df2b4c7201cad01789de1676f79bec8d351e
-ms.sourcegitcommit: d0e6436edbf7c52d760027d5e0ccaba2531d9fef
+ms.openlocfilehash: daab2b3a18eeea2f50c9518144b3396fbba90928
+ms.sourcegitcommit: fec87846fcb262fc8b79774a395908c8c8fc8f5b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75488538"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77545130"
 ---
 # <a name="get-started-with-xamarinessentials"></a>Xamarin.Essentials 入门
 
@@ -31,11 +31,11 @@ Xamarin.Essentials 可用作 NuGet 包并包含在 Visual Studio 的每个新项
 3. 将 [**Xamarin.Essentials**](https://www.nuget.org/packages/Xamarin.Essentials/) NuGet 包添加到每个项目：
 
     <!--markdownlint-disable MD023 -->
-    # <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+    # <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
     在“解决方案资源管理器”面板中，右键单击解决方案名称，然后选择“管理 NuGet 包”  。 搜索  Xamarin.Essentials 并将包安装到  所有项目，包括 Android、iOS、UWP 和 .NET Standard 库。
 
-    # <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+    # <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
     在“解决方案资源管理器”面板中，右键单击项目名称，然后选择“添加”>“添加 NuGet 包...”  。搜索  Xamarin.Essentials 并将包安装到  所有项目，包括 Android、iOS 和 .NET Standard 库。
 
@@ -49,11 +49,11 @@ Xamarin.Essentials 可用作 NuGet 包并包含在 Visual Studio 的每个新项
 
 5. Xamarin.Essentials 需要特定于平台的设置：
 
-    # <a name="androidtabandroid"></a>[Android](#tab/android)
+    # <a name="android"></a>[Android](#tab/android)
 
     Xamarin.Essentials 支持最低 Android 版本 4.4（对应于 API 级别 19），但用于编译的目标 Android 版本必须为 9.0（对应于 API 级别 28）。 （在 Visual Studio 中，已在“Android 清单”选项卡中的 Android 项目的“项目属性”对话框中设置这两个版本。在 Visual Studio for Mac 中，已在“Android 应用程序”选项卡中的 Android 项目的“项目选项”对话框中设置这两个版本。）
 
-    Xamarin.Essentials 安装所需的 Xamarin.Android.Support 库的版本 28.0.0.1。 应用程序所需的任何其他 Xamarin.Android.Support 库还应使用 NuGet 包管理器更新到版本 28.0.0.1。 应用程序所使用的所有 Xamarin.Android.Support 库应相同，并且至少应为版本 28.0.0.1。 如果在解决方案中添加 Xamarin.Essentials NuGet 或更新 Nuget 时遇到问题，请参阅[疑难解答页面](troubleshooting.md)。
+    Xamarin.Essentials 安装所需的 Xamarin.Android.Support 库版本 28.0.0.3。 还应使用 NuGet 包管理器将应用所需的其他任何 Xamarin.Android.Support 库更新到版本 28.0.0.3。 应用使用的所有 Xamarin.Android.Support 库都应相同，且版本不得低于 28.0.0.3。 如果在解决方案中添加 Xamarin.Essentials NuGet 或更新 Nuget 时遇到问题，请参阅[疑难解答页面](troubleshooting.md)。
 
     在 Android 项目的 `MainLauncher` 或任何启动的 `Activity` 中，必须在 `OnCreate` 方法中初始化 Xamarin.Essentials：
 
@@ -76,11 +76,11 @@ Xamarin.Essentials 可用作 NuGet 包并包含在 Visual Studio 的每个新项
     }
     ```
 
-    # <a name="iostabios"></a>[iOS](#tab/ios)
+    # <a name="ios"></a>[iOS](#tab/ios)
 
     无需其他设置。
 
-    # <a name="uwptabuwp"></a>[UWP](#tab/uwp)
+    # <a name="uwp"></a>[UWP](#tab/uwp)
 
     无需其他设置。
 

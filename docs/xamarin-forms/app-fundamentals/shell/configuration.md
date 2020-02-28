@@ -6,19 +6,19 @@ ms.assetid: 3FC2FBD1-C30B-4408-97B2-B04E3A2E4F03
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 12/05/2019
-ms.openlocfilehash: e207949d607219393ffeb51fce818ddfb68ae344
-ms.sourcegitcommit: d0e6436edbf7c52d760027d5e0ccaba2531d9fef
+ms.date: 01/29/2020
+ms.openlocfilehash: dfa452addd7cfb838091afdfb350484998d0cc9d
+ms.sourcegitcommit: 10b4d7952d78f20f753372c53af6feb16918555c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75489903"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77636082"
 ---
 # <a name="xamarinforms-shell-page-configuration"></a>Xamarin.Forms Shell 页面配置
 
 [![下载示例](~/media/shared/download.png) 下载示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-xaminals/)
 
-`Shell` 类定义了可用于在 Xamarin.Forms Shell 应用程序中配置页面外观的附加属性。 这包括设置页面颜色、禁用导航栏、禁用选项卡栏以及在导航栏中显示视图。
+`Shell` 类定义了可用于在 Xamarin.Forms Shell 应用程序中配置页面外观的附加属性。 这包括设置页面颜色、设置页面演示模式、禁用导航栏、禁用选项卡栏以及在导航栏中显示视图。
 
 ## <a name="set-page-colors"></a>设置页面颜色
 
@@ -30,7 +30,7 @@ ms.locfileid: "75489903"
 - `TitleColor`，属于 `Color` 类型，用于定义当前页面标题的颜色。
 - `UnselectedColor`，属于 `Color` 类型，用于定义 Shell chrome 中未选文本和图标的颜色。
 
-所有这些属性都由 [`BindableProperty`](xref:Xamarin.Forms.BindableProperty) 对象提供支持，这意味着这些属性可以作为数据绑定的目标，并使用 XAML 样式设置属性的样式。 此外，还可以使用级联样式表 (CSS) 设置这些属性。 有关详细信息，请参阅 [Xamarin.Forms Shell 特定属性](~/xamarin-forms/user-interface/styles/css/index.md#xamarinforms-shell-specific-properties)。
+所有这些属性都由 [`BindableProperty`](xref:Xamarin.Forms.BindableProperty) 对象提供支持；也就是说，这些属性可以作为数据绑定的目标，并使用 XAML style 设置样式。 此外，还可以使用级联样式表 (CSS) 设置这些属性。 有关详细信息，请参阅 [Xamarin.Forms Shell 特定属性](~/xamarin-forms/user-interface/styles/css/index.md#xamarinforms-shell-specific-properties)。
 
 > [!NOTE]
 > 还有可启用要定义的选项卡颜色的属性。 有关详细信息，请参阅[选项卡外观](tabs.md#tab-appearance)。
@@ -85,6 +85,30 @@ ms.locfileid: "75489903"
 ```
 
 有关 XAML 样式的详细信息，请参阅[使用 XAML 样式设置 Xamarin.Forms 应用的样式](~/xamarin-forms/user-interface/styles/xaml/index.md)。
+
+## <a name="set-page-presentation-mode"></a>设置页面演示模式
+
+默认情况下，当使用 `GoToAsync` 方法转到页面时，会出现一个小的导航动画。 不过，此行为是可以更改的，具体方法是将 [`ContentPage`](xref:Xamarin.Forms.ContentPage) 上的附加属性 `Shell.PresentationMode` 设置为 `PresentationMode` 枚举成员之一：
+
+- `NotAnimated` 指明页面将在显示时不播放导航动画。
+- `Animated` 指明页面将在显示时播放导航动画。 这是附加属性 `Shell.PresentationMode` 的默认值。
+- `Modal` 指明页面将显示为模式页面。
+- `ModalAnimated` 指明页面将显示为模式页面，并播放导航动画。
+- `ModalNotAnimated` 指明页面将显示为模式页面，但不播放导航动画。
+
+> [!IMPORTANT]
+> `PresentationMode` 类型是 flags 枚举。 也就是说，可以在代码中应用枚举成员的组合。 不过，为了方便在 XAML 中使用，`ModalAnimated` 成员是 `Animated` 和 `Modal` 成员的组合，`ModalNotAnimated` 成员是 `NotAnimated` 和 `Modal` 成员的组合。 若要详细了解 flags 枚举，请参阅[作为位标志的枚举类型](/dotnet/csharp/language-reference/builtin-types/enum#enumeration-types-as-bit-flags)。
+
+下面的 XAML 示例设置 [`ContentPage`](xref:Xamarin.Forms.ContentPage) 上的附加属性 `Shell.PresentationMode`：
+
+```xaml
+<ContentPage ...
+             Shell.PresentationMode="Modal">
+    ...             
+</ContentPage>
+```
+
+在此示例中，[`ContentPage`](xref:Xamarin.Forms.ContentPage) 设置为在使用 `GoToAsync` 方法转到页面时显示为模式页面。
 
 ## <a name="enable-navigation-bar-shadow"></a>启用导航栏阴影
 
@@ -162,6 +186,10 @@ ms.locfileid: "75489903"
 很多视图不会出现在导航栏中，除非使用 [`WidthRequest`](xref:Xamarin.Forms.VisualElement.WidthRequest) 和 [`HeightRequest`](xref:Xamarin.Forms.VisualElement.HeightRequest) 属性指定视图的大小，或使用 [`HorizontalOptions`](xref:Xamarin.Forms.View.HorizontalOptions) 和 [`VerticalOptions`](xref:Xamarin.Forms.View.VerticalOptions) 属性指定视图的位置。
 
 因为 [`Layout`](xref:Xamarin.Forms.Layout) 类派生自 [`View`](xref:Xamarin.Forms.View) 类，所以可以设置 `TitleView` 附加属性来显示包含多个视图的布局类。 同样，因为 [`ContentView`](xref:Xamarin.Forms.ContentView) 类派生自 [`View`](xref:Xamarin.Forms.View) 类，所以可以设置 `TitleView` 附加属性来显示包含单个视图的 `ContentView`。
+
+## <a name="page-visibility"></a>页面可见性
+
+Shell 涉及页面可见性（通过 [`IsVisible`](xref:Xamarin.Forms.VisualElement.IsVisible) 属性设置）。 因此，当页面的 `IsVisible` 属性设置为 `false` 时，它在 Shell 应用中不可见，因此也就不能转到它。
 
 ## <a name="related-links"></a>相关链接
 

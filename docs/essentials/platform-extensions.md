@@ -5,12 +5,12 @@ ms.assetid: AB4D198A-4FD7-479E-8627-01F887A6D056
 author: jamesmontemagno
 ms.author: jamont
 ms.date: 03/13/2019
-ms.openlocfilehash: 4a80c004dd55486db18a3149dcd889a4673d7438
-ms.sourcegitcommit: 1c87135a47780f34102952d4b140850b4f08b075
+ms.openlocfilehash: 4e43159fb9cae6646be54d8efc24c334bc071477
+ms.sourcegitcommit: fec87846fcb262fc8b79774a395908c8c8fc8f5b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74536504"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77545147"
 ---
 # <a name="xamarinessentials-platform-extensions"></a>Xamarin.Essentials:平台扩展
 
@@ -29,6 +29,82 @@ using Xamarin.Essentials;
 ```
 
 所有平台扩展只能从 iOS、Android 或 UWP 项目中调用。
+
+## <a name="android-extensions"></a>Android 扩展
+
+只能从 Android 项目访问这些扩展。
+
+### <a name="application-context--activity"></a>应用 Context 和 Activity
+
+使用 `Platform` 类中的平台扩展，可以访问正在运行的应用的当前 `Context` 或 `Activity`。
+
+```csharp
+
+var context = Platform.AppContext;
+
+// Current Activity or null if not initialized or not started.
+var activity = Platform.CurrentActivity;
+```
+
+如果需要 `Activity`，但应用尚未完全启动，应使用 `WaitForActivityAsync` 方法。
+
+```csharp
+var activity = await Platform.WaitForActivityAsync();
+```
+
+### <a name="activity-lifecycle"></a>活动生命周期
+
+除了获取当前 Activity 之外，还可以注册生命周期事件。
+
+```csharp
+protected override void OnCreate(Bundle bundle)
+{
+    base.OnCreate(bundle);
+
+    Xamarin.Essentials.Platform.Init(this, bundle);
+
+    Xamarin.Essentials.Platform.ActivityStateChanged += Platform_ActivityStateChanged;
+}
+
+protected override void OnDestroy()
+{
+    base.OnDestroy();
+    Xamarin.Essentials.Platform.ActivityStateChanged -= Platform_ActivityStateChanged;
+}
+
+void Platform_ActivityStateChanged(object sender, Xamarin.Essentials.ActivityStateChangedEventArgs e) =>
+    Toast.MakeText(this, e.State.ToString(), ToastLength.Short).Show();
+```
+
+Activity 状态如下所示：
+
+* 创建时间
+* Resumed
+* 已暂停
+* 已破坏
+* SaveInstanceState
+* 已开始
+* 已停止
+
+有关详细信息，请参阅 [Activity 生命周期](https://docs.microsoft.com/xamarin/android/app-fundamentals/activity-lifecycle/)文档。
+
+## <a name="ios-extensions"></a>iOS 扩展
+
+只能从 iOS 项目访问这些扩展。
+
+### <a name="current-uiviewcontroller"></a>当前 UIViewController
+
+获取对当前可见 `UIViewController` 的访问权限：
+
+```csharp
+var vc = Platform.GetCurrentUIViewController();
+```
+
+如果无法检测 `UIViewController`，此方法返回 `null`。
+
+## <a name="cross-platform-extensions"></a>跨平台扩展
+
+这些扩展存在于每个平台中。
 
 ### <a name="point"></a>点
 

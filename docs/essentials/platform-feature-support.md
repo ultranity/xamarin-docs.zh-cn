@@ -5,12 +5,12 @@ ms.assetid: 63FA28A5-6F52-4CB7-AF39-8DF7B436B5A4
 author: jamesmontemagno
 ms.author: jamont
 ms.date: 08/20/2019
-ms.openlocfilehash: 66cc9042b74cd29cc11194e8cfde91a6ebec6f8b
-ms.sourcegitcommit: 04929b5ff4384ca807727bec7c0467111a7eb283
+ms.openlocfilehash: a104b3828caa9e00e9307420ae5473d0fe7d7784
+ms.sourcegitcommit: fec87846fcb262fc8b79774a395908c8c8fc8f5b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867636"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77545192"
 ---
 # <a name="platform-support"></a>平台支持
 
@@ -43,7 +43,8 @@ Xamarin.Essentials 总是试图为每个平台提供功能，但有时也会受�
 | 功能 | Android | iOS | UWP | watchOS | tvOS | Tizen |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | [加速计](accelerometer.md?context=xamarin/xamarin-forms) | ![支持 Android](~/media/shared/yes.png "支持 Android") | ![支持 iOS](~/media/shared/yes.png "支持 iOS") | ![支持 UWP](~/media/shared/yes.png "支持 UWP") | ![支持 watchOS](~/media/shared/yes.png "支持 watchOS") | ![不支持 tvOS](~/media/shared/no.png "不支持 tvOS") | ![支持 Tizen](~/media/shared/yes.png "支持 Tizen") | 
-| [应用信息](app-information.md?context=xamarin/xamarin-forms) | ![支持 Android](~/media/shared/yes.png "支持 Android") | ![支持 iOS](~/media/shared/yes.png "支持 iOS") | ![支持 UWP](~/media/shared/yes.png "支持 UWP") | ![支持 watchOS](~/media/shared/yes.png "支持 watchOS") | ![支持 tvOS](~/media/shared/yes.png "支持 tvOS") | ![支持 Tizen](~/media/shared/yes.png "支持 Tizen") | 
+| [应用信息](app-information.md?context=xamarin/xamarin-forms) | ![支持 Android](~/media/shared/yes.png "支持 Android") | ![支持 iOS](~/media/shared/yes.png "支持 iOS") | ![支持 UWP](~/media/shared/yes.png "支持 UWP") | ![支持 watchOS](~/media/shared/no.png "不支持 watchOS") | ![支持 tvOS](~/media/shared/yes.png "支持 tvOS") | ![支持 Tizen](~/media/shared/no.png "不支持 Tizen") | 
+| [应用主题](app-theme.md?context=xamarin/xamarin-forms) | ![支持 Android](~/media/shared/yes.png "支持 Android") | ![支持 iOS](~/media/shared/yes.png "支持 iOS") | ![支持 UWP](~/media/shared/yes.png "支持 UWP") | ![支持 watchOS](~/media/shared/yes.png "支持 watchOS") | ![不支持 tvOS](~/media/shared/no.png "不支持 tvOS") | ![支持 Tizen](~/media/shared/yes.png "支持 Tizen") | 
 | [气压计](barometer.md?context=xamarin/xamarin-forms) | ![支持 Android](~/media/shared/yes.png "支持 Android") | ![支持 iOS](~/media/shared/yes.png "支持 iOS") | ![支持 UWP](~/media/shared/yes.png "支持 UWP") | ![支持 watchOS](~/media/shared/yes.png "支持 watchOS") | ![不支持 tvOS](~/media/shared/no.png "不支持 tvOS") | ![支持 Tizen](~/media/shared/yes.png "支持 Tizen") | 
 | [电池](battery.md?context=xamarin/xamarin-forms) | ![支持 Android](~/media/shared/yes.png "支持 Android") | ![支持 iOS](~/media/shared/yes.png "支持 iOS") | ![支持 UWP](~/media/shared/yes.png "支持 UWP") | ![支持 watchOS](~/media/shared/yes.png "支持 watchOS") | ![有限支持 tvOS](~/media/shared/warn.png "有限支持 tvOS") | ![有限支持 Tizen](~/media/shared/warn.png "有限支持 Tizen") | 
 | [剪贴板](clipboard.md?context=xamarin/xamarin-forms) | ![支持 Android](~/media/shared/yes.png "支持 Android") | ![支持 iOS](~/media/shared/yes.png "支持 iOS") | ![支持 UWP](~/media/shared/yes.png "支持 UWP") | ![不支持 watchOS](~/media/shared/no.png "不支持 watchOS") | ![不支持 tvOS](~/media/shared/no.png "不支持 tvOS") | ![不支持 Tizen](~/media/shared/no.png "不支持 Tizen") | 

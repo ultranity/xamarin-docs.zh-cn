@@ -398,6 +398,8 @@
                   href: user-interface/map/geocoder.md
                 - name: 启动本机映射应用
                   href: user-interface/map/native-map-app.md
+            - name: MediaElement
+              href: user-interface/mediaelement.md
             - name: WebView
               href: user-interface/webview.md
         - name: 启动命令
@@ -620,6 +622,8 @@
           items:
             - name: 概述
               href: platform/android/index.md
+            - name: AndroidX 迁移
+              href: platform/android/androidx-migration.md
             - name: AppCompat 和材料设计
               href: platform/android/appcompat-material-design.md
             - name: 按钮填充和阴影
@@ -662,6 +666,8 @@
               href: platform/ios/named-font-size-scaling.md
             - name: 单元格背景色
               href: platform/ios/cell-background-color.md
+            - name: DatePicker 项选择
+              href: platform/ios/datepicker-selection.md
             - name: 条目游标颜色
               href: platform/ios/entry-cursor-color.md
             - name: 条目字体大小
@@ -702,16 +708,24 @@
               href: platform/ios/slider-thumb.md
             - name: SwipeView 轻扫转换模式
               href: platform/ios/swipeview-swipetransitionmode.md
+            - name: TabbedPage 半透明选项卡栏
+              href: platform/ios/tabbedpage-translucent-tabbar.md
+            - name: TimePicker 项选择
+              href: platform/ios/timepicker-selection.md
             - name: VisualElement 模糊
               href: platform/ios/visualelement-blur.md
             - name: VisualElement 投影
               href: platform/ios/visualelement-drop-shadow.md
             - name: VisualElement 旧版颜色模式
               href: platform/ios/legacy-color-mode.md
+            - name: VisualElement 第一个响应方
+              href: platform/ios/visualelement-first-responder.md
         - name: Windows
           items:
             - name: 概述
               href: platform/windows/index.md
+            - name: 默认图像目录
+              href: platform/windows/default-image-directory.md
             - name: InputView 阅读顺序
               href: platform/windows/inputview-reading-order.md
             - name: ListView SelectionMode

@@ -4,14 +4,14 @@ description: 本文档介绍 Xamarin.Essentials 中的 Clipboard 类，此类使
 ms.assetid: C52AE99A-0FB3-425D-9106-3DA5777FEFA0
 author: jamesmontemagno
 ms.author: jamont
-ms.date: 02/12/2019
+ms.date: 01/06/2020
 ms.custom: video
-ms.openlocfilehash: c186f5c61bd2fa3df305be92a03135e57e302d02
-ms.sourcegitcommit: 6e04246207aa743820029e8c217a43cfdd24f991
+ms.openlocfilehash: 0b5eaf3feb608a352f8f9c97bdddac55c89d4f94
+ms.sourcegitcommit: fec87846fcb262fc8b79774a395908c8c8fc8f5b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67352128"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77545177"
 ---
 # <a name="xamarinessentials-clipboard"></a>Xamarin.Essentials:剪贴板
 
@@ -45,6 +45,24 @@ await Clipboard.SetTextAsync("Hello World");
 
 ```csharp
 var text = await Clipboard.GetTextAsync();
+```
+
+只要剪贴板的任何内容更改，就会触发事件：
+
+```csharp
+public class ClipboardTest
+{
+    public ClipboardTest()
+    {
+        // Register for clipboard changes, be sure to unsubscribe when needed
+        Clipboard.ClipboardContentChanged += OnClipboardContentChanged;
+    }
+
+    void OnClipboardContentChanged(object sender, EventArgs    e)
+    {
+        Console.WriteLine($"Last clipboard change at {DateTime.UtcNow:T}";);
+    }
+}
 ```
 
 > [!TIP]
