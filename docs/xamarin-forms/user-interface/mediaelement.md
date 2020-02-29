@@ -7,12 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 02/18/2020
-ms.openlocfilehash: 601a2884cb9ca90ab6681e48afda4c9f1f467932
-ms.sourcegitcommit: 5d22f37dfc358678df52a4d17c57261056a72cb7
+ms.openlocfilehash: 76a30bfb17c8263345d781386acf9d34c01aae3b
+ms.sourcegitcommit: 5b6d3bddf7148f8bb374de5657bdedc125d72ea7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77674536"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78160407"
 ---
 # <a name="xamarinforms-mediaelement"></a>Xamarin. Forms MediaElement
 
@@ -38,14 +38,14 @@ Device.SetFlags(new string[]{ "MediaElement_Experimental" });
 ```
 
 > [!NOTE]
-> [`MediaElement`](xref:Xamarin.Forms.MediaElement)在 IOS、Android、通用 WINDOWS 平台（UWP）和其他平台上可用。
+> [`MediaElement`](xref:Xamarin.Forms.MediaElement)适用于 IOS、Android、通用 WINDOWS 平台（UWP）、macOS、Windows Presentation Foundation 和 Tizen。
 
 [`MediaElement`](xref:Xamarin.Forms.MediaElement) 定义以下属性:
 
 - [`Aspect`](xref:Xamarin.Forms.Aspect)类型的[`Aspect`](xref:Xamarin.Forms.MediaElement.Aspect)确定如何缩放媒体以适应显示区域。 此属性的默认值为 `AspectFit`。
 - `bool`类型的[`AutoPlay`](xref:Xamarin.Forms.MediaElement.AutoPlay)，指示在设置[`Source`](xref:Xamarin.Forms.MediaElement.Source)属性后是否自动开始播放媒体。 此属性的默认值为 `true`。
 - `double`类型的[`BufferingProgress`](xref:Xamarin.Forms.MediaElement.BufferingProgress)，指示当前缓冲进度。 此属性的默认值为0.0。
-- [`CanSeek`](xref:Xamarin.Forms.MediaElement.CanSeek)，类型 `bool`，指示是否可以通过设置[`Position`](xref:Xamarin.Forms.MediaElement.Position)属性的值来重定位媒体。 这是一个只读属性。
+- [`CanSeek`](xref:Xamarin.Forms.MediaElement.CanSeek)，类型 `bool`，指示是否可以通过设置[`Position`](xref:Xamarin.Forms.MediaElement.Position)属性的值来重定位媒体。 这是只读属性。
 - [`MediaElementState`](xref:Xamarin.Forms.MediaElementState)类型的[`CurrentState`](xref:Xamarin.Forms.MediaElement.CurrentState)，指示控件的当前状态。 这是一个只读属性，其默认值为 `MediaElementState.Closed`。
 - `TimeSpan?`类型的[`Duration`](xref:Xamarin.Forms.MediaElement.Duration)，指示当前打开的媒体的持续时间。 这是一个只读属性，其默认值为 `null`。
 - [`IsLooping`](xref:Xamarin.Forms.MediaElement.IsLooping)，类型 `bool`，描述当前加载的媒体源是否应在到达其结束后从开始处恢复播放。 此属性的默认值为 `false`。
@@ -53,8 +53,8 @@ Device.SetFlags(new string[]{ "MediaElement_Experimental" });
 - 类型 `TimeSpan`的[`Position`](xref:Xamarin.Forms.MediaElement.Position)描述了整个媒体播放时间的当前进度。 此属性的默认值为 `TimeSpan.Zero`。
 - `bool`类型的[`ShowsPlaybackControls`](xref:Xamarin.Forms.MediaElement.ShowsPlaybackControls)确定是否显示平台播放控件。 此属性的默认值为 `false`。
 - [`Source`](xref:Xamarin.Forms.MediaElement.Source)类型[`MediaSource`](xref:Xamarin.Forms.MediaSource)，指示加载到控件中的媒体源。
-- [`VideoHeight`](xref:Xamarin.Forms.MediaElement.VideoHeight)类型 `int`，指示控件的高度。 这是一个只读属性。
-- `int`类型的[`VideoWidth`](xref:Xamarin.Forms.MediaElement.VideoWidth)，指示控件的宽度。 这是一个只读属性。
+- [`VideoHeight`](xref:Xamarin.Forms.MediaElement.VideoHeight)类型 `int`，指示控件的高度。 这是只读属性。
+- `int`类型的[`VideoWidth`](xref:Xamarin.Forms.MediaElement.VideoWidth)，指示控件的宽度。 这是只读属性。
 - `double`类型的[`Volume`](xref:Xamarin.Forms.MediaElement.Volume)确定媒体的卷，它在0和1之间的线性刻度上表示。 此属性使用 `TwoWay` 绑定，其默认值为1。
 
 这些属性（`CanSeek` 属性除外）由[`BindableProperty`](xref:Xamarin.Forms.BindableProperty)对象提供支持，这意味着它们可以是数据绑定的目标和样式。

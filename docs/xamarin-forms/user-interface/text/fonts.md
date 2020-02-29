@@ -7,12 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 01/20/2020
-ms.openlocfilehash: 75cf5acdb862a15d722075269b2f736264be680f
-ms.sourcegitcommit: 10b4d7952d78f20f753372c53af6feb16918555c
+ms.openlocfilehash: 3798e3612547d36905dd62e6314f158958782874
+ms.sourcegitcommit: 5b6d3bddf7148f8bb374de5657bdedc125d72ea7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77636166"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78160607"
 ---
 # <a name="fonts-in-xamarinforms"></a>在 Xamarin.Forms 中的字体
 
@@ -148,6 +148,74 @@ label.FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label));
 <a name="Using_a_Custom_Font" />
 
 ## <a name="use-a-custom-font"></a>使用自定义字体
+
+使用非内置字样的字体，则需要一些特定于平台的编码。 此屏幕截图显示了使用 Xamarin 呈现的[Google 开源字体](https://www.google.com/fonts)中的自定义字体**Lobster** 。
+
+ [![IOS 和 Android 上的自定义字体](fonts-images/custom-sml.png "自定义字体示例")](fonts-images/custom.png#lightbox "自定义字体示例")
+
+为每个平台所需的步骤如下所述。 包含与应用程序的自定义字体文件时，请务必验证字体的许可证进行分发。
+
+### <a name="ios"></a>iOS
+
+可以首先通过确保加载自定义字体，然后使用 Xamarin `Font` 方法，通过名称来对其进行引用。
+按照[此博客文章](https://devblogs.microsoft.com/xamarin/custom-fonts-in-ios/)中的说明进行操作：
+
+1. 添加字体文件和**生成操作： BundleResource**和
+2. 更新**info.plist**文件（**应用程序提供的字体**，或 `UIAppFonts`，密钥），然后
+3. 它按名称引用任何在 Xamarin.Forms 中定义一种字体位置 ！
+
+```csharp
+new Label
+{
+    Text = "Hello, Forms!",
+    FontFamily = Device.RuntimePlatform == Device.iOS ? "Lobster-Regular" : null // set only for iOS
+}
+```
+
+### <a name="android"></a>Android
+
+适用于 Android 的 Xamarin.Forms 可以引用按照特定的命名标准添加到项目的自定义字体。 首先，将该字体文件添加到应用程序项目中的 "**资产**" 文件夹，并设置 "*生成操作： AndroidAsset*"。 然后，使用由哈希（#）分隔的完整路径和*字体名称*作为 Xamarin 中的字体名称，如下面的代码片段所示：
+
+```csharp
+new Label
+{
+  Text = "Hello, Forms!",
+  FontFamily = Device.RuntimePlatform == Device.Android ? "Lobster-Regular.ttf#Lobster-Regular" : null // set only for Android
+}
+```
+
+### <a name="windows"></a>Windows
+
+适用于 Windows 平台的 Xamarin.Forms 可以引用按照特定的命名标准添加到项目的自定义字体。 首先将字体文件添加到应用程序项目中的 **/Assets/Fonts/** 文件夹，并设置**生成操作： Content**。 然后，使用完整路径和字体文件名，后跟哈希（#）和**字体名称**，如下面的代码片段所示：
+
+```csharp
+new Label
+{
+    Text = "Hello, Forms!",
+    FontFamily = Device.RuntimePlatform == Device.UWP ? "Assets/Fonts/Lobster-Regular.ttf#Lobster" : null // set only for UWP apps
+}
+```
+
+> [!NOTE]
+> 请注意，但使用的字体文件名称和字体名称可能不同。 若要在 Windows 上发现字体名称，请右键单击 .ttf 文件并选择 "**预览**"。 然后可以从预览窗口中确定的字体名称。
+
+### <a name="xaml"></a>XAML
+
+还可以在 XAML 中使用[`Device.RuntimePlatform`](~/xamarin-forms/platform/device.md#interact-with-the-ui-from-background-threads)来呈现自定义字体：
+
+```xaml
+<Label Text="Hello Forms with XAML">
+    <Label.FontFamily>
+        <OnPlatform x:TypeArguments="x:String">
+                <On Platform="iOS" Value="Lobster-Regular" />
+                <On Platform="Android" Value="Lobster-Regular.ttf#Lobster-Regular" />
+                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+        </OnPlatform>
+    </Label.FontFamily>
+</Label>
+```
+
+## <a name="use-a-custom-font-preview"></a>使用自定义字体（预览）
 
 自定义字体可以添加到 Xamarin 共享项目中，并可由平台项目使用，无需任何其他操作。 完成此目的的过程如下所示：
 
