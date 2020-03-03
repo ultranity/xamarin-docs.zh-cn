@@ -7,12 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 02/07/2020
-ms.openlocfilehash: eff7dff15fb75859d43923f71696bccf1b0e2cc5
-ms.sourcegitcommit: 87b818373d83fd3a6856c4b5a702b013a731b5ea
+ms.openlocfilehash: c3c4863814949be2e6575e92136ca740452a2f3c
+ms.sourcegitcommit: f43d5ecafd19cbc5cce39201916a83927a34617a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77069647"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78214980"
 ---
 # <a name="xamarinforms-map-initialization-and-configuration"></a>Xamarin。窗体映射初始化和配置
 
@@ -105,14 +105,16 @@ Xamarin.FormsMaps.Init("INSERT_AUTHENTICATION_TOKEN_HERE");
 
 ```xml
 <application ...>
-    <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="PASTE-YOUR-API-KEY-HERE" />
+    <meta-data android:name="com.google.android.geo.API_KEY" android:value="PASTE-YOUR-API-KEY-HERE" />
 </application>
 ```
 
 这会将 API 密钥嵌入清单中。 如果没有有效的 API 密钥， [`Map`](xref:Xamarin.Forms.Maps.Map)控件将显示一个空白网格。
 
 > [!NOTE]
-> 请注意，为了使 APK 来访问 Google 地图，您必须包括 sha-1 指纹，包使用对 APK 进行签名每个密钥存储 （调试和发布） 的名称。 例如，如果一台计算机用于调试和生成发布 APK 的另一台计算机，您应包括 sha-1 证书指纹从第一台计算机的调试密钥存储和从的发布密钥存储的 sha-1 证书指纹第二台计算机。 另外，请记住，如果应用的**包名称**发生更改，则编辑密钥凭据。 请参阅[获取 Google MAPS API 密钥](~/android/platform/maps-and-location/maps/obtaining-a-google-maps-api-key.md)。
+> 对于 API 密钥，`com.google.android.geo.API_KEY` 是建议的元数据名称。 为了向后兼容，可以使用 `com.google.android.maps.v2.API_KEY` 元数据名称，但仅允许对 Android Maps API v2 进行身份验证。
+
+要使 APK 能够访问 Google Maps，你必须为每个用于签署 APK 的密钥存储（调试和发布）包含 SHA-1 指纹和包名称。 例如，如果一台计算机用于调试和生成发布 APK 的另一台计算机，您应包括 sha-1 证书指纹从第一台计算机的调试密钥存储和从的发布密钥存储的 sha-1 证书指纹第二台计算机。 另外，请记住，如果应用的**包名称**发生更改，则编辑密钥凭据。 请参阅[获取 Google MAPS API 密钥](~/android/platform/maps-and-location/maps/obtaining-a-google-maps-api-key.md)。
 
 #### <a name="specify-the-google-play-services-version-number"></a>指定 Google Play 服务版本号
 

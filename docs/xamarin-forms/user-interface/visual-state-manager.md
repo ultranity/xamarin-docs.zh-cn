@@ -8,12 +8,12 @@ ms.custom: xamu-video
 author: davidbritch
 ms.author: dabritch
 ms.date: 02/21/2020
-ms.openlocfilehash: 086adee4dc6b921abe92f6486186023a3125695c
-ms.sourcegitcommit: 10b4d7952d78f20f753372c53af6feb16918555c
+ms.openlocfilehash: 0149806f3ab3772bc206cea9540a989d997c817b
+ms.sourcegitcommit: f43d5ecafd19cbc5cce39201916a83927a34617a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77636040"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78214989"
 ---
 # <a name="xamarinforms-visual-state-manager"></a>Xamarin. Forms 视觉对象状态管理器
 
@@ -405,15 +405,16 @@ VSM 标记的其余部分是与之前相同。
 
 下表列出了在 Xamarin 中定义的视觉对象状态：
 
-| 类 | States | 更多信息 |
+| 类 | 状态 | 更多信息 |
 | ----- | ------ | ---------------- |
 | `Button` | `Pressed` | [按钮视觉状态](~/xamarin-forms/user-interface/button.md#button-visual-states) |
-| `CarouselView` | `DefaultItem`、`CurrentItem`、`PreviousItem`、`NextItem` | [CarouselView 视觉状态](~/xamarin-forms/user-interface/carouselview/interaction.md#define-visual-states) |
-| `CollectionView` | `Selected` | [更改选定项的颜色](~/xamarin-forms/user-interface/collectionview/selection.md#change-selected-item-color) |
+| `CarouselView` | `DefaultItem`, `CurrentItem`, `PreviousItem`, `NextItem` | [CarouselView 视觉状态](~/xamarin-forms/user-interface/carouselview/interaction.md#define-visual-states) |
 | `ImageButton` | `Pressed` | [ImageButton 视觉状态](~/xamarin-forms/user-interface/imagebutton.md#imagebutton-visual-states) |
-| `VisualElement` | `Normal`、`Disabled`、`Focused`、`Selected` | [常见状态](#common-states) |
+| `VisualElement` | `Normal`, `Disabled`, `Focused`, `Selected` | [常见状态](#common-states) |
 
 每个状态都可以通过名为 `CommonStates`的视觉状态组进行访问。
+
+此外，`CollectionView` 还实现了 `Selected` 状态。 有关详细信息，请参阅[更改选定项的颜色](~/xamarin-forms/user-interface/collectionview/selection.md#change-selected-item-color)。
 
 ## <a name="set-state-on-multiple-elements"></a>设置多个元素的状态
 
@@ -480,7 +481,7 @@ VSM 标记附加到 `StackLayout`。 有两个互斥状态，分别名为 "常�
 
 ## <a name="define-your-own-visual-states"></a>定义自己的视觉状态
 
-派生自 `VisualElement` 的每个类都支持 "Normal"、"聚焦" 和 "Disabled" 三种常见状态。 在内部， [`VisualElement`](https://github.com/xamarin/Xamarin.Forms/blob/master/Xamarin.Forms.Core/VisualElement.cs)类将在它处于启用或禁用状态、焦点或失去焦点并调用静态[`VisualStateManager.GoToState`](xref:Xamarin.Forms.VisualStateManager.GoToState(Xamarin.Forms.VisualElement,System.String))方法时进行检测：
+派生自 `VisualElement` 的每个类都支持通用状态 "常规"、"重点" 和 "已禁用"。 此外，`CollectionView` 类还支持 "Selected" 状态。 在内部， [`VisualElement`](https://github.com/xamarin/Xamarin.Forms/blob/master/Xamarin.Forms.Core/VisualElement.cs)类将在它处于启用或禁用状态、焦点或失去焦点并调用静态[`VisualStateManager.GoToState`](xref:Xamarin.Forms.VisualStateManager.GoToState(Xamarin.Forms.VisualElement,System.String))方法时进行检测：
 
 ```csharp
 VisualStateManager.GoToState(this, "Focused");
@@ -590,15 +591,15 @@ public partial class VsmValidationPage : ContentPage
 
 可视状态支持状态触发器，这些触发器是一组专用的触发器，用于定义应用[`VisualState`](xref:Xamarin.Forms.VisualState)应应用的条件。
 
-状态触发器添加到[`VisualState`](xref:Xamarin.Forms.VisualState)的[`StateTriggers`](xref:Xamarin.Forms.VisualState.StateTriggers)集合。 此集合可以包含单个状态触发器或多个状态触发器。 当集合中的任何状态触发器处于活动状态时，将应用[`VisualState`](xref:Xamarin.Forms.VisualState) 。
+状态触发器添加到 [`StateTriggers`](xref:Xamarin.Forms.VisualState.StateTriggers) 的 [`VisualState`](xref:Xamarin.Forms.VisualState) 集合。 此集合可以包含一个或多个状态触发器。 当此集合中的任何状态触发器处于活动状态时，便会应用 [`VisualState`](xref:Xamarin.Forms.VisualState)。
 
-使用状态触发器控制可视状态时，Xamarin 使用以下优先规则来确定哪个触发器（以及相应的[`VisualState`](xref:Xamarin.Forms.VisualState)）将处于活动状态：
+使用状态触发器来控制视觉对象状态时，Xamarin.Forms 使用以下优先规则来确定哪个触发器（以及相应的 [`VisualState`](xref:Xamarin.Forms.VisualState)）处于活动状态：
 
-1. 派生自[`StateTriggerBase`](xref:Xamarin.Forms.StateTriggerBase)的任何触发器。
-1. 由于满足[`MinWindowWidth`](xref:Xamarin.Forms.AdaptiveTrigger.MinWindowWidth)条件而激活的[`AdaptiveTrigger`](xref:Xamarin.Forms.AdaptiveTrigger) 。
-1. 由于满足[`MinWindowHeight`](xref:Xamarin.Forms.AdaptiveTrigger.MinWindowHeight)条件而激活的[`AdaptiveTrigger`](xref:Xamarin.Forms.AdaptiveTrigger) 。
+1. 任何派生自 [`StateTriggerBase`](xref:Xamarin.Forms.StateTriggerBase) 的触发器。
+1. 因满足 [`AdaptiveTrigger`](xref:Xamarin.Forms.AdaptiveTrigger) 条件而激活的 [`MinWindowWidth`](xref:Xamarin.Forms.AdaptiveTrigger.MinWindowWidth)。
+1. 因满足 [`AdaptiveTrigger`](xref:Xamarin.Forms.AdaptiveTrigger) 条件而激活的 [`MinWindowHeight`](xref:Xamarin.Forms.AdaptiveTrigger.MinWindowHeight)。
 
-如果多个触发器同时处于活动状态（例如，两个自定义触发器），则优先使用在标记中声明的第一个触发器。
+如果多个触发器同时处于活动状态（例如，两个自定义触发器），则标记中声明的第一个触发器优先。
 
 有关状态触发器的详细信息，请参阅[状态触发器](~/xamarin-forms/app-fundamentals/triggers.md#state-triggers)。
 
