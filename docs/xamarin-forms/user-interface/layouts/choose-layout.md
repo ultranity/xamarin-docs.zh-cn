@@ -7,12 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 08/21/2018
-ms.openlocfilehash: 161da8948f356fef997a411855598bc99d2f49b7
-ms.sourcegitcommit: 9bfedf07940dad7270db86767eb2cc4007f2a59f
+ms.openlocfilehash: d029e679400b9523df8e03d509230849fa0c96c4
+ms.sourcegitcommit: 9ae537efc106f56aeec562773004c6f708704ae9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69893994"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252880"
 ---
 # <a name="choose-a-xamarinforms-layout"></a>选择 "Xamarin" 布局
 
@@ -26,7 +26,7 @@ Xamarin. Forms 布局类允许您在应用程序中排列和分组 UI 控件。 
 
 ## <a name="stacklayout"></a>StackLayout
 
-[@No__t_1](xref:Xamarin.Forms.StackLayout)可以水平或垂直地组织一维堆栈中的元素。 [@No__t_1](xref:Xamarin.Forms.StackLayout.Orientation)属性指定元素的方向，默认方向为[`Vertical`](xref:Xamarin.Forms.StackOrientation)。 `StackLayout` 通常用于排列页面上 UI 的子节。
+[`StackLayout`](xref:Xamarin.Forms.StackLayout)可以水平或垂直地组织一维堆栈中的元素。 [`Orientation`](xref:Xamarin.Forms.StackLayout.Orientation)属性指定元素的方向，默认方向为[`Vertical`](xref:Xamarin.Forms.StackOrientation)。 `StackLayout` 通常用于排列页面上 UI 的子节。
 
 下面的 XAML 演示如何创建包含三个[`Label`](xref:Xamarin.Forms.Label)对象的垂直[`StackLayout`](xref:Xamarin.Forms.StackLayout) ：
 
@@ -40,7 +40,7 @@ Xamarin. Forms 布局类允许您在应用程序中排列和分组 UI 控件。 
 
 在[`StackLayout`](xref:Xamarin.Forms.StackLayout)中，如果未显式设置元素的大小，则它将展开以填充可用宽度或高度（如果[`Orientation`](xref:Xamarin.Forms.StackLayout.Orientation)属性设置为[`Horizontal`](xref:Xamarin.Forms.StackOrientation)）。
 
-[@No__t_1](xref:Xamarin.Forms.StackLayout)通常用作父布局，其中包含其他子布局。 但是，不应使用 `StackLayout` `StackLayout` 对象组合来重现[`Grid`](xref:Xamarin.Forms.Grid)布局。 下面的代码演示了此错误做法的示例：
+[`StackLayout`](xref:Xamarin.Forms.StackLayout)通常用作父布局，其中包含其他子布局。 但是，不应使用 `StackLayout` `StackLayout` 对象组合来重现[`Grid`](xref:Xamarin.Forms.Grid)布局。 下面的代码演示了此错误做法的示例：
 
 ```xaml
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
@@ -77,7 +77,7 @@ Xamarin. Forms 布局类允许您在应用程序中排列和分组 UI 控件。 
 
 ## <a name="grid"></a>Grid
 
-[@No__t_1](xref:Xamarin.Forms.Grid)用于显示行和列中的元素，这些元素的大小可以是比例的也可以是绝对的。 网格的行和列使用[`RowDefinitions`](xref:Xamarin.Forms.Grid.RowDefinitions)和[`ColumnDefinitions`](xref:Xamarin.Forms.Grid.ColumnDefinitions)属性指定。
+[`Grid`](xref:Xamarin.Forms.Grid)用于显示行和列中的元素，这些元素的大小可以是比例的也可以是绝对的。 网格的行和列使用[`RowDefinitions`](xref:Xamarin.Forms.Grid.RowDefinitions)和[`ColumnDefinitions`](xref:Xamarin.Forms.Grid.ColumnDefinitions)属性指定。
 
 若要将元素放置在特定[`Grid`](xref:Xamarin.Forms.Grid)单元中，请使用[`Grid.Column`](xref:Xamarin.Forms.Grid.ColumnProperty)并[`Grid.Row`](xref:Xamarin.Forms.Grid.RowProperty)附加属性。 若要使元素跨多个行和列，请使用[`Grid.RowSpan`](xref:Xamarin.Forms.Grid.RowSpanProperty)和[`Grid.ColumnSpan`](xref:Xamarin.Forms.Grid.ColumnSpanProperty)附加属性。
 
@@ -97,7 +97,7 @@ Xamarin. Forms 布局类允许您在应用程序中排列和分组 UI 控件。 
         <ColumnDefinition />
     </Grid.ColumnDefinitions>    
     <Label Text="Column 0, Row 0"
-           Width="200" />
+           WidthRequest="200" />
     <Label Grid.Column="1"
            Text="Column 1, Row 0" />
     <Label Grid.Row="1"
@@ -113,7 +113,7 @@ Xamarin. Forms 布局类允许您在应用程序中排列和分组 UI 控件。 
 - 每一行都具有与设备无关的50单元的显式高度。
 - 第一列的宽度设置为[`Auto`](xref:Xamarin.Forms.GridLength.Auto)，因此它的宽度是其子级所需的宽度。 在这种情况下，它是200与设备无关的单位宽，以容纳第一个[`Label`](xref:Xamarin.Forms.Label)的宽度。
 
-可以通过使用自动调整大小在列或行内分布空间，从而使列和行大小适合其内容。 这是通过将[`RowDefinition`](xref:Xamarin.Forms.RowDefinition)的高度或[`ColumnDefinition`](xref:Xamarin.Forms.ColumnDefinition)的宽度设置为[`Auto`](xref:Xamarin.Forms.GridLength.Auto)实现的。 还可以使用比例大小调整，按加权比例在网格行和列之间分配可用空间。 为此，可将 `RowDefinition` 的高度或 `ColumnDefinition` 的宽度设置为使用 `*` 运算符的值。
+可以通过使用自动调整大小在列或行内分布空间，从而使列和行大小适合其内容。 这是通过将[`RowDefinition`](xref:Xamarin.Forms.RowDefinition)的高度或[`ColumnDefinition`](xref:Xamarin.Forms.ColumnDefinition)的宽度设置为[`Auto`](xref:Xamarin.Forms.GridLength.Auto)实现的。 还可以使用比例大小调整，按加权比例在网格行和列之间分配可用空间。 为此，可将 `RowDefinition`的高度或 `ColumnDefinition`的宽度设置为使用 `*` 运算符的值。
 
 > [!CAUTION]
 > 尝试确保尽可能少的行和列设置为[`Auto`](xref:Xamarin.Forms.GridLength.Auto)大小。 每个自动调整大小的行或列都会导致布局引擎执行额外布局计算。 而是应在可能时使用固定大小的行和列。 另外，还可以设置行和列，使其占用的空间量与[`GridUnitType.Star`](xref:Xamarin.Forms.GridUnitType.Star)枚举值成正比。
@@ -122,7 +122,7 @@ Xamarin. Forms 布局类允许您在应用程序中排列和分组 UI 控件。 
 
 ## <a name="flexlayout"></a>FlexLayout
 
-[@No__t_1](xref:Xamarin.Forms.FlexLayout)类似于[`StackLayout`](xref:Xamarin.Forms.StackLayout) ，它在堆栈中水平或垂直显示子元素。 但是，如果在单个行或列中容纳太多项，`FlexLayout` 还可以包装其子级，还可以更精细地控制其子元素的大小、方向和对齐方式。
+[`FlexLayout`](xref:Xamarin.Forms.FlexLayout)类似于[`StackLayout`](xref:Xamarin.Forms.StackLayout) ，它在堆栈中水平或垂直显示子元素。 但是，如果在单个行或列中容纳太多项，`FlexLayout` 还可以包装其子级，还可以更精细地控制其子元素的大小、方向和对齐方式。
 
 下面的 XAML 演示如何创建在单个列中显示其视图的[`FlexLayout`](xref:Xamarin.Forms.FlexLayout) ：
 
@@ -138,20 +138,20 @@ Xamarin. Forms 布局类允许您在应用程序中排列和分组 UI 控件。 
 
 在此示例中，布局的工作方式如下：
 
-- [@No__t_1](xref:Xamarin.Forms.FlexLayout.Direction)属性设置为 `Column`，这将导致 `FlexLayout` 的子级排列在一列项中。
-- [@No__t_1](xref:Xamarin.Forms.FlexLayout.AlignItems)属性设置为 `Center`，这会使每个项水平居中。
-- [@No__t_1](xref:Xamarin.Forms.FlexLayout.JustifyContent)属性设置为 `SpaceEvenly`，这将在所有项之间、在第一项的上方和最后一项的上方分配所有剩余的垂直空间。
+- [`Direction`](xref:Xamarin.Forms.FlexLayout.Direction)属性设置为 `Column`，这将导致 `FlexLayout` 的子级排列在一列项中。
+- [`AlignItems`](xref:Xamarin.Forms.FlexLayout.AlignItems)属性设置为 `Center`，这会使每个项水平居中。
+- [`JustifyContent`](xref:Xamarin.Forms.FlexLayout.JustifyContent)属性设置为 `SpaceEvenly`，这将在所有项之间、在第一项的上方和最后一项的上方分配所有剩余的垂直空间。
 
 有关详细信息，请参阅[Xamarin. Forms FlexLayout](flex-layout.md)。
 
 ## <a name="relativelayout"></a>RelativeLayout
 
-[@No__t_1](xref:Xamarin.Forms.RelativeLayout)用于相对于布局或同级元素的属性定位和调整元素大小。 默认情况下，元素位于布局的左上角。 @No__t_0 可用于创建跨设备大小按比例缩放的 Ui。
+[`RelativeLayout`](xref:Xamarin.Forms.RelativeLayout)用于相对于布局或同级元素的属性定位和调整元素大小。 默认情况下，元素位于布局的左上角。 `RelativeLayout` 可用于创建跨设备大小按比例缩放的 Ui。
 
 在[`RelativeLayout`](xref:Xamarin.Forms.RelativeLayout)中，位置和大小指定为 "约束"。 约束具有[`Factor`](xref:Xamarin.Forms.ConstraintExpression.Factor)和[`Constant`](xref:Xamarin.Forms.ConstraintExpression.Constant)属性，这些属性可用于将位置和大小定义为其他对象的多个属性（或分数）和一个常数。 此外，常量可以为负数。
 
 > [!NOTE]
-> [@No__t_1](xref:Xamarin.Forms.RelativeLayout)支持将元素放在其自身的边界之外。
+> [`RelativeLayout`](xref:Xamarin.Forms.RelativeLayout)支持将元素放在其自身的边界之外。
 
 下面的 XAML 演示如何排列[`RelativeLayout`](xref:Xamarin.Forms.RelativeLayout)中的元素：
 
@@ -186,7 +186,7 @@ Xamarin. Forms 布局类允许您在应用程序中排列和分组 UI 控件。 
 - 向蓝色[`BoxView`](xref:Xamarin.Forms.BoxView)提供与设备无关的50x50 单元的显式大小。 它置于布局的左上角，这是默认位置。
 - 红色[`BoxView`](xref:Xamarin.Forms.BoxView)的明确大小为与设备无关的50x50 单位。 它置于布局的右上角。
 - 灰色[`BoxView`](xref:Xamarin.Forms.BoxView)的明确宽度为15个与设备无关的单位，并且其高度设置为其父级的高度的75%。
-- 绿色[`BoxView`](xref:Xamarin.Forms.BoxView)未获得显式大小。 其位置设置为相对于名为 `pole` 的 `BoxView`。
+- 绿色[`BoxView`](xref:Xamarin.Forms.BoxView)未获得显式大小。 其位置设置为相对于名为 `pole`的 `BoxView`。
 
 > [!WARNING]
 > 请尽可能避免使用 `RelativeLayout`。 它会导致 CPU 不得不执行显著更多的工作。
@@ -195,12 +195,12 @@ Xamarin. Forms 布局类允许您在应用程序中排列和分组 UI 控件。 
 
 ## <a name="absolutelayout"></a>AbsoluteLayout
 
-[@No__t_1](xref:Xamarin.Forms.AbsoluteLayout)用于使用显式值或相对于布局大小的值对元素进行定位和调整大小。 位置由子级的左上角指定，相对于 `AbsoluteLayout` 的左上角。
+[`AbsoluteLayout`](xref:Xamarin.Forms.AbsoluteLayout)用于使用显式值或相对于布局大小的值对元素进行定位和调整大小。 位置由子级的左上角指定，相对于 `AbsoluteLayout`的左上角。
 
 应将[`AbsoluteLayout`](xref:Xamarin.Forms.AbsoluteLayout)视为只在您可以对子级施加大小或元素的大小不会影响其他子级的位置时使用的特殊用途的布局。 此布局的标准用途是创建覆盖层，其中包含具有其他控件的页面，可能是为了防止用户与页面上的普通控件交互。
 
 > [!IMPORTANT]
-> @No__t_0 和 `VerticalOptions` 属性对 `AbsoluteLayout` 的子级不起作用。
+> `HorizontalOptions` 和 `VerticalOptions` 属性对 `AbsoluteLayout`的子级不起作用。
 
 在[`AbsoluteLayout`](xref:Xamarin.Forms.AbsoluteLayout)中， [`AbsoluteLayout.LayoutBounds`](xref:Xamarin.Forms.AbsoluteLayout.LayoutBoundsProperty)附加属性用于指定元素的水平位置、垂直位置、宽度和高度。 此外， [`AbsoluteLayout.LayoutFlags`](xref:Xamarin.Forms.AbsoluteLayout.LayoutFlagsProperty)附加属性指定将如何解释布局边界。
 
