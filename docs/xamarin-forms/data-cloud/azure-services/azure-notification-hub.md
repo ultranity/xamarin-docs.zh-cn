@@ -7,12 +7,12 @@ ms.technology: xamarin-forms
 author: profexorgeek
 ms.author: jusjohns
 ms.date: 11/27/2019
-ms.openlocfilehash: 8b633481d74810bc4d86d68f8c36d55980092510
-ms.sourcegitcommit: 52fb214c0e0243587d4e9ad9306b75e92a8cc8b7
+ms.openlocfilehash: 778f56ec844e2802c1e1bc783824d55218678761
+ms.sourcegitcommit: e9d88587aafc912124b87732d81c3910247ad811
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76940313"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78337290"
 ---
 # <a name="send-and-receive-push-notifications-with-azure-notification-hubs-and-xamarinforms"></a>通过 Azure 通知中心和 Xamarin 发送和接收推送通知
 
@@ -518,6 +518,7 @@ void ProcessNotification(NSDictionary options, bool fromFinishedLaunching)
 1. 在测试应用程序是否可以接收推送通知时，必须使用物理设备。 Android 和 iOS 虚拟设备可能未正确配置，无法接收推送通知。
 1. 示例 Android 应用程序在颁发 Firebase 令牌时注册其令牌和模板。 在测试过程中，可能需要请求新令牌并向 Azure 通知中心重新注册。 强制执行此方法的最佳方式是清理项目、删除 `bin` 和 `obj` 文件夹，并从设备中卸载应用程序，然后重新生成并部署。
 1. 推送通知流的许多部分都以异步方式执行。 这可能会导致未命中断点或按意外顺序命中断点。 使用设备或调试日志记录跟踪执行，而不中断应用程序流。 使用 `Constants`中指定的 `DebugTag` 筛选 Android 设备日志。
+1. 当在 Visual Studio 中停止调试时，应用程序将强制关闭。 在调试过程中启动的任何消息接收器或其他服务将关闭，并且将不会响应消息事件。
 
 ## <a name="create-a-notification-dispatcher"></a>创建通知调度程序
 
