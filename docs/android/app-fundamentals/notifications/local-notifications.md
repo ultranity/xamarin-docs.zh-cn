@@ -8,11 +8,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 08/16/2018
 ms.openlocfilehash: 617c04e2f40af535fb381362a389524d693fad0b
-ms.sourcegitcommit: 2fbe4932a319af4ebc829f65eb1fb1816ba305d3
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025641"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78913462"
 ---
 # <a name="local-notifications-on-android"></a>Android 中的本地通知
 
@@ -26,7 +26,7 @@ Android 提供两个系统控制的区域，用于向用户显示通知图标和
 
 若要获取有关通知的详细信息，用户可以打开通知抽屉（这会展开每个通知图标以显示通知内容）并执行与通知关联的任何操作。 以下屏幕截图显示了与上面显示的通知区域相对应的*通知抽屉*：
 
-[显示三个通知的![示例通知抽屉](local-notifications-images/02-notification-drawer-sml.png)](local-notifications-images/02-notification-drawer.png#lightbox)
+[显示三个通知的 ![示例通知抽屉](local-notifications-images/02-notification-drawer-sml.png)](local-notifications-images/02-notification-drawer.png#lightbox)
 
 Android 通知使用两种类型的布局：
 
@@ -53,7 +53,7 @@ Android 通知使用两种类型的布局：
 
 这些元素显示如下图所示：
 
-[通知元素![位置](local-notifications-images/03-notification-callouts-sml.png)](local-notifications-images/03-notification-callouts.png#lightbox)
+[通知元素 ![位置](local-notifications-images/03-notification-callouts-sml.png)](local-notifications-images/03-notification-callouts.png#lightbox)
 
 基本布局的高度限制为64与密度无关的像素（dp）。 默认情况下，Android 创建这种基本通知样式。
 
@@ -112,7 +112,7 @@ Android 为单事件通知支持三个扩展的布局样式：
 
 随 Android Oreo 一起安装的**YouTube**应用列出了两种通知类别：**下载通知**和**一般通知**：
 
-[Android Oreo 中的 YouTube![通知屏幕](local-notifications-images/27-youtube-sml.png)](local-notifications-images/27-youtube.png#lightbox)
+[Android Oreo 中的 YouTube ![通知屏幕](local-notifications-images/27-youtube-sml.png)](local-notifications-images/27-youtube.png#lightbox)
 
 其中每个类别对应于一个通知通道。 YouTube 应用实现了**下载通知**通道和**一般通知**通道。 用户可以点击 "**下载通知**"，其中显示了应用下载通知通道的 "设置" 屏幕：
 
@@ -199,7 +199,7 @@ void CreateNotificationChannel()
 
 若要在 Android 中生成通知，请执行以下步骤：
 
-1. 实例化一个 `NotificationCompat.Builder` 对象。
+1. 实例化 `NotificationCompat.Builder` 对象。
 
 2. 调用 `NotificationCompat.Builder` 对象上的各种方法以设置通知选项。
 
@@ -236,7 +236,7 @@ const int notificationId = 0;
 notificationManager.Notify (notificationId, notification);
 ```
 
-在此示例中，将实例化名为 `builder` 的新 `NotificationCompat.Builder` 对象，以及要使用的通知通道的 ID。 设置通知的标题和文本，并从**资源/可绘制/ic_notification**加载通知图标。 对通知生成器的 `Build` 方法的调用将使用这些设置创建通知对象。 下一步是调用通知管理器的 `Notify` 方法。 如以上所示，若要查找通知管理器，请调用 `GetSystemService`。
+在此示例中，将实例化名为 `builder` 的新 `NotificationCompat.Builder` 对象，以及要使用的通知通道的 ID。 设置通知的标题和文本，并从**资源/可绘制/ic_notification .png**加载通知图标。 对通知生成器的 `Build` 方法的调用将使用这些设置创建通知对象。 下一步是调用通知管理器的 `Notify` 方法。 如以上所示，若要查找通知管理器，请调用 `GetSystemService`。
 
 `Notify` 方法接受两个参数：通知标识符和通知对象。 通知标识符是一个唯一的整数，用于标识应用程序的通知。 在此示例中，通知标识符设置为零（0）;但是，在生产应用程序中，您需要为每个通知指定一个唯一标识符。 在对 `Notify` 的调用中重用以前的标识符值会导致覆盖最后一个通知。
 
@@ -297,7 +297,7 @@ notification.Defaults |= NotificationDefaults.Vibrate;
 
 ### <a name="updating-a-notification"></a>更新通知
 
-如果要在发布通知之后更新其内容，可以重复使用现有的 `NotificationCompat.Builder` 对象来创建新的通知对象，并使用上一通知的标识符发布此通知。 例如:
+如果要在发布通知之后更新其内容，可以重复使用现有的 `NotificationCompat.Builder` 对象来创建新的通知对象，并使用上一通知的标识符发布此通知。 例如：
 
 ```csharp
 // Update the existing notification builder content:
@@ -454,13 +454,13 @@ Android 通知通常显示原始应用的图标（位于通知左侧）。 但�
 
 请注意，当以大图标格式显示通知时，小型应用图标将显示为大图标右下角的标记。
 
-若要在通知中将图像用作大图标，请调用通知生成器的[SetLargeIcon](xref:Android.App.Notification.Builder.SetLargeIcon*)方法，并传入图像的位图。 与 `SetSmallIcon`不同，`SetLargeIcon` 只接受位图。 若要将图像文件转换为位图，请使用[BitmapFactory](xref:Android.Graphics.BitmapFactory)类。 例如:
+若要在通知中将图像用作大图标，请调用通知生成器的[SetLargeIcon](xref:Android.App.Notification.Builder.SetLargeIcon*)方法，并传入图像的位图。 与 `SetSmallIcon`不同，`SetLargeIcon` 只接受位图。 若要将图像文件转换为位图，请使用[BitmapFactory](xref:Android.Graphics.BitmapFactory)类。 例如：
 
 ```csharp
 builder.SetLargeIcon (BitmapFactory.DecodeResource (Resources, Resource.Drawable.monkey_icon));
 ```
 
-此示例代码在**资源/可绘制/monkey_icon**文件中打开图像文件，将其转换为位图，并将生成的位图传递到 `NotificationCompat.Builder`。 通常情况下，源图像分辨率大于小图标 &ndash; 但并不大。 太大的图像可能会导致不必要的调整大小操作，这些操作可能会延迟发送通知。
+此示例代码在**资源/可绘制/monkey_icon .png**中打开图像文件，将其转换为位图，并将生成的位图传递到 `NotificationCompat.Builder`。 通常情况下，源图像分辨率大于小图标 &ndash; 但并不大。 太大的图像可能会导致不必要的调整大小操作，这些操作可能会延迟发送通知。
 
 ### <a name="big-text-style"></a>大文本样式
 
@@ -474,7 +474,7 @@ builder.SetLargeIcon (BitmapFactory.DecodeResource (Resources, Resource.Drawable
 
 此扩展的布局格式还包括通知底部的摘要文本。 *大文本*通知的最大高度为 256 dp。
 
-若要创建*大文本*通知，请像以前一样实例化 `NotificationCompat.Builder` 对象，然后实例化并将[BigTextStyle](xref:Android.App.Notification.BigTextStyle)对象添加到 `NotificationCompat.Builder` 对象。 下面是一个示例：
+若要创建*大文本*通知，请像以前一样实例化 `NotificationCompat.Builder` 对象，然后实例化并将[BigTextStyle](xref:Android.App.Notification.BigTextStyle)对象添加到 `NotificationCompat.Builder` 对象。 以下是示例：
 
 ```csharp
 // Instantiate the Big Text style:
@@ -511,7 +511,7 @@ builder.SetStyle (textStyle);
 
 请注意，当通知以 compact 格式显示时，它会显示通知文本（传递到通知生成器的 `SetContentText` 方法的文本，如前文所述）。 但是，当扩展通知以显示图像时，它将显示图像上方的摘要文本。
 
-若要创建*图像*通知，请将 `NotificationCompat.Builder` 对象实例化为之前，然后创建[BigPictureStyle](xref:Android.App.Notification.BigPictureStyle)对象并将其插入到 `NotificationCompat.Builder` 对象中。 例如:
+若要创建*图像*通知，请将 `NotificationCompat.Builder` 对象实例化为之前，然后创建[BigPictureStyle](xref:Android.App.Notification.BigPictureStyle)对象并将其插入到 `NotificationCompat.Builder` 对象中。 例如：
 
 ```csharp
 // Instantiate the Image (Big Picture) style:
@@ -529,7 +529,7 @@ builder.SetStyle (picStyle);
 // Create the notification and publish it ...
 ```
 
-与 `NotificationCompat.Builder`的 `SetLargeIcon` 方法一样，`BigPictureStyle` 的[BigPicture](xref:Android.App.Notification.BigPictureStyle.BigPicture*)方法需要要在通知正文中显示的图像的位图。 在此示例中，的[DecodeResource](xref:Android.Graphics.BitmapFactory.DecodeResource*) `BitmapFactory` 方法将读取位于**资源//x_bldg**上的图像文件，并将其转换为位图。
+与 `NotificationCompat.Builder`的 `SetLargeIcon` 方法一样，`BigPictureStyle` 的[BigPicture](xref:Android.App.Notification.BigPictureStyle.BigPicture*)方法需要要在通知正文中显示的图像的位图。 在此示例中，的[DecodeResource](xref:Android.Graphics.BitmapFactory.DecodeResource*) `BitmapFactory` 方法将读取位于**资源//x_bldg .png**的映像文件，并将其转换为位图。
 
 你还可以显示未打包为资源的映像。 例如，以下示例代码从本地 SD 卡加载映像，并在*映像*通知中显示它：
 
@@ -570,7 +570,7 @@ builder.SetStyle (picStyle);
 
 ![展开的示例收件箱通知](local-notifications-images/21-inbox-expanded.png)
 
-若要创建*收件箱*通知，请先实例化 `NotificationCompat.Builder` 的对象，然后再将[InboxStyle](xref:Android.App.Notification.InboxStyle)对象添加到 `NotificationCompat.Builder`中。 下面是一个示例：
+若要创建*收件箱*通知，请先实例化 `NotificationCompat.Builder` 的对象，然后再将[InboxStyle](xref:Android.App.Notification.InboxStyle)对象添加到 `NotificationCompat.Builder`中。 以下是示例：
 
 ```csharp
 // Instantiate the Inbox style:
@@ -592,7 +592,7 @@ builder.SetStyle (inboxStyle);
 
 若要将新的文本行添加到通知正文，请调用 `InboxStyle` 对象的[Addline](xref:Android.App.Notification.InboxStyle.AddLine*)方法（*收件箱*通知的最大高度为 256 dp）。 请注意，与*大文本*样式不同的是，*收件箱*样式支持通知正文中的单个文本行。
 
-你还可以将*收件箱*样式用于任何需要以展开格式显示单个文本行的通知。 例如，可以使用*收件箱*通知样式将多个待定通知合并为摘要通知 &ndash; 你可以使用新通知内容行更新单个*收件箱*样式通知（请参阅[更新以上通知](#updating-a-notification)），而不是生成新的、主要类似通知的连续流。
+你还可以将*收件箱*样式用于任何需要以展开格式显示单个文本行的通知。 例如，可以使用*收件箱*通知样式将多个待定通知合并为摘要通知 &ndash; 你可以使用新通知内容行更新单个*收件箱*样式通知（请参阅上面[的更新通知](#updating-a-notification)），而不是生成新的、主要类似通知的流。
 
 ## <a name="configuring-metadata"></a>配置元数据
 
@@ -619,7 +619,7 @@ Xamarin 定义以下用于设置通知优先级的枚举：
 
 - `NotificationPriority.Min` 在查看通知（例如，位置或天气信息）时用户仅注意到的背景信息 &ndash;。
 
-若要设置通知的优先级，请调用 `NotificationCompat.Builder` 对象的[SetPriority](xref:Android.App.Notification.Builder.SetPriority*)方法，并传入优先级别。 例如:
+若要设置通知的优先级，请调用 `NotificationCompat.Builder` 对象的[SetPriority](xref:Android.App.Notification.Builder.SetPriority*)方法，并传入优先级别。 例如：
 
 ```csharp
 builder.SetPriority (NotificationPriority.High);
@@ -697,7 +697,7 @@ builder.SetVisibility (NotificationVisibility.Private);
 
 - `Notification.CategoryStatus` 有关设备的 &ndash; 信息。
 
-对通知进行排序时，通知的优先级优先于其类别设置。 例如，高优先级通知显示为 "已启动" 状态，即使它属于 "`Promo`" 类别也是如此。 若要设置通知的类别，请调用 `NotificationCompat.Builder` 对象的 `SetCategory` 方法，并传入类别设置。 例如:
+对通知进行排序时，通知的优先级优先于其类别设置。 例如，高优先级通知显示为 "已启动" 状态，即使它属于 "`Promo`" 类别也是如此。 若要设置通知的类别，请调用 `NotificationCompat.Builder` 对象的 `SetCategory` 方法，并传入类别设置。 例如：
 
 ```csharp
 builder.SetCategory (Notification.CategoryCall);
@@ -707,7 +707,7 @@ builder.SetCategory (Notification.CategoryCall);
 
 ![请勿打扰屏幕开关](local-notifications-images/26-do-not-disturb.png)
 
-当用户将 "请勿*打扰*" 配置为阻止除电话呼叫之外的所有中断（如上面的屏幕截图中所示）时，Android 允许在设备处于 "请勿打扰" 时显示类别设置为 "`Notification.CategoryCall`" 的通知模式。 请注意，在 "*请勿打扰*" 模式下，不会阻止 `Notification.CategoryAlarm` 通知。
+当用户将 "请勿*打扰*" 配置为阻止除电话呼叫之外的所有中断（如上面的屏幕截图中所示）时，Android 允许在设备处于 "*请勿打扰*" 模式时显示类别设置为 "`Notification.CategoryCall`" 的通知。 请注意，在 "*请勿打扰*" 模式下，不会阻止 `Notification.CategoryAlarm` 通知。
 
 [LocalNotifications](https://docs.microsoft.com/samples/xamarin/monodroid-samples/localnotifications)示例演示如何使用 `NotificationCompat.Builder` 从通知启动第二个活动。 本示例代码在[使用 Xamarin 演练中的本地通知](~/android/app-fundamentals/notifications/local-notifications-walkthrough.md)中进行了介绍。
 
@@ -750,7 +750,7 @@ if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Lollipop) {
 
 ## <a name="summary"></a>总结
 
-本文介绍了如何在 Android 中创建本地通知。 它介绍了通知剖析，并说明了如何使用 `NotificationCompat.Builder` 来创建通知，如何使用 "大图标"、"*大文本*"、"*图像*和*收件箱"* 格式的通知，以及如何设置通知元数据设置，如"优先级"、"可见性" 和 "类别"，以及如何从通知启动活动。 本文还介绍了如何使用 Android 5.0 中引入的新的 "打印头更新"、"锁定屏幕" 和 "*请勿打扰*" 功能。 最后，你已了解如何使用 `NotificationCompat.Builder` 维护与早期版本 Android 的通知兼容性。
+本文介绍了如何在 Android 中创建本地通知。 它介绍了通知剖析，并说明了如何使用 `NotificationCompat.Builder` 来创建通知，如何使用来创建通知，如何以大图标、*大文本*、*图像*和*收件箱*格式设置通知的样式、如何设置通知元数据设置（如优先级、可见性和类别）以及如何从通知启动活动。 本文还介绍了如何使用 Android 5.0 中引入的新的 "打印头更新"、"锁定屏幕" 和 "*请勿打扰*" 功能。 最后，你已了解如何使用 `NotificationCompat.Builder` 维护与早期版本 Android 的通知兼容性。
 
 有关为 Android 设计通知的指导原则，请参阅[通知](https://developer.android.com/guide/topics/ui/notifiers/notifications.html)。
 

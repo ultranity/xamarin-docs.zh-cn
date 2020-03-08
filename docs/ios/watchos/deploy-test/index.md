@@ -8,11 +8,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 03/17/2017
 ms.openlocfilehash: b9b4d201e02d60bd6131c8693d9ac6a233e4fe10
-ms.sourcegitcommit: 2fbe4932a319af4ebc829f65eb1fb1816ba305d3
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73028342"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78918738"
 ---
 # <a name="deploying-and-testing-watchos-apps-with-xamarin"></a>部署和测试 Xamarin 的 watchOS 应用
 
@@ -74,7 +74,7 @@ ms.locfileid: "73028342"
 
 - 在 Apple 开发人员门户**证书，标识符 & 配置文件**部分配置了**应用组**。
 
-- 已在 iOS 应用和监视扩展的**应用 ID**和 info.plist *中启用* **应用**组（并提供**应用组 ID**）。
+- 已在 iOS 应用和监视扩展的**应用 ID**和 info.plist **中启用***应用*组（并提供**应用组 ID**）。
 
 ### <a name="certificates-identifiers--profiles"></a>证书，标识符 & 配置文件
 
@@ -100,7 +100,7 @@ ms.locfileid: "73028342"
 - iOS 应用项目
 - 监视扩展项目
 
-方法。![Info.plist 编辑器](images/entitlements-plist-sml.png)
+。![Info.plist 编辑器](images/entitlements-plist-sml.png)
 
 不要在 "监视应用项目"**中启用权利**。 不需要在监视本身上启用它。
 

@@ -8,11 +8,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 03/02/2017
 ms.openlocfilehash: cd427d13bb79fd31e1e814726aaaf61788ae10ec
-ms.sourcegitcommit: 2fbe4932a319af4ebc829f65eb1fb1816ba305d3
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73030067"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78917564"
 ---
 # <a name="macos-apis-for-xamarinmac-developers"></a>适用于 Xamarin 开发人员的 macOS Api
 
@@ -36,7 +36,7 @@ ms.locfileid: "73030067"
 - `(NSIndexSet *)rowIndexes` 是第一个参数，其类型为。 第一个参数的格式为： `(Type) pararmName`
 - `atPoint:(NSPoint)mouseDownPoint` 为第二个参数及其类型。 第一个参数之后的每个参数都是格式： `selectorPart:(Type) pararmName`
 - 此消息选择器的完整名称为： `canDragRowsWithIndexes:atPoint:`。 请注意，最后 `:`，这一点很重要。
-- 实际的 Xamarin C#绑定为：`bool CanDragRows (NSIndexSet rowIndexes, PointF mouseDownPoint)`
+- 实际的 Xamarin C#绑定为： `bool CanDragRows (NSIndexSet rowIndexes, PointF mouseDownPoint)`
 
 此选择器调用可以采用相同的方式读取：
 
@@ -45,7 +45,7 @@ ms.locfileid: "73030067"
 ```
 
 - 实例 `v` 的 `canDragRowsWithIndexes:atPoint` 选择器具有两个参数，`set` 和 `point`传入。
-- 在C#中，方法调用如下所示：`x.CanDragRows (set, point);`
+- 在C#中，方法调用如下所示： `x.CanDragRows (set, point);`
 
 <a name="finding_selector" />
 

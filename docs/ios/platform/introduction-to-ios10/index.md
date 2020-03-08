@@ -8,11 +8,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 03/29/2017
 ms.openlocfilehash: ce262faf2d79e6a2cc969df582446fdc2ec29bde
-ms.sourcegitcommit: 2fbe4932a319af4ebc829f65eb1fb1816ba305d3
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73032226"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78910888"
 ---
 # <a name="introduction-to-ios-10"></a>iOS 10 简介
 
@@ -52,7 +52,7 @@ Apple 在 iOS 10 中提供了几个新的应用扩展点：
 - `UITextDocumentProxy` 类的新 `DocumentInputMode` 属性可以确定文档的输入语言，并允许键盘扩展与该语言对齐。
 - 新的 `HandleInputModeList` 方法使键盘扩展可以显示系统的键盘选取器菜单，以响应被攻入的地球键。
 
-有关详细信息，请参阅[扩展简介](~/ios/platform/extensions.md)、[消息应用集成](~/ios/platform/message-app-integration/index.md)、[前瞻性建议](~/ios/platform/search/proactive-suggestions.md)简介、 [SiriKit 简介](~/ios/platform/sirikit/index.md)[和 Apple](~/ios/platform/user-notifications/index.md) [应用扩展编程指南](https://developer.apple.com/library/prerelease/content/documentation/General/Conceptual/ExtensibilityPG/index.html#//apple_ref/doc/uid/TP40014214)。
+有关详细信息，请参阅我们的[扩展简介](~/ios/platform/extensions.md)、[消息应用集成](~/ios/platform/message-app-integration/index.md)、[前瞻性建议](~/ios/platform/search/proactive-suggestions.md)简介、 [SiriKit 简介](~/ios/platform/sirikit/index.md)[和 Apple](~/ios/platform/user-notifications/index.md) [应用扩展编程指南](https://developer.apple.com/library/prerelease/content/documentation/General/Conceptual/ExtensibilityPG/index.html#//apple_ref/doc/uid/TP40014214)。
 
 ## <a name="app-search-enhancements"></a>应用搜索增强功能
 
@@ -123,7 +123,7 @@ iOS 10 提供了新的方法，可让系统在适当的时间自动向用户提�
 - 应用切换器
 - 锁定屏幕
 - CarPlay
-- 映射
+- 地图
 - Siri 交互
 - QuickType 建议
 
@@ -168,7 +168,7 @@ SiriKit 支持以下服务域：
 
 iOS 10 包括一个新的语音 API，该 API 允许应用程序支持连续语音识别和转录语音（从实时或录制的音频流）到文本。
 
-由于语音识别需要在 Apple 服务器上传输和临时存储数据，因此应用程序_必须_通过将 `NSSpeechRecognitionUsageDescription` 密钥包含在其 `Info.plist` 文件中并调用来请求用户的权限来执行识别 `SFSpeechRecognizer.RequestAutorization`付款方式.
+由于语音识别需要在 Apple 服务器上传输和临时存储数据，因此应用程序_必须_通过将 `NSSpeechRecognitionUsageDescription` 密钥包含在其 `Info.plist` 文件中并调用 `SFSpeechRecognizer.RequestAutorization` 方法来请求用户的权限来执行识别。
 
 若要了解详细信息，请参阅[语音识别指南简介](~/ios/platform/speech.md)。
 

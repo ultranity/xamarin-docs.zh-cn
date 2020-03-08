@@ -8,11 +8,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 03/21/2017
 ms.openlocfilehash: 4731be58c1fadae0bba6768570ecfd181b071dd2
-ms.sourcegitcommit: 2fbe4932a319af4ebc829f65eb1fb1816ba305d3
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73031855"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78915736"
 ---
 # <a name="ios-7-user-interface-overview"></a>iOS 7 用户界面概述
 
@@ -201,7 +201,7 @@ if (UIDevice.CurrentDevice.CheckSystemVersion (7, 0)) {
 
  [![](ios7-ui-images/good.png "Example with whole image visible")](ios7-ui-images/good.png#lightbox)
 
-请注意，尽管 `TopLayoutGuide/BottomLayoutGuide` 和 `EdgesForExtendedLayout` Api 的影响相似，但它们的作用是用于填充不同的目标。 将 `EdgesForExtendedLayout` 设置从默认值更改可能会修复为 iOS 6 设计的应用程序中的剪辑视图，但良好的 iOS 7 设计应能实现全屏幕美观，并提供全屏查看体验，并依赖 `TopLayoutGuide` 和 `BottomLayoutGuide` 来正确将旨在操纵的内容定位到用户的舒适位置。
+请注意，尽管 `TopLayoutGuide/BottomLayoutGuide` 和 `EdgesForExtendedLayout` Api 的影响相似，但它们的作用是用于填充不同的目标。 将 `EdgesForExtendedLayout` 设置从默认值更改可能会修复为 iOS 6 设计的应用程序中的剪辑视图，但良好的 iOS 7 设计应遵循全屏幕美观，并提供全屏查看体验，它依赖于 `TopLayoutGuide` 和 `BottomLayoutGuide`，以将操作的内容正确地定位到用户的舒适位置。
 
 有关工作示例，请参阅[ImageViewer](https://docs.microsoft.com/samples/xamarin/ios-samples/ios7-ui-updates/) 。
 

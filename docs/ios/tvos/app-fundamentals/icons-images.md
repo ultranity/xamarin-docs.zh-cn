@@ -8,11 +8,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 03/16/2017
 ms.openlocfilehash: b1b6d07b221f702b54833bd87161d6abbadbd4e8
-ms.sourcegitcommit: 2fbe4932a319af4ebc829f65eb1fb1816ba305d3
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73030854"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78915799"
 ---
 # <a name="working-with-tvos-icons-and-images-in-xamarin"></a>在 Xamarin 中使用 tvOS 图标和图像
 
@@ -38,7 +38,7 @@ ms.locfileid: "73030854"
 
 启动图像不是广告或艺术表达式的一种机会，它们只是为了给您的应用程序快速启动并准备好使用的印象。
 
-|启动映像大小|注意|
+|启动映像大小|说明|
 |---|---|
 |1920x1080px|仅限非分层 .png 文件|
 
@@ -64,7 +64,7 @@ Apple 提供以下建议，用于设计应用程序的启动映像：
 3. 单击 " **1X APPLE TV** " 条目，并选择 "启动" 映像，或者在中从文件系统中选择一个新图像（可选）： 
 
     [![](icons-images-images/asset03.png "Select a Launch Image")](icons-images-images/asset03.png#lightbox)
-4. 保存更改。
+4. 保存所做更改。
 
 <a name="Layered-Images" />
 
@@ -175,7 +175,7 @@ Apple 提供了以下有关创建应用图标的建议：
 5. 单击 " **1X APPLE TV" 条目**，并选择 "图像文件"。
 6. 对 `Front` 和 `Middle` 资产重复上述步骤。
 7. 然后重复相同的步骤来定义 `App Icon - Large` 资产。
-8. 保存更改。
+8. 保存所做更改。
 
 <a name="Top-Shelf-Image" />
 
@@ -187,7 +187,7 @@ Apple 提供了以下有关创建应用图标的建议：
 
 可以将顶架图像作为单个静态 `.png` 或 `.lsr` 文件提供（请参阅[创建分层映像](#Creating-Layered-Images)），也可以在运行时将其作为可设定焦点的单个行动态创建（请参阅下面的[动态上架内容](#Dynamic-Top-Shelf-Content)）。
 
-|最大架映像大小|注意|
+|最大架映像大小|说明|
 |---|---|
 |1920x720px|静态 .png 或 lsr 文件|
 
@@ -213,7 +213,7 @@ Apple 提供了以下有关创建顶级映像的建议：
 
     [![](icons-images-images/asset07.png "The Top Shelf Image asset")](icons-images-images/asset07.png#lightbox)
 4. 单击 " **1X APPLE TV" 条目**，并选择 "图像文件"。
-5. 保存更改。
+5. 保存所做更改。
 
 <a name="Dynamic-Top-Shelf-Content" />
 
@@ -281,17 +281,17 @@ Apple 提供以下有关滚动条带横幅的建议：
 
 ||成就图标|面板图稿|排行榜图稿|
 |---|---|---|---|
-|可见大小|200x200px|923x150px|不可用|
-|实际大小|320x320px|不可用|659x371px|
-|安全区域大小|不可用|不可用|618x348px|
-|失去焦点大小|不可用|不可用|548x309px|
-|重点大小|不可用|不可用|618x348px|
+|可见大小|200x200px|923x150px|不适用|
+|实际大小|320x320px|不适用|659x371px|
+|安全区域大小|不适用|不适用|618x348px|
+|失去焦点大小|不适用|不适用|548x309px|
+|重点大小|不适用|不适用|618x348px|
 
 有关使用 Game Center 的详细信息，请参阅 Apple [Game Center 编程指南](https://developer.apple.com/library/prerelease/tvos/documentation/NetworkingInternet/Conceptual/GameKit_Guide/Introduction/Introduction.html)。
 
 <a name="Working-with-Images" />
 
-## <a name="working-with-images"></a>使用图像
+## <a name="working-with-images"></a>处理映像
 
 由于 tvOS 9 是 iOS 9 的子集，因此用于在 Xamarin iOS 应用程序中包括和显示映像的技术也适用于 tvOS 应用。 有关详细信息，请参阅[显示图像](~/ios/app-fundamentals/images-icons/displaying-an-image.md)文档。
 
@@ -310,7 +310,7 @@ Apple 提供以下有关滚动条带横幅的建议：
 
     [![](icons-images-images/info02.png "The Info.Plist Editor")](icons-images-images/info02.png#lightbox)
 3. 接下来，在 "**启动**映像" 部分的 "[设置" "启动映像](#Setting-the-Launch-Image)" 部分中选择 "资产" 目录（前面已配置）。
-4. 保存更改。
+4. 保存所做更改。
 
 <a name="Summary" />
 

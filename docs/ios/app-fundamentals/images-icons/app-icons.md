@@ -8,11 +8,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 05/22/2017
 ms.openlocfilehash: 37695ef93a1005febf12369e7d1defccf6130832
-ms.sourcegitcommit: d0e6436edbf7c52d760027d5e0ccaba2531d9fef
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75488422"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78916549"
 ---
 # <a name="application-icons-in-xamarinios"></a>Xamarin 中的应用程序图标
 
@@ -54,7 +54,7 @@ ms.locfileid: "75488422"
 
     ||1 倍|2x|
     |---|---|---|
-    |应用程序图标|60x60<sup>1</sup>|120x120|
+    |应用程序图标|对<sup>1</sup>|120x120|
     |聚焦|40x40<sup>2</sup>|80x80|
     |设置|-|-|
 
@@ -109,7 +109,7 @@ ms.locfileid: "75488422"
 
 若要使用资产目录，请执行以下步骤：
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 1. 双击**解决方案资源管理器**中的 `Info.plist` 文件，将其打开进行编辑。
 2. 向下滚动到 " **IPhone 图标**" 部分。
@@ -129,7 +129,7 @@ ms.locfileid: "75488422"
 7. 单击 "**打开**" 按钮，将图像包含在项目中，并在 xcasset 中对其进行设置。
 8. 对所需的所有映像重复此操作。
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 1. 双击 "信息"。  \* ***解决方案资源管理器**中的文件：
 
@@ -166,7 +166,7 @@ ms.locfileid: "75488422"
 
 若要指定 iTunes 图稿，请执行以下操作：
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 1. 双击**解决方案资源管理器**中的 `Info.plist` 文件，将其打开进行编辑。
 2. 滚动到编辑器的 " **ITunes 图稿**" 部分： 
@@ -175,7 +175,7 @@ ms.locfileid: "75488422"
 3. 对于任何缺少的图像，请单击编辑器中的缩略图，从 "打开文件" 对话框中选择所需 iTunes 图稿的图像文件，然后单击 **"确定"** 按钮。
 4. 重复此步骤，直到已为该应用指定所有所需的映像。
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 1. 双击**解决方案资源管理器**中的 `Info.plist` 文件，将其打开进行编辑。
 

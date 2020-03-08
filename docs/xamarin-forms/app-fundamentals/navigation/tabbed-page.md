@@ -8,11 +8,11 @@ author: davidbritch
 ms.author: dabritch
 ms.date: 11/07/2019
 ms.openlocfilehash: 986045a4be352da0e439de87fdc70e2958b48d36
-ms.sourcegitcommit: d0e6436edbf7c52d760027d5e0ccaba2531d9fef
-ms.translationtype: HT
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75489994"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78910708"
 ---
 # <a name="xamarinforms-tabbedpage"></a>Xamarin.Forms TabbedPage
 
@@ -22,12 +22,12 @@ Xamarin.Forms [`TabbedPage`](xref:Xamarin.Forms.TabbedPage) 包含一系列选�
 
 [![iOS 和 Android 上包含三个选项卡的 TabbedPage 的屏幕截图](tabbed-page-images/tabbedpage-today.png "带有三个选项卡的 TabbedPage")](tabbed-page-images/tabbedpage-today-large.png#lightbox "带有三个选项卡的 TabbedPage")
 
-在 iOS 上，选项卡的列表显示在屏幕的底部，而详细信息区域显示在上方。 每个选项卡都包含一个标题和一个图标，该图标应为带有 alpha 通道的 PNG 文件。 在纵向方向，选项卡栏图标显示在选项卡标题上方。 在横向方向，图标和标题并排显示。 此外，可以根据设备和方向显示常规或精简选项卡栏。 如果有五个以上的选项卡，会显示“更多”选项卡，可用于访问其他选项卡  。 有关图标要求的信息，请参阅 developer.apple.com 上的[选项卡栏图标大小](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/custom-icons#tab-bar-icon-size)。
+在 iOS 上，选项卡的列表显示在屏幕的底部，而详细信息区域显示在上方。 每个选项卡都包含一个标题和一个图标，该图标应为带有 alpha 通道的 PNG 文件。 在纵向方向，选项卡栏图标显示在选项卡标题上方。 在横向方向，图标和标题并排显示。 此外，可以根据设备和方向显示常规或精简选项卡栏。 如果有五个以上的选项卡，会显示“更多”选项卡，可用于访问其他选项卡。 有关图标要求的信息，请参阅 developer.apple.com 上的[选项卡栏图标大小](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/custom-icons#tab-bar-icon-size)。
 
 > [!TIP]
 > `TabbedRenderer` for iOS 有可替代的 `GetIcon` 方法，可以用来从指定的源加载选项卡图标。 使用此替代方法可以将 SVG 图像用作 `TabbedPage` 上的图标。 此外，可以提供选定和未选定版本的图标。
 
-在 Android 上，选项卡列表显示在屏幕顶部，详细信息区域显示在下方。 每个选项卡都包含一个标题和一个图标，该图标应为带有 alpha 通道的 PNG 文件。 但是，可以使用特定于平台布局将选项卡移动至屏幕底部。 如果有五个以上的选项卡，并且选项卡列表位于屏幕底部，会显示“更多”选项卡，可用于访问其他选项卡  。 有关图标要求的信息，请参阅 material.io 上的[选项卡](https://material.io/components/tabs/#)和 developer.android.com 上的[支持不同的像素密度](https://developer.android.com/training/multiscreen/screendensities)。 有关将选项卡移动到屏幕底部的信息，请参阅[设置 TabbedPage 工具栏位置和颜色](~/xamarin-forms/platform/android/tabbedpage-toolbar-placement-color.md)。
+在 Android 上，选项卡列表显示在屏幕顶部，详细信息区域显示在下方。 每个选项卡都包含一个标题和一个图标，该图标应为带有 alpha 通道的 PNG 文件。 但是，可以使用特定于平台布局将选项卡移动至屏幕底部。 如果有五个以上的选项卡，并且选项卡列表位于屏幕底部，会显示“更多”选项卡，可用于访问其他选项卡。 有关图标要求的信息，请参阅 material.io 上的[选项卡](https://material.io/components/tabs/#)和 developer.android.com 上的[支持不同的像素密度](https://developer.android.com/training/multiscreen/screendensities)。 有关将选项卡移动到屏幕底部的信息，请参阅[设置 TabbedPage 工具栏位置和颜色](~/xamarin-forms/platform/android/tabbedpage-toolbar-placement-color.md)。
 
 > [!TIP]
 > `TabbedPageRenderer` for Android AppCompat 有可替代的 `GetIconDrawable` 方法，可以用来从自定义 `Drawable` 加载选项卡图标。 使用此替代方法可以将 SVG 图像用作 `TabbedPage` 上的图标，并且可以使用顶部和底部选项卡。 或者，可替代的 `SetTabIcon` 方法可用于从顶部标签栏的自定义 `Drawable` 加载选项卡图标。
@@ -38,20 +38,20 @@ Xamarin.Forms [`TabbedPage`](xref:Xamarin.Forms.TabbedPage) 包含一系列选�
 
 可以使用两种方法创建 [`TabbedPage`](xref:Xamarin.Forms.TabbedPage)：
 
-- 使用子 [`Page`](xref:Xamarin.Forms.Page) 对象的集合（例如 [`ContentPage`](xref:Xamarin.Forms.ContentPage) 的集合）来填充 [`TabbedPage`](xref:Xamarin.Forms.TabbedPage)。 有关详细信息，请参阅[使用页面集合填充 TabbedPage](#populate-a-tabbedpage-with-a-page-collection)。
+- 使用子 [`TabbedPage`](xref:Xamarin.Forms.TabbedPage) 对象的集合（例如 [`Page`](xref:Xamarin.Forms.Page) 的集合）来填充 [`ContentPage`](xref:Xamarin.Forms.ContentPage)。 有关详细信息，请参阅[使用页面集合填充 TabbedPage](#populate-a-tabbedpage-with-a-page-collection)。
 - 将集合分配给 [`ItemsSource`](xref:Xamarin.Forms.MultiPage`1.ItemsSource) 属性，并将 [`DataTemplate`](xref:Xamarin.Forms.DataTemplate) 分配给 [`ItemTemplate`](xref:Xamarin.Forms.MultiPage`1.ItemTemplate) 属性以返回集合中对象的页面。 有关详细信息，请参阅[使用模板填充 TabbedPage](#populate-a-tabbedpage-with-a-template)。
 
 使用这两种方法，[`TabbedPage`](xref:Xamarin.Forms.TabbedPage) 将在用户选择每个标签时显示每个页面。
 
 > [!IMPORTANT]
-> 建议仅使用 [`NavigationPage`](xref:Xamarin.Forms.NavigationPage) 和 [`ContentPage`](xref:Xamarin.Forms.ContentPage) 实例填充 [`TabbedPage`](xref:Xamarin.Forms.TabbedPage)。 这将有助于确保在所有平台上都有一致的用户体验。
+> 建议仅使用 [`TabbedPage`](xref:Xamarin.Forms.TabbedPage) 和 [`NavigationPage`](xref:Xamarin.Forms.NavigationPage) 实例填充 [`ContentPage`](xref:Xamarin.Forms.ContentPage)。 这将有助于确保在所有平台上都有一致的用户体验。
 
 此外，[`TabbedPage`](xref:Xamarin.Forms.TabbedPage) 定义以下属性：
 
-- [`Color`](xref:Xamarin.Forms.Color) 类型的 [`BarBackgroundColor`](xref:Xamarin.Forms.TabbedPage.BarBackgroundColor)，选项卡栏的背景色。
-- [`Color`](xref:Xamarin.Forms.Color) 类型的 [`BarTextColor`](xref:Xamarin.Forms.TabbedPage.BarTextColor)，选项卡栏上文本的颜色。
-- [`Color`](xref:Xamarin.Forms.Color) 类型的 [`SelectedTabColor`](xref:Xamarin.Forms.TabbedPage.SelectedTabColor)，选定选项卡后选项卡的颜色。
-- [`Color`](xref:Xamarin.Forms.Color) 类型的 [`UnselectedTabColor`](xref:Xamarin.Forms.TabbedPage.UnselectedTabColor)，未选定选项卡时选项卡的颜色。
+- [`BarBackgroundColor`](xref:Xamarin.Forms.TabbedPage.BarBackgroundColor) 类型的 [`Color`](xref:Xamarin.Forms.Color)，选项卡栏的背景色。
+- [`BarTextColor`](xref:Xamarin.Forms.TabbedPage.BarTextColor) 类型的 [`Color`](xref:Xamarin.Forms.Color)，选项卡栏上文本的颜色。
+- [`SelectedTabColor`](xref:Xamarin.Forms.TabbedPage.SelectedTabColor) 类型的 [`Color`](xref:Xamarin.Forms.Color)，选定选项卡后选项卡的颜色。
+- [`UnselectedTabColor`](xref:Xamarin.Forms.TabbedPage.UnselectedTabColor) 类型的 [`Color`](xref:Xamarin.Forms.Color)，未选定选项卡时选项卡的颜色。
 
 所有这些属性都由 [`BindableProperty`](xref:Xamarin.Forms.BindableProperty) 对象提供支持，这意味着可设置他们的样式，并且这些属性可以作为数据绑定的目标。
 
@@ -60,7 +60,7 @@ Xamarin.Forms [`TabbedPage`](xref:Xamarin.Forms.TabbedPage) 包含一系列选�
 
 ## <a name="populate-a-tabbedpage-with-a-page-collection"></a>使用页集合填充 TabbedPage
 
-可以使用子 [`Page`](xref:Xamarin.Forms.Page) 对象的集合（例如 [`ContentPage`](xref:Xamarin.Forms.ContentPage) 的集合）来填充 [`TabbedPage`](xref:Xamarin.Forms.TabbedPage)。 可通过将 `Page` 对象添加到 [`TabbedPage.Children`](xref:Xamarin.Forms.MultiPage`1.Children*) 集合来实现此操作。 这可以在 XAML 中实现，如下所示：
+可以使用子 [`TabbedPage`](xref:Xamarin.Forms.TabbedPage) 对象的集合（例如 [`Page`](xref:Xamarin.Forms.Page) 的集合）来填充 [`ContentPage`](xref:Xamarin.Forms.ContentPage)。 可通过将 `Page` 对象添加到 [`TabbedPage.Children`](xref:Xamarin.Forms.MultiPage`1.Children*) 集合来实现此操作。 这可以在 XAML 中实现，如下所示：
 
 ```xaml
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
@@ -77,7 +77,7 @@ Xamarin.Forms [`TabbedPage`](xref:Xamarin.Forms.TabbedPage) 包含一系列选�
 ```
 
 > [!NOTE]
-> 派生出 [`TabbedPage`](xref:Xamarin.Forms.TabbedPage) 的 [`MultiPage<T>`](xref:Xamarin.Forms.MultiPage`1) 类的 [`Children`](xref:Xamarin.Forms.MultiPage`1.Children*) 属性是 `MultiPage<T>` 的 `ContentProperty`。 因此，在 XAML 中，无需将 [`Page`](xref:Xamarin.Forms.Page) 对象显式分配给 `Children` 属性。
+> 派生出 [`Children`](xref:Xamarin.Forms.MultiPage`1.Children*) 的 [`MultiPage<T>`](xref:Xamarin.Forms.MultiPage`1) 类的 [`TabbedPage`](xref:Xamarin.Forms.TabbedPage) 属性是 `ContentProperty` 的 `MultiPage<T>`。 因此，在 XAML 中，无需将 [`Page`](xref:Xamarin.Forms.Page) 对象显式分配给 `Children` 属性。
 
 等效 C# 代码如下：
 
@@ -96,9 +96,9 @@ public class MainPageCS : TabbedPage
 }
 ```
 
-在此示例中，使用两个 [`Page`](xref:Xamarin.Forms.ContentPage) 对象填充 [`TabbedPage`](xref:Xamarin.Forms.TabbedPage)。 第一个子级是 [`ContentPage`](xref:Xamarin.Forms.ContentPage) 对象，第二个子级是包含 `ContentPage` 对象的 [`NavigationPage`](xref:Xamarin.Forms.NavigationPage)。
+在此示例中，使用两个 [`TabbedPage`](xref:Xamarin.Forms.TabbedPage) 对象填充 [`Page`](xref:Xamarin.Forms.ContentPage)。 第一个子级是 [`ContentPage`](xref:Xamarin.Forms.ContentPage) 对象，第二个子级是包含 [ 对象的 `NavigationPage`](xref:Xamarin.Forms.NavigationPage)`ContentPage`。
 
-以下屏幕截图显示 [`TabbedPage`](xref:Xamarin.Forms.TabbedPage) 中的 [`ContentPage`](xref:Xamarin.Forms.ContentPage) 对象：
+以下屏幕截图显示 [`ContentPage`](xref:Xamarin.Forms.ContentPage) 中的 [`TabbedPage`](xref:Xamarin.Forms.TabbedPage) 对象：
 
 [![iOS 和 Android 上包含三个选项卡的 TabbedPage 的屏幕截图](tabbed-page-images/tabbedpage-today.png "带有三个选项卡的 TabbedPage")](tabbed-page-images/tabbedpage-today-large.png#lightbox "带有三个选项卡的 TabbedPage")
 
@@ -106,14 +106,14 @@ public class MainPageCS : TabbedPage
 
 [![iOS 和 Android 上包含选项卡的 TabbedPage 的屏幕截图](tabbed-page-images/tabbedpage-week.png "带有选项卡的 TabbedPage")](tabbed-page-images/tabbedpage-week-large.png#lightbox "带有选项卡的 TabbedPage")
 
-在“计划”  选项卡上，[`ContentPage`](xref:Xamarin.Forms.ContentPage) 对象包装在 [`NavigationPage`](xref:Xamarin.Forms.NavigationPage) 对象中。
+在“计划”选项卡上，[`ContentPage`](xref:Xamarin.Forms.ContentPage) 对象包装在 [`NavigationPage`](xref:Xamarin.Forms.NavigationPage) 对象中。
 
 > [!WARNING]
 > 虽然 [`NavigationPage`](xref:Xamarin.Forms.NavigationPage) 可以放置在 [`TabbedPage`](xref:Xamarin.Forms.TabbedPage) 中，但不建议将 `TabbedPage` 放置到 `NavigationPage` 中。 这是因为，在 iOS 上，`UITabBarController` 始终充当 `UINavigationController` 的包装器。 有关详细信息，请参阅 iOS 开发人员库中的[组合的视图控制器接口](https://developer.apple.com/library/ios/documentation/WindowsViews/Conceptual/ViewControllerCatalog/Chapters/CombiningViewControllers.html)。
 
 ## <a name="navigate-within-a-tab"></a>在选项卡中导航
 
-导航可以在选项卡中执行，前提是 [`ContentPage`](xref:Xamarin.Forms.ContentPage) 对象包装在 [`NavigationPage`](xref:Xamarin.Forms.NavigationPage) 对象中。 可以通过在 [`ContentPage`](xref:Xamarin.Forms.ContentPage) 对象的 [`Navigation`](xref:Xamarin.Forms.NavigableElement.Navigation) 属性上调用 [`PushAsync`](xref:Xamarin.Forms.NavigationPage.PushAsync*) 方法来实现此操作：
+导航可以在选项卡中执行，前提是 [`ContentPage`](xref:Xamarin.Forms.ContentPage) 对象包装在 [`NavigationPage`](xref:Xamarin.Forms.NavigationPage) 对象中。 可以通过在 [`PushAsync`](xref:Xamarin.Forms.NavigationPage.PushAsync*) 对象的 [`Navigation`](xref:Xamarin.Forms.NavigableElement.Navigation) 属性上调用 [`ContentPage`](xref:Xamarin.Forms.ContentPage) 方法来实现此操作：
 
 ```csharp
 await Navigation.PushAsync (new UpcomingAppointmentsPage ());
@@ -127,7 +127,7 @@ await Navigation.PushAsync (new UpcomingAppointmentsPage ());
 
 ## <a name="populate-a-tabbedpage-with-a-template"></a>使用模板填充 TabbedPage
 
-通过将数据集合分配给 [`ItemsSource`](xref:Xamarin.Forms.MultiPage`1.ItemsSource) 属性，并将 [`DataTemplate`](xref:Xamarin.Forms.DataTemplate) 分配给将数据模板化为 [`Page`](xref:Xamarin.Forms.Page) 对象的 [`ItemTemplate`](xref:Xamarin.Forms.MultiPage`1.ItemTemplate) 属性，可以用页填充 [`TabbedPage`](xref:Xamarin.Forms.TabbedPage)。 这可以在 XAML 中实现，如下所示：
+通过将数据集合分配给 [`TabbedPage`](xref:Xamarin.Forms.TabbedPage) 属性，并将 [`ItemsSource`](xref:Xamarin.Forms.MultiPage`1.ItemsSource) 分配给将数据模板化为 [`DataTemplate`](xref:Xamarin.Forms.DataTemplate) 对象的 [`ItemTemplate`](xref:Xamarin.Forms.MultiPage`1.ItemTemplate) 属性，可以用页填充 [`Page`](xref:Xamarin.Forms.Page)。 这可以在 XAML 中实现，如下所示：
 
 ```xaml
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"

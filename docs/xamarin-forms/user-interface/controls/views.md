@@ -8,11 +8,11 @@ author: davidbritch
 ms.author: dabritch
 ms.date: 02/14/2020
 ms.openlocfilehash: 09bcb49db7f257a415518b259672ca8e776cdbc4
-ms.sourcegitcommit: 5d22f37dfc358678df52a4d17c57261056a72cb7
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77674562"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78916844"
 ---
 # <a name="xamarinforms-views"></a>Xamarin.Forms 视图
 
@@ -45,7 +45,7 @@ _Xamarin. Forms 视图是跨平台移动用户界面的构建基块。_
 | [`BoxView`](xref:Xamarin.Forms.BoxView)显示由[`Color`](xref:Xamarin.Forms.BoxView.Color)属性着色的实心矩形。 `BoxView` 的默认大小请求为40x40。 对于其他大小，请分配 " [`WidthRequest`](xref:Xamarin.Forms.VisualElement.WidthRequest) " 和 " [`HeightRequest`](xref:Xamarin.Forms.VisualElement.HeightRequest) " 属性。<br /><br />[API 文档](xref:Xamarin.Forms.BoxView) / [指南](~/xamarin-forms/user-interface/boxview.md) / [示例 1](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/boxview-basicboxview)、 [2](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/boxview-textdecoration)、 [3](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/boxview-listviewcolors/)、 [4](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/boxview-gameoflife)、 [5](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/boxview-dotmatrixclock)和[6](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/boxview-boxviewclock) | [![BoxView 示例](views-images/BoxView.png "BoxView 示例")](views-images/BoxView-Large.png#lightbox "BoxView 示例")<br />此页的代码 / [XAML 页](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/XamlExamples/BoxViewDemoPage.xaml) [ C# ](https://github.com/xamarin/xamarin-forms-samples/blob/master/FormsGallery/FormsGallery/FormsGallery/CodeExamples/BoxViewDemoPage.cs) |
 |     |     |
 
-### <a name="webview"></a>WebView
+### <a name="webview"></a>Web 视图
 
 |     |     |
 | --- | --- |

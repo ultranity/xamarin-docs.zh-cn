@@ -8,11 +8,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 03/14/2017
 ms.openlocfilehash: 81a1f63078a5f7a2a70f731d1790f85f4283d22f
-ms.sourcegitcommit: 2fbe4932a319af4ebc829f65eb1fb1816ba305d3
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73030210"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78919144"
 ---
 # <a name="data-binding-and-key-value-coding-in-xamarinmac"></a>Xamarin 中的数据绑定和键/值编码
 
@@ -26,9 +26,9 @@ _本文介绍如何使用键/值编码和键-值观察，以允许数据绑定�
 
 [![正在运行的应用的示例](databinding-images/intro01.png "正在运行的应用的示例")](databinding-images/intro01-large.png#lightbox)
 
-在本文中，我们将介绍在 Xamarin. Mac 应用程序中使用键/值编码和数据绑定的基本知识。 强烈建议您先完成[Hello，Mac](~/mac/get-started/hello-mac.md)一文，特别是[Xcode 和 Interface Builder](~/mac/get-started/hello-mac.md#introduction-to-xcode-and-interface-builder)及[输出口和操作](~/mac/get-started/hello-mac.md#outlets-and-actions)部分的简介，因为它涵盖了我们将在本文。
+在本文中，我们将介绍在 Xamarin. Mac 应用程序中使用键/值编码和数据绑定的基本知识。 强烈建议您先完成[Hello，Mac](~/mac/get-started/hello-mac.md)一文，特别是[Xcode 和 Interface Builder](~/mac/get-started/hello-mac.md#introduction-to-xcode-and-interface-builder)及[输出口和操作](~/mac/get-started/hello-mac.md#outlets-and-actions)部分的简介，因为它涵盖了我们将在本文中使用的重要概念和技巧。
 
-你可能想要查看[Xamarin](~/mac/internals/how-it-works.md)示例文档的 " C# [公开C#类/方法到目标-c](~/mac/internals/how-it-works.md) " 部分，它解释了用于将类与目标连接起来的 `Register` 和 `Export` 属性对象和 UI 元素。
+你可能想要查看[Xamarin 内部](~/mac/internals/how-it-works.md)示例文档的 " C# [公开C#类/方法到目标-c](~/mac/internals/how-it-works.md) " 部分，它解释了用于将类连接到目标 c 对象和 UI 元素的 `Register` 和 `Export` 属性。
 
 <a name="What_is_Key-Value_Coding" />
 
@@ -68,9 +68,9 @@ namespace MacDatabinding
 }
 ```
 
-首先，`[Register("PersonModel")]` 属性注册类并将其公开给目标-C。 然后，类需要从 `NSObject` （或继承自 `NSObject` 的子类）继承，这会添加几个允许类 KVC 兼容的基方法。 接下来，`[Export("Name")]` 特性公开 `Name` 属性，并定义稍后用于通过 KVC 和 KVO 技术访问属性的键值。
+首先，`[Register("PersonModel")]` 属性注册类并将其公开给目标-C。 然后，类需要从 `NSObject` （或继承自 `NSObject`的子类）继承，这会添加几个允许类 KVC 兼容的基方法。 接下来，`[Export("Name")]` 特性公开 `Name` 属性，并定义稍后用于通过 KVC 和 KVO 技术访问属性的键值。
 
-最后，若要能够以键值方式观察到对属性值的更改，访问器必须在 `WillChangeValue` 和 `DidChangeValue` 方法调用中包装其值的更改（指定与 `Export` 特性相同的键）。  例如:
+最后，若要能够以键值方式观察到对属性值的更改，访问器必须在 `WillChangeValue` 和 `DidChangeValue` 方法调用中包装其值的更改（指定与 `Export` 特性相同的键）。  例如：
 
 ```csharp
 set {
@@ -142,7 +142,7 @@ namespace MacDatabinding
 var name = Person.ValueForKey (new NSString("Name"));
 ```
 
-这会返回 `PersonModel` 的该实例的 `Name` 属性的值。
+这会返回 `PersonModel`的该实例的 `Name` 属性的值。
 
 ### <a name="setting-values-using-key-value-coding"></a>使用键值编码设置值
 
@@ -159,7 +159,7 @@ Person.SetValueForKey(new NSString("Jane Doe"), new NSString("Name"));
 
 ### <a name="observing-value-changes"></a>观察值更改
 
-使用键值感知（KVO），可以将观察者附加到 KVC 相容类的特定键，并在每次修改该键的值时收到通知（使用 KVC 技术或直接访问代码中C#的给定属性）。 例如:
+使用键值感知（KVO），可以将观察者附加到 KVC 相容类的特定键，并在每次修改该键的值时收到通知（使用 KVC 技术或直接访问代码中C#的给定属性）。 例如：
 
 ```csharp
 // Watch for the name value changing
@@ -317,7 +317,7 @@ namespace MacDatabinding
 }
 ```
 
-此类的大部分功能都在上面的 "[关键值编码](#What_is_Key-Value_Coding)" 一节中介绍。 不过，让我们来看看一些具体的元素，以及一些为允许此类充当**数组控制器**和**树控制器**的数据模型（稍后将用于数据绑定**树视图**、**大纲视图**和**集合视图**）。
+此类的大部分功能都在上面的 "[关键值编码](#What_is_Key-Value_Coding)" 一节中介绍。 不过，让我们来看看一些具体的元素，以及一些为允许此类充当**数组控制器**和**树控制器**的数据模型（稍后将用于数据绑定**树视图**、**大纲视图**和**集合视图**）的一些内容。
 
 首先，因为员工可能是经理，所以我们使用了 `NSArray` （具体来说是 `NSMutableArray` 以便可以修改值），以允许他们所管理的员工附加到他们：
 
@@ -334,7 +334,7 @@ public NSArray People {
 此处需要注意两点：
 
 1. 我们使用了 `NSMutableArray` 而不是标准C#的数组或集合，因为这是将数据绑定到**表视图**、**大纲视图**和**集合**等 AppKit 控件的要求。
-2. 我们公开了员工数组，方法是将其转换为 `NSArray` 进行数据绑定，并将C#其格式化名称（`People`）更改为数据绑定所需的名称，`personModelArray`格式为 **{class_name} 数组**（请注意，第一个字符已被小写）。
+2. 我们公开了员工数组，方法是将其强制转换为用于数据绑定的 `NSArray`， C#并将其格式化名称（`People`）更改为数据绑定所需的名称，`personModelArray` 格式为 **{class_name} 数组**（请注意，第一个字符已被小写）。
 
 接下来，我们需要添加一些专门的名称公共方法，以支持**数组控制器**和**树控制器**：
 
@@ -548,7 +548,7 @@ public void SetPeople(NSMutableArray array) {
 }
 ```
 
-就像我们在 "[定义数据模型](#Defining_your_Data_Model)" 一节中的 "`PersonModel`" 类上所做的那样，我们公开了四个特殊命名的公共方法，以便数组控制器和从我们的 `PersonModels` 集合中读取和写入数据。
+就像我们在 "[定义数据模型](#Defining_your_Data_Model)" 一节中的 "`PersonModel`" 类上所做的那样，我们公开了四个特殊命名的公共方法，以便数组控制器和从我们的 `PersonModels`集合中读取和写入数据。
 
 接下来，在加载视图时，需要用以下代码填充数组：
 
@@ -608,7 +608,7 @@ public override void AwakeFromNib ()
     [![设置模型键路径](databinding-images/table10.png "设置模型键路径")](databinding-images/table10-large.png#lightbox)
 6. 保存更改并返回到 Visual Studio for Mac 以与 Xcode 同步。
 
-如果运行该应用程序，将用 `PersonModels` 数组填充该表：
+如果运行该应用程序，将用 `PersonModels`数组填充该表：
 
 [![运行应用程序](databinding-images/table11.png "运行应用程序")](databinding-images/table11-large.png#lightbox)
 
@@ -663,7 +663,7 @@ public void SetPeople(NSMutableArray array) {
 }
 ```
 
-就像我们在 "[定义数据模型](#Defining_your_Data_Model)" 一节中的 "`PersonModel`" 类上所做的那样，我们公开了四个特殊命名的公共方法，以便树控制器和从我们的 `PersonModels` 集合中读取和写入数据。
+就像我们在 "[定义数据模型](#Defining_your_Data_Model)" 一节中的 "`PersonModel`" 类上所做的那样，我们公开了四个特殊命名的公共方法，以便树控制器和从我们的 `PersonModels`集合中读取和写入数据。
 
 接下来，在加载视图时，需要用以下代码填充数组：
 
@@ -730,7 +730,7 @@ public override void AwakeFromNib ()
     [![输入模型键路径](databinding-images/outline10.png "输入模型键路径")](databinding-images/outline10-large.png#lightbox)
 6. 保存更改并返回到 Visual Studio for Mac 以与 Xcode 同步。
 
-如果运行该应用程序，将用 `PersonModels` 数组填充轮廓：
+如果运行该应用程序，将用 `PersonModels`数组填充轮廓：
 
 [![运行应用程序](databinding-images/outline11.png "运行应用程序")](databinding-images/outline11-large.png#lightbox)
 
@@ -864,7 +864,7 @@ For more information on working with Collection Views, please see our [Collectio
 
 在数据绑定过程中，通常会有四个导致本机崩溃的主要原因：
 
-1. 数据模型未从 `NSObject` 的 `NSObject` 或子类继承。
+1. 数据模型未从 `NSObject`的 `NSObject` 或子类继承。
 2. 你未使用 `[Export("key-name")]` 特性将属性公开给目标-C。
 3. 未将对访问器的值所做的更改换行 `WillChangeValue` 和 `DidChangeValue` 方法调用（指定与 `Export` 特性相同的键）。
 4. Interface Builder 的**绑定检查器**中有错误或错误输入的键。
@@ -875,7 +875,7 @@ For more information on working with Collection Views, please see our [Collectio
 
 [![编辑绑定键](databinding-images/debug02.png "编辑绑定键")](databinding-images/debug02-large.png#lightbox)
 
-让我们保存更改，切换回 Visual Studio for Mac 以便与 Xcode 同步，然后运行我们的应用程序。 当显示集合视图时，应用程序会暂时崩溃，并显示 `SIGABRT` 错误（如 Visual Studio for Mac 中的**应用程序输出**中所示），因为 `PersonModel` 不会公开包含密钥 `Title` 的属性：
+让我们保存更改，切换回 Visual Studio for Mac 以便与 Xcode 同步，然后运行我们的应用程序。 当显示集合视图时，应用程序会暂时崩溃，并显示 `SIGABRT` 错误（如 Visual Studio for Mac 中的**应用程序输出**中所示），因为 `PersonModel` 不会公开包含密钥 `Title`的属性：
 
 [![绑定错误示例](databinding-images/debug03.png "绑定错误示例")](databinding-images/debug03-large.png#lightbox)
 

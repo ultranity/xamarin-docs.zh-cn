@@ -9,11 +9,11 @@ author: maddyleger1
 ms.author: maleger
 ms.date: 02/04/2019
 ms.openlocfilehash: b287d523101bb8ca7faca8ea95ee898ccf9c0bb1
-ms.sourcegitcommit: 9bfedf07940dad7270db86767eb2cc4007f2a59f
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "68757277"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78918000"
 ---
 # <a name="xaml-previewer-for-xamarinforms"></a>适用于 Xamarin 的 XAML 预览器
 
@@ -52,7 +52,7 @@ XAML 预览器会显示你的 Xamarin. Forms XAML 页面在 iOS 和 Android 上�
 
 当您打开 XAML 页时，"**预览**" 按钮将显示在编辑器中。 按任意 XAML 文档窗口左下角的 "**预览**" 或 "**拆分**" 按钮显示或隐藏预览器：
 
-[![Xamarin：启用了 "预览" 或 "拆分" 按钮的窗体预览器](xaml-previewer-images/xamlp-list-sml.png)](xaml-previewer-images/xamlp-list.png#lightbox)
+[![通过 "预览" 或 "拆分" 按钮启用的窗体预览器](xaml-previewer-images/xamlp-list-sml.png)](xaml-previewer-images/xamlp-list.png#lightbox)
 
 > [!NOTE]
 > 在较旧版本的 Visual Studio for Mac 中，"**预览**" 按钮位于窗口的右上方。
@@ -87,7 +87,7 @@ if (!DesignMode.IsDesignModeEnabled)
 
 如果在无法在设计时运行的页面构造函数中初始化库，此属性将非常有用。
 
-## <a name="troubleshooting"></a>疑难解答
+## <a name="troubleshooting"></a>故障排除
 
 如果预览器不起作用，请检查以下问题和[Xamarin 论坛](https://forums.xamarin.com/categories/xamarin-forms)。
 
@@ -98,7 +98,7 @@ if (!DesignMode.IsDesignModeEnabled)
 * 确保 `App` 类具有无参数的构造函数。
 * 检查 Xamarin. Forms 版本-它至少必须为 Xamarin. Forms 3.6。 可以通过 NuGet 更新到最新的 Xamarin 版本。
 * 检查 JDK 安装-预览 Android 至少需要[JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)。
-* 尝试在 `if (!DesignMode.IsDesignModeEnabled)` 的隐藏页面的C#代码中包装任何已初始化的类。
+* 尝试在 `if (!DesignMode.IsDesignModeEnabled)`的隐藏页面的C#代码中包装任何已初始化的类。
 
 ### <a name="custom-controls-arent-rendering"></a>自定义控件不呈现
 

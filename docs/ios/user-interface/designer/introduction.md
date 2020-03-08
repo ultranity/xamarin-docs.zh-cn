@@ -8,11 +8,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 01/31/2018
 ms.openlocfilehash: 6b02a0f8476cf47ca6df279653095fe0845b36c9
-ms.sourcegitcommit: 2fbe4932a319af4ebc829f65eb1fb1816ba305d3
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73004577"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78914826"
 ---
 # <a name="ios-designer-basics"></a>iOS 设计器基础知识
 
@@ -38,13 +38,13 @@ IOS 设计器可用于 Visual Studio for Mac 和 Visual Studio 2017 及更高版
 
 <!-- markdownlint-disable MD001 -->
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 [![IOS 设计器中的视图控制器](introduction-images/1-storyboardwithviewcontroller-vsmac.png "IOS 设计器中的视图控制器")](introduction-images/1-storyboardwithviewcontroller-vsmac-large.png#lightbox)
 
 [![视图控制器的代码](introduction-images/2-viewcontrollercode-vsmac.png "视图控制器的代码")](introduction-images/2-viewcontrollercode-vsmac-large.png#lightbox)
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 [![IOS 设计器中的视图控制器](introduction-images/1-storyboardwithviewcontroller-vs.png "IOS 设计器中的视图控制器")](introduction-images/1-storyboardwithviewcontroller-vs-large.png#lightbox)
 
@@ -54,11 +54,11 @@ IOS 设计器可用于 Visual Studio for Mac 和 Visual Studio 2017 及更高版
 
 在默认状态下，视图控制器不提供任何功能;它必须用控件填充。 这些控件放在视图控制器的视图中，其中包含所有屏幕内容的矩形区域。 大多数视图控制器都包含常用控件（如按钮、标签和文本字段），如以下屏幕截图所示，其中显示了一个包含按钮的视图控制器： 
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 [![包含按钮的视图控制器](introduction-images/3-viewcontrollerwithbutton-vsmac.png "包含按钮的视图控制器")](introduction-images/3-viewcontrollerwithbutton-vsmac-large.png#lightbox)
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 [![包含按钮的视图控制器](introduction-images/3-viewcontrollerwithbutton-vs.png "包含按钮的视图控制器")](introduction-images/3-viewcontrollerwithbutton-vs-large.png#lightbox)
 
@@ -66,13 +66,13 @@ IOS 设计器可用于 Visual Studio for Mac 和 Visual Studio 2017 及更高版
 
 某些控件（例如包含静态文本的标签）可以添加到视图控制器，并将其放在单独的控件中。 但通常情况下，必须以编程方式自定义控件。 例如，上面添加的按钮应该在点击时执行某些操作，因此必须在代码中添加事件处理程序。
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 为了访问和操作代码中的按钮，该按钮必须具有唯一标识符。 通过选择按钮、打开**Properties Pad**并将其 "**名称**" 字段设置为一个值（如 "SubmitButton"）来提供唯一标识符：
 
 [![在 Properties Pad 中设置按钮的名称](introduction-images/4-settingbuttonname-vsmac.png "在 Properties Pad 中设置按钮的名称")](introduction-images/4-settingbuttonname-vsmac-large.png#lightbox)
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 为了访问和操作代码中的按钮，该按钮必须具有唯一标识符。 通过选择按钮，打开 "**属性" 窗口**，并将其 "**名称**" 字段设置为一个值（如 "SubmitButton"）来提供唯一标识符：
 
@@ -82,13 +82,13 @@ IOS 设计器可用于 Visual Studio for Mac 和 Visual Studio 2017 及更高版
 
 由于按钮具有名称，因此可以在代码中对其进行访问。 但这是如何工作的？
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 在**Solution Pad**中，导航到 " **ViewController.cs** " 并单击 "泄露指示器" 会显示视图控制器 `ViewController` 类定义跨两个文件，其中每个文件都包含一个[分部类](https://docs.microsoft.com/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods)定义：
 
 [![组成 ViewController 类的两个文件：ViewController.cs 和 ViewController.designer.cs](introduction-images/5-twoviewcontrollerfiles-vsmac.png "构成 ViewController 类的两个文件：ViewController.cs 和 ViewController.designer.cs")](introduction-images/5-twoviewcontrollerfiles-vsmac-large.png#lightbox)
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 在**解决方案资源管理器**中，导航到 " **ViewController.cs** " 并单击 "泄露指示器" 会显示视图控制器 `ViewController` 类定义跨两个文件，其中每个文件都包含一个[分部类](https://docs.microsoft.com/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods)定义：
 
@@ -125,11 +125,11 @@ namespace Designer
 
 下面的屏幕截图说明，IntelliSense 现在可识别**ViewController.cs**中的 `SubmitButton` 引用：
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 [![IntelliSense 识别 SubmitButton 引用](introduction-images/6-submitbuttonintellisense-vsmac.png "IntelliSense 识别 SubmitButton 引用")](introduction-images/6-submitbuttonintellisense-vsmac-large.png#lightbox)
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 [![IntelliSense 识别 SubmitButton 引用](introduction-images/6-submitbuttonintellisense-vs.png "IntelliSense 识别 SubmitButton 引用")](introduction-images/6-submitbuttonintellisense-vs-large.png#lightbox)
 
@@ -145,13 +145,13 @@ namespace Designer
 
 ### <a name="launching-the-ios-designer"></a>启动 iOS 设计器
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 使用 Visual Studio for Mac 创建的 Xamarin iOS 项目包含情节提要。 若要查看情节提要的内容，请双击 " **Solution Pad**中的" storyboard "文件：
 
 [![在 iOS 设计器中打开的演示图板](introduction-images/7-storyboardopen-vsmac.png "在 iOS 设计器中打开的演示图板")](introduction-images/7-storyboardopen-vsmac-large.png#lightbox)
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 使用 Visual Studio 创建的大多数 Xamarin 项目都包含情节提要。 若要查看情节提要的内容，请双击 "**解决方案资源管理器**中的" storyboard "文件：
 
@@ -165,7 +165,7 @@ namespace Designer
 
 IOS 设计器有六个主要部分：
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 [![IOS 设计器部分](introduction-images/8-sixpartsofiosdesigner-vsmac.png "IOS 设计器部分")](introduction-images/8-sixpartsofiosdesigner-vsmac-large.png#lightbox)
 
@@ -176,7 +176,7 @@ IOS 设计器有六个主要部分：
 5. **文档大纲**–显示构成所编辑接口的布局的控件树。 单击树中的某一项将在 iOS 设计器中选择它，并在**Properties Pad**中显示其属性。 这对于在深层嵌套的用户界面中选择特定控件非常方便。
 6. **底部工具栏**-包含用于更改 IOS 设计器如何显示 xib 文件的选项，包括设备、方向和缩放。
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 [![IOS 设计器部分](introduction-images/8-sixpartsofiosdesigner-vs.png "IOS 设计器部分")](introduction-images/8-sixpartsofiosdesigner-vs-large.png#lightbox)
 
@@ -195,11 +195,11 @@ IOS 设计器有六个主要部分：
 
 若要将控件添加到接口，请将其从 "**工具箱**" 拖放到设计图面上。 添加或定位控件时，垂直和水平指导原则突出显示了常用布局位置，如垂直居中、水平居中和边距：
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 ![在设计图面上，指导原则重点介绍常用的布局位置](introduction-images/9-layoutguides-vsmac.png "在设计图面上，指导原则重点介绍常用的布局位置")
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 ![在设计图面上，指导原则重点介绍常用的布局位置](introduction-images/9-layoutguides-vs.png "在设计图面上，指导原则重点介绍常用的布局位置")
 
@@ -207,7 +207,7 @@ IOS 设计器有六个主要部分：
 
 上面示例中的蓝色点线提供了水平居中视觉对象对齐准则，以帮助提供按钮位置。
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 #### <a name="context-menu-commands"></a>上下文菜单命令
 
@@ -215,17 +215,17 @@ IOS 设计器有六个主要部分：
 
 [![设计图面上的上下文菜单](introduction-images/10-contextmenudesignsurface-vsmac.png "设计图面上的上下文菜单")](introduction-images/10-contextmenudesignsurface-vsmac-large.png#lightbox)
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 -----
 
 ### <a name="constraints-toolbar"></a>约束工具栏
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 [![约束工具栏](introduction-images/11-constraintstoolbar-vsmac.png "约束工具栏")](introduction-images/11-constraintstoolbar-vsmac-large.png#lightbox)
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 [![约束工具栏](introduction-images/11-constraintstoolbar-vs.png "约束工具栏")](introduction-images/11-constraintstoolbar-vs-large.png#lightbox)
 
@@ -239,11 +239,11 @@ IOS 设计器有六个主要部分：
 
 - 帧编辑模式：
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 !["帧编辑模式" 按钮](introduction-images/12a-frameeditingmode-vsmac.png ""帧编辑模式" 按钮")
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 !["帧编辑模式" 按钮](introduction-images/12a-frameeditingmode-vs.png ""帧编辑模式" 按钮")
 
@@ -251,11 +251,11 @@ IOS 设计器有六个主要部分：
 
 - 约束编辑模式：
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 !["约束编辑模式" 按钮](introduction-images/12b-constrainteditingmode-vsmac.png ""约束编辑模式" 按钮")
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 !["约束编辑模式" 按钮](introduction-images/12b-constrainteditingmode-vs.png ""约束编辑模式" 按钮")
 
@@ -272,11 +272,11 @@ IOS 设计器有六个主要部分：
 
 底部工具栏提供了一种方法，用于选择用于在 iOS 设计器中查看情节提要或 xib 文件的设备、方向和缩放：
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 [![底部工具栏，用于为设计图面选择设备和方向](introduction-images/13-bottomtoolbar-vsmac.png "底部工具栏，用于为设计图面选择设备和方向")](introduction-images/13-bottomtoolbar-vsmac-large.png#lightbox)
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 [![底部工具栏，用于为设计图面选择设备和方向](introduction-images/13-bottomtoolbar-vs.png "底部工具栏，用于为设计图面选择设备和方向")](introduction-images/13-bottomtoolbar-vs-large.png#lightbox)
 
@@ -286,11 +286,11 @@ IOS 设计器有六个主要部分：
 
 展开后，底部工具栏将显示适用于当前文档的所有设备、方向和/或适应。 单击它们会更改设计图面上显示的视图。 
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 [![底部工具栏，展开以显示设备和方向](introduction-images/14-bottomtoolbarexpanded-vsmac.png "底部工具栏，展开以显示设备和方向")](introduction-images/14-bottomtoolbarexpanded-vsmac-large.png#lightbox)
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 [![底部工具栏，展开以显示设备和方向](introduction-images/14-bottomtoolbarexpanded-vs.png "底部工具栏，展开以显示设备和方向")](introduction-images/14-bottomtoolbarexpanded-vs-large.png#lightbox)
 
@@ -303,11 +303,11 @@ IOS 设计器有六个主要部分：
 - 如果选择了**IPHONE SE** / **纵向**，则 segue 将提供用于为紧凑型宽度、常规高度大小类创建界面变体的选项。 
 - 如果选择了**IPad Pro 9.7 "**  / **横向** / **全屏**显示，则 segue 将提供用于为常规宽度、常规高度大小类创建界面变体的选项。
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 [![底部工具栏用于改变按大小类的接口](introduction-images/15-edittraitsbutton-vsmac.png "底部工具栏用于改变按大小类的接口")](introduction-images/15-edittraitsbutton-vsmac-large.png#lightbox)
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 [![底部工具栏用于改变按大小类的接口](introduction-images/15-edittraitsbutton-vs.png "底部工具栏用于改变按大小类的接口")](introduction-images/15-edittraitsbutton-vs-large.png#lightbox)
 
@@ -317,11 +317,11 @@ IOS 设计器有六个主要部分：
 
 设计图面支持通过多个控件进行缩放：
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 ![底部工具栏中的缩放控件](introduction-images/16-zoomcontrols-vsmac.png "底部工具栏中的缩放控件")
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 ![底部工具栏中的缩放控件](introduction-images/16-zoomcontrols-vs.png "底部工具栏中的缩放控件")
 
@@ -336,7 +336,7 @@ IOS 设计器有六个主要部分：
 
 这些控件在设计图面上调整缩放。 它们不会影响应用程序在运行时的用户界面。
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 ### <a name="properties-pad"></a>Properties Pad
 
@@ -347,7 +347,7 @@ IOS 设计器有六个主要部分：
 
 **Properties Pad**包含三个部分：
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 ### <a name="properties-window"></a>属性窗口
 
@@ -365,7 +365,7 @@ IOS 设计器有六个主要部分：
 2. **布局**–跟踪控件位置和大小（包括限制和框架）的属性列在此处。
 3. **事件**–事件和事件处理程序在此处指定。 用于处理触控、点击、拖动等事件。事件也可以直接在代码中处理。
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 #### <a name="editing-properties-in-the-properties-pad"></a>编辑 Properties Pad 中的属性
 
@@ -375,7 +375,7 @@ IOS 设计器有六个主要部分：
 
 [![查看控制器属性](introduction-images/18b-viewcontrollerpropertiespad-vsmac.png "查看控制器属性")](introduction-images/18b-viewcontrollerpropertiespad-vsmac-large.png#lightbox)
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 #### <a name="editing-properties-in-the-properties-window"></a>在 "属性" 窗口中编辑属性
 
@@ -392,11 +392,11 @@ IOS 设计器有六个主要部分：
 
 #### <a name="default-values"></a>默认值
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 **Properties Pad**中的许多属性不显示值或默认值。 但是，应用程序的代码可能仍会修改这些值。 **Properties Pad**不显示在代码中设置的值。
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 "**属性" 窗口**中的许多属性不显示值或默认值。 但是，应用程序的代码可能仍会修改这些值。 "**属性" 窗口**不会显示在代码中设置的值。
 
@@ -404,13 +404,13 @@ IOS 设计器有六个主要部分：
 
 #### <a name="event-handlers"></a>事件处理程序
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 若要为各种事件指定自定义事件处理程序，请使用**Properties Pad**的**事件**选项卡。 例如，在下面的屏幕截图中，`HandleClick` 方法处理按钮在事件**内的触摸**：
 
 [![Properties Pad，并为按钮设置了事件处理程序](introduction-images/19-buttonpropertiespadevents-vsmac.png "Properties Pad，并为按钮设置了事件处理程序")](introduction-images/19-buttonpropertiespadevents-vsmac-large.png#lightbox)
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 若要为各种事件指定自定义事件处理程序，请使用 "**属性" 窗口**的 "**事件**" 选项卡。 例如，在下面的屏幕截图中，`HandleClick` 方法处理按钮在事件**内的触摸**：
 
@@ -420,13 +420,13 @@ IOS 设计器有六个主要部分：
 
 指定事件处理程序后，必须将同名的方法添加到相应的视图控制器类中。 否则，在点击按钮时将发生 `unrecognized selector` 异常：
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 [![无法识别的选择器异常](introduction-images/20-unrecognizedselector-vsmac.png "无法识别的选择器异常")](introduction-images/20-unrecognizedselector-vsmac-large.png#lightbox)
 
 请注意，在**Properties Pad**中指定了事件处理程序后，IOS 设计器将立即打开相应的代码文件，并提供插入方法声明。 
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 [![无法识别的选择器异常](introduction-images/20-unrecognizedselector-vs.png "无法识别的选择器异常")](introduction-images/20-unrecognizedselector-vs-large.png#lightbox)
 
@@ -438,11 +438,11 @@ IOS 设计器有六个主要部分：
 
 IOS 设计器还可以以大纲形式显示接口的控件层次结构。 可以通过选择 "**文档大纲**" 选项卡来获取大纲，如下所示：
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 [![文档大纲](introduction-images/21-buttonoutlineview-vsmac.png "文档大纲")](introduction-images/21-buttonoutlineview-vsmac-large.png#lightbox)
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 [![文档大纲](introduction-images/21-buttonoutlineview-vs.png "文档大纲")](introduction-images/21-buttonoutlineview-vs-large.png#lightbox)
 
@@ -450,7 +450,7 @@ IOS 设计器还可以以大纲形式显示接口的控件层次结构。 可以
 
 大纲视图中的所选控件与设计图面上的选定控件保持同步。  此功能可用于从深度嵌套的接口层次结构中选择项。
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 ## <a name="revert-to-xcode"></a>恢复到 Xcode
 
@@ -460,11 +460,11 @@ IOS 设计器还可以以大纲形式显示接口的控件层次结构。 可以
 
 在 Xcode Interface Builder 中进行编辑后，请保存文件并返回到 Visual Studio for Mac。 更改将同步到 Xamarin iOS 项目。
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 ## <a name="revert-to-xcode"></a>恢复到 Xcode
 
-可以 Interface Builder 交换使用 iOS 设计器和 Xcode，但 Xcode Interface Builder 仅在 Mac 上可用。 若要在 Mac 上的 Xcode Interface Builder 中打开情节提要或 xib 文件，请在[Visual Studio for Mac](/visualstudio/mac/)中打开包含 Xamarin iOS 项目的解决方案，右键单击该文件，然后选择 "**打开方式 > Xcode Interface Builder**"，如所示。下面的屏幕截图：
+可以 Interface Builder 交换使用 iOS 设计器和 Xcode，但 Xcode Interface Builder 仅在 Mac 上可用。 若要在 Mac 上的 Xcode Interface Builder 中打开情节提要或 xib 文件，请在[Visual Studio for Mac](/visualstudio/mac/)中打开包含 Xamarin iOS 项目的解决方案，右键单击该文件，然后选择 "**使用 > Xcode Interface Builder 打开**"，如下面的屏幕截图所示：
 
 [![在 Xcode 中打开情节提要 Interface Builder](introduction-images/22-openinxcodeinterfacebuilder-vsmac.png "在 Xcode 中打开情节提要 Interface Builder")](introduction-images/22-openinxcodeinterfacebuilder-vsmac-large.png#lightbox)
 
@@ -488,7 +488,7 @@ IOS 设计器支持创建、编辑和管理 xib 文件。 这些是 XML 文件�
 
 此和其他与 iOS 设计器相关的指南介绍了如何使用情节提要作为构建用户界面的标准方法，因为大多数 Xamarin 新项目模板默认提供情节提要。
 
-## <a name="summary"></a>总结
+## <a name="summary"></a>Summary
 
 本指南提供了 iOS 设计器简介，描述了其功能并概述了用于设计精美用户界面的工具。
 

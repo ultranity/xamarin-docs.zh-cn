@@ -8,11 +8,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 03/14/2017
 ms.openlocfilehash: 06774d13cf053b661dd0b2d24b7df0c0b767b4db
-ms.sourcegitcommit: 2fbe4932a319af4ebc829f65eb1fb1816ba305d3
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026416"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78919141"
 ---
 # <a name="working-with-storyboards-in-xamarinmac"></a>在 Xamarin 中使用情节提要
 
@@ -41,7 +41,7 @@ controller.ShowWindow(this);
 
 `FromName` 加载包含在应用包中的具有给定名称的情节提要文件。 `InstantiateControllerWithIdentifier` 创建具有给定标识的视图控制器的实例。 设计 UI 时，请在 Xcode 的 Interface Builder 中设置标识：
 
-[设置情节提要 ID![](indepth-images/sb02.png)](indepth-images/sb02.png#lightbox)
+[设置情节提要 ID ![](indepth-images/sb02.png)](indepth-images/sb02.png#lightbox)
 
 或者，您可以使用 `InstantiateInitialController` 方法加载已在 Interface Builder 中分配了初始控制器的视图控制器：
 
@@ -82,7 +82,7 @@ controller.ShowWindow(this);
 
 <a name="Containment" />
 
-### <a name="containment"></a>包含
+### <a name="containment"></a>Containment
 
 在情节提要中，视图控制器（如拆分视图控制器和选项卡视图控制器）现在可以实现_包含_，使其可以 "包含" 其他子视图控制器：
 
@@ -131,7 +131,7 @@ PerformSegue("MyNamedSegue", this);
 
 当你对应用程序的 UI 进行布局时，将在 Xcode 的 Interface Builder 中定义 Segue ID：
 
-[输入 Segue 名称![](indepth-images/sg02.png)](indepth-images/sg02.png#lightbox)
+[输入 Segue 名称 ![](indepth-images/sg02.png)](indepth-images/sg02.png#lightbox)
 
 在充当 Segue 源的视图控制器中，应覆盖 `PrepareForSegue` 方法，并在执行 Segue 之前执行任何所需的初始化，并显示指定的视图控制器：
 
@@ -271,7 +271,7 @@ MacOS 中提供了以下手势识别器：
 
 1. 在**解决方案资源管理器**中，右键单击项目名称，然后选择 "**添加** > **新文件 ...**  > **Mac** > **情节提要**。 输入新情节提要的**名称**，然后单击 "**新建**" 按钮： 
 
-    [添加新情节提要![](indepth-images/ref01.png)](indepth-images/ref01.png#lightbox)
+    [添加新情节提要 ![](indepth-images/ref01.png)](indepth-images/ref01.png#lightbox)
 2. 在**解决方案资源管理器**中，双击新的情节提要名称以将其打开，以便在 Xcode 的 Interface Builder 中进行编辑。
 3. 按通常的方式设计新情节提要的幕后布局，并保存所做的更改： 
 
@@ -279,10 +279,10 @@ MacOS 中提供了以下手势识别器：
 4. 切换到要在 Interface Builder 中添加对的引用的情节提要。
 5. 将**情节提要引用**从**对象库**拖动到 Design Surface： 
 
-    [选择库中的情节提要引用![](indepth-images/ref03.png)](indepth-images/ref03.png#lightbox)
+    [选择库中的情节提要引用 ![](indepth-images/ref03.png)](indepth-images/ref03.png#lightbox)
 6. 在 "**属性检查器**" 中，选择上面创建的**情节提要**的名称： 
 
-    [配置引用![](indepth-images/ref04.png)](indepth-images/ref04.png#lightbox)
+    [配置引用 ![](indepth-images/ref04.png)](indepth-images/ref04.png#lightbox)
 7. 在现有场景上，单击鼠标右键单击 UI 小组件（例如按钮），并创建一个新的 Segue 到刚刚创建的**情节提要引用**。  从弹出菜单中，选择 "**显示**" 以完成 Segue： 
 
     [![设置 Segue 类型](indepth-images/ref06.png)](indepth-images/ref06.png#lightbox) 
@@ -300,17 +300,17 @@ MacOS 中提供了以下手势识别器：
 1. 在**解决方案资源管理器**中，双击外部情节提要将其打开，以便在 Xcode 的 Interface Builder 中进行编辑。
 2. 添加新场景并按常规方式设计其布局： 
 
-    [在 Xcode 中设计布局![](indepth-images/ref07.png)](indepth-images/ref07.png#lightbox)
+    [在 Xcode 中设计布局 ![](indepth-images/ref07.png)](indepth-images/ref07.png#lightbox)
 3. 在 "**标识检查器**" 中，输入新场景的窗口控制器的**情节提要 ID** ： 
 
-    [设置情节提要 ID![](indepth-images/ref08.png)](indepth-images/ref08.png#lightbox)
+    [设置情节提要 ID ![](indepth-images/ref08.png)](indepth-images/ref08.png#lightbox)
 4. 打开要在 Interface Builder 中添加对的引用的情节提要。
 5. 将**情节提要引用**从**对象库**拖动到 Design Surface： 
 
-    [从库中选择情节提要引用![](indepth-images/ref03.png)](indepth-images/ref03.png#lightbox)
+    [从库中选择情节提要引用 ![](indepth-images/ref03.png)](indepth-images/ref03.png#lightbox)
 6. 在 "**标识检查器**" 中，选择你在上面创建的场景的**情节提要**名称和**引用 id** （情节提要 id）： 
 
-    [设置引用 ID![](indepth-images/ref09.png)](indepth-images/ref09.png#lightbox)
+    [设置引用 ID ![](indepth-images/ref09.png)](indepth-images/ref09.png#lightbox)
 7. 在现有场景上，单击鼠标右键单击 UI 小组件（例如按钮），并创建一个新的 Segue 到刚刚创建的**情节提要引用**。 从弹出菜单中，选择 "**显示**" 以完成 Segue： 
 
     [![设置 Segue 类型](indepth-images/ref06.png)](indepth-images/ref06.png#lightbox) 
@@ -331,16 +331,16 @@ MacOS 中提供了以下手势识别器：
     [![在 Xcode 中编辑情节提要](indepth-images/ref11.png)](indepth-images/ref11.png#lightbox)
 3. 在 "**标识检查器**" 中，输入新场景的窗口控制器的**情节提要 ID** ： 
 
-    [设置情节提要 ID![](indepth-images/ref12.png)](indepth-images/ref12.png#lightbox)
+    [设置情节提要 ID ![](indepth-images/ref12.png)](indepth-images/ref12.png#lightbox)
 4. 将**情节提要引用**从**工具箱**拖动到 Design Surface： 
 
-    [从库中选择情节提要引用![](indepth-images/ref03.png)](indepth-images/ref03.png#lightbox)
+    [从库中选择情节提要引用 ![](indepth-images/ref03.png)](indepth-images/ref03.png#lightbox)
 5. 在 "**属性检查器**" 中，选择上面创建的场景的**引用 id** （情节提要 id）： 
 
-    [设置引用 ID![](indepth-images/ref13.png)](indepth-images/ref13.png#lightbox)
+    [设置引用 ID ![](indepth-images/ref13.png)](indepth-images/ref13.png#lightbox)
 6. 在现有场景上，单击鼠标右键单击 UI 小组件（例如按钮），并创建一个新的 Segue 到刚刚创建的**情节提要引用**。 从弹出菜单中，选择 "**显示**" 以完成 Segue： 
 
-    [选择 Segue 类型![](indepth-images/ref06.png)](indepth-images/ref06.png#lightbox) 
+    [选择 Segue 类型 ![](indepth-images/ref06.png)](indepth-images/ref06.png#lightbox) 
 7. 保存对情节提要所做的更改。
 8. 返回到 Visual Studio for Mac 以同步你的更改。
 

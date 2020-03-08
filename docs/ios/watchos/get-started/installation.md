@@ -1,6 +1,6 @@
 ---
-title: 在 Xamarin 中安装和使用 watchOS
-description: 本文档介绍如何在 Xamarin 中安装和使用 watchOS。 它讨论了安装、watchOS 项目结构、如何使用 iOS 设计器 Xcode 集成，并提供了故障排除提示。
+title: 安装和在 Xamarin 中使用 watchOS
+description: 本文档介绍如何安装和使用 Xamarin 使用 watchOS。 此外，介绍了安装，watchOS 项目结构，如何使用 iOS 设计器、 Xcode 集成，并提供了故障排除提示。
 ms.prod: xamarin
 ms.assetid: 69F21F15-198D-4B42-A703-21D35CAB0CCA
 ms.technology: xamarin-ios
@@ -8,26 +8,26 @@ author: davidortinau
 ms.author: daortin
 ms.date: 12/05/2017
 ms.openlocfilehash: f986099011dbccb0eb43c62d253ee497d46ca08e
-ms.sourcegitcommit: 2fbe4932a319af4ebc829f65eb1fb1816ba305d3
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73001683"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78915537"
 ---
-# <a name="installing-and-using-watchos-in-xamarin"></a>在 Xamarin 中安装和使用 watchOS
+# <a name="installing-and-using-watchos-in-xamarin"></a>安装和在 Xamarin 中使用 watchOS
 
-watchOS 4 需要 macOS Sierra （10.12） Xcode 9。
+watchOS 4 需要 macOS Sierra (10.12) 使用 Xcode 9。
 
-watchOS 1 最初需要 OS X Yosemite （10.10）和 Xcode 7。
+在 watchOS 1 中最初所需使用 Xcode 7 的 OS X Yosemite (10.10)。
 
 > [!WARNING]
-> [2018 年4月1日之后，将不会接受 watchOS 1 更新](https://developer.apple.com/news/?id=11162017a)。 将来的更新必须使用 watchOS 2 SDK 或更高版本;建议使用 watchOS 4 SDK 生成。
+> [2018 年4月1日之后，将不会接受 watchOS 1 更新](https://developer.apple.com/news/?id=11162017a)。 将来的更新必须使用 watchOS 2 SDK 或更高版本;在 watchos 生成建议 4 SDK。
 
 ## <a name="project-structure"></a>项目结构
 
-监视应用由三个项目组成：
+Watch 应用包含三个项目：
 
-- **Xamarin IOS iphone 应用项目**-这是一个普通的 iPhone 项目，它可以是任何 Xamarin iOS 模板。 监视应用及其扩展将捆绑在此主项目中。
+- **Xamarin IOS iphone 应用项目**-这是一个普通的 iPhone 项目，它可以是任何 Xamarin iOS 模板。 监视应用和其扩展将被捆绑在该主项目内。
 
 - **监视扩展项目**-此项包含 Watch 应用程序的代码（如控制器类）。
 
@@ -35,11 +35,11 @@ watchOS 1 最初需要 OS X Yosemite （10.10）和 Xcode 7。
 
 在 Xamarin Studio 中，[监视工具包目录示例](https://docs.microsoft.com/samples/xamarin/ios-samples/watchos-watchkitcatalog)解决方案如下所示：
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 ![](installation-images/catalog-solution.png "The solution in Visual Studio")
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 ![](installation-images/catalog-solution-vs.png "The solution in Visual Studio")
 
@@ -50,7 +50,7 @@ watchOS 1 最初需要 OS X Yosemite （10.10）和 Xcode 7。
 
 ## <a name="creating-a-new-project"></a>创建新项目
 
-不能创建新的 "监视解决方案" .。。你可以向现有的 iOS 应用程序添加监视应用。 按照以下步骤创建一个监视应用：
+您不能创建一个新"监视解决方案"...而是可以将监视应用程序添加到现有的 iOS 应用程序。 请按照以下步骤创建的监视应用操作：
 
 1. 如果没有现有项目，请先选择 "**文件" > "新建解决方案**" 并创建一个 iOS 应用（例如，**单个视图应用**）：
 
@@ -60,11 +60,11 @@ watchOS 1 最初需要 OS X Yosemite （10.10）和 Xcode 7。
 
     [![](installation-images/cycle8-6-sml.png "Select watchOS > App > WatchKit App")](installation-images/cycle8-6.png#lightbox)
 
-3. 下一屏幕中，你可以选择哪个 iOS 应用项目应包含 watch 应用：
+3. 在下一屏幕中，您选择的 iOS 应用程序项目应包括 watch 应用：
 
     [![](installation-images/cycle8-7-sml.png "Choose which iOS app project should include the watch app")](installation-images/cycle8-7.png#lightbox)
 
-4. 最后，选择保存项目的位置（还可以选择启用源代码管理）：
+4. 最后，选择要保存项目的位置 （和根据需要启用源代码管理）：
 
     [![](installation-images/cycle8-8-sml.png "Choose the location to save the project")](installation-images/cycle8-8.png#lightbox)
 
@@ -78,11 +78,11 @@ watchOS 1 最初需要 OS X Yosemite （10.10）和 Xcode 7。
 
 双击 "监视" 应用的**界面**，使用 IOS 设计器进行编辑。 可以将界面控制器和 UI 控件从**工具箱**拖动到情节提要，并使用 "**属性**" 板配置它们：
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 [![](installation-images/iosdesigner-sml.png "The storyboard in the Designer")](installation-images/iosdesigner.png#lightbox)
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 [![](installation-images/iosdesigner-sml-vs.png "The storyboard in the Designer")](installation-images/iosdesigner-vs.png#lightbox)
 
@@ -90,11 +90,11 @@ watchOS 1 最初需要 OS X Yosemite （10.10）和 Xcode 7。
 
 你应通过选择一个类，然后在**Properties** pad 中输入名称，为每个新的接口控制器提供一个**类**（这C#将自动创建所需的代码隐藏文件）：
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 ![](installation-images/iosdesigner-classname.png "Give each new interface controller a Class")
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 ![](installation-images/iosdesigner-classname-vs.png "Give each new interface controller a Class")
 
@@ -104,13 +104,13 @@ watchOS 1 最初需要 OS X Yosemite （10.10）和 Xcode 7。
 
 ### <a name="using-xcode-on-the-mac"></a>在 Mac 上使用 Xcode
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 右键单击 Xcode 文件并选择 "打开方式"，然后选择 "**打开方式" > Xcode Interface Builder**，可以继续使用生成用户界面：
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
-Visual Studio 用户还可以通过切换到直接使用 Mac 生成主机来使用 Xcode 构建其用户界面。
+Visual Studio 用户还可以使用 Xcode 切换要直接使用 Mac 生成主机生成用户界面。
 在 Visual Studio for Mac 中打开解决方案，然后右键单击 "Xcode" 文件，然后选择 "**打开方式" > "Interface Builder**：
 
 -----
@@ -131,15 +131,15 @@ Visual Studio 用户还可以通过切换到直接使用 Mac 生成主机来使�
 
 ## <a name="building"></a>生成
 
-包含 watch 应用的项目生成方式与其他 iOS 项目相同。 生成过程将生成一个包含监视扩展（. appex）的 iPhone 应用程序（app.config），该应用程序又包含无代码的监视应用程序（app.config）。
+包含的监视应用的项目，生成与其他 iOS 项目一样。 生成过程会导致包含监视扩展 (.appex)，它包含无代码的监视应用程序 (.app) 的 iPhone 应用程序 (.app)。
 
-## <a name="launching"></a>发动
+## <a name="launching"></a>启动
 
-可以使用 Visual Studio for Mac 或 Visual Studio （在 Mac 生成主机上启动）在模拟器中启动 "监视" 应用。
+您可以启动监视应用程序在模拟器中使用 Visual Studio for Mac 或 Visual Studio （Mac 生成主机上启动）。
 
-可通过两种模式启动 WatchKit 应用：
+有两种模式启动的 WatchKit 应用：
 
-- 正常应用模式（默认）和
+- 正常的应用程序模式 （默认值），并
 - [通知](~/ios/watchos/platform/notifications.md)（需要 JSON 格式的测试通知有效负载）。
 
 ### <a name="xcode-8-support"></a>Xcode 8 支持
@@ -149,9 +149,9 @@ Visual Studio 用户还可以通过切换到直接使用 Mac 生成主机来使�
 
 [![](installation-images/xs-xcode8-watchos3-sml.png "Selecting the Simulator type")](installation-images/xs-xcode8-watchos3.png#lightbox)
 
-开始调试时，应启动*两个*模拟器-iOS 模拟器*和*Apple Watch 模拟器。 使用**Command + Shift + H**导航到 "监视" 菜单和 "时钟面";并使用**硬件**菜单设置**Force Touch 压力**。 滚动触控板或鼠标将使用 Digital Crown 进行模拟。
+开始调试时，应启动*两个*模拟器-iOS 模拟器*和*Apple Watch 模拟器。 使用**Command + Shift + H**导航到 "监视" 菜单和 "时钟面";并使用**硬件**菜单设置**Force Touch 压力**。 滚动鼠标的触控板上将模拟使用数字 Crown。
 
-#### <a name="troubleshooting"></a>疑难解答
+#### <a name="troubleshooting"></a>故障排除
 
 如果尝试启动到不具有配对监视的模拟器，则会在**应用程序输出**中显示以下错误：
 
@@ -166,7 +166,7 @@ error HE0020: Could not find a paired Watch device for the iOS device 'iPhone 6'
 
 ### <a name="xcode-6-and-watchos-1"></a>Xcode 6 和 watchOS 1
 
-在运行或调试应用之前，必须使*监视扩展项目*成为**启动项目**。 你无法 "启动" 监视应用本身，如果你选择 iOS 应用，则它将在 iOS 模拟器中正常启动。
+在运行或调试应用之前，必须使*监视扩展项目*成为**启动项目**。 无法"启动"watch 应用本身，并且如果您选择的 iOS 应用，它将启动 iOS 模拟器中作为普通。
 
 默认情况下，"监视" 应用从 Visual Studio for Mac 的 "**运行**" 或 "**调试**" 命令以正常**应用**模式（而不是一目了然或通知模式）启动。
 
@@ -194,8 +194,8 @@ Visual Studio for Mac 可以使用通知_启动模式_为通知启动 watch 应�
 
 ## <a name="debugging"></a>调试
 
-Visual Studio for Mac 和 Visual Studio 都支持调试。
-在通知模式下进行调试时，请记得提供通知 JSON 文件。 此屏幕截图显示在监视应用中命中的调试断点：
+在 Visual Studio for Mac 和 Visual Studio 支持调试。
+请记住在通知模式下进行调试时提供的通知的 JSON 文件。 此屏幕截图显示调试断点命中在 watch 应用中：
 
 ![](installation-images/debug-sml.png "This screenshot shows a debug breakpoint being hit in a watch app")
 

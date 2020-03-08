@@ -8,11 +8,11 @@ author: davidbritch
 ms.author: dabritch
 ms.date: 08/08/2017
 ms.openlocfilehash: 528ccd66cc013f83752d93251cb9714115b29819
-ms.sourcegitcommit: db422e33438f1b5c55852e6942c3d1d75dc025c4
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76725602"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78915272"
 ---
 # <a name="authentication-and-authorization"></a>身份验证和授权
 
@@ -20,7 +20,7 @@ ms.locfileid: "76725602"
 
 有许多种集成到 Xamarin.Forms 应用 ASP.NET MVC web 应用程序，包括使用 ASP.NET Core 标识时，例如 Microsoft、 Google、 外部身份验证提供程序与之通信的身份验证和授权Facebook 或 Twitter 和身份验证中间件。 EShopOnContainers 移动应用使用 IdentityServer 4 的容器化标识微服务执行身份验证和授权。 移动应用程序请求 IdentityServer 的安全令牌，用于对用户进行身份验证或访问资源。 要使 IdentityServer 代表用户颁发令牌，用户必须登录到 IdentityServer。 但是，IdentityServer 不提供用于身份验证的用户界面或数据库。 因此，在 eShopOnContainers 引用应用程序中，ASP.NET Core 标识用于此目的。
 
-## <a name="authentication"></a>身份验证
+## <a name="authentication"></a>Authentication
 
 当应用程序需要知道当前用户的身份时，需要进行身份验证。 ASP.NET Core 用于标识用户的主要机制是 ASP.NET Core 标识成员身份系统，它在由开发人员配置了数据存储中存储用户的信息。 通常，此数据存储将为 EntityFramework 存储区，但自定义商店或第三方包可用于将标识信息存储在 Azure 存储、Azure Cosmos DB 或其他位置。
 
@@ -472,7 +472,7 @@ httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValu
 
 有关 eShopOnContainers 移动应用程序如何进行 web 请求的详细信息，请参阅[访问远程数据](~/xamarin-forms/enterprise-application-patterns/accessing-remote-data.md)。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>总结
 
 可以通过许多方法将身份验证和授权集成到与 ASP.NET MVC Web 应用程序进行通讯的 Xamarin.Forms 应用中， EShopOnContainers 移动应用使用 IdentityServer 4 的容器化标识微服务执行身份验证和授权。 IdentityServer 是一种适用于 ASP.NET Core 的开源 OpenID Connect 和 OAuth 2.0  框架，它与 ASP.NET Core Identity 集成以执行持有者令牌身份验证。
 

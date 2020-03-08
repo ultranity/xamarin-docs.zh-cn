@@ -8,11 +8,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 03/20/2017
 ms.openlocfilehash: 13891100d3571f9e847243172aa974072f46e7fe
-ms.sourcegitcommit: 2fbe4932a319af4ebc829f65eb1fb1816ba305d3
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73001830"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78915174"
 ---
 # <a name="unified-storyboards-in-xamarinios"></a>Xamarin 中的统一情节提要
 
@@ -112,10 +112,10 @@ UIImage icon = UIImage.FromFile("MonkeyImage.png");
 
 下面是开发人员在 iPhone 上可能看到的典型特征集合：
 
-|Property|“值”|
+|properties|值|
 |--- |--- |
 |`HorizontalSizeClass`|Compact|
-|`VerticalSizeClass`|规则|
+|`VerticalSizeClass`|常规|
 |`UserInterfaceIdom`|电话|
 |`DisplayScale`|2.0|
 
@@ -123,12 +123,12 @@ UIImage icon = UIImage.FromFile("MonkeyImage.png");
 
 还可以具有一个特征集合，其中缺少某些值（Apple 将其称为*未指定*）：
 
-|Property|“值”|
+|properties|值|
 |--- |--- |
 |`HorizontalSizeClass`|Compact|
-|`VerticalSizeClass`|未指定|
-|`UserInterfaceIdom`|未指定|
-|`DisplayScale`|未指定|
+|`VerticalSizeClass`|“未指定”|
+|`UserInterfaceIdom`|“未指定”|
+|`DisplayScale`|“未指定”|
 
 不过，通常情况下，当开发人员为特征集合请求特征环境时，它将返回完全限定的集合，如以上示例中所示。
 
@@ -214,9 +214,9 @@ IOS 8 中已更改的其中一个视图控制器类是 `UISplitViewController` �
 
 iOS 8 提供若干次回调，开发人员可以使用这些回调来参与特征更改，如下表所示：
 
-|Phase|回调|描述|
+|阶段|回调|说明|
 |--- |--- |--- |
-|安装|<ul><li>`WillTransitionToTraitCollection`</li><li>`TraitCollectionDidChange`</li></ul>|<ul><li>此方法在特性集合设置为其新值之前在特征更改开始时调用。</li><li>当特征集合的值已更改，但在发生任何动画之前，将调用方法。</li></ul>|
+|设置|<ul><li>`WillTransitionToTraitCollection`</li><li>`TraitCollectionDidChange`</li></ul>|<ul><li>此方法在特性集合设置为其新值之前在特征更改开始时调用。</li><li>当特征集合的值已更改，但在发生任何动画之前，将调用方法。</li></ul>|
 |动画|`WillTransitionToTraitCollection`|传递给此方法的转换协调器具有 `AnimateAlongside` 属性，使开发人员能够添加将与默认动画一起执行的动画。|
 |清理|`WillTransitionToTraitCollection`|为开发人员提供一种方法，用于在发生过渡后包含自己的清理代码。|
 
@@ -242,7 +242,7 @@ iOS 8 提供若干次回调，开发人员可以使用这些回调来参与特�
 
 ### <a name="showing-view-controllers"></a>显示视图控制器
 
-Apple 对 iOS 8 进行的另一项更改是开发人员显示视图控制器的方式。 过去，如果应用程序有叶视图控制器（如表视图控制器），并且开发人员显示了不同的控制器（例如，为了响应用户点击某个单元），则应用程序将通过控制器层次结构返回到导航视图控制器并对其调用 `PushViewController` 方法，以显示新的视图。
+Apple 对 iOS 8 进行的另一项更改是开发人员显示视图控制器的方式。 过去，如果应用程序有叶视图控制器（如表视图控制器），并且开发人员显示了不同的控制器（例如，为了响应用户点击某个单元），则该应用程序将通过控制器层次结构返回到导航视图控制器并对其调用 `PushViewController` 方法，以显示新的视图。
 
 这会在导航控制器和它运行时所处的环境之间出现紧密耦合。 在 iOS 8 中，Apple 通过提供两种新方法来分离此内容：
 
@@ -259,7 +259,7 @@ Apple 对 iOS 8 进行的另一项更改是开发人员显示视图控制器的�
 
  [![](unified-storyboards-images/gettargetforaction.png "The new GetTargetForAction method")](unified-storyboards-images/gettargetforaction.png#lightbox)
 
-此方法将遍历层次结构链，直到找到正确的容器视图控制器。 例如:
+此方法将遍历层次结构链，直到找到正确的容器视图控制器。 例如：
 
 1. 如果调用 `ShowViewController` 方法，则实现此方法的链中的第一个视图控制器是导航控制器，因此它将用作新视图的父级。
 1. 如果改为调用 `ShowDetailViewController` 方法，则拆分视图控制器是第一个要实现它的视图控制器，因此它将用作父级。
@@ -294,7 +294,7 @@ Apple 对 iOS 8 进行的另一项更改是开发人员显示视图控制器的�
 
  [![](unified-storyboards-images/rotation.png "The Split View Controller will display both the master and details view as seen here")](unified-storyboards-images/rotation.png#lightbox)
 
-这是通过以下方式实现的：重写视图控制器的 `UpdateConstraintsForTraitCollection` 方法，并基于 `VerticalSizeClass`的值调整约束。 例如:
+这是通过以下方式实现的：重写视图控制器的 `UpdateConstraintsForTraitCollection` 方法，并基于 `VerticalSizeClass`的值调整约束。 例如：
 
 ```csharp
 public void UpdateConstraintsForTraitCollection (UITraitCollection collection)
@@ -350,7 +350,7 @@ public void UpdateConstraintsForTraitCollection (UITraitCollection collection)
 
 ### <a name="adding-transition-animations"></a>添加过渡动画
 
-自适应照片应用程序中的拆分视图控制器从折叠展开为展开时，会通过覆盖视图控制器的 `WillTransitionToTraitCollection` 方法，将动画添加到默认动画。 例如:
+自适应照片应用程序中的拆分视图控制器从折叠展开为展开时，会通过覆盖视图控制器的 `WillTransitionToTraitCollection` 方法，将动画添加到默认动画。 例如：
 
 ```csharp
 public override void WillTransitionToTraitCollection (UITraitCollection traitCollection, IUIViewControllerTransitionCoordinator coordinator)
@@ -680,7 +680,7 @@ Size 类选择器按钮位于 Design Surface 的左上角（位于视图附近�
 
 启动屏幕文件在启动 iOS 应用程序时显示为初始屏幕，以便向用户提供对应用实际启动的反馈。 在 iOS 8 之前，开发人员必须为应用程序运行的每种设备类型、方向和屏幕分辨率包含多个 `Default.png` 的图像资产。 例如，`Default@2x.png`、`Default-Landscape@2x~ipad.png`、`Default-Portrait@2x~ipad.png`等。
 
-这种 `Default.png` 方法在新的 iPhone 6 和 iPhone 6 Plus 设备（以及即将发布的 Apple Watch）中与所有现有 iPhone 和 iPad 设备进行因式分解，这表示必须已创建并维护。 此外，这些文件可能会很大，并且会 "膨胀" 可交付结果应用程序捆绑，增加从 iTunes 应用商店下载应用程序所需的时间（可能是因为它无法通过移动电话网络传递）并增加最终用户设备上所需的存储量。
+在新的 iPhone 6 和 iPhone 6 Plus 设备（以及即将发布的 Apple Watch）中，使用所有现有的 iPhone 和 iPad 设备进行因式分解，这表示必须创建和维护 `Default.png` 启动屏幕图像资产的各种大小、方向和分辨率。 此外，这些文件可能会很大，并且会 "膨胀" 可交付结果应用程序捆绑，增加从 iTunes 应用商店下载应用程序所需的时间（可能是因为它无法通过移动电话网络传递）并增加最终用户设备上所需的存储量。
 
 对于 iOS 8，开发人员可在 Xcode 中创建单个原子 `.xib` 文件，该文件使用自动布局和大小类来创建可用于每个设备、分辨率和方向的*动态启动屏幕*。 这不仅减少了开发人员创建和维护所有必需的图像资产所需的工作量，而且大大减少了应用程序的已安装捆绑的大小。
 
@@ -713,7 +713,7 @@ Size 类选择器按钮位于 Design Surface 的左上角（位于视图附近�
 6. 通过添加图形元素并使用布局约束来为给定设备、方向和屏幕大小定位它们，编辑启动屏幕的设计：
 
     [![](unified-storyboards-images/dls05.png "Editing the design of the launch screen")](unified-storyboards-images/dls05.png#lightbox)
-7. 保存对 `LaunchScreen.xib`所做的更改。
+7. 保存对 `LaunchScreen.xib` 的更改。
 8. 选择**应用程序目标**和 "**常规**" 选项卡：
 
     [![](unified-storyboards-images/dls06.png "Select the Applications Target and the General tab")](unified-storyboards-images/dls06.png#lightbox)
@@ -731,7 +731,7 @@ Size 类选择器按钮位于 Design Surface 的左上角（位于视图附近�
 14. 选择上面创建的 `LaunchScreen.xib` 文件，并单击 "**打开**" 按钮：
 
     [![](unified-storyboards-images/dls10.png "Select the LaunchScreen.xib file")](unified-storyboards-images/dls10.png#lightbox)
-15. 生成应用程序。
+15. 构建应用程序。
 
 ### <a name="testing-the-dynamic-launch-screen"></a>测试动态启动屏幕
 

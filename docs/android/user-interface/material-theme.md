@@ -8,11 +8,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 03/01/2018
 ms.openlocfilehash: 809f6241b3a17f63fe3077f896095c303e1dfd2e
-ms.sourcegitcommit: 52fb214c0e0243587d4e9ad9306b75e92a8cc8b7
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76940841"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78916729"
 ---
 # <a name="material-theme"></a>材料主题
 
@@ -36,7 +36,7 @@ Android 提供三种材料主题风格：
 
 由于仅 Android 5.0 及更高版本支持材料主题，因此你不能使用它（或从材料主题派生的自定义主题）来为你的应用程序提供应用程序的主题，使其在早期版本的 Android 上运行。 但是，你可以将应用配置为使用 Android 5.0 设备上的材料主题，并在较早版本的 Android 上运行时适当地回退到前面的主题（有关详细信息，请参阅本文的 "[兼容性](#compatibility)" 部分）。
 
-## <a name="requirements"></a>需求
+## <a name="requirements"></a>要求
 
 若要在基于 Xamarin 的应用中使用新的 Android 5.0 材料主题功能，需要满足以下要求：
 
@@ -185,7 +185,7 @@ Android 提供三种材料主题风格：
 Android 5.0 还允许您为单个视图建立样式。 创建**colors**和 style **.xml**后（如上一节所述），可以将视图样式添加到 style **.xml**。
 若要为单个视图的样式，请使用以下步骤：
 
-- 编辑**资源/values-v21/style .xml**并添加一个 `style` 节点，其名称为自定义视图样式的名称。 在此 `style` 节点中为视图设置自定义颜色属性。 例如, 若要创建具有更多圆角并`my_blue`用作卡片背景色的自定义 [CardView](~/android/user-interface/controls/card-view.md) 样式, 请将`style`节点添加到 **style .xml** (在`resources`节点内), 并配置背景色和角半径:
+- 编辑**资源/values-v21/style .xml**并添加一个 `style` 节点，其名称为自定义视图样式的名称。 在此 `style` 节点中为视图设置自定义颜色属性。 例如，若要创建具有更多圆角的自定义[CardView](~/android/user-interface/controls/card-view.md)样式，并使用 `my_blue` 作为卡片背景色，请将 `style` 节点添加到 style **.xml** （在 `resources` 节点内），并配置背景色和角半径：
 
 ```xml
 <!-- Theme an individual view: -->
@@ -260,7 +260,7 @@ Android 5.0 还允许您为单个视图建立样式。 创建**colors**和 style
 
 有关与较旧的 Android 版本的主题兼容性的详细信息，请参阅[备用资源](~/android/app-fundamentals/resources-in-android/alternate-resources.md)。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>总结
 
 本文介绍了 Android 5.0 （棒糖形）中包含的新材料主题用户界面样式。 本文介绍了三种内置的材料主题风格，您可以使用它们来设计您的应用程序的样式，还介绍了如何创建用于标记您的应用程序的自定义主题，并提供了如何为单个视图提供主题的示例。 最后，本文介绍了如何在应用中使用材料主题，同时保持与早期版本的 Android 的向下兼容性。
 

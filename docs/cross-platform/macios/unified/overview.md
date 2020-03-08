@@ -7,11 +7,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 03/29/2017
 ms.openlocfilehash: 8402a48602dd94578e688faeb038aec69684e7d4
-ms.sourcegitcommit: 52fb214c0e0243587d4e9ad9306b75e92a8cc8b7
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76940717"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78917559"
 ---
 # <a name="unified-api-overview"></a>Unified API 概述
 
@@ -33,7 +33,7 @@ Xamarin 的 Unified API 允许在 Mac 和 iOS 之间共享代码，并支持具�
 - [更新现有 Xamarin.Forms 应用](updating-xamarin-forms-apps.md)
 - [将绑定迁移到 Unified API](update-binding.md)
 
-## <a name="tips-for-updating-code-to-the-unified-apiupdating-tipsmd"></a>[将代码更新为 Unified API 的提示](updating-tips.md)
+## <a name="tips-for-updating-code-to-the-unified-api"></a>[将代码更新为 Unified API 的提示](updating-tips.md)
 
 不管你要迁移哪些应用程序，请查看[以下提示](updating-tips.md)，以帮助你成功更新到 Unified API。
 

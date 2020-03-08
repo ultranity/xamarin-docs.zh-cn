@@ -8,15 +8,15 @@ author: davidbritch
 ms.author: dabritch
 ms.date: 08/07/2017
 ms.openlocfilehash: de5728710a408b8e0c7c68dc89c7e6484cbcc3ce
-ms.sourcegitcommit: 9bfedf07940dad7270db86767eb2cc4007f2a59f
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70760168"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78915238"
 ---
 # <a name="validation-in-enterprise-apps"></a>企业应用程序中的验证
 
-任何接受用户输入的应用都应确保输入有效。 例如，应用程序可以检查输入中是否仅包含特定范围内的字符、是否为特定长度，或是否匹配特定格式。 如果没有验证，用户可以提供导致应用失败的数据。 验证将强制实施业务规则，并阻止攻击者注入恶意数据。
+任何接受用户输入的应用都应确保输入是有效的。 例如，应用程序可以检查输入中是否仅包含特定范围内的字符、是否为特定长度，或是否匹配特定格式。 如果未进行验证，用户提供的数据可能导致应用故障。 验证可强制实施业务规则，并防止攻击者注入恶意数据。
 
 在 ViewModel （MVVM）模式的上下文中，视图模型或模型通常需要执行数据验证并向视图发出任何验证错误信号，以便用户可以更正这些错误。 EShopOnContainers 移动应用执行视图模型属性的同步客户端验证，通过突出显示包含无效数据的控件并显示通知用户的错误消息，通知用户任何验证错误。数据无效的原因。 图6-1 显示了在 eShopOnContainers 移动应用程序中执行验证所涉及的类。
 
@@ -24,7 +24,7 @@ ms.locfileid: "70760168"
 
 **图 6-1**： eShopOnContainers 移动应用中的验证类
 
-需要验证的视图模型属性为 `ValidatableObject<T>` 类型，并且每个 `ValidatableObject<T>` 实例都具有添加到其 `Validations` 属性的验证规则。 验证是通过调用 `ValidatableObject<T>` 实例的 `Validate` 方法从视图模型调用的，该方法检索验证规则并针对 `ValidatableObject<T>` `Value` 属性执行验证规则。 所有验证错误都放置在 `ValidatableObject<T>` 实例的 `Errors` 属性中，并更新 `ValidatableObject<T>` 实例的 `IsValid` 属性，以指示验证是成功还是失败。
+需要验证的视图模型属性为 `ValidatableObject<T>`类型，并且每个 `ValidatableObject<T>` 实例都具有添加到其 `Validations` 属性的验证规则。 验证是通过调用 `ValidatableObject<T>` 实例的 `Validate` 方法从视图模型调用的，该方法检索验证规则并针对 `ValidatableObject<T>` `Value` 属性执行验证规则。 所有验证错误都放置在 `ValidatableObject<T>` 实例的 `Errors` 属性中，并更新 `ValidatableObject<T>` 实例的 `IsValid` 属性，以指示验证是成功还是失败。
 
 属性更改通知由 `ExtendedBindableObject` 类提供，因此[`Entry`](xref:Xamarin.Forms.Entry)的控件可以绑定到视图模型类中 `ValidatableObject<T>` 实例的 `IsValid` 属性，以通知输入的数据是否有效。
 
@@ -62,7 +62,7 @@ public class IsNotNullOrEmptyRule<T> : IValidationRule<T>
 }
 ```
 
-@No__t_0 方法返回一个 `boolean`，该值指示值参数是 `null`、为空还是仅由空白字符组成。
+`Check` 方法返回一个 `boolean`，该值指示值参数是 `null`、为空还是仅由空白字符组成。
 
 下面的代码示例演示了用于验证电子邮件地址的验证规则：
 
@@ -87,7 +87,7 @@ public class EmailRule<T> : IValidationRule<T>
 }
 ```
 
-@No__t_0 方法返回一个 `boolean`，指示值参数是否为有效的电子邮件地址。 这是通过在 `Regex` 构造函数中搜索指定的正则表达式模式的第一个匹配项的值参数来实现的。 是否在输入字符串中找到了正则表达式模式可以通过检查 `Match` 对象的 `Success` 属性的值来确定。
+`Check` 方法返回一个 `boolean`，指示值参数是否为有效的电子邮件地址。 这是通过在 `Regex` 构造函数中搜索指定的正则表达式模式的第一个匹配项的值参数来实现的。 是否在输入字符串中找到了正则表达式模式可以通过检查 `Match` 对象的 `Success` 属性的值来确定。
 
 > [!NOTE]
 > 属性验证有时可以涉及依赖属性。 依赖属性的一个示例是，属性 A 的有效值集取决于在属性 B 中设置的特定值。若要检查属性 A 的值是否为允许的值之一，将需要检索属性 B 的值。此外，当属性 B 的值更改时，需要重新验证属性 A。
@@ -148,7 +148,7 @@ EShopOnContainers 移动应用中使用的验证方法可以手动触发属性�
 
 ### <a name="triggering-validation-manually"></a>手动触发验证
 
-可以为视图模型属性手动触发验证。 例如，当用户点击 `LoginView` 上的 "**登录**" 按钮时，会在 eShopOnContainers 移动应用中出现这种情况。 命令委托调用 `LoginViewModel` 中的 `MockSignInAsync` 方法，该方法通过执行 `Validate` 方法来调用验证，如以下代码示例所示：
+可以为视图模型属性手动触发验证。 例如，当用户点击 `LoginView`上的 "**登录**" 按钮时，会在 eShopOnContainers 移动应用中出现这种情况。 命令委托调用 `LoginViewModel`中的 `MockSignInAsync` 方法，该方法通过执行 `Validate` 方法来调用验证，如以下代码示例所示：
 
 ```csharp
 private bool Validate()  
@@ -169,7 +169,7 @@ private bool ValidatePassword()
 }
 ```
 
-@No__t_0 方法通过对每个 `ValidatableObject<T>` 实例调用 Validate 方法来对 `LoginView` 上的用户输入的用户名和密码执行验证。 下面的代码示例演示了 `ValidatableObject<T>` 类中的 Validate 方法：
+`Validate` 方法通过对每个 `ValidatableObject<T>` 实例调用 Validate 方法来对 `LoginView`上的用户输入的用户名和密码执行验证。 下面的代码示例演示了 `ValidatableObject<T>` 类中的 Validate 方法：
 
 ```csharp
 public bool Validate()  
@@ -204,7 +204,7 @@ public bool Validate()
 </Entry>
 ```
 
-[@No__t_1](xref:Xamarin.Forms.Entry)控件绑定到 `ValidatableObject<T>` 实例的 `UserName.Value` 属性，控件的 `Behaviors` 集合添加了一个 `EventToCommandBehavior` 实例。 此行为会执行 `ValidateUserNameCommand`，以响应在 `Entry` 上触发的 [`TextChanged`] 事件，该事件在 `Entry` 中的文本更改时引发。 反过来，`ValidateUserNameCommand` 委托执行 `ValidateUserName` 方法，该方法对 `ValidatableObject<T>` 实例执行 `Validate` 方法。 因此，每次用户在 `Entry` 控件中为用户名输入一个字符时，都会对输入的数据进行验证。
+[`Entry`](xref:Xamarin.Forms.Entry)控件绑定到 `ValidatableObject<T>` 实例的 `UserName.Value` 属性，控件的 `Behaviors` 集合添加了一个 `EventToCommandBehavior` 实例。 此行为会执行 `ValidateUserNameCommand`，以响应在 `Entry`上触发的 [`TextChanged`] 事件，该事件在 `Entry` 中的文本更改时引发。 反过来，`ValidateUserNameCommand` 委托执行 `ValidateUserName` 方法，该方法对 `ValidatableObject<T>` 实例执行 `Validate` 方法。 因此，每次用户在 `Entry` 控件中为用户名输入一个字符时，都会对输入的数据进行验证。
 
 有关行为的详细信息，请参阅[实现行为](~/xamarin-forms/enterprise-application-patterns/mvvm.md#implementing_behaviors)。
 
@@ -220,7 +220,7 @@ EShopOnContainers 移动应用通过以下方式向用户通知任何验证错�
 
 ### <a name="highlighting-a-control-that-contains-invalid-data"></a>突出显示包含无效数据的控件
 
-@No__t_0 附加行为用于突出显示发生验证错误[`Entry`](xref:Xamarin.Forms.Entry)控件。 下面的代码示例演示如何将 `LineColorBehavior` 附加行为附加到 `Entry` 控件：
+`LineColorBehavior` 附加行为用于突出显示发生验证错误[`Entry`](xref:Xamarin.Forms.Entry)控件。 下面的代码示例演示如何将 `LineColorBehavior` 附加行为附加到 `Entry` 控件：
 
 ```xaml
 <Entry Text="{Binding UserName.Value, Mode=TwoWay}">
@@ -234,7 +234,7 @@ EShopOnContainers 移动应用通过以下方式向用户通知任何验证错�
 </Entry>
 ```
 
-[@No__t_1](xref:Xamarin.Forms.Entry)控件使用显式样式，如以下代码示例所示：
+[`Entry`](xref:Xamarin.Forms.Entry)控件使用显式样式，如以下代码示例所示：
 
 ```xaml
 <Style x:Key="EntryStyle"  
@@ -283,9 +283,9 @@ public static class LineColorBehavior
 }
 ```
 
-此方法的参数提供行为所附加到的控件的实例，以及 `ApplyLineColor` 附加属性的新旧值。 如果 `true` `ApplyLineColor` 附加属性，则会将 `EntryLineColorEffect` 类添加到控件的[`Effects`](xref:Xamarin.Forms.Element.Effects)集合，否则将从控件的 `Effects` 集合中将其删除。 有关行为的详细信息，请参阅[实现行为](~/xamarin-forms/enterprise-application-patterns/mvvm.md#implementing_behaviors)。
+此方法的参数提供行为所附加到的控件的实例，以及 `ApplyLineColor` 附加属性的新旧值。 如果 `true``ApplyLineColor` 附加属性，则会将 `EntryLineColorEffect` 类添加到控件的[`Effects`](xref:Xamarin.Forms.Element.Effects)集合，否则将从控件的 `Effects` 集合中将其删除。 有关行为的详细信息，请参阅[实现行为](~/xamarin-forms/enterprise-application-patterns/mvvm.md#implementing_behaviors)。
 
-@No__t_0 子类[`RoutingEffect`](xref:Xamarin.Forms.RoutingEffect)类，如下面的代码示例所示：
+`EntryLineColorEffect` 子类[`RoutingEffect`](xref:Xamarin.Forms.RoutingEffect)类，如下面的代码示例所示：
 
 ```csharp
 public class EntryLineColorEffect : RoutingEffect  
@@ -296,7 +296,7 @@ public class EntryLineColorEffect : RoutingEffect
 }
 ```
 
-[@No__t_1](xref:Xamarin.Forms.RoutingEffect)类表示一个独立于平台的效果，该效果封装了平台特定的内部效果。 这简化了效果删除过程，因为对于特定于平台的效果，没有对类型信息的编译时访问。 @No__t_0 将调用基类构造函数，并传入一个参数，该参数包含解析组名称的串联，以及在每个特定于平台的效果类上指定的唯一 ID。
+[`RoutingEffect`](xref:Xamarin.Forms.RoutingEffect)类表示一个独立于平台的效果，该效果封装了平台特定的内部效果。 这简化了效果删除过程，因为对于特定于平台的效果，没有对类型信息的编译时访问。 `EntryLineColorEffect` 将调用基类构造函数，并传入一个参数，该参数包含解析组名称的串联，以及在每个特定于平台的效果类上指定的唯一 ID。
 
 下面的代码示例演示适用于 iOS 的 `eShopOnContainers.EntryLineColorEffect` 实现：
 
@@ -374,7 +374,7 @@ namespace eShopOnContainers.iOS.Effects
 }
 ```
 
-@No__t_0 方法检索 Xamarin. Forms [`Entry`](xref:Xamarin.Forms.Entry)控件的本机控件，并通过调用 `UpdateLineColor` 方法更新线条颜色。 如果附加的 `LineColor` 属性发生更改，则 `OnElementPropertyChanged` 重写通过更新 `Entry` 控件上的可绑定属性更改，或 `Entry` 的[`Height`](xref:Xamarin.Forms.VisualElement.Height)属性发生更改。 有关效果的更多信息，请参阅[效果](~/xamarin-forms/app-fundamentals/effects/index.md)。
+`OnAttached` 方法检索 Xamarin. Forms [`Entry`](xref:Xamarin.Forms.Entry)控件的本机控件，并通过调用 `UpdateLineColor` 方法更新线条颜色。 如果附加的 `LineColor` 属性发生更改，则 `OnElementPropertyChanged` 重写通过更新 `Entry` 控件上的可绑定属性更改，或 `Entry` 的[`Height`](xref:Xamarin.Forms.VisualElement.Height)属性发生更改。 有关效果的更多信息，请参阅[效果](~/xamarin-forms/app-fundamentals/effects/index.md)。
 
 当在[`Entry`](xref:Xamarin.Forms.Entry)控件中输入有效数据时，它将在控件的底部应用一条黑线，以指示不存在验证错误。 图6-3 显示了一个示例。
 
@@ -382,7 +382,7 @@ namespace eShopOnContainers.iOS.Effects
 
 **图 6-3**：指示无验证错误的黑色线条
 
-[@No__t_1](xref:Xamarin.Forms.Entry)控件还向其[`Triggers`](xref:Xamarin.Forms.VisualElement.Triggers)集合添加了一个[`DataTrigger`](xref:Xamarin.Forms.DataTrigger) 。 下面的代码示例演示了 `DataTrigger`：
+[`Entry`](xref:Xamarin.Forms.Entry)控件还向其[`Triggers`](xref:Xamarin.Forms.VisualElement.Triggers)集合添加了一个[`DataTrigger`](xref:Xamarin.Forms.DataTrigger) 。 下面的代码示例演示了 `DataTrigger`：
 
 ```xaml
 <Entry Text="{Binding UserName.Value, Mode=TwoWay}">  
@@ -399,7 +399,7 @@ namespace eShopOnContainers.iOS.Effects
 </Entry>
 ```
 
-此[`DataTrigger`](xref:Xamarin.Forms.DataTrigger)会监视 `UserName.IsValid` 属性，如果它的值变为 `false`，它将执行[`Setter`](xref:Xamarin.Forms.Setter)，这会将 `LineColor` 附加行为的附加属性更改为红色。 图6-4 显示了一个示例。
+此[`DataTrigger`](xref:Xamarin.Forms.DataTrigger)会监视 `UserName.IsValid` 属性，如果它的值变为 `false`，它将执行[`Setter`](xref:Xamarin.Forms.Setter)，这会将 `LineColor` 附加行为的附加属性更改为红色。`LineColorBehavior` 图6-4 显示了一个示例。
 
 ![](validation-images/validation-redline.png "Red line indicating validation error")
 
@@ -418,13 +418,13 @@ UI 在其数据验证失败的每个控件下的标签控件中显示验证错�
        Style="{StaticResource ValidationErrorLabelStyle}" />
 ```
 
-每个[`Label`](xref:Xamarin.Forms.Label)都绑定到要验证的视图模型对象的 `Errors` 属性。 @No__t_0 属性由 `ValidatableObject<T>` 类提供，其类型为 `List<string>`。 由于 `Errors` 属性可能包含多个验证错误，因此 `FirstValidationErrorConverter` 实例用于从集合中检索要显示的第一个错误。
+每个[`Label`](xref:Xamarin.Forms.Label)都绑定到要验证的视图模型对象的 `Errors` 属性。 `Errors` 属性由 `ValidatableObject<T>` 类提供，其类型为 `List<string>`。 由于 `Errors` 属性可能包含多个验证错误，因此 `FirstValidationErrorConverter` 实例用于从集合中检索要显示的第一个错误。
 
 ## <a name="summary"></a>总结
 
 EShopOnContainers 移动应用执行视图模型属性的同步客户端验证，通过突出显示包含无效数据的控件并显示通知用户的错误消息，通知用户任何验证错误。数据无效的原因。
 
-需要验证的视图模型属性为 `ValidatableObject<T>` 类型，并且每个 `ValidatableObject<T>` 实例都具有添加到其 `Validations` 属性的验证规则。 验证是通过调用 `ValidatableObject<T>` 实例的 `Validate` 方法从视图模型调用的，该方法检索验证规则并针对 `ValidatableObject<T>` `Value` 属性执行验证规则。 所有验证错误都放置在 `ValidatableObject<T>`instance 的 `Errors` 属性中，并更新 `ValidatableObject<T>` 实例的 `IsValid` 属性，以指示验证是成功还是失败。
+需要验证的视图模型属性为 `ValidatableObject<T>`类型，并且每个 `ValidatableObject<T>` 实例都具有添加到其 `Validations` 属性的验证规则。 验证是通过调用 `ValidatableObject<T>` 实例的 `Validate` 方法从视图模型调用的，该方法检索验证规则并针对 `ValidatableObject<T>` `Value` 属性执行验证规则。 所有验证错误都放置在 `ValidatableObject<T>`实例的 `Errors` 属性中，并更新 `ValidatableObject<T>` 实例的 `IsValid` 属性，以指示验证是成功还是失败。
 
 ## <a name="related-links"></a>相关链接
 

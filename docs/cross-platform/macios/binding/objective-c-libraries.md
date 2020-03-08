@@ -7,11 +7,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 03/06/2018
 ms.openlocfilehash: 6841e94ad13357c51e6ccf59e35c659dfb9954aa
-ms.sourcegitcommit: 2fbe4932a319af4ebc829f65eb1fb1816ba305d3
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73016295"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78914630"
 ---
 # <a name="binding-objective-c-libraries"></a>绑定目标-C 库
 
@@ -34,14 +34,14 @@ ms.locfileid: "73016295"
 
 ## <a name="getting-started"></a>入门
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 创建绑定的最简单方法是创建一个 Xamarin iOS 绑定项目。
 可以通过选择项目类型 " **iOS > 库" > 绑定库**来执行 Visual Studio for Mac 此操作：
 
 [![](objective-c-libraries-images/00-sml.png "Do this from Visual Studio for Mac by selecting the project type, iOS Library Bindings Library")](objective-c-libraries-images/00.png#lightbox)
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 创建绑定的最简单方法是创建一个 Xamarin iOS 绑定项目。
 可以通过以下方式从 Visual Studio on Windows 执行此操作：选择项目类型，  **C# visual > IOS > 绑定库（ios）** ：
@@ -169,7 +169,7 @@ API 定义文件包含多个接口。 API 定义中的接口将转换为类声�
 
 最简单的绑定是绑定方法。 只需使用C#命名约定在接口中声明方法，并使用[`[Export]`](~/cross-platform/macios/binding/binding-types-reference.md#ExportAttribute)来修饰方法
 属性中。 [`[Export]`](~/cross-platform/macios/binding/binding-types-reference.md#ExportAttribute)属性可将C#名称与 Xamarin 运行时中的目标-C 名称进行链接。 [`[Export]`](~/cross-platform/macios/binding/binding-types-reference.md#ExportAttribute)的参数 
-attribute 是目标-C 选择器的名称。 示例如下：
+attribute 是目标-C 选择器的名称。 以下是一些示例：
 
 ```csharp
 // A method, that takes no arguments
@@ -288,7 +288,7 @@ string Text { get; [NullAllowed] set; }
 然后，在可变子类上，使用[`[Override]`](~/cross-platform/macios/binding/binding-types-reference.md#OverrideAttribute) 
 属性上的属性，以确保属性确实会重写父级的行为。
 
-例如：
+示例：
 
 ```csharp
 [BaseType (typeof (NSObject))]
@@ -580,7 +580,7 @@ interface LonelyClass {
 
 您可以直接在绑定文件中添加 `enum`，以便更轻松地在 API 定义中使用它们，而无需使用不同的源文件（需要在绑定和最终项目中进行编译）。
 
-例如：
+示例：
 
 ```csharp
 [Native] // needed for enums defined as NSInteger in ObjC
@@ -594,7 +594,7 @@ interface MyType {
 
 还可以创建自己的枚举来替换 `NSString` 常量。 在这种情况下，生成器将**自动**创建方法来转换枚举值和 NSString 常量。
 
-例如：
+示例：
 
 ```csharp
 enum NSRunLoopMode {
@@ -674,7 +674,7 @@ CAScroll [] SupportedScrollModes { get; set; }
 
 ### <a name="binding-notifications"></a>绑定通知
 
-通知是发送到 `NSNotificationCenter.DefaultCenter` 的消息，用作将消息从应用程序的一个部分广播到另一个部分的机制。 开发人员通常使用[NSNotificationCenter](xref:Foundation.NSNotificationCenter)的[AddObserver](xref:Foundation.NSNotificationCenter.AddObserver(Foundation.NSString,System.Action{Foundation.NSNotification}))方法。 当应用程序将消息发送到通知中心时，它通常包含存储在[NSNotification](xref:Foundation.NSNotification.UserInfo)字典中的负载。 此字典是弱类型的，从该字典中获取信息并不容易出错，因为用户通常需要在文档中阅读哪些密钥在字典上可用以及可以存储在字典中的值的类型。 键的存在有时也用作布尔值。
+通知是发送到 `NSNotificationCenter.DefaultCenter` 的消息，用作将消息从应用程序的一个部分广播到另一个部分的机制。 开发人员通常使用[NSNotificationCenter](xref:Foundation.NSNotificationCenter)的[AddObserver](xref:Foundation.NSNotificationCenter.AddObserver(Foundation.NSString,System.Action{Foundation.NSNotification}))方法订阅通知。 当应用程序将消息发送到通知中心时，它通常包含存储在[NSNotification](xref:Foundation.NSNotification.UserInfo)字典中的负载。 此字典是弱类型的，从该字典中获取信息并不容易出错，因为用户通常需要在文档中阅读哪些密钥在字典上可用以及可以存储在字典中的值的类型。 键的存在有时也用作布尔值。
 
 Xamarin 绑定生成器为开发人员提供了对绑定通知的支持。 为此，请将[`[Notification]`](~/cross-platform/macios/binding/binding-types-reference.md#NotificationAttribute)
 已使用[`[Field]`](~/cross-platform/macios/binding/binding-types-reference.md#FieldAttribute)标记的属性的特性
@@ -779,7 +779,7 @@ interface MyUIViewExtension {
 }
 ```
 
-以上将创建一个 `MyUIViewExtension` 包含 `MakeBackgroundRed` 扩展方法的类。  这意味着，你现在可以在任何 `UIView` 子类上调用 "MakeBackgroundRed"，为你提供的功能与在目标 C 上所获得的功能相同。 在某些其他情况下，类别用于扩展系统类，但只是为了进行装饰而对功能进行组织。  如：
+以上将创建一个 `MyUIViewExtension` 包含 `MakeBackgroundRed` 扩展方法的类。  这意味着，你现在可以在任何 `UIView` 子类上调用 "MakeBackgroundRed"，为你提供的功能与在目标 C 上所获得的功能相同。 在某些其他情况下，类别用于扩展系统类，但只是为了进行装饰而对功能进行组织。  类似于下面这样：
 
 ```csharp
 @interface SocialNetworking (Twitter)
@@ -882,7 +882,7 @@ s.Enumerate ((obj, stop) => {
 您可以使用[`[Async]`](~/cross-platform/macios/binding/binding-types-reference.md#AsyncAttribute) 
 返回 void 的方法的属性，其最后一个参数是回调。  将此应用于方法时，绑定生成器将生成该方法的版本，并 `Async`后缀。  如果回调不使用参数，则返回值将为 `Task`，如果回调采用参数，则结果将为 `Task<T>`。  如果回调采用多个参数，则应设置 `ResultType` 或 `ResultTypeName`，以指定将包含所有属性的生成类型所需的名称。
 
-例如：
+示例：
 
 ```csharp
 [Export ("loadfile:completed:")]
@@ -1027,7 +1027,7 @@ interface XyzPanel {
 
 |目标-C 类型名称|Xamarin Unified API 类型|
 |---|---|
-|`BOOL`， `GLboolean`|`bool`|
+|`BOOL`、`GLboolean`|`bool`|
 |`NSInteger`|`nint`|
 |`NSUInteger`|`nuint`|
 |`CFTimeInterval` / `NSTimeInterval`|`double`|
@@ -1036,12 +1036,12 @@ interface XyzPanel {
 |`CGRect`|`CGRect`|
 |`CGPoint`|`CGPoint`|
 |`CGSize`|`CGSize`|
-|`CGFloat`， `GLfloat`|`nfloat`|
+|`CGFloat`、`GLfloat`|`nfloat`|
 |CoreFoundation 类型（`CF*`）|`CoreFoundation.CF*`|
 |`GLint`|`nint`|
 |`GLfloat`|`nfloat`|
 |基础类型（`NS*`）|`Foundation.NS*`|
-|`id`|`Foundation`.`NSObject`|
+|`id`|`Foundation`。`NSObject`|
 |`NSGlyph`|`nint`|
 |`NSSize`|`CGSize`|
 |`NSTextAlignment`|`UITextAlignment`|
@@ -1053,7 +1053,7 @@ interface XyzPanel {
 
 <a name="Arrays" />
 
-### <a name="arrays"></a>阵列
+### <a name="arrays"></a>数组
 
 Xamarin 运行时自动处理将数组转换C#为 `NSArrays` 和执行转换的过程，例如，返回 `UIViews`的虚目标 C 方法 `NSArray`：
 
@@ -1197,7 +1197,7 @@ void SomeString (ref NSObject byref);
 
 以上会将值标记为具有 "保留" 语义。 可用的语义包括：
 
-- Assign
+- 分配
 - 复制
 - 保留
 

@@ -8,11 +8,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 08/23/2017
 ms.openlocfilehash: 73c4e992fae1a2d525670604d98f277fe4fde794
-ms.sourcegitcommit: 3e94c6d2b6d6a70c94601e7bf922d62c4a6c7308
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76031422"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78913584"
 ---
 # <a name="app-store-distribution"></a>App Store 分发
 
@@ -121,11 +121,11 @@ Xamarin.iOS 应用开发完成后，软件开发生命周期中的下一步是�
 
 7. 单击“生成”  按钮，创建新的配置文件并完成该过程。
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
  可能需要退出 Visual Studio for Mac，并让 Xcode 刷新可用签名标识和预配配置文件列表（按照[请求签名标识](~/ios/get-started/installation/device-provisioning/manual-provisioning.md#download)部分中的说明操作），然后 Visual Studio for Mac 中才会有新的分发配置文件。
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
  可能需要退出 Visual Studio，并让 Xcode（在生成主机的 Mac 上）刷新可用签名标识和预配配置文件列表（按照[请求签名标识](~/ios/get-started/installation/device-provisioning/manual-provisioning.md#download)部分中的说明操作），然后 Visual Studio 中才会有新的分发配置文件。
 
@@ -137,7 +137,7 @@ Xamarin.iOS 应用开发完成后，软件开发生命周期中的下一步是�
 
 如果准备好最终生成用于在 iTunes App Store 中销售的 Xamarin.iOS 应用程序，可选择上面创建的分发配置文件。
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
  在 Visual Studio for Mac 中，执行以下操作：
 
@@ -153,7 +153,7 @@ Xamarin.iOS 应用开发完成后，软件开发生命周期中的下一步是�
     ![](images/releasexs03.png "Select the Signing Identity and Distribution Profiles")
 5. 单击“确定”  按钮保存更改。
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
  在 Visual Studio 中，执行以下操作：
 

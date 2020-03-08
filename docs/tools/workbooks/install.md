@@ -7,11 +7,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 06/19/2018
 ms.openlocfilehash: 92b08a9cfd725c1114b71fad4f29e6f28cd828b3
-ms.sourcegitcommit: 2fbe4932a319af4ebc829f65eb1fb1816ba305d3
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73029635"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78914386"
 ---
 # <a name="workbooks-installation-and-requirements"></a>工作簿安装和要求
 
@@ -21,13 +21,13 @@ ms.locfileid: "73029635"
 
 <!-- markdownlint-disable MD001 -->
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 1. 请检查以下[要求](#requirements)。
 2. 下载并安装[适用于 Windows 的 Xamarin Workbooks](https://dl.xamarin.com/interactive/XamarinInteractive.msi)。
 3. 开始[围绕](~/tools/workbooks/workbook.md)工作簿播放。
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 1. 请检查以下[要求](#requirements)。
 2. 下载并安装[适用于 Mac 的 Xamarin Workbooks](https://dl.xamarin.com/interactive/XamarinInteractive.pkg)。
@@ -37,14 +37,14 @@ ms.locfileid: "73029635"
 
 ## <a name="requirements"></a>要求
 
-#### <a name="supported-operating-systems"></a>Supported Operating Systems
+#### <a name="supported-operating-systems"></a>受支持的操作系统
 
 - **Mac** -OS X 10.11 或更高版本
 - **Windows** -windows 7 或更高版本（包含 Internet Explorer 11 或更高版本以及 .net 4.6.1 或更高版本）
 
 #### <a name="supported-app-platforms"></a>支持的应用平台
 
-|应用平台|OS 支持|注意|
+|应用平台|OS 支持|说明|
 |--- |--- |--- |
 |Mac|仅在 Mac 上受支持|
 |iOS|在 Mac 和 Windows 上受支持|需要在 Mac 上安装 Xamarin 11.0 和 Xcode 9.0 或更高版本。 在 Windows 上运行 iOS 工作簿需要运行上述所有的 Mac 生成主机，以及在 Windows 上安装的[远程 IOS 模拟器](~/tools/ios-simulator/index.md)。|
@@ -61,7 +61,7 @@ ms.locfileid: "73029635"
 
 始终附加工作簿客户端日志文件：
 
-- Mac： `~/Library/Logs/Xamarin/Workbooks/Xamarin Workbooks {date}.log`
+- Mac：`~/Library/Logs/Xamarin/Workbooks/Xamarin Workbooks {date}.log`
 - Windows：`%LOCALAPPDATA%\Xamarin\Workbooks\logs\Xamarin Workbooks {date}.log`
 
 1.4. x 还可以直接从主菜单中选择查找器（macOS）或资源管理器（Windows）中的日志文件：
@@ -70,7 +70,7 @@ ms.locfileid: "73029635"
 
 #### <a name="log-paths-for-workbooks-13-and-earlier"></a>工作簿1.3 及更早版本的日志路径：
 
-- Mac： `~/Library/Logs/Xamarin/Inspector/Xamarin Inspector {date}.log`
+- Mac：`~/Library/Logs/Xamarin/Inspector/Xamarin Inspector {date}.log`
 - Windows：`%LOCALAPPDATA%\Xamarin\Inspector\logs\Xamarin Inspector {date}.log`
 
 ### <a name="platform-version-information"></a>平台版本信息

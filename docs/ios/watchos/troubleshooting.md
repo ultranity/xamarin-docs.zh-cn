@@ -9,11 +9,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 03/17/2017
 ms.openlocfilehash: 06524163fadc4300d55ec90f35723fd1561bb8a0
-ms.sourcegitcommit: db422e33438f1b5c55852e6942c3d1d75dc025c4
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76725312"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78915625"
 ---
 # <a name="watchos-troubleshooting"></a>watchOS 故障排除
 
@@ -166,7 +166,7 @@ with an alpha channel. Icons should not have an alpha channel.
 
     ![](troubleshooting-images/add-6.png "Opening the storyboard in Interface Builder")
 
-8. 选择新的接口控制器，并为其指定上面定义的类名，例如。 `MyInterfaceController`配置架构以匹配数据源中的架构。
+8. 选择新的接口控制器，并为其指定上面定义的类名，例如。 `MyInterfaceController` 列中的一个值匹配。
     如果一切都正常工作，则它应自动显示在**类：** 下拉列表中，你可以从该下拉列表中选择它。
 
     ![](troubleshooting-images/add-4.png "Setting a custom class")

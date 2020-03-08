@@ -8,11 +8,11 @@ author: davidbritch
 ms.author: dabritch
 ms.date: 11/04/2019
 ms.openlocfilehash: 08fb22627ab6b40c94c17d94321ed0bac60beedd
-ms.sourcegitcommit: 9dd0b076ab4ecdbbd1b029d2e0d67d900e1c4494
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73567893"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78915324"
 ---
 # <a name="dependency-injection"></a>依赖关系注入
 
@@ -43,7 +43,7 @@ public class ProfileViewModel : ViewModelBase
 
 `ProfileViewModel` 构造函数将 `IOrderService` 实例作为自变量接收，由其他类插入。 `ProfileViewModel` 类中的唯一依赖项在接口类型上。 因此，`ProfileViewModel` 类并不知道负责实例化 `IOrderService` 对象的类。 类，该类负责实例化 `IOrderService` 对象，并将其插入到 `ProfileViewModel` 类中，称为*依赖关系注入容器*。
 
-依赖关系注入容器可提供一种方法来实例化类实例，并基于容器的配置来管理其生存期，从而减少对象之间的耦合。 在对象创建过程中，容器将注入对象所需的任何依赖项。 如果尚未创建这些依赖关系，则容器将首先创建并解析其依赖项。
+依赖关系注入根据容器的配置提供用于实例化类实例和管理器生命周期的工具，通过此方法减少对象之间的耦合。 在对象创建期间，容器将向对象中注入其所需的任何依赖关系。 如果这些依赖关系尚未创建，容器将首先创建并解析其依赖关系。
 
 > [!NOTE]
 > 还可以使用工厂手动实现依赖关系注入。 但是，使用容器可提供其他功能（例如生存期管理），并通过程序集扫描进行注册。
@@ -163,9 +163,9 @@ _container.Register<LoginViewModel>().AsSingleton();
 > [!NOTE]
 > 注册为单一实例的类型会在容器被释放时释放。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>总结
 
-依赖关系注入允许从依赖于这些类型的代码分离具体类型。 它通常使用容器来保存接口与抽象类型之间的注册和映射列表，以及实现或扩展这些类型的具体类型。
+依赖关系注入将启用通过依赖于具体类型的代码来分离这些类型。 它通常使用一个容器，该容器包含一系列注册和接口与抽象类型间的映射以及实现或扩展这些类型的具体类型。
 
 TinyIoC 是一种轻型容器，与大多数常见容器相比，它在移动平台上具有优异的性能。 它有助于构建松散耦合的应用程序，并提供了依赖关系注入容器中常见的所有功能，包括用于注册类型映射、解析对象、管理对象生存期以及将依赖对象注入到其中的方法它解析的对象的构造函数。
 

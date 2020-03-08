@@ -8,11 +8,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 03/21/2017
 ms.openlocfilehash: 35a8d3aeb00ac73f944712cb31f913f98bd3b6e8
-ms.sourcegitcommit: db422e33438f1b5c55852e6942c3d1d75dc025c4
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76725469"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78919157"
 ---
 # <a name="auto-layout-with-the-xamarin-designer-for-ios"></a>用 Xamarin Designer for iOS 自动布局
 
@@ -185,7 +185,7 @@ Frame misplacement 使用与 underconstrained 项相同的颜色代码。 该项
 3. 接下来，在 "**属性资源管理器**" 的 "**小组件**" 选项卡中为约束指定一个**名称**：
 
     [![](designer-auto-layout-images/modify02.png "The Widget Tab")](designer-auto-layout-images/modify02.png#lightbox)
-4. 保存更改。
+4. 保存所做更改。
 
 在进行上述更改后，你可以在代码中访问约束并修改其属性。 例如，可以使用以下项将附加视图的高度设置为零：
 
@@ -224,7 +224,7 @@ UIView.CommitAnimations();
 
 此处的关键是在动画块中调用父视图的 `LayoutIfNeeded` 方法。 这会告知视图绘制动态位置或大小变化的每个 "帧"。 如果没有此行，视图只会与最终版本对齐，而不进行动画处理。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>总结
 
 本指南介绍了 iOS 自动（或 "自适应"）布局和约束概念，作为设计图面上元素间关系的数学表示形式。 它介绍了如何在 iOS 设计器中启用自动布局、使用 "**约束" 工具栏**以及在设计图面上分别编辑约束。 接下来，它介绍了如何排查三个常见的约束问题。 最后，它演示了如何在代码中修改约束。
 
