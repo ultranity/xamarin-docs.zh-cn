@@ -7,11 +7,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 03/29/2017
 ms.openlocfilehash: 5ba451de857444bc5b12b750ae479b62abdb75a3
-ms.sourcegitcommit: 2fbe4932a319af4ebc829f65eb1fb1816ba305d3
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73016334"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78910802"
 ---
 # <a name="3264-bit-platform-considerations"></a>32/64 位平台注意事项
 
@@ -36,7 +36,7 @@ Xamarin 的 Classic API （`XamMac.dll` 和 `monotouch.dll`）仅支持32位应�
 
 <!-- markdownlint-disable MD001 -->
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 1. 在**Solution Pad**中，双击应用程序的项目，打开 "**项目选项**" 窗口。
 2. 选择 " **IOS 生成**"。
@@ -49,9 +49,9 @@ Xamarin 的 Classic API （`XamMac.dll` 和 `monotouch.dll`）仅支持32位应�
    [![将支持的体系结构设置为 ARM64 组合之一](Images/Image02.png "将支持的体系结构设置为 ARM64 组合之一")](Images/Image02-large.png#lightbox)
 
 5. 单击“确定”。
-6. 执行干净的生成。
+6. 执行全新生成。
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 1. 在**解决方案资源管理器**中，右键单击应用的项目，然后选择 "**属性**"。
 2. 选择 " **IOS 生成**"。
@@ -63,8 +63,8 @@ Xamarin 的 Classic API （`XamMac.dll` 和 `monotouch.dll`）仅支持32位应�
     
    [![将支持的体系结构设置为 ARM64 组合之一](Images/VS01.png "将支持的体系结构设置为 ARM64 组合之一")](Images/VS01-large.png#lightbox)
 
-5. 保存更改。
-6. 执行干净的生成。
+5. 保存所做更改。
+6. 执行全新生成。
 
 -----
 
