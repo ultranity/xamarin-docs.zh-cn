@@ -8,23 +8,23 @@ author: davidbritch
 ms.author: dabritch
 ms.date: 07/17/2018
 ms.openlocfilehash: 9955b68346c74435a3a141c69d02e1bec5856bd3
-ms.sourcegitcommit: 57f815bf0024b1afe9754c0e28054fc0a53ce302
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70759515"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78915998"
 ---
 # <a name="displaying-skiasharp-bitmaps"></a>显示 SkiaSharp 位图
 
-[![下载示例](~/media/shared/download.png)下载示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
+[![下载示例](~/media/shared/download.png) 下载示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
 
-一文中引入了使用者的 SkiaSharp 位图 **[位图基础知识中 SkiaSharp](../basics/bitmaps.md)** 。 该文章介绍了三种方式来加载位图并通过三种方式显示位图。 本文介绍的技术加载位图并得更深入的使用`DrawBitmap`方法的`SKCanvas`。
+SkiaSharp 位图的主题在 SkiaSharp 中的 **[位图基础知识](../basics/bitmaps.md)** 一文中引入。 该文章介绍了三种方式来加载位图并通过三种方式显示位图。 本文介绍加载位图并更深入地使用 `SKCanvas`的 `DrawBitmap` 方法的方法。
 
 ![显示示例](displaying-images/DisplayingSample.png "显示示例")
 
-`DrawBitmapLattice`并`DrawBitmapNinePatch`一文中讨论方法 **[分段显示 SkiaSharp 位图](segmented.md)** 。
+**[SkiaSharp 位图的分段显示](segmented.md)** 文章中讨论了 `DrawBitmapLattice` 和 `DrawBitmapNinePatch` 方法。
 
-在此页上的示例取自 **[SkiaSharpFormsDemos](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)** 应用程序。 从该应用程序的主页上，选择**SkiaSharp 位图**，然后转到**显示位图**部分。
+本页中的示例来自 **[SkiaSharpFormsDemos](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)** 应用程序。 在该应用程序的主页中，选择 " **SkiaSharp 位图**"，然后切换到 "**显示位图**" 部分。
 
 ## <a name="loading-a-bitmap"></a>正在加载位图
 
@@ -34,23 +34,23 @@ SkiaSharp 应用程序通常使用的位图来自三个不同来源之一：
 - 从可执行文件中嵌入的资源
 - 从用户的照片库
 
-还有可能 SkiaSharp 应用程序以创建新的位图，然后在其上绘制或从算法上设置位图位。 在文章中讨论了这些技术 **[创建和上 SkiaSharp 位图绘制](drawing.md)** 并 **[访问 SkiaSharp 位图像素](pixel-bits.md)** .
+还有可能 SkiaSharp 应用程序以创建新的位图，然后在其上绘制或从算法上设置位图位。 这些技术在 **[SkiaSharp 位图上的 "创建和绘制](drawing.md)** " 和 " **[访问 SkiaSharp 位图像素](pixel-bits.md)** " 文章中进行了介绍。
 
-在以下三个代码示例中的加载位图，则该类假定为包含类型的字段`SKBitmap`:
+在以下三个用于加载位图的代码示例中，类被假定为包含类型 `SKBitmap`的字段：
 
 ```csharp
 SKBitmap bitmap;
 ```
 
-与项目 **[位图基础知识中 SkiaSharp](../basics/bitmaps.md)** 所述，通过 Internet 加载位图的最佳方法是使用[`HttpClient`](xref:System.Net.Http.HttpClient)类。 类的单个实例可以定义为字段：
+如 SkiaSharp 中所述的 " **[位图基础](../basics/bitmaps.md)** " 这一文章中所述，通过 Internet 加载位图的最佳方式是使用[`HttpClient`](xref:System.Net.Http.HttpClient)类。 类的单个实例可以定义为字段：
 
 ```csharp
 HttpClient httpClient = new HttpClient();
 ```
 
-使用时`HttpClient`iOS 和 Android 应用程序，你将想要设置项目属性，如文档中所述 **[传输层安全 (TLS) 1.2](~/cross-platform/app-fundamentals/transport-layer-security.md)** 。
+使用 iOS 和 Android 应用程序 `HttpClient` 时，需要按照 **[传输层安全性（TLS） 1.2](~/cross-platform/app-fundamentals/transport-layer-security.md)** 文档中所述设置项目属性。
 
-使用的代码`HttpClient`情况下，涉及`await`运算符，因此它必须位于`async`方法：
+使用 `HttpClient` 的代码通常涉及 `await` 运算符，因此它必须位于 `async` 方法中：
 
 ```csharp
 try
@@ -71,13 +71,13 @@ catch
 }
 ```
 
-请注意，`Stream`对象，来自`GetStreamAsync`复制到`MemoryStream`。 Android 不允许`Stream`从`HttpClient`由主线程以外的异步方法中进行处理。 
+请注意，从 `GetStreamAsync` 获取的 `Stream` 对象将被复制到 `MemoryStream`中。 Android 不允许主线程处理 `Stream` `HttpClient`，但异步方法除外。 
 
-[`SKBitmap.Decode`](xref:SkiaSharp.SKBitmap.Decode(System.IO.Stream))执行大量工作：传递`Stream`给它的对象引用一个内存块，其中包含一个通用位图文件格式（通常为 JPEG、PNG 或 GIF）中的整个位图。 `Decode`方法必须确定格式，并再到 SkiaSharp 自己内部的位图格式解码的位图文件。
+[`SKBitmap.Decode`](xref:SkiaSharp.SKBitmap.Decode(System.IO.Stream))执行大量工作：传递给它的 `Stream` 对象引用一个内存块，其中包含一个通用位图文件格式（通常为 JPEG、PNG 或 GIF）中的整个位图。 `Decode` 方法必须确定格式，然后将位图文件解码为 SkiaSharp 自己的内部位图格式。
 
-你的代码调用后`SKBitmap.Decode`，它可能会使`CanvasView`以便`PaintSurface`处理程序可以显示新加载的位图。
+在代码调用 `SKBitmap.Decode`后，它可能会使 `CanvasView` 失效，以便 `PaintSurface` 处理程序可以显示新加载的位图。
 
-第二种方法来加载位图是通过.NET Standard 库中嵌入的资源中包括位图引用单个平台项目。 资源 ID 传递给[ `GetManifestResourceStream` ](xref:System.Reflection.Assembly.GetManifestResourceStream(System.String))方法。 此资源 ID 组成的程序集名称、 文件夹名称和文件名用句点分隔的资源：
+第二种方法来加载位图是通过.NET Standard 库中嵌入的资源中包括位图引用单个平台项目。 资源 ID 被传递到[`GetManifestResourceStream`](xref:System.Reflection.Assembly.GetManifestResourceStream(System.String))方法。 此资源 ID 组成的程序集名称、 文件夹名称和文件名用句点分隔的资源：
 
 ```csharp
 string resourceID = "assemblyName.folderName.fileName";
@@ -92,7 +92,7 @@ using (Stream stream = assembly.GetManifestResourceStream(resourceID))
 
 也可以为 iOS、 Android 和通用 Windows 平台 (UWP) 的单个平台项目中的资源存储位图文件。 但是，加载这些位图需要位于平台项目中的代码。
 
-获取位图的第三个方法是从用户的图片库。 下面的代码使用包含在一个依赖关系服务 **[SkiaSharpFormsDemos](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)** 应用程序。 **SkiaSharpFormsDemo** .NET Standard 库包含`IPhotoLibrary`接口，而每个平台项目包含`PhotoLibrary`实现该接口的类。
+获取位图的第三个方法是从用户的图片库。 以下代码使用 **[SkiaSharpFormsDemos](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)** 应用程序中包含的依赖项服务。 **SkiaSharpFormsDemo** .NET Standard 库包含 `IPhotoLibrary` 接口，而每个平台项目都包含一个实现该接口的 `PhotoLibrary` 类。
 
 ```csharp
 IPhotoicturePicker picturePicker = DependencyService.Get<IPhotoLibrary>();
@@ -107,18 +107,18 @@ using (Stream stream = await picturePicker.GetImageStreamAsync())
 }
 ```
 
-通常情况下，此类代码还将使失效`CanvasView`，以便`PaintSurface`处理程序可以显示新的位图。
+通常，此类代码还会使 `CanvasView` 失效，使 `PaintSurface` 处理程序可以显示新的位图。
 
-`SKBitmap`类定义了多个有用的属性，包括[ `Width` ](xref:SkiaSharp.SKBitmap.Width)并[ `Height` ](xref:SkiaSharp.SKBitmap.Height)，显示的位图，以及许多方法，其中包括的像素尺寸若要创建位图，以复制这些值，并公开像素位的方法。 
+`SKBitmap` 类定义多个有用的属性，其中包括[`Width`](xref:SkiaSharp.SKBitmap.Width)和[`Height`](xref:SkiaSharp.SKBitmap.Height)，它们显示位图的像素尺寸以及许多方法，其中包括用于创建和复制位图、用于公开像素位的方法。 
 
 ## <a name="displaying-in-pixel-dimensions"></a>在像素尺寸中显示
 
-SkiaSharp [ `Canvas` ](xref:SkiaSharp.SKCanvas)类定义了四个`DrawBitmap`方法。 这些方法允许位图，以显示两个完全不同的方式： 
+SkiaSharp [`Canvas`](xref:SkiaSharp.SKCanvas)类定义四个 `DrawBitmap` 方法。 这些方法允许位图，以显示两个完全不同的方式： 
 
-- 指定`SKPoint`值 (或单独`x`和`y`值) 中其像素大小显示位图。 位图的像素是直接映射到的视频显示器的像素为单位。
+- 指定 `SKPoint` 值（或单独的 `x` 和 `y` 值）将以像素尺寸显示位图。 位图的像素是直接映射到的视频显示器的像素为单位。
 - 指定矩形将导致要被拉伸到的大小和形状的矩形的位图。 
 
-在使用其像素大小显示位图[ `DrawBitmap` ](xref:SkiaSharp.SKCanvas.DrawBitmap(SkiaSharp.SKBitmap,SkiaSharp.SKPoint,SkiaSharp.SKPaint))与`SKPoint`参数或[ `DrawBitmap` ](xref:SkiaSharp.SKCanvas.DrawBitmap(SkiaSharp.SKBitmap,System.Single,System.Single,SkiaSharp.SKPaint))具有单独`x`和`y`参数：
+使用带有 `SKPoint` 参数的[`DrawBitmap`](xref:SkiaSharp.SKCanvas.DrawBitmap(SkiaSharp.SKBitmap,SkiaSharp.SKPoint,SkiaSharp.SKPaint)) ，或具有单独 `x` 和 `y` 参数的[`DrawBitmap`](xref:SkiaSharp.SKCanvas.DrawBitmap(SkiaSharp.SKBitmap,System.Single,System.Single,SkiaSharp.SKPaint)) ，在其像素维度中显示位图：
 
 ```csharp
 DrawBitmap(SKBitmap bitmap, SKPoint pt, SKPaint paint = null)
@@ -128,7 +128,7 @@ DrawBitmap(SKBitmap bitmap, float x, float y, SKPaint paint = null)
 
 这两种方法是在功能上相同的。 指定的点指示相对于 canvas 位图左上角的位置。 由于移动设备的像素的分辨率很高，较小位图通常显示在这些设备上很小。
 
-可选`SKPaint`参数，可显示使用透明的位图。 若要执行此操作，创建`SKPaint`对象并设置`Color`属性设置为任何`SKColor`值，该值具有 alpha 通道小于 1。 例如：
+可选 `SKPaint` 参数允许使用透明度显示位图。 为此，请创建一个 `SKPaint` 对象，并将 `Color` 属性设置为 alpha 通道小于1的任何 `SKColor` 值。 例如：
 
 ```csharp
 paint.Color = new SKColor(0, 0, 0, 0x80);
@@ -140,11 +140,11 @@ paint.Color = new SKColor(0, 0, 0, 0x80);
 paint.Color = SKColors.Red.WithAlpha(0x80);
 ```
 
-但是，是颜色本身是不相关。 使用时检查仅 alpha 通道`SKPaint`对象中`DrawBitmap`调用。
+但是，是颜色本身是不相关。 使用 `DrawBitmap` 调用中的 `SKPaint` 对象时，仅检查 alpha 通道。
 
-`SKPaint`对象也扮演着角色时显示位图使用混合模式或筛选效果。 这些文章中演示[SkiaSharp 组合的情况下和混合模式](../effects/blend-modes/index.md)并[SkiaSharp 映像筛选器](../effects/image-filters.md)。
+当使用 blend 模式或滤镜效果显示位图时，`SKPaint` 对象也会扮演角色。 这些文章在[SkiaSharp 合成和 blend 模式](../effects/blend-modes/index.md)和[SkiaSharp 映像筛选器](../effects/image-filters.md)中进行了演示。
 
-**像素尺寸**页面 **[SkiaSharpFormsDemos](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)** 示例程序将显示一个位图资源，可为 320 像素宽乘 240 像素高：
+**[SkiaSharpFormsDemos](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)** 示例程序中的 "**像素维度**" 页显示的位图资源宽度为320像素，高度为240像素：
 
 ```csharp
 public class PixelDimensionsPage : ContentPage
@@ -186,7 +186,7 @@ public class PixelDimensionsPage : ContentPage
 }
 ```
 
-`PaintSurface`处理程序通过计算中心位图`x`和`y`值基于显示器表面的像素尺寸和位图的像素尺寸：
+`PaintSurface` 处理程序通过基于显示图面的像素尺寸和位图的像素尺寸计算 `x` 和 `y` 值来使位图居中：
 
 [![像素尺寸](displaying-images/PixelDimensions.png "像素尺寸")](displaying-images/PixelDimensions-Large.png#lightbox)
 
@@ -194,7 +194,7 @@ public class PixelDimensionsPage : ContentPage
 
 ## <a name="a-method-for-loading-resource-bitmaps"></a>用于加载资源位图方法
 
-有很多即将推出的示例将需要加载位图资源。 静态`BitmapExtensions`类中 **[SkiaSharpFormsDemos](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)** 解决方案包含用于帮助解决问题的方法：
+有很多即将推出的示例将需要加载位图资源。 **[SkiaSharpFormsDemos](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)** 解决方案中的静态 `BitmapExtensions` 类包含方法来帮助你：
 
 ```csharp
 static class BitmapExtensions
@@ -212,13 +212,13 @@ static class BitmapExtensions
 }
 ```
 
-请注意`Type`参数。 这可以是`Type`中存储的位图资源的程序集的任何类型与关联的对象。
+请注意 `Type` 参数。 这可以是与存储位图资源的程序集中的任何类型相关联的 `Type` 对象。
 
-这`LoadBitmapResource`方法将在需要的位图资源的所有后续示例中使用。
+此 `LoadBitmapResource` 方法将用于需要位图资源的所有后续示例中。
 
 ## <a name="stretching-to-fill-a-rectangle"></a>拉伸以填充矩形
 
-`SKCanvas`类还定义了[ `DrawBitmap` ](xref:SkiaSharp.SKCanvas.DrawBitmap(SkiaSharp.SKBitmap,SkiaSharp.SKRect,SkiaSharp.SKPaint))呈现到一个矩形，另一个位图方法[ `DrawBitmap` ](xref:SkiaSharp.SKCanvas.DrawBitmap(SkiaSharp.SKBitmap,SkiaSharp.SKRect,SkiaSharp.SKRect,SkiaSharp.SKPaint))呈现为位图的矩形子集方法矩形：
+`SKCanvas` 类还定义了一个[`DrawBitmap`](xref:SkiaSharp.SKCanvas.DrawBitmap(SkiaSharp.SKBitmap,SkiaSharp.SKRect,SkiaSharp.SKPaint))方法，该方法将位图呈现为一个矩形，另一个[`DrawBitmap`](xref:SkiaSharp.SKCanvas.DrawBitmap(SkiaSharp.SKBitmap,SkiaSharp.SKRect,SkiaSharp.SKRect,SkiaSharp.SKPaint))方法将位图的矩形子集呈现为一个矩形：
 
 ```
 DrawBitmap(SKBitmap bitmap, SKRect dest, SKPaint paint = null)
@@ -226,9 +226,9 @@ DrawBitmap(SKBitmap bitmap, SKRect dest, SKPaint paint = null)
 DrawBitmap(SKBitmap bitmap, SKRect source, SKRect dest, SKPaint paint = null)
 ```
 
-在这两种情况下，位图拉伸以填充名为的矩形`dest`。 在第二个方法中，`source`矩形，可选择位图的子集。 `dest`矩形是相对于输出设备;`source`矩形是相对于位图。
+在这两种情况下，都会拉伸位图以填充名为 `dest`的矩形。 在第二个方法中，`source` 矩形允许您选择位图的子集。 `dest` 矩形是相对于输出设备的;`source` 矩形相对于位图。
 
-**填充矩形**页演示这两种方法通过显示同一位图的第一个示例中使用早期在矩形中相同的大小作为画布： 
+"**填充矩形**" 页通过在与画布相同大小的矩形中显示与前面示例中所用相同的位图来演示这两种方法中的第一个。 
 
 ```csharp
 public class FillRectanglePage : ContentPage
@@ -258,15 +258,15 @@ public class FillRectanglePage : ContentPage
 }
 ```
 
-请注意，使用新`BitmapExtensions.LoadBitmapResource`方法以设置`SKBitmap`字段。 从获取目标矩形[ `Rect` ](xref:SkiaSharp.SKImageInfo.Rect)属性的`SKImageInfo`，它介绍显示器表面的大小：
+请注意，使用 new `BitmapExtensions.LoadBitmapResource` 方法设置 `SKBitmap` 字段。 目标矩形是从 `SKImageInfo`的[`Rect`](xref:SkiaSharp.SKImageInfo.Rect)属性获取的，该属性介绍显示图面的大小：
 
 [![填充矩形](displaying-images/FillRectangle.png "填充矩形")](displaying-images/FillRectangle-Large.png#lightbox)
 
-这通常是_不_所需。 图像是因在水平和垂直方向上以不同的方式拉伸而失真。 当非像素大小显示位图，通常您想要保留位图的原始纵横比。
+这通常_不_是你想要的。 图像是因在水平和垂直方向上以不同的方式拉伸而失真。 当非像素大小显示位图，通常您想要保留位图的原始纵横比。
 
 ## <a name="stretching-while-preserving-the-aspect-ratio"></a>拉伸同时保存纵横比
 
-同时保留纵横比拉伸位图是一个过程也称为_统一缩放_。 该术语建议算法的方法。 一个可能的解决方案所示**统一缩放**页：
+在保持纵横比的同时拉伸位图也称为_统一缩放_。 该术语建议算法的方法。 **统一缩放**页面中显示了一个可能的解决方案：
 
 ```csharp
 public class UniformScalingPage : ContentPage
@@ -303,25 +303,25 @@ public class UniformScalingPage : ContentPage
 }
 ```
 
-`PaintSurface`处理程序计算`scale`造型能够适用的显示宽度和高度为位图宽度和高度的比率的最小值。 `x`和`y`然后可用于集中缩放的位图中的显示宽度和高度计算值。 目标矩形具有的左上角`x`和`y`和右下角的这些值以及缩放的宽度和高度的位图：
+`PaintSurface` 处理程序将计算一个 `scale` 系数，它是显示宽度和高度与位图宽度和高度之比的最小值。 然后，可以计算 `x` 和 `y` 值，以便在显示宽度和高度范围内居中缩放位图。 目标矩形的左上角为 `x`，`y` 并在这些值的右下角加上位图的缩放宽度和高度：
 
 [![统一缩放](displaying-images/UniformScaling.png "统一缩放")](displaying-images/UniformScaling-Large.png#lightbox)
 
 打开手机，请参阅已延伸到该区域的位图：
 
-[![统一缩放横向](displaying-images/UniformScaling-Landscape.png "统一缩放横向")](displaying-images/UniformScaling-Landscape-Large.png#lightbox)
+[![均匀缩放横向](displaying-images/UniformScaling-Landscape.png "均匀缩放横向")](displaying-images/UniformScaling-Landscape-Large.png#lightbox)
 
-使用此的优点`scale`身份变得明显时您想要实现稍有不同的算法。 假设你想要保留位图的长宽比，但还填充目标矩形。 做到这一点的唯一方法是通过裁剪该映像的一部分，但您可以实现该算法只需通过更改`Math.Min`到`Math.Max`在上面的代码。 下面是结果： 
+如果要实现略微不同的算法，使用此 `scale` 因素的优点会很明显。 假设你想要保留位图的长宽比，但还填充目标矩形。 这种方法的唯一方法是通过裁剪部分图像来实现，但你只需通过将 `Math.Min` 更改为在上面的代码中 `Math.Max` 来实现该算法。 结果如下： 
 
-[![统一缩放的替代方法](displaying-images/UniformScaling-Alternative.png "统一缩放的替代方法")](displaying-images/UniformScaling-Alternative-Large.png#lightbox)
+[![统一缩放替代方法](displaying-images/UniformScaling-Alternative.png "统一缩放替代方法")](displaying-images/UniformScaling-Alternative-Large.png#lightbox)
 
 位图的纵横比会保留，但有所剪裁区域左侧和右侧的位图。
 
 ## <a name="a-versatile-bitmap-display-function"></a>通用位图显示函数
 
-基于 XAML 的编程环境 （例如 UWP 和 Xamarin.Forms） 具有一个工具用于扩展或压缩位图的大小，同时保留其纵横比。 虽然 SkiaSharp 不包括此功能，可以自行实现。 `BitmapExtensions`类中包含 [**SkiaSharpFormsDemos**](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)应用程序演示了如何。 类定义了两个新`DrawBitmap`执行纵横比计算的方法。 这些新方法是扩展方法的`SKCanvas`。
+基于 XAML 的编程环境 （例如 UWP 和 Xamarin.Forms） 具有一个工具用于扩展或压缩位图的大小，同时保留其纵横比。 虽然 SkiaSharp 不包括此功能，可以自行实现。 [**SkiaSharpFormsDemos**](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)应用程序中包含的 `BitmapExtensions` 类演示了如何操作。 类定义了两个执行纵横比计算的新 `DrawBitmap` 方法。 这些新方法是 `SKCanvas`的扩展方法。
 
-新`DrawBitmap`方法包含类型的参数`BitmapStretch`，在中定义的枚举**BitmapExtensions.cs**文件：
+新的 `DrawBitmap` 方法包含一个 `BitmapStretch`类型的参数，该参数是在**BitmapExtensions.cs**文件中定义的枚举：
 
 ```csharp
 public enum BitmapStretch
@@ -335,9 +335,9 @@ public enum BitmapStretch
 }
 ```
 
-`None`， `Fill`， `Uniform`，和`UniformToFill`成员将与 UWP 中的那些相同[ `Stretch` ](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.media.stretch.aspx)枚举。 类似 Xamarin.Forms [ `Aspect` ](xref:Xamarin.Forms.Aspect)枚举定义的成员`Fill`， `AspectFit`，并`AspectFill`。
+`None`、`Fill`、`Uniform`和 `UniformToFill` 成员与 UWP [`Stretch`](https://msdn.microsoft.com/library/windows/apps/xaml/windows.ui.xaml.media.stretch.aspx)枚举中的成员相同。 类似的 Xamarin. [`Aspect`](xref:Xamarin.Forms.Aspect)枚举定义成员 `Fill`、`AspectFit`和 `AspectFill`。
 
-**统一缩放**如上所示的页面为中心的矩形中的位图，但您可能希望其他选项，如定位在的左侧或右侧的矩形，或在顶部或底部的位图。 目的就在于此`BitmapAlignment`枚举：
+上面所示的 "**统一缩放**" 页将位图嵌入到矩形中，但你可能需要其他选项，例如将位图放置在矩形的左侧或右侧，或者顶部或底部。 这就是 `BitmapAlignment` 枚举的目的：
 
 ```csharp
 public enum BitmapAlignment
@@ -348,9 +348,9 @@ public enum BitmapAlignment
 }
 ```
 
-对齐方式设置不起作用与一起使用时`BitmapStretch.Fill`。
+与 `BitmapStretch.Fill`一起使用时，对齐设置不起作用。
 
-第一个`DrawBitmap`扩展函数包含目标矩形，但没有源矩形。 因此，如果你想居中的位图，只需指定定义默认值`BitmapStretch`成员：
+第一个 `DrawBitmap` 扩展函数包含一个目标矩形，但没有源矩形。 定义了默认值，因此，如果想要将位图居中，只需指定 `BitmapStretch` 成员即可：
 
 ```csharp
 static class BitmapExtensions
@@ -394,7 +394,7 @@ static class BitmapExtensions
 }
 ```
 
-此方法的主要用途是计算名为的缩放系数`scale`调用时然后应用于位图宽度和高度`CalculateDisplayRect`方法。 这是计算矩形用于显示基于水平和垂直对齐的位图的方法：
+此方法的主要目的是计算名为 `scale` 的缩放系数，然后在调用 `CalculateDisplayRect` 方法时将其应用到位图宽度和高度。 这是计算矩形用于显示基于水平和垂直对齐的位图的方法：
 
 ```csharp
 static class BitmapExtensions
@@ -442,7 +442,7 @@ static class BitmapExtensions
 }
 ```
 
-`BitmapExtensions`类包含一个附加`DrawBitmap`源矩形具有用于指定位图的子集的方法。 此方法是类似于第一个不同之处在于根据计算的缩放因子`source`矩形，然后应用到`source`调用中的矩形`CalculateDisplayRect`:
+`BitmapExtensions` 类包含一个附加的 `DrawBitmap` 方法，其中包含用于指定位图子集的源矩形。 此方法类似于第一个方法，只不过缩放因子是根据 `source` 矩形计算的，然后应用于对 `CalculateDisplayRect`的调用中的 `source` 矩形：
 
 ```csharp
 static class BitmapExtensions
@@ -486,7 +486,7 @@ static class BitmapExtensions
 }
 ```
 
-这两个新的第一个`DrawBitmap`方法进行了演示**缩放模式**页。 XAML 文件包含三种`Picker`元素，可选择的成员`BitmapStretch`和`BitmapAlignment`枚举：
+这两个新 `DrawBitmap` 方法中的第一种在**缩放模式**页中进行演示。 XAML 文件包含三个 `Picker` 元素，这些元素使您可以选择 `BitmapStretch` 的成员和 `BitmapAlignment` 枚举：
 
 ```xaml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -578,7 +578,7 @@ static class BitmapExtensions
 </ContentPage>
 ```
 
-代码隐藏文件只是使失效`CanvasView`任何`Picker`项已更改。 `PaintSurface`处理程序访问三个`Picker`调用的视图`DrawBitmap`扩展方法：
+当任何 `Picker` 项发生更改时，代码隐藏文件只会使 `CanvasView` 无效。 `PaintSurface` 处理程序访问三个用于调用 `DrawBitmap` 扩展方法的 `Picker` 视图：
 
 ```csharp
 public partial class ScalingModesPage : ContentPage
@@ -619,7 +619,7 @@ public partial class ScalingModesPage : ContentPage
 
 [![缩放模式](displaying-images/ScalingModes.png "缩放模式")](displaying-images/ScalingModes-Large.png#lightbox)
 
-**矩形子集**页面就几乎具有相同的 XAML 文件作为**缩放模式**，但代码隐藏文件定义由给定的位图的矩形子集`SOURCE`字段： 
+**矩形子集**页与**缩放模式**几乎具有相同的 XAML 文件，但代码隐藏文件定义了由 `SOURCE` 字段指定的位图的矩形子集： 
 
 ```csharp
 public partial class ScalingModesPage : ContentPage
