@@ -8,11 +8,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 07/15/2017
 ms.openlocfilehash: 945a42485486dbfddfd023a72e88d9127651c71f
-ms.sourcegitcommit: 6f09bc2b760e76a61a854f55d6a87c4f421ac6c8
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75607941"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78911511"
 ---
 # <a name="manual-provisioning-for-xamarinios"></a>Xamarin.iOS 的手动预配
 
@@ -73,11 +73,11 @@ Xamarin.iOS 成功安装后，iOS 开发的下一步是预配 iOS 设备。_本�
 
 ### <a name="understanding-certificate-key-pairs"></a>了解证书密钥对
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 开发人员配置文件包含证书、关联密钥，以及任何与帐户关联的设置配置文件。 实际上有两个版本的开发者配置文件 — 一个在开发者门户中，另一个在本地 Mac 上。 两者之间的区别在于它们所包含的密钥类型：_门户上的配置文件包含与证书关联的所有公钥，而本地 Mac 上的副本包含所有私钥_。 要使证书生效，密钥对必须匹配。 在本地 Mac 上保存开发者配置文件的备份，因为如果密钥丢失，需要重新生成所有证书和设置配置文件。
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 开发人员配置文件包含证书、关联密钥，以及任何与帐户关联的设置配置文件。 实际上有两个版本的开发者配置文件 — 一个在开发者门户中，另一个在 Mac 上。 两者之间的区别在于它们所包含的密钥类型：_门户上的配置文件包含与证书关联的所有公钥，而 Mac 上的副本包含所有私钥_。 要使证书生效，密钥对必须匹配。 在 Xamarin 生成主机的 Mac 上保存开发人员配置文件的备份，因为如果密钥丢失，需要重新生成所有证书和设置配置文件。
 
@@ -207,12 +207,12 @@ Apple Developer 门户中已创建的证书和配置文件可能不会自动显�
 
 Visual Studio for Mac 或 Visual Studio 将有新的证书或预配配置文件可供使用。
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 > [!IMPORTANT]
 > 可能需要停止和重启 Visual Studio for Mac，才能看到任何新的或修改的证书或由 Xcode 更新的配置文件。
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 > [!IMPORTANT]
 > 可能需要停止和重启 Visual Studio，才能看到任何新的或修改的证书或由 Xcode 更新的配置文件。
@@ -231,7 +231,7 @@ Apple 提供一系列精选的特殊应用服务（亦称为“功能”），�
 
 这时，设置应已完成，且应用已准备好部署到设备。 为此，请执行以下步骤：
 
-# <a name="visual-studio-for-mactabmacos"></a>[Visual Studio for Mac](#tab/macos)
+# <a name="visual-studio-for-mac"></a>[Visual Studio for Mac](#tab/macos)
 
 > [!IMPORTANT]
 > 开始之前，请务必先选择 Info.plist  中的“手动设置”  。
@@ -250,7 +250,7 @@ Apple 提供一系列精选的特殊应用服务（亦称为“功能”），�
 4. 请确保将生成配置设置为 **iPhone** / **iPad**，而不是模拟器。
 5. 在 Visual Studio for Mac 中，单击“运行”  并查看在设备上运行的应用。
 
-# <a name="visual-studiotabwindows"></a>[Visual Studio](#tab/windows)
+# <a name="visual-studio"></a>[Visual Studio](#tab/windows)
 
 > [!IMPORTANT]
 > 开始之前，请务必先选择“项目”>“预配属性...”中的“手动预配”   。
