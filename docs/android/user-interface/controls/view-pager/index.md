@@ -8,11 +8,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 03/01/2018
 ms.openlocfilehash: c7718ef7a02365e9ca09f7491804cbadfa0c9a41
-ms.sourcegitcommit: 52fb214c0e0243587d4e9ad9306b75e92a8cc8b7
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76940852"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78914314"
 ---
 # <a name="viewpager"></a>ViewPager
 
@@ -35,7 +35,7 @@ _ViewPager 是一个布局管理器，可用于实现 gestural 导航。Gestural
 
 - 在[包含片段的 Viewpager](~/android/user-interface/controls/view-pager/viewpager-and-fragments.md)中，开发稍微复杂的[FlashCardPager](https://docs.microsoft.com/samples/xamarin/monodroid-samples/userinterface-flashcardpager)应用程序，以演示如何使用 `Fragment`的 `ViewPager` 来构建一个将数学问题呈现为闪存卡并响应用户输入的应用程序。 
 
-## <a name="requirements"></a>需求
+## <a name="requirements"></a>要求
 
 若要在你的应用项目中使用 `ViewPager`，你必须安装[Android 支持库 v4](https://www.nuget.org/packages/Xamarin.Android.Support.v4/)包。 有关安装 NuGet 包的详细信息，请参阅[演练：在项目中包括 NuGet](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough)。 
 
