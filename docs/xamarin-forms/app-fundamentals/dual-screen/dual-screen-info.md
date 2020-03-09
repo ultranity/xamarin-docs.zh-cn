@@ -1,5 +1,5 @@
 ---
-title: Xamarin.Forms DualScreenInfo
+title: Xamarin.Forms 双屏设备功能
 description: 本指南介绍了如何使用 Xamarin.Forms DualScreenInfo 类来优化 Surface Duo 和 Surface Neo 等双屏设备的应用体验。
 ms.prod: xamarin
 ms.assetid: dd5eb074-f4cb-4ab4-b47d-76f862ac7cfa
@@ -7,16 +7,18 @@ ms.technology: xamarin-forms
 author: davidortinau
 ms.author: daortin
 ms.date: 02/08/2020
-ms.openlocfilehash: e9a01ed3720f1501423eb1c0746d311918af82fb
-ms.sourcegitcommit: 524fc148bad17272bda83c50775771daa45bfd7e
+ms.openlocfilehash: 8dda1960fceaf7738c44d58b10149b8c20fa543f
+ms.sourcegitcommit: 5b6d3bddf7148f8bb374de5657bdedc125d72ea7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77480585"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78160595"
 ---
-# <a name="xamarinforms-dualscreeninfo"></a>Xamarin.Forms DualScreenInfo
+# <a name="xamarinforms-dual-screen-device-capabilities"></a>Xamarin.Forms 双屏设备功能
 
-[![下载示例](~/media/shared/download.png) 下载示例](https://github.com/xamarin/xamarin-forms-samples/tree/pre-release/UserInterface/DualScreenDemos)
+![](~/media/shared/preview.png "This API is currently pre-release")
+
+[![下载示例](~/media/shared/download.png) 下载示例](https://github.com/xamarin/xamarin-forms-samples/tree/master/UserInterface/DualScreenDemos)
 
 `DualScreenInfo` 类可用于确定你的视图位于哪个窗格中、视图的大小如何、设备的放置方向如何，以及铰链的角度等等。
 
@@ -212,4 +214,4 @@ public partial class GridUsingDualScreenInfo : ContentPage
 
 ## <a name="related-links"></a>相关链接
 
-- [（示例）](https://github.com/xamarin/xamarin-forms-samples/tree/pre-release/UserInterface/DualScreenDemos)
+- [（示例）](https://github.com/xamarin/xamarin-forms-samples/tree/master/UserInterface/DualScreenDemos)

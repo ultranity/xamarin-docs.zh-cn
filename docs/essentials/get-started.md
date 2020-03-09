@@ -6,12 +6,12 @@ author: jamesmontemagno
 ms.author: jamont
 ms.custom: video
 ms.date: 07/10/2019
-ms.openlocfilehash: daab2b3a18eeea2f50c9518144b3396fbba90928
-ms.sourcegitcommit: fec87846fcb262fc8b79774a395908c8c8fc8f5b
+ms.openlocfilehash: 251c1b8102327093fcb142ca056743f00618f81b
+ms.sourcegitcommit: f43d5ecafd19cbc5cce39201916a83927a34617a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77545130"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78214968"
 ---
 # <a name="get-started-with-xamarinessentials"></a>Xamarin.Essentials 入门
 

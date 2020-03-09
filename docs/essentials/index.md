@@ -4,13 +4,13 @@ description: 本文档链接到介绍可为开发人员提供其移动应用程�
 ms.assetid: 4EDC9897-5FD1-44CA-A26D-2E5AB472C99A
 author: jamesmontemagno
 ms.author: jamont
-ms.date: 08/27/2019
-ms.openlocfilehash: 2101d2e3948cb917e62725731c4895cc57282b3b
-ms.sourcegitcommit: 3d21bb1a6d9b78b65aa49917b545c39d44aa3e3c
+ms.date: 02/26/2020
+ms.openlocfilehash: a0d1e397725ca0a60eb68fb0e6b989ee22c3f56a
+ms.sourcegitcommit: 3d39bafe4c56b15cbb695b1f7f02b926e1033f58
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70065129"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78155270"
 ---
 # <a name="xamarinessentials"></a>Xamarin.Essentials
 
@@ -18,7 +18,7 @@ Xamarin.Essentials 可为开发人员提供其移动应用程序的跨平台 API
 
 Android、iOS 和 UWP 提供了唯一的操作系统和平台 API，开发人员可以利用 Xamarin 访问 C# 中的所有 API。 Xamarin.Essentials 提供了适用于任何 Xamarin.Forms、Android、iOS 或 UWP 应用程序的单个跨平台 API，不管如何创建用户界面，都可以通过共享代码进行访问。
 
-## <a name="get-started-with-xamarinessentialsget-startedmdcontextxamarinxamarin-forms"></a>[Xamarin.Essentials 入门](get-started.md?context=xamarin/xamarin-forms)
+## <a name="get-started-with-xamarinessentials"></a>[Xamarin.Essentials 入门](get-started.md?context=xamarin/xamarin-forms)
 
 按照[入门指南](get-started.md)将 **Xamarin.Essentials** NuGet 包安装到现有或新的 Xamarin.Forms、Android、iOS 或 UWP 项目中。
 
@@ -49,6 +49,7 @@ Android、iOS 和 UWP 提供了唯一的操作系统和平台 API，开发人员
 * [地图](maps.md?content=xamarin/xamarin-forms) – 将地图应用程序打开到特定位置。
 * [打开浏览器](open-browser.md?context=xamarin/xamarin-forms) – 快速方便地将浏览器打开到特定网站。
 * [方向传感器](orientation-sensor.md?context=xamarin/xamarin-forms) – 检索设备在三个维空间中的方向。
+* [权限](permissions.md?context=xamarin/xamarin-forms) – 检查并向用户请求权限。
 * [电话拨号程序](phone-dialer.md?context=xamarin/xamarin-forms) – 打开电话拨号程序。
 * [平台扩展](platform-extensions.md?context=xamarin/xamarin-forms) - 用于转换矩形、大小和点的帮助程序方法。
 * [首选项](preferences.md?context=xamarin/xamarin-forms) – 快速方便地添加永久首选项。
@@ -60,14 +61,14 @@ Android、iOS 和 UWP 提供了唯一的操作系统和平台 API，开发人员
 * [版本跟踪](version-tracking.md?context=xamarin/xamarin-forms) – 跟踪应用程序版本和内部版本号。
 * [振动](vibrate.md?context=xamarin/xamarin-forms) – 使振动设备。
 
-## <a name="troubleshootingtroubleshootingmdcontextxamarinxamarin-forms"></a>[疑难解答](troubleshooting.md?context=xamarin/xamarin-forms)
+## <a name="troubleshooting"></a>[疑难解答](troubleshooting.md?context=xamarin/xamarin-forms)
 
 如果遇到问题，请寻求帮助。
 
-## <a name="release-noteshttpsdocsmicrosoftcomxamarinessentialsrelease-notes"></a>[发行说明](https://docs.microsoft.com/xamarin/essentials/release-notes/)
+## <a name="release-notes"></a>[发行说明](https://docs.microsoft.com/xamarin/essentials/release-notes/)
 
 查找 Xamarin.Essentials 每个版本的完整发行说明。
 
-## <a name="api-documentationxrefxamarinessentials"></a>[API 文档](xref:Xamarin.Essentials)
+## <a name="api-documentation"></a>[API 文档](xref:Xamarin.Essentials)
 
 浏览 API 文档了解每个 Xamarin.Essentials 功能。

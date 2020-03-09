@@ -5,12 +5,12 @@ ms.assetid: 34062D84-3E55-4AF7-A688-8551068B1E57
 author: jamesmontemagno
 ms.author: jamont
 ms.date: 01/06/2020
-ms.openlocfilehash: 2b1413c6bce7fc4ce43a190cd25494c69dbadedb
-ms.sourcegitcommit: ec62c7f28abc8e121656f1b93146657d90a4cab4
+ms.openlocfilehash: 21f2079ace4adae6fd84d89426e5d66692af2a0a
+ms.sourcegitcommit: ddf0369573b738896efaa601fa6ef5dbc68d9cf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77555685"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78289798"
 ---
 # <a name="xamarinessentials-permissions"></a>Xamarin.Essentials:权限
 
@@ -90,7 +90,7 @@ Xamarin.Essentials 尝试提取尽可能多的权限，但每个操作系统都�
 | StorageRead | ![支持 Android](~/media/shared/yes.png "支持 Android") | ![iOS 不支持](~/media/shared/no.png "iOS 不支持") | ![UWP 不支持](~/media/shared/no.png "UWP 不支持") | ![不支持 watchOS](~/media/shared/no.png "不支持 watchOS") | ![不支持 tvOS](~/media/shared/no.png "不支持 tvOS") | ![不支持 Tizen](~/media/shared/no.png "不支持 Tizen") |
 | StorageWrite | ![支持 Android](~/media/shared/yes.png "支持 Android") | ![iOS 不支持](~/media/shared/no.png "iOS 不支持") | ![UWP 不支持](~/media/shared/no.png "UWP 不支持") | ![不支持 watchOS](~/media/shared/no.png "不支持 watchOS") | ![不支持 tvOS](~/media/shared/no.png "不支持 tvOS") | ![不支持 Tizen](~/media/shared/no.png "不支持 Tizen") |
 
-如果权限标有 ❌，则在检查或请求权限时始终返回 `Granted`。
+如果权限标有 ![not supported](~/media/shared/no.png "不受支持")，则在检查或请求权限时始终返回 `Granted`。
 
 ## <a name="general-usage"></a>常规使用情况
 下面介绍了权限的一般处理模式。

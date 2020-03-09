@@ -1,5 +1,5 @@
 ---
-title: Xamarin.Forms DualScreenHelper
+title: Xamarin.Forms 双屏平台帮助程序
 description: 本指南介绍了如何使用 Xamarin.Forms DualScreenHelper 来来优化 Surface Duo 和 Surface Neo 等双屏设备的应用体验。
 ms.prod: xamarin
 ms.assetid: 5aa184c2-5611-427d-85c7-1c56486c3e1b
@@ -7,14 +7,16 @@ ms.technology: xamarin-forms
 author: davidortinau
 ms.author: daortin
 ms.date: 02/08/2020
-ms.openlocfilehash: 26e6389dc7effd52fad8307e1e3191fc4b760fe6
-ms.sourcegitcommit: 524fc148bad17272bda83c50775771daa45bfd7e
+ms.openlocfilehash: e16e926d9eb3c5f3ca04b7e1359f24624a971617
+ms.sourcegitcommit: 5b6d3bddf7148f8bb374de5657bdedc125d72ea7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77480569"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78160564"
 ---
-# <a name="xamarinforms-dualscreenhelper"></a>Xamarin.Forms DualScreenHelper
+# <a name="xamarinforms-dual-screen-platform-helpers"></a>Xamarin.Forms 双屏平台帮助程序
+
+![](~/media/shared/preview.png "This API is currently pre-release")
 
 [![下载示例](~/media/shared/download.png) 下载示例](https://github.com/xamarin/xamarin-forms-samples/UserInterface/DualScreenDemos)
 
@@ -30,7 +32,7 @@ ms.locfileid: "77480569"
 ```csharp
 async void OpenCompactWindowClicked(object sender, EventArgs e)
 {
-    if(!DualScreenHelper.HasCompactModeSupport())
+    if (!DualScreenHelper.HasCompactModeSupport())
     {
         await DisplayAlert("Unsupported", "This platform doesn't support this feature", "Ok");
         return;

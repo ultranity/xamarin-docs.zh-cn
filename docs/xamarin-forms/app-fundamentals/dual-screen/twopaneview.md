@@ -1,5 +1,5 @@
 ---
-title: Xamarin.Forms TwoPaneView
+title: Xamarin.Forms 双屏布局
 description: 本指南介绍了如何使用 Xamarin.Forms TwoPaneView 来优化 Surface Duo 和 Surface Neo 等双屏设备的应用体验。
 ms.prod: xamarin
 ms.assetid: 17ee8afa-5e7c-4a4f-a9b6-2aca03f30fe3
@@ -7,16 +7,18 @@ ms.technology: xamarin-forms
 author: davidortinau
 ms.author: daortin
 ms.date: 02/08/2020
-ms.openlocfilehash: 76a80a1c5750db29f132f71e0559364e26b33ab4
-ms.sourcegitcommit: 524fc148bad17272bda83c50775771daa45bfd7e
+ms.openlocfilehash: e961dc537d8b793feb3587ec89b69c53ab821088
+ms.sourcegitcommit: 5b6d3bddf7148f8bb374de5657bdedc125d72ea7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77480535"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78160567"
 ---
-# <a name="xamarinforms-twopaneview"></a>Xamarin.Forms TwoPaneView
+# <a name="xamarinforms-dual-screen-layout"></a>Xamarin.Forms 双屏布局
 
-[![下载示例](~/media/shared/download.png) 下载示例](https://github.com/xamarin/xamarin-forms-samples/tree/pre-release/UserInterface/DualScreenDemos)
+![](~/media/shared/preview.png "This API is currently pre-release")
+
+[![下载示例](~/media/shared/download.png) 下载示例](https://github.com/xamarin/xamarin-forms-samples/tree/master/UserInterface/DualScreenDemos)
 
 `TwoPaneView` 类表示一个带有两个视图的容器，这些视图会调整内容的大小且在可用空间内并排或按从上到下的顺序放置内容。 `TwoPaneView` 继承自 `Grid`，因此考虑这些属性时最简单的方式是看作它们要应用于网格。
 
@@ -71,4 +73,4 @@ ms.locfileid: "77480535"
 
 ## <a name="related-links"></a>相关链接
 
-- [（示例）](https://github.com/xamarin/xamarin-forms-samples/tree/pre-release/UserInterface/DualScreenDemos)
+- [（示例）](https://github.com/xamarin/xamarin-forms-samples/tree/master/UserInterface/DualScreenDemos)

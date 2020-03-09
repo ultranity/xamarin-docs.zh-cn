@@ -6,12 +6,12 @@ author: jamesmontemagno
 ms.author: jamont
 ms.date: 01/15/2019
 ms.custom: video
-ms.openlocfilehash: 1c6e55b69ca683b7fc1919995ba576ab77bf3c3b
-ms.sourcegitcommit: d0e6436edbf7c52d760027d5e0ccaba2531d9fef
+ms.openlocfilehash: c7d4e4f7ea27e150752b222e3ea4ce2c4256a43a
+ms.sourcegitcommit: 099b06e311a40c00eeea85465ff9b97867a5c5de
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75488499"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78295399"
 ---
 # <a name="xamarinessentials-preferences"></a>Xamarin.Essentials:首选项
 
@@ -39,6 +39,12 @@ Preferences.Set("my_key", "my_value");
 
 ```csharp
 var myValue = Preferences.Get("my_key", "default_value");
+```
+
+检查首选项中是否存在特定密钥  ：
+
+```csharp
+bool hasKey = Preferences.HasKey("my_key");
 ```
 
 从首选项删除密钥  ：
@@ -73,15 +79,15 @@ Preferences.Clear();
 
 ## <a name="platform-implementation-specifics"></a>平台实现细节
 
-# <a name="androidtabandroid"></a>[Android](#tab/android)
+# <a name="android"></a>[Android](#tab/android)
 
 所有数据都存储到[共享首选项](https://developer.android.com/training/data-storage/shared-preferences.html)中。 如果未指定 `sharedName`，则使用默认的共享首选项，否则此名称将用于获取具有指定名称的私有共享首选项  。
 
-# <a name="iostabios"></a>[iOS](#tab/ios)
+# <a name="ios"></a>[iOS](#tab/ios)
 
 [NSUserDefaults](https://docs.microsoft.com/xamarin/ios/app-fundamentals/user-defaults) 用于将值存储在 iOS 设备上。 如果未指定 `sharedName`，则使用 `StandardUserDefaults`，否则此名称将用于创建具有用于 `NSUserDefaultsType.SuiteName` 的指定名称的新 `NSUserDefaults`。
 
-# <a name="uwptabuwp"></a>[UWP](#tab/uwp)
+# <a name="uwp"></a>[UWP](#tab/uwp)
 
 [ApplicationDataContainer](https://docs.microsoft.com/uwp/api/windows.storage.applicationdatacontainer) 用于将值存储在设备上。 如果未指定 `sharedName`，则使用 `LocalSettings`，否则此名称将用于在 `LocalSettings` 内创建新容器。 
 
