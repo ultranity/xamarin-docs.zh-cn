@@ -8,11 +8,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 03/21/2017
 ms.openlocfilehash: a2435b30b7d5b468fca6c55d295c87b9a0d20652
-ms.sourcegitcommit: db422e33438f1b5c55852e6942c3d1d75dc025c4
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76724431"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78915189"
 ---
 # <a name="xamarinios-api-design"></a>Xamarin iOS API 设计
 
@@ -647,7 +647,7 @@ public Foo (NSCoder coder)
 
 此构造函数适用于从 NSCoding 实例初始化对象的情况。
 
-#### <a name="exceptions"></a>异常
+#### <a name="exceptions"></a>例外
 
 Xamarin API 设计不会将目标 C 异常作为C#异常引发。 该设计强制首先不会将任何垃圾邮件发送到目标-C world，并且必须生成的任何异常在传递到目标 C 环境的无效数据之前由绑定本身生成。
 
