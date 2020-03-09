@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: dffa9c202d42cfb12ed67e219b4e3155e4e554d0
-ms.sourcegitcommit: 57f815bf0024b1afe9754c0e28054fc0a53ce302
+ms.openlocfilehash: 0071fcc72844e4816e707c5828464859e09db68c
+ms.sourcegitcommit: 2503da076966d12a8bdbf7af209662b74913a15c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70751924"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78261613"
 ---
 # <a name="contributing"></a>参与
 
@@ -64,6 +64,10 @@ Xamarin 团队将审核 PR，并告知（通过 PR 反馈）更改是否看似�
 一旦反馈得到应用且更改看起来不错，维护人员将合并 PR。
 
 我们会以某种节奏，将所有提交内容从主分支推送到实时站点，你将能在 https://docs.microsoft.com/xamarin/ 中实时看到你参与编写的内容。
+
+### <a name="contributing-to-international-content"></a>国际内容供稿
+
+目前不接受机器翻译 (MT) 内容供稿。 为提高 MT 内容的质量，我们已转用一种神经 MT 引擎。 我们接受并鼓励人工翻译 (HT) 内容供稿，这些内容将用于训练神经 MT 引擎。 随着时间的推移，HT 内容供稿会同时提高 HT 和 MT 的质量。 MT 主题会包含一个免责申明，说明主题的部分内容可能为 MT，并且“编辑”按钮在处于禁用状态时不会显示  。
 
 ## <a name="dos-and-donts"></a>注意事项
 
