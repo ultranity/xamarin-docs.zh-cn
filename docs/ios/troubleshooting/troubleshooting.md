@@ -9,11 +9,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 05/22/2018
 ms.openlocfilehash: 716999002cf90b50b90f4924adc11555cc43717f
-ms.sourcegitcommit: db422e33438f1b5c55852e6942c3d1d75dc025c4
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76725357"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78915372"
 ---
 # <a name="troubleshooting-tips-for-xamarinios"></a>Xamarin 的故障排除提示
 
@@ -287,7 +287,7 @@ Visual Studio for Mac 2.2 有一个 bug，该 bug 导致无法检测包含逗号
 ## <a name="error-mtouch-failed-with-no-output"></a>错误 "mtouch 失败，无输出"
 
 当存储解决方案或项目的项目名称或目录包含空格时，Xamarin 和 Visual Studio for Mac 的当前版本会失败。
-解决此问题的步骤：
+修复此问题的方法：
 
 - 确保你的项目或其中存储它的目录都包含空格。
 - 在项目 "主要设置" 中，确保项目名称不包含任何空格。
