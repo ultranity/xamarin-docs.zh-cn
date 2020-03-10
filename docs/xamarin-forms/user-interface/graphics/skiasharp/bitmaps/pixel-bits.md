@@ -8,40 +8,40 @@ author: davidbritch
 ms.author: dabritch
 ms.date: 07/11/2018
 ms.openlocfilehash: 6c066f89dc8f558a9154138bf38ad4326fe21291
-ms.sourcegitcommit: 3ea9ee034af9790d2b0dc0893435e997bd06e587
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68642519"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78918220"
 ---
 # <a name="accessing-skiasharp-bitmap-pixel-bits"></a>访问 SkiaSharp 位图像素位
 
-[![下载示例](~/media/shared/download.png)下载示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
+[![下载示例](~/media/shared/download.png) 下载示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
 
-本文中所示[**到文件的保存 SkiaSharp 位图**](saving.md)，位图通常存储在文件中的压缩格式，如 JPEG 或 PNG。 在与此相反，不压缩 SkiaSharp 位图存储在内存中。 已存储为一系列连续的像素为单位。 此压缩的格式便于将位图转移到显示图面。
+正如你在将[**SkiaSharp 位图保存到文件**](saving.md)这篇文章中所看到的那样，位图通常以压缩格式存储在文件中，例如 JPEG 或 PNG。 在与此相反，不压缩 SkiaSharp 位图存储在内存中。 已存储为一系列连续的像素为单位。 此压缩的格式便于将位图转移到显示图面。
 
-SkiaSharp 位图占用的内存块以非常简单的方式进行组织:它从从左到右的第一行开始, 然后继续第二行。 对于全彩色位图，每个像素由四个字节，这意味着位图所需的总内存空间是四次其宽度和高度的产品。
+SkiaSharp 位图占用的内存块的组织结构非常简单的方式： 它以像素为单位，从左到右，第一行开始，然后继续第二行。 对于全彩色位图，每个像素由四个字节，这意味着位图所需的总内存空间是四次其宽度和高度的产品。
 
 本指南介绍了如何应用程序有权访问这些像素，通过访问位图的像素的内存块，直接或间接。 在某些情况下，程序可能想要分析的图像的像素为单位，并构造某种类型的直方图。 更常见的是，应用程序可以通过从算法上创建构成位图像素构造唯一映像：
 
-![像素位样本](pixel-bits-images/PixelBitsSample.png "像素位示例")
+![像素位示例](pixel-bits-images/PixelBitsSample.png "像素位示例")
 
 ## <a name="the-techniques"></a>技术
 
-SkiaSharp 提供几种方法用于访问位图的像素位。 你选择哪一个通常是编码 （这与维护和易用性调试相关） 的方便和性能权衡。 在大多数情况下，你将使用以下方法之一和属性的`SKBitmap`用于访问位图的像素为单位：
+SkiaSharp 提供几种方法用于访问位图的像素位。 你选择哪一个通常是编码 （这与维护和易用性调试相关） 的方便和性能权衡。 在大多数情况下，你将使用 `SKBitmap` 的以下方法和属性之一来访问位图的像素：
 
-- `GetPixel`和`SetPixel`方法允许您获取或设置单个像素的颜色。
-- `Pixels`属性获取整个位图的像素颜色的数组，或设置颜色的数组。
-- `GetPixels` 返回所使用的位图的像素内存地址。
-- `SetPixels` 将替换所使用的位图的像素内存的地址。
+- `GetPixel` 和 `SetPixel` 方法允许您获取或设置单个像素的颜色。
+- `Pixels` 属性获取整个位图的像素颜色数组，或设置颜色的数组。
+- `GetPixels` 返回位图使用的像素内存的地址。
+- `SetPixels` 替换位图使用的像素内存的地址。
 
 您可以将为"高级别"的前两个技术和第二个两个作为"低级别。 有一些其他方法和属性，您可以使用，但这些是最有价值。
 
-若要允许你查看这些技术之间的性能差异[ **SkiaSharpFormsDemos** ](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)应用程序包含一个名为页**渐变位图**，创建使用组合创建渐变的红色和蓝色阴影的像素的位图。 程序创建八个不同副本，此位图，所有使用的不同的方法用于设置位图像素。 每个这些八个位图创建在单独的方法，还设置该技术的简短文本说明，并计算所需设置所有像素为单位的时间。 每个方法循环访问的像素设置逻辑 100 次若要更好地估计的性能。
+为了使你能够查看这些技术之间的性能差异， [**SkiaSharpFormsDemos**](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)应用程序包含一个名为 "**渐变位图**" 的页面，它创建一个位图，该位图的像素结合了红色和蓝色底纹来创建渐变。 程序创建八个不同副本，此位图，所有使用的不同的方法用于设置位图像素。 每个这些八个位图创建在单独的方法，还设置该技术的简短文本说明，并计算所需设置所有像素为单位的时间。 每个方法循环访问的像素设置逻辑 100 次若要更好地估计的性能。
 
 ### <a name="the-setpixel-method"></a>SetPixel 方法
 
-如果您只需设置或获取多个单个像素[ `SetPixel` ](xref:SkiaSharp.SKBitmap.SetPixel(System.Int32,System.Int32,SkiaSharp.SKColor))并[ `GetPixel` ](xref:SkiaSharp.SKBitmap.GetPixel(System.Int32,System.Int32))方法是理想之选。 对于每个这两种方法，您指定的整数列和行。 无论像素格式，这两种方法让你获取或设置作为像素`SKColor`值：
+如果只需设置或获取几个单个像素，则[`SetPixel`](xref:SkiaSharp.SKBitmap.SetPixel(System.Int32,System.Int32,SkiaSharp.SKColor))和[`GetPixel`](xref:SkiaSharp.SKBitmap.GetPixel(System.Int32,System.Int32))方法非常理想。 对于每个这两种方法，您指定的整数列和行。 无论使用何种像素格式，这两种方法都可让你获取或设置作为 `SKColor` 值的像素：
 
 ```csharp
 bitmap.SetPixel(col, row, color);
@@ -49,9 +49,9 @@ bitmap.SetPixel(col, row, color);
 SKColor color = bitmap.GetPixel(col, row);
 ```
 
-`col`参数必须介于 0 和一个不会早于`Width`属性的位图，并`row`范围是从 0 到一个不会早于`Height`属性。
+`col` 参数的范围必须介于0到位图的 `Width` 属性之间，并且 `row` 范围为0到小于 `Height` 属性。
 
-下面是该方法中**渐变位图**设置的位图使用内容`SetPixel`方法。 位图为 256 x 256 像素和`for`循环是硬编码值的范围内：
+下面是**渐变位图**中的方法，该方法使用 `SetPixel` 方法设置位图的内容。 位图为 256 x 256 像素，`for` 循环使用值的范围进行硬编码：
 
 ```csharp
 public class GradientBitmapPage : ContentPage
@@ -83,11 +83,11 @@ public class GradientBitmapPage : ContentPage
 
 设置每个像素的颜色具有的红色组件等于位图列和行的蓝色组件等于。 在左上角，红色在右上角，在左下角和右下角，使用其他位置渐变在洋红色蓝黑色合成的位图。
 
-`SetPixel`方法是调用 65,536 时间，而不考虑此方法可能是如何有效地，它通常不是提供一种替代方法时进行，许多 API 调用一个好办法。 幸运的是，有多种替代方法。
+`SetPixel` 方法被称为65536次，无论此方法的效率如何，通常不是很好的做法是，如果有替代方法，则很可能会调用它。 幸运的是，有多种替代方法。
 
 ### <a name="the-pixels-property"></a>像素属性
 
-`SKBitmap` 定义[ `Pixels` ](xref:SkiaSharp.SKBitmap.Pixels)返回的数组的属性`SKColor`整个位图的值。 此外可以使用`Pixels`设置位图的颜色值的数组：
+`SKBitmap` 定义一个[`Pixels`](xref:SkiaSharp.SKBitmap.Pixels)属性，该属性返回整个位图的 `SKColor` 值的数组。 你还可以使用 `Pixels` 来设置位图的颜色值数组：
 
 ```csharp
 SKColor[] pixels = bitmap.Pixels;
@@ -97,9 +97,9 @@ bitmap.Pixels = pixels;
 
 像素排列开始的数组中的第一行中，从左到右，然后第二行，等等。 数组中的总数等于位图宽度和高度的产品。
 
-虽然此属性显示为有效，但请记住，像素所复制到数组，位图从和恢复到在位图中，数组并将像素转换从 / 向`SKColor`值。
+尽管此属性看起来很有效，但请记住，像素是从位图复制到数组中，并从数组重新转换为位图，然后将像素转换为 `SKColor` 值。
 
-下面是该方法中`GradientBitmapPage`类，用于设置位图使用`Pixels`属性。 方法分配`SKColor`数组所需的大小，但它也可以使用`Pixels`属性以创建该数组：
+下面是使用 `Pixels` 属性设置位图 `GradientBitmapPage` 类中的方法。 方法分配一个所需大小的 `SKColor` 数组，但它可能已使用 `Pixels` 属性创建该数组：
 
 ```csharp
 SKBitmap FillBitmapPixelsProp(out string description, out int milliseconds)
@@ -125,27 +125,27 @@ SKBitmap FillBitmapPixelsProp(out string description, out int milliseconds)
 }
 ```
 
-请注意的索引`pixels`数组需要从计算`row`和`col`变量。 行乘以每个行 (在此情况下的 256) 中的像素数，然后添加列。
+请注意，需要从 `row` 和 `col` 变量计算 `pixels` 数组的索引。 行乘以每个行 (在此情况下的 256) 中的像素数，然后添加列。
 
-`SKBitmap` 此外定义了一个类似`Bytes`属性，这会返回整个位图的字节数组，但较为繁琐的全彩色位图。
+`SKBitmap` 还定义了类似的 `Bytes` 属性，该属性将为整个位图返回一个字节数组，但对于全颜色位图更繁琐。
 
 ### <a name="the-getpixels-pointer"></a>GetPixels 指针
 
-可能是功能最强大的技术来访问的位图像素[ `GetPixels` ](xref:SkiaSharp.SKBitmap.GetPixels)，不会与混淆`GetPixel`方法或`Pixels`属性。 将立即注意到与差异`GetPixels`，它将返回不在 C# 编程中非常常见的内容：
+很可能是[`GetPixels`](xref:SkiaSharp.SKBitmap.GetPixels)访问位图像素的最强大方法，而不是将其与 `GetPixel` 方法或 `Pixels` 属性混淆。 您会立即注意到 `GetPixels` 的不同之处在于，它会返回编程中C#不太常见的内容：
 
 ```csharp
 IntPtr pixelsAddr = bitmap.GetPixels();
 ```
 
-.NET [ `IntPtr` ](xref:System.IntPtr)类型表示的指针。 它称为`IntPtr`因为它是本机处理器的程序正在运行的通常 32 位或 64 位的长度在计算机上的一个整数的长度。 `IntPtr`的`GetPixels`返回是实际的位图对象正在使用它来存储其像素为单位的内存块的地址。
+.NET [`IntPtr`](xref:System.IntPtr)类型表示指针。 它被称为 `IntPtr`，因为它是运行程序的计算机的本机处理器上的整数长度，通常为32位或64位。 `GetPixels` 返回的 `IntPtr` 是位图对象用于存储其像素的实际内存块的地址。
 
-可以将转换`IntPtr`为 C# 指针类型，并使用[ `ToPointer` ](xref:System.IntPtr.ToPointer)方法。 C# 指针语法是 C 和 c + + 相同：
+您可以使用[`ToPointer`](xref:System.IntPtr.ToPointer)方法将 `IntPtr` C#转换为指针类型。 C# 指针语法是 C 和 c + + 相同：
 
 ```csharp
 byte* ptr = (byte*)pixelsAddr.ToPointer();
 ```
 
-`ptr`变量的类型是_字节的指针_。 这`ptr`变量，可以访问用于存储位图的像素为单位的各个字节的内存。 使用类似下面的代码从此内存中读取一个字节或写入一个字节的内存：
+`ptr` 变量的类型为_byte 指针_。 此 `ptr` 变量使你能够访问用于存储位图像素的单个内存字节。 使用类似下面的代码从此内存中读取一个字节或写入一个字节的内存：
 
 ```csharp
 byte pixelComponent = *ptr;
@@ -153,13 +153,13 @@ byte pixelComponent = *ptr;
 *ptr = pixelComponent;
 ```
 
-在此上下文中，星号是 C#_间接寻址运算符_，用于引用指向的内存内容`ptr`。 最初，`ptr`指向第一个像素的位图，但您的第一行的第一个字节可以对执行算术`ptr`变量以将其移到位图中的其他位置。
+在此上下文中，星号为C# _间接寻址运算符_并用于引用 `ptr`指向的内存内容。 最初，`ptr` 指向位图第一行第一个像素的第一个字节，但您可以对 `ptr` 变量执行算术运算，以将其移动到位图中的其他位置。
 
-有一个缺点是，可以使用这`ptr`仅在代码块中的变量标记为`unsafe`关键字。 此外，该程序集必须标记为允许不安全的块。 这是在项目的属性。
+一个缺点是只能在用 `unsafe` 关键字标记的代码块中使用此 `ptr` 变量。 此外，该程序集必须标记为允许不安全的块。 这是在项目的属性。
 
 在 C# 中使用指针是功能非常强大，但也非常危险。 需要小心，不要访问超出指针是要引用的内存。 这就是原因指针使用程序关联以单词"不安全。"
 
-下面是该方法中`GradientBitmapPage`类，该类使用`GetPixels`方法。 请注意`unsafe`包含所有使用的字节指针的代码块：
+下面是使用 `GetPixels` 方法的 `GradientBitmapPage` 类中的方法。 请注意包含使用字节指针的所有代码的 `unsafe` 块：
 
 ```csharp
 SKBitmap FillBitmapBytePtr(out string description, out int milliseconds)
@@ -193,11 +193,11 @@ SKBitmap FillBitmapBytePtr(out string description, out int milliseconds)
 }
 ```
 
-当`ptr`从第一次获取变量`ToPointer`方法，它指向最左侧像素的位图的第一行的第一个字节。 `for`的循环`row`并`col`设置，以便`ptr`可以使用递增`++`运算符后设置每个像素的每个字节。 有关通过像素，其他 99 循环`ptr`必须重新设置为位图的开头。
+第一次从 `ToPointer` 方法获取 `ptr` 变量时，它指向位图第一行最左侧像素的第一个字节。 设置 `row` 和 `col` 的 `for` 循环，以便设置每个像素的每个字节后，`ptr` 可以与 `++` 运算符递增。 对于其他99循环，必须将 `ptr` 设置回位图的开头。
 
-每个像素都是内存的 4 个字节，因此必须单独设置每个字节。 下面的代码假定字节为顺序红色、 绿色、 蓝色和 alpha，这是与一致`SKColorType.Rgba8888`颜色类型。 你可能还记得这是适用于 iOS 和 Android，而不是通用 Windows 平台的默认颜色类型。 默认情况下，UWP 创建的位图`SKColorType.Bgra8888`颜色类型。 出于此原因，会在该平台上看到一些不同的结果 ！
+每个像素都是内存的 4 个字节，因此必须单独设置每个字节。 此处的代码假定字节的顺序为红色、绿色、蓝色和 alpha，这与 `SKColorType.Rgba8888` 的颜色类型一致。 你可能还记得这是适用于 iOS 和 Android，而不是通用 Windows 平台的默认颜色类型。 默认情况下，UWP 使用 `SKColorType.Bgra8888` 颜色类型创建位图。 出于此原因，会在该平台上看到一些不同的结果 ！
 
-可以从返回的值强制转换`ToPointer`到`uint`指针而不是一个`byte`指针。 这允许要在一个语句中访问整个像素。 将应用`++`到该指针的运算符将它加 4 个字节，以指向下一个像素：
+可以将从 `ToPointer` 返回的值强制转换为 `uint` 指针，而不是 `byte` 指针。 这允许要在一个语句中访问整个像素。 将 `++` 运算符应用到该指针会按四个字节递增，以指向下一个像素：
 
 ```csharp
 public class GradientBitmapPage : ContentPage
@@ -237,7 +237,7 @@ public class GradientBitmapPage : ContentPage
 }
 ```
 
-使用设置像素`MakePixel`方法，构造从红色、 绿色、 蓝色和 alpha 组件整数像素。 请记住，`SKColorType.Rgba8888`格式具有像素字节顺序如下：
+该像素是使用 `MakePixel` 方法设置的，该方法用红色、绿色、蓝色和 alpha 分量构造一个整数像素。 请记住，`SKColorType.Rgba8888` 格式具有如下所示的像素字节顺序：
 
 RR GG BB AA
 
@@ -245,11 +245,11 @@ RR GG BB AA
 
 AABBGGRR
 
-根据小字节序体系结构首先存储最低有效字节的整数。 这`MakePixel`方法将无法正常使用的位图的`Bgra8888`颜色类型。
+根据小字节序体系结构首先存储最低有效字节的整数。 对于具有 `Bgra8888` 颜色类型的位图，此 `MakePixel` 方法将不能正常工作。
 
-`MakePixel`方法将标记与[ `MethodImplOptions.AggressiveInlining` ](xref:System.Runtime.CompilerServices.MethodImplOptions)鼓励编译器避免使此单独的方法，而要编译的代码调用该方法的选项。 这应提高性能。
+使用[`MethodImplOptions.AggressiveInlining`](xref:System.Runtime.CompilerServices.MethodImplOptions)选项标记 `MakePixel` 方法，以鼓励编译器避免使此方法为单独的方法，而是编译调用方法的代码。 这应提高性能。
 
-有趣的是，`SKColor`结构定义的显式转换`SKColor`为无符号整数，这意味着`SKColor`可以创建值，并转换为`uint`可用而不是`MakePixel`:
+有趣的是，`SKColor` 结构定义了从 `SKColor` 到无符号整数的显式转换，这意味着可创建 `SKColor` 值，并且可以使用 `uint` 转换，而不是 `MakePixel`：
 
 ```csharp
 SKBitmap FillBitmapUintPtrColor(out string description, out int milliseconds)
@@ -280,21 +280,21 @@ SKBitmap FillBitmapUintPtrColor(out string description, out int milliseconds)
 }
 ```
 
-唯一的问题是:`SKColor`值的整数格式是以`SKColorType.Rgba8888` `SKColorType.Bgra8888`颜色类型的顺序或颜色类型, 还是完全是其他内容？ 应很快显示该问题的答案。
+唯一的问题是：是按 `SKColorType.Rgba8888` 颜色类型或 `SKColorType.Bgra8888` 颜色类型的顺序 `SKColor` 值的整数格式，还是完全是其他内容？ 应很快显示该问题的答案。
 
 ### <a name="the-setpixels-method"></a>SetPixels 方法
 
-`SKBitmap` 此外定义了一个名为方法[ `SetPixels` ](xref:SkiaSharp.SKBitmap.SetPixels(System.IntPtr))，调用如下：
+`SKBitmap` 还定义了一个名为[`SetPixels`](xref:SkiaSharp.SKBitmap.SetPixels(System.IntPtr))的方法，如下所示：
 
 ```csharp
 bitmap.SetPixels(intPtr);
 ```
 
-请记住，`GetPixels`获取`IntPtr`引用用于存储其像素的位图的内存块。 `SetPixels`调用_替换_该块内存引用的内存块`IntPtr`指定为`SetPixels`参数。 位图将释放以前使用的内存块。 下一次`GetPixels`是调用，获取与设置的内存块`SetPixels`。
+请记住，`GetPixels` 获取了引用位图用来存储其像素的内存块的 `IntPtr`。 `SetPixels` 调用将该内存块_替换_为指定为 `SetPixels` 参数的 `IntPtr` 所引用的内存块。 位图将释放以前使用的内存块。 下次调用 `GetPixels` 时，它将获取用 `SetPixels`设置的内存块。
 
-首先，它看起来像`SetPixels`没有更多电源和性能而不为您提供了`GetPixels`而且太方便。 使用`GetPixels`获取位图的内存块并对其进行访问。 使用`SetPixels`分配和访问一些内存，然后将其设为位图的内存块。
+最初，与 `GetPixels` 相比，`SetPixels` 比提供更多的功能和性能。 使用 `GetPixels` 获取位图内存块并对其进行访问。 在 `SetPixels` 分配并访问一些内存，然后将其设置为位图内存块。
 
-但使用`SetPixels`提供了独特的语法优势:它允许你使用数组访问位图像素位。 下面是该方法中`GradientBitmapPage`演示此技术。 该方法首先定义对应的位图的像素的字节的多维度的字节数组。 第一个维度是行，第二个维度列和第三个维度对应于每个像素的四个组件：
+但使用 `SetPixels` 提供了独特的语法优势：它允许使用数组访问位图像素位。 下面是 `GradientBitmapPage` 中演示此方法的方法。 该方法首先定义对应的位图的像素的字节的多维度的字节数组。 第一个维度是行，第二个维度列和第三个维度对应于每个像素的四个组件：
 
 ```csharp
 SKBitmap FillBitmapByteBuffer(out string description, out int milliseconds)
@@ -329,7 +329,7 @@ SKBitmap FillBitmapByteBuffer(out string description, out int milliseconds)
 }
 ```
 
-然后，在该数组已填充的像素之后,`unsafe`块和一个`fixed`语句用于获取指向此数组的字节指针。 然后，该字节的指针可以转换为`IntPtr`要传递给`SetPixels`。
+然后，在使用像素填充数组后，将使用 `unsafe` 块和 `fixed` 语句来获取指向此数组的字节指针。 然后，可以将该字节指针强制转换为要传递到 `SetPixels`的 `IntPtr`。
 
 您创建的数组不需要的字节数组。 它可以是具有行和列只有两个维度的整数数组：
 
@@ -363,9 +363,9 @@ SKBitmap FillBitmapUintBuffer(out string description, out int milliseconds)
 }
 ```
 
-`MakePixel`方法再次用于将颜色组件组合到 32 位像素。
+再次使用 `MakePixel` 方法将颜色组件合并为32位像素。
 
-为了保持完整性，下面是相同的代码，但与`SKColor`值强制转换为无符号整数：
+只是为了完整起见，下面是相同的代码，但将 `SKColor` 值强制转换为无符号整数：
 
 ```csharp
 SKBitmap FillBitmapUintBufferColor(out string description, out int milliseconds)
@@ -399,7 +399,7 @@ SKBitmap FillBitmapUintBufferColor(out string description, out int milliseconds)
 
 ### <a name="comparing-the-techniques"></a>比较方法
 
-构造函数**渐变颜色**页调用所有八个，如上所示的方法，并将结果保存：
+"**渐变颜色**" 页的构造函数将调用上面所示的所有8个方法，并保存结果：
 
 ```csharp
 public class GradientBitmapPage : ContentPage
@@ -432,7 +432,7 @@ public class GradientBitmapPage : ContentPage
 }
 ```
 
-构造函数创建最后`SKCanvasView`要显示的结果位图。 `PaintSurface`处理程序将其图面划分为八个矩形和调用`Display`以显示每个：
+构造函数通过创建 `SKCanvasView` 来显示生成的位图来结束。 `PaintSurface` 处理程序将其图面划分为八个矩形，并调用 `Display` 来显示每个矩形：
 
 ```csharp
 public class GradientBitmapPage : ContentPage
@@ -480,7 +480,7 @@ public class GradientBitmapPage : ContentPage
 }
 ```
 
-若要允许编译器以优化的代码，此页已在运行**版本**模式。 下面是在 MacBook Pro、 Nexus 5 Android 手机和运行 Windows 10 Surface Pro 3 iPhone 8 模拟器上运行该页面。 由于存在硬件差异，避免比较设备之间的性能时间，但改为查看相对时间，每个设备上：
+为了允许编译器优化代码，此页在**发布**模式下运行。 下面是在 MacBook Pro、 Nexus 5 Android 手机和运行 Windows 10 Surface Pro 3 iPhone 8 模拟器上运行该页面。 由于存在硬件差异，避免比较设备之间的性能时间，但改为查看相对时间，每个设备上：
 
 [![渐变位图](pixel-bits-images/GradientBitmap.png "渐变位图")](pixel-bits-images/GradientBitmap-Large.png#lightbox)
 
@@ -490,20 +490,20 @@ public class GradientBitmapPage : ContentPage
 | --------- | --------- | ----:| -------:| ----:|
 | SetPixel  |           | 3.17 |   10.77 | 3.49 |
 | 像素    |           | 0.32 |    1.23 | 0.07 |
-| GetPixels | byte      | 0.09 |    价格为 $0.24 | 0.10 |
+| GetPixels | 字节      | 0.09 |    价格为 $0.24 | 0.10 |
 |           | uint      | 0.06 |    0.26 之间 | 0.05 |
 |           | SKColor   | 0.29 |    0.99 | 0.07 |
-| SetPixels | byte      | 1.33 |    6.78 | 0.11 |
+| SetPixels | 字节      | 1.33 |    6.78 | 0.11 |
 |           | uint      | 0.14 |    0.69 | 0.06 |
 |           | SKColor   | 0.35 |    1.93 | 0.10 |
 
-按预期方式调用`SetPixel`65,536 情况下是设置位图的像素为单位的最少 effeicient 方法。 填充`SKColor`数组和设置`Pixels`属性是好得多，甚至更具优势的某些`GetPixels`和`SetPixels`技术。 使用`uint`像素值是通常比单独设置更快`byte`组件，并将转换`SKColor`为无符号整数值到进程会增加一些开销。
+如预期那样，调用 `SetPixel` 65536 次是设置位图像素的最 effeicient 方法。 填充 `SKColor` 数组和设置 `Pixels` 属性更好，甚至比较了某些 `GetPixels` 和 `SetPixels` 技术。 通常，使用 `uint` 像素值的速度要快于设置单独 `byte` 组件的速度，并将 `SKColor` 值转换为无符号整数会增加进程的一些开销。
 
-比较各种渐变也是有意义的:每个平台的最前面几行相同, 并按预期显示渐变。 这意味着`SetPixel`方法和`Pixels`属性正确创建颜色而不考虑基础的像素格式中的像素为单位。
+它也是值得关注要比较各种渐变： 每个平台的前行是相同的并按预期显示渐变。 这意味着 `SetPixel` 方法和 `Pixels` 属性将从颜色中正确创建像素，而不考虑基础像素格式。
 
-IOS 和 Android 的屏幕截图的接下来两行也是相同的这可确认的一小`MakePixel`方法已正确定义默认值为`Rgba8888`这些平台的像素格式。
+IOS 和 Android 屏幕截图的后两行也是相同的，它确认为这些平台的默认 `Rgba8888` 像素格式正确定义了小 `MakePixel` 方法。
 
-IOS 和 Android 的屏幕截图的底部行是向后，这指示无符号的整数获取通过强制转换`SKColor`值是窗体中：
+IOS 和 Android 屏幕截图的底部行向后，这表示通过强制转换 `SKColor` 值获得的无符号整数的形式为：
 
 AARRGGBB
 
@@ -511,19 +511,19 @@ AARRGGBB
 
 BB GG RR AA
 
-这是`Bgra8888`排序而不是`Rgba8888`排序。 `Brga8888`格式是通用 Windows 平台，这是为什么该屏幕快照的最后一行上的渐变的第一行与相同的默认值。 但中间两个行是不正确，因为创建这些位图的代码假定`Rgba8888`排序。
+这是 `Bgra8888` 排序，而不是 `Rgba8888` 排序。 `Brga8888` 格式是通用 Windows 平台的默认格式，这就是此屏幕截图最后一行的渐变与第一行相同的原因。 但中间两行不正确，因为创建这些位图的代码假定 `Rgba8888` 排序。
 
-如果你想要用于访问每个平台上的像素位使用相同的代码，可以显式创建`SKBitmap`使用`Rgba8888`或`Bgra8888`格式。 如果你想要强制转换`SKColor`位图像素为单位的值使用`Bgra8888`。
+如果要使用相同的代码来访问每个平台上的像素位，则可以使用 `Rgba8888` 或 `Bgra8888` 格式显式创建 `SKBitmap`。 如果要将 `SKColor` 值强制转换为位图像素，请使用 `Bgra8888`。
 
 ## <a name="random-access-of-pixels"></a>随机访问的像素为单位
 
-`FillBitmapBytePtr`并`FillBitmapUintPtr`中的方法**渐变位图**页受益`for`循环按顺序，从顶部到底部的行，并从左到右每行中的行填充位图。 可以使用递增指针在同一语句设置像素。
+**渐变位图**页中的 `FillBitmapBytePtr` 和 `FillBitmapUintPtr` 方法从设计为按顺序填充位图的 `for` 循环（从上到下行，在每行中从左到右）中受益。 可以使用递增指针在同一语句设置像素。
 
-有时是需要随机而不是按顺序访问像素。 如果您使用的`GetPixels`方法时，您将需要计算基于行和列的指针。 了这一点**彩虹正弦**页上，创建一个周期的正弦曲线的形式显示出喷薄彩虹的位图。
+有时是需要随机而不是按顺序访问像素。 如果使用的是 `GetPixels` 方法，则需要根据行和列计算指针。 这在**彩虹正弦**页面中进行了演示，这会创建一个位图，其中显示一条正弦曲线循环的外形。
 
-出喷薄彩虹的颜色是最简单的方法创建使用 HSL （色调、 饱和度、 亮度） 颜色模型。 `SKColor.FromHsl`方法创建`SKColor`值使用色调值范围从 0 到 360 之间 （如一个圆圈，但从红色、 绿色和蓝色，并返回到红色的角度） 和饱和度和亮度值范围从 0 到 100 之间。 对于出喷薄彩虹的颜色，饱和度应设置为最多为 100、 50 的中点的亮度。
+出喷薄彩虹的颜色是最简单的方法创建使用 HSL （色调、 饱和度、 亮度） 颜色模型。 `SKColor.FromHsl` 方法使用介于0到360之间的色调值（例如圆圈的角度，而从红色、绿色和蓝色，返回红色）以及从0到100的饱和度和发光度值来创建 `SKColor` 值。 对于出喷薄彩虹的颜色，饱和度应设置为最多为 100、 50 的中点的亮度。
 
-**出喷薄彩虹正弦**通过循环遍历的位图，行，然后遍历 360 色调值来创建此映像。 从每个的色调值，它会计算也基于正弦值的位图列：
+**彩虹正弦**通过循环遍历位图的各个行，然后循环到360的色调值，来创建此图像。 从每个的色调值，它会计算也基于正弦值的位图列：
 
 ```csharp
 public class RainbowSinePage : ContentPage
@@ -581,49 +581,49 @@ public class RainbowSinePage : ContentPage
 }
 ```
 
-请注意，该构造函数创建基于位图`SKColorType.Bgra8888`格式：
+请注意，构造函数基于 `SKColorType.Bgra8888` 格式创建位图：
 
 ```csharp
 bitmap = new SKBitmap(360 * 3, 1024, SKColorType.Bgra8888, SKAlphaType.Unpremul);
 ```
 
-这将允许程序使用的转换`SKColor`值到`uint`无需担心的像素为单位。 尽管在此特定的程序，它不起作用，您每次使用`SKColor`转换设置像素为单位，你还应指定`SKAlphaType.Unpremul`因为`SKColor`不会将其颜色组件乘以 alpha 值。
+这使得程序无需担心即可使用 `SKColor` 值到 `uint` 像素的转换。 尽管它在此特定程序中不起作用，但当你使用 `SKColor` 转换设置像素时，还应指定 `SKAlphaType.Unpremul`，因为 `SKColor` 不会按 alpha 值预乘其颜色成分。
 
-然后，构造函数使用`GetPixels`方法以获取指向第一个像素的位图：
+然后，构造函数使用 `GetPixels` 方法获取指向位图第一个像素的指针：
 
 ```csharp
 uint* basePtr = (uint*)bitmap.GetPixels().ToPointer();
 ```
 
-对于任何特定行和列，必须将偏移量的值添加到`basePtr`。 此偏移量是时间位图宽度，以及列的行：
+对于任何特定的行和列，必须将偏移值添加到 `basePtr`。 此偏移量是时间位图宽度，以及列的行：
 
 ```csharp
 uint* ptr = basePtr + bitmap.Width * row + col;
 ```
 
-`SKColor`值存储在内存中使用此指针：
+使用此指针将 `SKColor` 值存储在内存中：
 
 ```csharp
 *ptr = (uint)SKColor.FromHsl(hue, 100, 50);
 ```
 
-在中`PaintSurface`处理程序的`SKCanvasView`，位图拉伸以填充显示区域：
+在 `SKCanvasView`的 `PaintSurface` 处理程序中，该位图会拉伸以填充显示区域：
 
-[![出喷薄彩虹正弦](pixel-bits-images/RainbowSine.png "出喷薄彩虹正弦值")](pixel-bits-images/RainbowSine-Large.png#lightbox)
+[![彩虹正弦](pixel-bits-images/RainbowSine.png "彩虹正弦")](pixel-bits-images/RainbowSine-Large.png#lightbox)
 
 ## <a name="from-one-bitmap-to-another"></a>从到另一个位图
 
-很多图像处理任务都涉及修改才会传输到另一个从一个位图的像素为单位。 此方法进行了演示**颜色调整**页。 页面加载一个位图资源，然后允许您修改使用三个映像`Slider`视图：
+很多图像处理任务都涉及修改才会传输到另一个从一个位图的像素为单位。 此方法在 "**颜色调整**" 页中进行演示。 页面加载某个位图资源，然后允许使用三个 `Slider` 视图修改图像：
 
 [![颜色调整](pixel-bits-images/ColorAdjustment.png "颜色调整")](pixel-bits-images/ColorAdjustment-Large.png#lightbox)
 
-对于每个像素颜色，第一个`Slider`添加一个值从 0 到 360 之间对色调、 但然后使用取模运算符来保留介于 0 至 360 之间的结果，有效地转移沿系列的颜色 （如 UWP 的屏幕截图所示）。 第二个`Slider`使你可以选择介于 0.5 和 2 对饱和度和第三个应用之间的乘法因子`Slider`执行相同的操作的亮度，Android 屏幕截图中所示。
+对于每个像素颜色，第一个 `Slider` 向色相添加介于0到360之间的值，但随后使用取模运算符将结果保持为0到360之间，从而有效地沿着光谱上的颜色偏移（如 UWP 屏幕截图所示）。 第二个 `Slider` 允许您选择要应用于饱和度的0.5 到2之间的乘法系数，第三个 `Slider` 对发光度执行相同的工作，如 Android 屏幕截图所示。
 
-程序维护两个位图，名为的原始源位图`srcBitmap`和名为调整后的目标位图`dstBitmap`。 每次`Slider`移动，程序会计算中的所有新像素`dstBitmap`。 当然，用户将通过移动进行试验`Slider`视图速度非常快，因此你希望你可以管理的最佳性能。 这涉及到`GetPixels`源和目标位图的方法。
+程序将保留两个位图，即名为 `srcBitmap` 的原始源位图和名为 `dstBitmap`的调整后目标位图。 每次移动 `Slider` 时，程序都会在 `dstBitmap`中计算所有新像素。 当然，用户将通过非常快速地移动 `Slider` 视图进行试验，因此你希望获得可管理的最佳性能。 这涉及源和目标位图的 `GetPixels` 方法。
 
-**颜色调整**页上不会控制源和目标位图的颜色格式。 相反，它包含有关略有不同的逻辑`SKColorType.Rgba8888`和`SKColorType.Bgra8888`格式。 源和目标可以是不同的格式，并且程序仍将起作用。
+**颜色调整**页面不会控制源和目标位图的颜色格式。 相反，它包含 `SKColorType.Rgba8888` 和 `SKColorType.Bgra8888` 格式略有不同的逻辑。 源和目标可以是不同的格式，并且程序仍将起作用。
 
-下面是除了重要程序`TransferPixels`传输像素的方法形成源到目标。 构造函数设置`dstBitmap`等于`srcBitmap`。 `PaintSurface`处理程序都会显示`dstBitmap`:
+下面是程序的关键 `TransferPixels` 方法除外，这种方法会将像素转换为目标。 构造函数将 `dstBitmap` 等于 `srcBitmap`。 `PaintSurface` 处理程序显示 `dstBitmap`：
 
 ```csharp
 public partial class ColorAdjustmentPage : ContentPage
@@ -668,9 +668,9 @@ public partial class ColorAdjustmentPage : ContentPage
 }
 ```
 
-`ValueChanged`处理程序`Slider`视图计算调整值和调用`TransferPixels`。
+`Slider` 视图的 `ValueChanged` 处理程序将计算调整值并调用 `TransferPixels`。
 
-整个`TransferPixels`方法标记为`unsafe`。 它通过获取这两个位图的像素位的字节指针开始，然后循环访问所有行和列。 从源位图，此方法获取每个像素的四个字节。 这些脚本可以在`Rgba8888`或`Bgra8888`顺序。 正在检查颜色类型允许`SKColor`要创建的值。 然后提取、 调整，并用于重新创建 HSL 组件`SKColor`值。 具体取决于是否目标位图`Rgba8888`或`Bgra8888`，目标 bitmp 中存储的字节：
+整个 `TransferPixels` 方法标记为 `unsafe`。 它通过获取这两个位图的像素位的字节指针开始，然后循环访问所有行和列。 从源位图，此方法获取每个像素的四个字节。 它们可以是 `Rgba8888` 或 `Bgra8888` 顺序。 检查颜色类型是否允许创建 `SKColor` 值。 然后提取并调整 HSL 组件，并将其用于重新创建 `SKColor` 值。 根据目标位图是 `Rgba8888` 还是 `Bgra8888`，这些字节将存储在目标 bitmp 中：
 
 ```csharp
 public partial class ColorAdjustmentPage : ContentPage
@@ -741,13 +741,13 @@ public partial class ColorAdjustmentPage : ContentPage
 }
 ```
 
-很可能此方法的性能可以通过创建单独的源和目标位图的颜色类型的各种组合的方法更多改进，并且避免检查每个像素的类型。 另一个选项是有多个`for`循环的`col`变量根据颜色类型。
+很可能此方法的性能可以通过创建单独的源和目标位图的颜色类型的各种组合的方法更多改进，并且避免检查每个像素的类型。 另一种方法是根据颜色类型为 `col` 变量提供多个 `for` 循环。
 
 ## <a name="posterization"></a>海报
 
-涉及到访问像素位的另一个常见作业_海报_。 如果颜色编码以位图的像素为单位数量减少，使结果类似于使用有限的调色板的手绘海报。
+其他涉及访问像素位的常见任务是_posterization_。 如果颜色编码以位图的像素为单位数量减少，使结果类似于使用有限的调色板的手绘海报。
 
-**色调分离**页上的 monkey 映像之一执行此过程：
+"**色调分离**" 页对其中一个猴子映像执行此过程：
 
 ```csharp
 public class PosterizePage : ContentPage
@@ -787,9 +787,9 @@ public class PosterizePage : ContentPage
 }
 ```
 
-构造函数中的代码访问每个像素，执行按位与运算，值 0xE0E0E0FF，然后将结果存储在位图中返回。 值 0xE0E0E0FF 保留高 3 位的每个颜色组件，并将较低的 5 位设置为 0。 而不是 2<sup>24</sup>或 16777216 种颜色，位图都会减少到 2<sup>9</sup>或 512 颜色：
+构造函数中的代码访问每个像素，执行按位与运算，值 0xE0E0E0FF，然后将结果存储在位图中返回。 值 0xE0E0E0FF 保留高 3 位的每个颜色组件，并将较低的 5 位设置为 0。 位图的颜色缩减<sup>为2或</sup>512，而不是 2<sup>24</sup>或16777216色：
 
-[![色调分离](pixel-bits-images/Posterize.png "色调分离")](pixel-bits-images/色调分离-Large.png#lightbox)
+[![色调](pixel-bits-images/Posterize.png "色调")](pixel-bits-images/Posterize-Large.png#lightbox)
 
 ## <a name="related-links"></a>相关链接
 

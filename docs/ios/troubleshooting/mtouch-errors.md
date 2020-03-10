@@ -9,11 +9,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 03/06/2018
 ms.openlocfilehash: a26c83565e4cfa64272549e12a35206dff6ec3c0
-ms.sourcegitcommit: 52fb214c0e0243587d4e9ad9306b75e92a8cc8b7
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76940961"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78911568"
 ---
 # <a name="xamarinios-errors"></a>Xamarin iOS 错误
 
@@ -324,7 +324,7 @@ Mtouch 无法识别错误消息中提到的命令行参数。
 
 ### <a name="mt0054-unable-to-canonicalize-the-path--"></a>MT0054：无法规范化路径 "\*"： \*
 
-这是一个内部错误。 如果看到此错误，请在[github](https://github.com/xamarin/xamarin-macios/issues/new)上发布新问题。
+这是内部错误。 如果看到此错误，请在[github](https://github.com/xamarin/xamarin-macios/issues/new)上发布新问题。
 
 <a name="MT0055" />
 
@@ -420,7 +420,7 @@ Mtouch 无法识别错误消息中提到的命令行参数。
 
 <a name="MT0071" />
 
-### <a name="mt0071-unknown-platform--this-usually-indicates-a-bug-in-xamarinios-please-file-a-bug-report-at-httpbugzillaxamarincom-with-a-test-case"></a>MT0071：未知平台： *。 这通常表示 Xamarin.iOS; 中的 bug在一个 bug 报告，请记录 http://bugzilla.xamarin.com 与测试用例。
+### <a name="mt0071-unknown-platform--this-usually-indicates-a-bug-in-xamarinios-please-file-a-bug-report-at-httpbugzillaxamarincom-with-a-test-case"></a>MT0071：未知平台： *。 这通常表示 Xamarin 中的 bug;请使用测试用例在 http://bugzilla.xamarin.com 提交 bug 报告。
 
 这通常表示 Xamarin 中的 bug;请使用测试用例在[github](https://github.com/xamarin/xamarin-macios/issues/new)上发布新问题。
 
@@ -557,7 +557,7 @@ Xamarin 需要来自错误消息中指定的 SDK 版本的标头文件来构建�
 
 <a name="MT0099" />
 
-### <a name="mt0099-internal-error--please-file-a-bug-report-with-a-test-case-httpsbugzillaxamarincom"></a>MT0099：内部错误 *。 请提交 bug 报告与测试用例 ( https://bugzilla.xamarin.com) 。
+### <a name="mt0099-internal-error--please-file-a-bug-report-with-a-test-case-httpsbugzillaxamarincom"></a>MT0099：内部错误 *。 请使用测试用例（ https://bugzilla.xamarin.com)）来提交 bug 报告。
 
 当 Xamarin 中的内部一致性检查失败时，将报告此错误消息。
 
@@ -565,7 +565,7 @@ Xamarin 需要来自错误消息中指定的 SDK 版本的标头文件来构建�
 
 <a name="MT0100" />
 
-### <a name="mt0100-invalid-assembly-build-target--please-file-a-bug-report-with-a-test-case-httpsbugzillaxamarincom"></a>MT0100：程序集生成目标无效： "*"。 请提交 bug 报告与测试用例 ( https://bugzilla.xamarin.com) 。
+### <a name="mt0100-invalid-assembly-build-target--please-file-a-bug-report-with-a-test-case-httpsbugzillaxamarincom"></a>MT0100：程序集生成目标无效： "*"。 请使用测试用例（ https://bugzilla.xamarin.com)）来提交 bug 报告。
 
 当 Xamarin 中的内部一致性检查失败时，将报告此错误消息。
 
@@ -937,7 +937,7 @@ sudo chmod 0644 /Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/m
 
 <a name="MT1013" />
 
-### <a name="mt1013-dependency-tracking-error-no-files-to-compare-please-file-a-bug-report-at-httpbugzillaxamarincom-with-a-test-case"></a>MT1013：依赖关系跟踪错误：没有要比较的文件。 在一个 bug 报告，请记录 http://bugzilla.xamarin.com 与测试用例。
+### <a name="mt1013-dependency-tracking-error-no-files-to-compare-please-file-a-bug-report-at-httpbugzillaxamarincom-with-a-test-case"></a>MT1013：依赖关系跟踪错误：没有要比较的文件。 请使用测试用例在 http://bugzilla.xamarin.com 提交 bug 报告。
 
 这表示 Xamarin 中的 bug。 请使用测试用例在[github](https://github.com/xamarin/xamarin-macios/issues/new)上发布新问题。
 
@@ -971,14 +971,14 @@ sudo chmod 0644 /Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/m
 
 ### <a name="mt1019-your-application-has-entitlements-not-supported-by-your-current-provisioning-profile-and-could-not-be-installed-on-the-device--please-check-the-ios-device-log-for-more-detailed-information-error-0xe8008016"></a>MT1019：你的应用程序具有当前预配配置文件不支持的权利，因此无法在设备 "*" 上安装。 有关更多详细信息，请查看 iOS 设备日志（错误：0xe8008016）。
 
-出现这种情况的原因可能是：
+在以下情况下可能发生这种问题：
 
 - 你的应用程序具有当前预配配置文件不支持的权利。
-  可能的解决方案：
+  可能的解决方法：
   - 指定支持应用程序所需的权利的其他预配配置文件。
   - 删除当前预配配置文件中不支持的权利。
 - 你正在尝试部署到的设备未包含在你所使用的预配配置文件中。
-  可能的解决方案：
+  可能的解决方法：
   - 从 Xcode 中的模板创建新应用，选择相同的配置文件，并将其部署到相同的设备。 有时，Xcode 可以通过新设备自动刷新预配配置文件（在其他情况下，Xcode 会询问你要执行的操作）。
   -前往 iOS 开发人员中心，用新设备更新配置文件，然后将更新的预配配置文件下载到计算机。
 
@@ -1143,7 +1143,7 @@ sudo chmod 0644 /Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/m
 
 请检查你的设备是否已锁定。
 
-如果要部署企业应用或使用可用的预配配置文件，你可能必须信任开发人员 (对此进行说明 <a href="https://stackoverflow.com/a/30726375/183422">此处</a> )。
+如果你正在部署企业应用或使用免费预配配置文件，你可能会相信开发人员（<a href="https://stackoverflow.com/a/30726375/183422">此处</a>对此进行了说明）。
 
 <a name="MT1108" />
 
@@ -1163,7 +1163,7 @@ Mtouch 中的一些操作需要 `DeveloperDiskImage.dmg` 文件存在。   此�
 
 ### <a name="mt1110-application-failed-to-launch-because-of-ios-security-restrictions-please-ensure-the-developer-is-trusted"></a>MT1110：由于 iOS 安全限制，无法启动应用程序。 请确保开发人员受信任。
 
-如果要部署企业应用或使用可用的预配配置文件，你可能必须信任开发人员 (对此进行说明 <a href="https://stackoverflow.com/a/30726375/183422">此处</a> )。
+如果你正在部署企业应用或使用免费预配配置文件，你可能会相信开发人员（<a href="https://stackoverflow.com/a/30726375/183422">此处</a>对此进行了说明）。
 
 <a name="MT1111" />
 
@@ -1690,7 +1690,7 @@ Parameter name: instruction
 
 链接器无法处理混合模式程序集。
 
-请参阅 https://docs.microsoft.com/cpp/dotnet/mixed-native-and-managed-assemblies 为混合模式程序集的详细信息。
+有关混合模式程序集的详细信息，请参阅 https://docs.microsoft.com/cpp/dotnet/mixed-native-and-managed-assemblies。
 
 ## <a name="mt3xxx-aot-error-messages"></a>MT3xxx： AOT 错误消息
 
@@ -1709,7 +1709,7 @@ Parameter name: instruction
 
 <a name="MT3002" />
 
-### <a name="mt3002-aot-restriction-method--must-be-static-since-it-is-decorated-with-monopinvokecallback-see-developerxamarincomguidesiosadvanced_topicslimitationsreverse_callbacksiosinternalslimitationsmdreverse-callbacks"></a>MT3002： AOT 限制：方法 "*" 必须是静态的，因为它是用 [MonoPInvokeCallback] 修饰的。 请参阅[developer.xamarin.com/guides/ios/advanced_topics/limitations/#Reverse_Callbacks](~/ios/internals/limitations.md#reverse-callbacks)
+### <a name="mt3002-aot-restriction-method--must-be-static-since-it-is-decorated-with-monopinvokecallback-see-developerxamarincomguidesiosadvanced_topicslimitationsreverse_callbacks"></a>MT3002： AOT 限制：方法 "*" 必须是静态的，因为它是用 [MonoPInvokeCallback] 修饰的。 请参阅[developer.xamarin.com/guides/ios/advanced_topics/limitations/#Reverse_Callbacks](~/ios/internals/limitations.md#reverse-callbacks)
 
 此错误消息来自 AOT 编译器。
 
@@ -1789,7 +1789,7 @@ Bitcode 支持需要使用 LLVM AOT 后端（--LLVM）。
 
 <a name="MT4102" />
 
-### <a name="mt4102-the-registrar-found-an-invalid-type--in-signature-for-method--use--instead"></a>MT4102：注册器在 `*`方法的签名中发现无效类型 `*`。 请改用 `*` 。
+### <a name="mt4102-the-registrar-found-an-invalid-type--in-signature-for-method--use--instead"></a>MT4102：注册器在 `*`方法的签名中发现无效类型 `*`。 请改用 `*`。
 
 这种情况目前仅在一种类型： System.web 中发生。 改为使用 NSDate 等效项（）。
 
@@ -1855,11 +1855,11 @@ Bitcode 支持需要使用 LLVM AOT 后端（--LLVM）。
 
 <a name="MT4112" />
 
-### <a name="mt4112-the-registrar-found-an-invalid-type--registering-generic-types-with-objective-c-is-not-supported-and-may-lead-to-random-behavior-andor-crashes-for-backwards-compatibility-with-older-versions-of-xamarinios-it-is-possible-to-ignore-this-error-by-passing---unsupported--enable-generics-in-registrar-as-an-additional-mtouch-argument-in-the-projects-ios-build-options-page-see-developerxamarincomguidesiosadvanced_topicsregistrariosinternalsregistrarmd-for-more-information"></a>MT4112：注册器发现 `*`的无效类型。 不支持使用目标-C 注册泛型类型，并且可能会导致随机行为和/或崩溃（以便与早期版本的 Xamarin 向后兼容。 iOS 可以通过将 `--unsupported--enable-generics-in-registrar` 作为附加的 mtouch 参数传递到项目的 "iOS 生成" 选项页来忽略此错误。 有关详细信息，请参阅[developer.xamarin.com/guides/ios/advanced_topics/registrar](~/ios/internals/registrar.md) 。
+### <a name="mt4112-the-registrar-found-an-invalid-type--registering-generic-types-with-objective-c-is-not-supported-and-may-lead-to-random-behavior-andor-crashes-for-backwards-compatibility-with-older-versions-of-xamarinios-it-is-possible-to-ignore-this-error-by-passing---unsupported--enable-generics-in-registrar-as-an-additional-mtouch-argument-in-the-projects-ios-build-options-page-see-developerxamarincomguidesiosadvanced_topicsregistrar-for-more-information"></a>MT4112：注册器发现 `*`的无效类型。 不支持使用目标-C 注册泛型类型，并且可能会导致随机行为和/或崩溃（以便与早期版本的 Xamarin 向后兼容。 iOS 可以通过将 `--unsupported--enable-generics-in-registrar` 作为附加的 mtouch 参数传递到项目的 "iOS 生成" 选项页来忽略此错误。 有关详细信息，请参阅[developer.xamarin.com/guides/ios/advanced_topics/registrar](~/ios/internals/registrar.md) 。
 
 <a name="MT4113" />
 
-### <a name="mt4113-the-registrar-found-a-generic-method--exporting-generic-methods-is-not-supported-and-will-lead-to-random-behavior-andor-crashes"></a>MT4113: 注册机构找到泛型方法: '\*。\*'。 不支持导出泛型方法，这会导致随机行为和/或崩溃。
+### <a name="mt4113-the-registrar-found-a-generic-method--exporting-generic-methods-is-not-supported-and-will-lead-to-random-behavior-andor-crashes"></a>MT4113：注册器找到了一个泛型方法： "\*。\*"。 不支持导出泛型方法，这会导致随机行为和/或崩溃。
 
 <a name="MT4114" />
 
@@ -1935,7 +1935,7 @@ Bitcode 支持需要使用 LLVM AOT 后端（--LLVM）。
 
 <a name="MT4132" />
 
-### <a name="mt4132-the-registrar-found-an-invalid-generic-return-type--in-the-property--the-return-type-must-have-an-nsobject-constraint"></a>MT4132: 注册机构找到泛型返回类型无效\*加入的属性\*。 返回类型必须具有 "NSObject" 约束。
+### <a name="mt4132-the-registrar-found-an-invalid-generic-return-type--in-the-property--the-return-type-must-have-an-nsobject-constraint"></a>MT4132：注册机构在属性 "\*" 中找到无效的泛型返回类型 "\*"。 返回类型必须具有 "NSObject" 约束。
 
 <a name="MT4133" />
 
@@ -1957,11 +1957,11 @@ Bitcode 支持需要使用 LLVM AOT 后端（--LLVM）。
 
 <a name="MT4138" />
 
-### <a name="mt4138-the-registrar-cannot-marshal-the-property-type--of-the-property-"></a>MT4138: 注册机构不能封送的属性类型\*of 的属性 '\*。 *'。
+### <a name="mt4138-the-registrar-cannot-marshal-the-property-type--of-the-property-"></a>MT4138：注册器无法封送属性 "\*. *" 的属性类型 "\*"。
 
 <a name="MT4139" />
 
-### <a name="mt4139-the-registrar-cannot-marshal-the-property-type--of-the-property--properties-with-the-connect-attribute-must-have-a-property-type-of-nsobject-or-a-subclass-of-nsobject"></a>MT4139: 注册机构不能封送的属性类型\*of 的属性 '\*。 *'。 具有 [Connect] 特性的属性的属性类型必须为 NSObject （或 NSObject 的子类）。
+### <a name="mt4139-the-registrar-cannot-marshal-the-property-type--of-the-property--properties-with-the-connect-attribute-must-have-a-property-type-of-nsobject-or-a-subclass-of-nsobject"></a>MT4139：注册器无法封送属性 "\*. *" 的属性类型 "\*"。 具有 [Connect] 特性的属性的属性类型必须为 NSObject （或 NSObject 的子类）。
 
 <a name="MT4140" />
 
@@ -2019,7 +2019,7 @@ class MyCustomNSObject : MyNSObject
 
 <a name="MT4144" />
 
-### <a name="mt4144-cannot-register-the-method--since-it-does-not-have-an-associated-trampoline-please-file-a-bug-report-at-httpbugzillaxamarincom"></a>MT4144：无法注册方法 "*"，因为它没有关联的 trampoline。 在一个 bug 报告，请记录 http://bugzilla.xamarin.com 。
+### <a name="mt4144-cannot-register-the-method--since-it-does-not-have-an-associated-trampoline-please-file-a-bug-report-at-httpbugzillaxamarincom"></a>MT4144：无法注册方法 "*"，因为它没有关联的 trampoline。 请在 http://bugzilla.xamarin.com提交 bug 报告。
 
 这表示 Xamarin 中的 bug。 请在[github](https://github.com/xamarin/xamarin-macios/issues/new)上发布新问题。
 
@@ -2396,7 +2396,7 @@ Xamarin iOS 项目经常会动态引用本机符号，这意味着本机链接�
 - 从绑定项目（`[Field]` 属性）对静态链接库中的内存位置的字段引用。
 - 从绑定项目（使用增量生成时或者在不使用静态注册器时）从静态链接库引用的目标-C 类。
 
-可能的解决方案：
+可能的解决方法：
 
 - 启用托管链接器（如果可能，为所有程序集，而不是仅 SDK 程序集）。 这可能会删除动态符号的足够源，以便链接器的命令行不超过最大值。
 - 减少 P/Invoke、字段引用和/或目标-C 类的数目。
@@ -2502,7 +2502,7 @@ Xamarin iOS 项目经常会动态引用本机符号，这意味着本机链接�
 
 *MSBuild 任务： DetectDebugNetworkConfigurationTaskBase*
 
-故障排除步骤：
+疑难解答步骤：
 
 - 尝试运行 `csharp -e 'System.Net.Dns.GetHostEntry (System.Net.Dns.GetHostName ()).AddressList'` （这应该为你的 IP 地址，而不是明显的错误）。
 - 尝试运行 "ping \`主机名\`"，这可能会给出更多的信息，例如： `cannot resolve MyHost.local: Unknown host`
@@ -2775,14 +2775,14 @@ Xamarin iOS 项目经常会动态引用本机符号，这意味着本机链接�
 
 其中 * 可以是：
 
-- string
-- 数组
+- 字符串
+- array
 - dict
-- 布尔
-- 实数
-- 整数
-- 日期
-- 数据
+- bool
+- real
+- integer
+- date
+- data
 
 <a name="MT7046" />
 
@@ -2953,13 +2953,13 @@ Xamarin iOS 项目经常会动态引用本机符号，这意味着本机链接�
 
 <a name="MT8008" />
 
-### <a name="mt8008-the-loaded-version-of-xamariniosdll-was-compiled-for--bits-while-the-process-is--bits-please-file-a-bug-at-httpbugzillaxamarincom"></a>MT8008：为 \* 位编译了 Xamarin 的加载版本，而进程 \* 位。 请提交 bug 在  http://bugzilla.xamarin.com 。
+### <a name="mt8008-the-loaded-version-of-xamariniosdll-was-compiled-for--bits-while-the-process-is--bits-please-file-a-bug-at-httpbugzillaxamarincom"></a>MT8008：为 \* 位编译了 Xamarin 的加载版本，而进程 \* 位。 请在 http://bugzilla.xamarin.com提交 bug。
 
 这表明生成过程中出现了错误。 请在[github](https://github.com/xamarin/xamarin-macios/issues/new)上发布新问题。
 
 <a name="MT8009" />
 
-### <a name="mt8009-unable-to-locate-the-block-to-delegate-conversion-method-for-the-method-s-parameter--please-file-a-bug-at-httpbugzillaxamarincom"></a>MT8009：找不到用于委托方法的转换方法的块 *。* s 参数 # *。 请提交 bug 在  http://bugzilla.xamarin.com 。
+### <a name="mt8009-unable-to-locate-the-block-to-delegate-conversion-method-for-the-method-s-parameter--please-file-a-bug-at-httpbugzillaxamarincom"></a>MT8009：找不到用于委托方法的转换方法的块 *。* s 参数 # *。 请在 http://bugzilla.xamarin.com提交 bug。
 
 这表示未正确绑定 API。 如果这是 Xamarin 公开的 API，请在[github](https://github.com/xamarin/xamarin-macios/issues/new)上发布新问题。 如果是第三方绑定，请与供应商联系。
 
@@ -2971,7 +2971,7 @@ Xamarin iOS 项目经常会动态引用本机符号，这意味着本机链接�
 
 <a name="MT8011" />
 
-### <a name="mt8011-unable-to-locate-the-delegate-to-block-conversion-attribute-delegateproxy-for-the-return-value-for-the-method--please-file-a-bug-at-httpbugzillaxamarincom"></a>MT8011：找不到*该方法的*返回值的委托来阻止转换特性（[DelegateProxy]）。 请提交 bug 在  http://bugzilla.xamarin.com 。
+### <a name="mt8011-unable-to-locate-the-delegate-to-block-conversion-attribute-delegateproxy-for-the-return-value-for-the-method--please-file-a-bug-at-httpbugzillaxamarincom"></a>MT8011：找不到*该方法的*返回值的委托来阻止转换特性（[DelegateProxy]）。 请在 http://bugzilla.xamarin.com提交 bug。
 
 Xamarin 无法在运行时定位所需的方法（将委托转换为块）。
 
@@ -2979,7 +2979,7 @@ Xamarin 无法在运行时定位所需的方法（将委托转换为块）。
 
 <a name="MT8012" />
 
-### <a name="mt8012-invalid-delegateproxyattribute-for-the-return-value-for-the-method--delegatetype-is-null-please-file-a-bug-at-httpbugzillaxamarincom"></a>MT8012：方法的返回值的 DelegateProxyAttribute 无效 *。* ：委托为 null。 请提交 bug 在  http://bugzilla.xamarin.com 。
+### <a name="mt8012-invalid-delegateproxyattribute-for-the-return-value-for-the-method--delegatetype-is-null-please-file-a-bug-at-httpbugzillaxamarincom"></a>MT8012：方法的返回值的 DelegateProxyAttribute 无效 *。* ：委托为 null。 请在 http://bugzilla.xamarin.com提交 bug。
 
 相关方法的 DelegateProxy 属性无效。
 
@@ -2987,7 +2987,7 @@ Xamarin 无法在运行时定位所需的方法（将委托转换为块）。
 
 <a name="MT8013" />
 
-### <a name="mt8013-invalid-delegateproxyattribute-for-the-return-value-for-the-method--delegatetype-2-specifies-a-type-without-a-handler-field-please-file-a-bug-at-httpbugzillaxamarincom"></a>MT8013：方法的返回值的 DelegateProxyAttribute 无效 *。* ：委托（{2}）指定一个不包含 "Handler" 字段的类型。 请提交 bug 在  http://bugzilla.xamarin.com 。
+### <a name="mt8013-invalid-delegateproxyattribute-for-the-return-value-for-the-method--delegatetype-2-specifies-a-type-without-a-handler-field-please-file-a-bug-at-httpbugzillaxamarincom"></a>MT8013：方法的返回值的 DelegateProxyAttribute 无效 *。* ：委托（{2}）指定一个不包含 "Handler" 字段的类型。 请在 http://bugzilla.xamarin.com提交 bug。
 
 相关方法的 `[DelegateProxy]` 属性无效。
 
@@ -2995,7 +2995,7 @@ Xamarin 无法在运行时定位所需的方法（将委托转换为块）。
 
 <a name="MT8014" />
 
-### <a name="mt8014-invalid-delegateproxyattribute-for-the-return-value-for-the-method--the-delegatetypes-2-handler-field-is-null-please-file-a-bug-at-httpbugzillaxamarincom"></a>MT8014：方法的返回值的 DelegateProxyAttribute 无效 *。* ：委托的（{2}） "Handler" 字段为 null。 请提交 bug 在  http://bugzilla.xamarin.com 。
+### <a name="mt8014-invalid-delegateproxyattribute-for-the-return-value-for-the-method--the-delegatetypes-2-handler-field-is-null-please-file-a-bug-at-httpbugzillaxamarincom"></a>MT8014：方法的返回值的 DelegateProxyAttribute 无效 *。* ：委托的（{2}） "Handler" 字段为 null。 请在 http://bugzilla.xamarin.com提交 bug。
 
 相关方法的 `[DelegateProxy]` 属性无效。
 
@@ -3003,7 +3003,7 @@ Xamarin 无法在运行时定位所需的方法（将委托转换为块）。
 
 <a name="MT8015" />
 
-### <a name="mt8015-invalid-delegateproxyattribute-for-the-return-value-for-the-method--the-delegatetypes-2-handler-field-is-not-a-delegate-its-a--please-file-a-bug-at-httpbugzillaxamarincom"></a>MT8015：方法的返回值的 DelegateProxyAttribute 无效 *。* ：委托的（{2}） "Handler" 字段不是一个委托，它是一个 *。 请提交 bug 在  http://bugzilla.xamarin.com 。
+### <a name="mt8015-invalid-delegateproxyattribute-for-the-return-value-for-the-method--the-delegatetypes-2-handler-field-is-not-a-delegate-its-a--please-file-a-bug-at-httpbugzillaxamarincom"></a>MT8015：方法的返回值的 DelegateProxyAttribute 无效 *。* ：委托的（{2}） "Handler" 字段不是一个委托，它是一个 *。 请在 http://bugzilla.xamarin.com提交 bug。
 
 相关方法的 DelegateProxy 属性无效。
 
@@ -3011,7 +3011,7 @@ Xamarin 无法在运行时定位所需的方法（将委托转换为块）。
 
 <a name="MT8016" />
 
-### <a name="mt8016-unable-to-convert-delegate-to-block-for-the-return-value-for-the-method--because-the-input-isnt-a-delegate-its-a--please-file-a-bug-at-httpbugzillaxamarincom"></a>MT8016：无法将此方法的返回值转换为块的委托 *。* 因为输入不是一个委托，所以它是一个 *。 请提交 bug 在  http://bugzilla.xamarin.com 。
+### <a name="mt8016-unable-to-convert-delegate-to-block-for-the-return-value-for-the-method--because-the-input-isnt-a-delegate-its-a--please-file-a-bug-at-httpbugzillaxamarincom"></a>MT8016：无法将此方法的返回值转换为块的委托 *。* 因为输入不是一个委托，所以它是一个 *。 请在 http://bugzilla.xamarin.com提交 bug。
 
 相关方法的 `[DelegateProxy]` 属性无效。
 
@@ -3021,7 +3021,7 @@ Xamarin 无法在运行时定位所需的方法（将委托转换为块）。
 
 <a name="MT8018" />
 
-### <a name="mt8018-internal-consistency-error-please-file-a-bug-report-at-httpbugzillaxamarincom"></a>MT8018：内部一致性错误。 在一个 bug 报告，请记录 http://bugzilla.xamarin.com 。
+### <a name="mt8018-internal-consistency-error-please-file-a-bug-report-at-httpbugzillaxamarincom"></a>MT8018：内部一致性错误。 请在 http://bugzilla.xamarin.com提交 bug 报告。
 
 这表示 Xamarin 中的 bug。 请在[github](https://github.com/xamarin/xamarin-macios/issues/new)上发布新问题。
 
@@ -3045,18 +3045,18 @@ Xamarin 无法在运行时定位所需的方法（将委托转换为块）。
 
 <a name="MT8022" />
 
-### <a name="mt8022-expected-the-token-reference--to-be-a--but-its-a--please-file-a-bug-report-at-httpbugzillaxamarincom"></a>MT8022：令牌引用应 \* 为 \*，但它是 \*。 在一个 bug 报告，请记录 http://bugzilla.xamarin.com 。
+### <a name="mt8022-expected-the-token-reference--to-be-a--but-its-a--please-file-a-bug-report-at-httpbugzillaxamarincom"></a>MT8022：令牌引用应 \* 为 \*，但它是 \*。 请在 http://bugzilla.xamarin.com提交 bug 报告。
 
 这表示 Xamarin 中的 bug。 请在[github](https://github.com/xamarin/xamarin-macios/issues/new)上发布新问题。
 
 <a name="MT8023" />
 
-### <a name="mt8023-an-instance-object-is-required-to-construct-a-closed-generic-method-for-the-open-generic-method--token-reference--please-file-a-bug-report-at-httpbugzillaxamarincom"></a>MT8023：需要实例对象来构造开放式泛型方法的封闭式泛型方法： \* （令牌引用： \*）。 在一个 bug 报告，请记录 http://bugzilla.xamarin.com 。
+### <a name="mt8023-an-instance-object-is-required-to-construct-a-closed-generic-method-for-the-open-generic-method--token-reference--please-file-a-bug-report-at-httpbugzillaxamarincom"></a>MT8023：需要实例对象来构造开放式泛型方法的封闭式泛型方法： \* （令牌引用： \*）。 请在 http://bugzilla.xamarin.com提交 bug 报告。
 
 这表示 Xamarin 中的 bug。 请在[github](https://github.com/xamarin/xamarin-macios/issues/new)上发布新问题。
 
 <a name="MT8024" />
 
-### <a name="mt8024-could-not-find-a-valid-extension-type-for-the-smart-enum-smart_type-please-file-a-bug-at-httpsbugzillaxamarincom"></a>MT8024：找不到智能枚举 "{smart_type}" 的有效扩展类型。 请提交 bug 在  https://bugzilla.xamarin.com 。
+### <a name="mt8024-could-not-find-a-valid-extension-type-for-the-smart-enum-smart_type-please-file-a-bug-at-httpsbugzillaxamarincom"></a>MT8024：找不到智能枚举 "{smart_type}" 的有效扩展类型。 请在 https://bugzilla.xamarin.com提交 bug。
 
 这表示 Xamarin 中的 bug。 请在[github](https://github.com/xamarin/xamarin-macios/issues/new)上发布新问题。

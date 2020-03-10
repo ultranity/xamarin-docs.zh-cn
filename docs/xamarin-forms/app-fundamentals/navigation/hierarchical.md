@@ -8,27 +8,27 @@ author: davidbritch
 ms.author: dabritch
 ms.date: 08/14/2018
 ms.openlocfilehash: 11ad1fb18d1263eb77ef037350a3633510934c42
-ms.sourcegitcommit: 0df727caf941f1fa0aca680ec871bfe7a9089e7c
-ms.translationtype: HT
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69621102"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78915682"
 ---
 # <a name="hierarchical-navigation"></a>分层导航
 
 [![下载示例](~/media/shared/download.png) 下载示例](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/navigation-hierarchical)
 
-NavigationPage 类提供分层导航体验，用户可以随心所欲地向前或向后导航页面。_此类将导航实现为页对象的后进先出 (LIFO) 堆栈。本文演示如何使用 NavigationPage 类在页面的堆栈中执行导航。_
+_NavigationPage 类提供了分层的导航体验，用户可以根据需要在页面间进行导航。类实现导航作为 Page 对象的后进先出（LIFO）堆栈。本文演示如何使用 NavigationPage 类在一叠页面中执行导航。_
 
 若要从一页移动到另一页，应用程序会将新页推送到导航堆栈中，在堆栈中，该页会变为活动页，如以下关系图中所示：
 
-![](hierarchical-images/pushing.png "将页面推送到导航堆栈")
+![](hierarchical-images/pushing.png "Pushing a Page to the Navigation Stack")
 
 若要返回到前一页，应用程序会从导航堆栈弹出当前页面，而使最顶层的新页面成为活动页面，如以下关系图中所示：
 
-![](hierarchical-images/popping.png "从导航堆栈中弹出页面")
+![](hierarchical-images/popping.png "Popping a Page from the Navigation Stack")
 
-可以由任何 [`Page`](xref:Xamarin.Forms.Page) 派生类型上的 [`Navigation`](xref:Xamarin.Forms.NavigableElement.Navigation) 属性公开导航方法。 这些方法能够将页面推送到导航堆栈、从导航堆栈中弹出页面以及执行堆栈操作。
+可以由任何 [`Navigation`](xref:Xamarin.Forms.NavigableElement.Navigation) 派生类型上的 [`Page`](xref:Xamarin.Forms.Page) 属性公开导航方法。 这些方法能够将页面推送到导航堆栈、从导航堆栈中弹出页面以及执行堆栈操作。
 
 <a name="Performing_Navigation" />
 
@@ -36,22 +36,22 @@ NavigationPage 类提供分层导航体验，用户可以随心所欲地向前�
 
 在分层导航中，使用 [`NavigationPage`](xref:Xamarin.Forms.NavigationPage) 类在 [`ContentPage`](xref:Xamarin.Forms.ContentPage) 对象的堆栈内进行导航。 以下屏幕截图显示了每个平台上 `NavigationPage` 的主要组件：
 
-![](hierarchical-images/navigationpage-components.png "NavigationPage 组件")
+![](hierarchical-images/navigationpage-components.png "NavigationPage Components")
 
 [`NavigationPage`](xref:Xamarin.Forms.NavigationPage) 的布局取决于平台：
 
-- 在 iOS 中，页面顶部有一个显示标题的导航栏，其上有一个“Back”按钮，可以返回前一页  。
-- 在 Android 中，页面顶部有一个显示标题、图标的导航栏，其上有一个“Back”按钮，可以返回前一页  。 在 `[Activity]` 属性中定义图标，该属性修饰特定于 Android 平台的项目中的 `MainActivity` 类。
+- 在 iOS 中，页面顶部有一个显示标题的导航栏，其上有一个“Back”按钮，可以返回前一页。
+- 在 Android 中，页面顶部有一个显示标题、图标的导航栏，其上有一个“Back”按钮，可以返回前一页。 在 `[Activity]` 属性中定义图标，该属性修饰特定于 Android 平台的项目中的 `MainActivity` 类。
 - 在通用 Windows 平台上，显示标题的页面顶部有一个导航栏。
 
 在所有平台上，[`Page.Title`](xref:Xamarin.Forms.Page.Title) 属性的值将显示为页面标题。
 
 > [!NOTE]
-> 建议只使用 `ContentPage` 实例填充 `NavigationPage`。
+> 建议只使用 `NavigationPage` 实例填充 `ContentPage`。
 
 ### <a name="creating-the-root-page"></a>创建根页
 
-添加到导航堆栈中的第一页称为应用程序的根  页，以下代码示例显示了实现此过程的方法：
+添加到导航堆栈中的第一页称为应用程序的根页，以下代码示例显示了实现此过程的方法：
 
 ```csharp
 public App ()
@@ -60,16 +60,16 @@ public App ()
 }
 ```
 
-这会将 `Page1Xaml` [`ContentPage`](xref:Xamarin.Forms.ContentPage) 实例推送到导航堆栈中，在堆栈中，它成为应用程序的活动页和根页。 以下屏幕截图演示了此过程：
+这会使 `Page1Xaml` [`ContentPage`](xref:Xamarin.Forms.ContentPage)实例被推送到导航堆栈上，该堆栈会成为应用程序的活动页和根页。 以下屏幕截图演示了此过程：
 
-![](hierarchical-images/mainpage.png "导航堆栈的根页")
+![](hierarchical-images/mainpage.png "Root Page of Navigation Stack")
 
 > [!NOTE]
-> [`NavigationPage`](xref:Xamarin.Forms.NavigationPage) 实例的 [`RootPage`](xref:Xamarin.Forms.NavigationPage.RootPage) 属性可提供对导航堆栈中的第一页的访问权限。
+> [`RootPage`](xref:Xamarin.Forms.NavigationPage.RootPage) 实例的 [`NavigationPage`](xref:Xamarin.Forms.NavigationPage) 属性可提供对导航堆栈中的第一页的访问权限。
 
 ### <a name="pushing-pages-to-the-navigation-stack"></a>将页面推送到导航堆栈
 
-若要导航到 `Page2Xaml`，需要对当前页的 [`Navigation`](xref:Xamarin.Forms.NavigableElement.Navigation) 属性调用 [`PushAsync`](xref:Xamarin.Forms.NavigationPage.PushAsync*) 方法，如以下代码示例所示：
+若要导航到 `Page2Xaml`，需要对当前页的 [`PushAsync`](xref:Xamarin.Forms.NavigationPage.PushAsync*) 属性调用 [`Navigation`](xref:Xamarin.Forms.NavigableElement.Navigation) 方法，如以下代码示例所示：
 
 ```csharp
 async void OnNextPageButtonClicked (object sender, EventArgs e)
@@ -80,7 +80,7 @@ async void OnNextPageButtonClicked (object sender, EventArgs e)
 
 这会将 `Page2Xaml` 实例推送到导航堆栈中，在堆栈中，它成为活动页。 以下屏幕截图演示了此过程：
 
-![](hierarchical-images/secondpage.png "页面推送到导航堆栈")
+![](hierarchical-images/secondpage.png "Page Pushed onto Navigation Stack")
 
 调用 [`PushAsync`](xref:Xamarin.Forms.NavigationPage.PushAsync*) 方法后，会发生以下事件：
 
@@ -95,7 +95,7 @@ async void OnNextPageButtonClicked (object sender, EventArgs e)
 
 ### <a name="popping-pages-from-the-navigation-stack"></a>从导航堆栈中弹出页面
 
-通过设备上的返回  按钮（无论是设备上的物理按钮还是屏幕按钮），可以从导航堆栈中弹出活动页。
+通过设备上的返回按钮（无论是设备上的物理按钮还是屏幕按钮），可以从导航堆栈中弹出活动页。
 
 若要以编程方式返回原始页，`Page2Xaml` 实例必须调用 [`PopAsync`](xref:Xamarin.Forms.NavigationPage.PopAsync) 方法，如以下代码示例所示：
 
@@ -182,7 +182,7 @@ public MainPage (string date)
 
 然后，通过设置 [`Label.Text`](xref:Xamarin.Forms.Label.Text) 属性，在页面上显示数据，如以下屏幕截图所示：
 
-![](hierarchical-images/passing-data-constructor.png "通过页面构造函数传递数据")
+![](hierarchical-images/passing-data-constructor.png "Data Passed Through a Page Constructor")
 
 ### <a name="passing-data-through-a-bindingcontext"></a>通过 BindingContext 传递数据
 
@@ -204,7 +204,7 @@ async void OnNavigateButtonClicked (object sender, EventArgs e)
 }
 ```
 
-此代码将 `SecondPage` 实例的 [`BindingContext`](xref:Xamarin.Forms.BindableObject.BindingContext) 设置为 `Contact` 实例，然后导航到 `SecondPage`。
+此代码将 [ 实例的 `BindingContext`](xref:Xamarin.Forms.BindableObject.BindingContext)`SecondPage` 设置为 `Contact` 实例，然后导航到 `SecondPage`。
 
 然后，`SecondPage` 使用数据绑定来显示 `Contact` 实例数据，如以下 XAML 代码示例所示：
 
@@ -268,7 +268,7 @@ public class SecondPageCS : ContentPage
 
 然后，数据会通过一系列 [`Label`](xref:Xamarin.Forms.Label) 控件显示在页面上，如以下屏幕截图所示：
 
-![](hierarchical-images/passing-data-bindingcontext.png "通过 BindingContext 传递数据")
+![](hierarchical-images/passing-data-bindingcontext.png "Data Passed Through a BindingContext")
 
 若要深入了解数据绑定，请参阅[数据绑定基本知识](~/xamarin-forms/xaml/xaml-basics/data-binding-basics.md)。
 
@@ -280,11 +280,11 @@ public class SecondPageCS : ContentPage
 
 [`InsertPageBefore`](xref:Xamarin.Forms.INavigation.InsertPageBefore*) 方法将导航堆栈中的指定页插入到现有指定页之前，如下图所示：
 
-![](hierarchical-images/insert-page-before.png "在导航堆栈中插入页面")
+![](hierarchical-images/insert-page-before.png "Inserting a Page in the Navigation Stack")
 
 [`RemovePage`](xref:Xamarin.Forms.INavigation.RemovePage*) 方法可从导航堆栈中删除指定页面，如下图所示：
 
-![](hierarchical-images/remove-page.png "从导航堆栈中删除页面")
+![](hierarchical-images/remove-page.png "Removing a Page from the Navigation Stack")
 
 这些方法支持自定义导航体验，例如在成功登录后将登录页面替换为新页面。 以下代码示例演示了此方案：
 
@@ -339,7 +339,7 @@ public class TitleViewPage : ContentPage
 
 这导致 [`Slider`](xref:Xamarin.Forms.Slider) 显示在 [`NavigationPage`](xref:Xamarin.Forms.NavigationPage) 的导航栏中：
 
-[![滑块 TitleView](hierarchical-images/titleview-small.png "Slider TitleView")](hierarchical-images/titleview-large.png#lightbox "滑块 TitleView")
+[![滑块 TitleView](hierarchical-images/titleview-small.png "滑块 TitleView")](hierarchical-images/titleview-large.png#lightbox "滑块 TitleView")
 
 > [!IMPORTANT]
 > 很多视图不会出现在导航栏中，除非使用 [`WidthRequest`](xref:Xamarin.Forms.VisualElement.WidthRequest) 和 [`HeightRequest`](xref:Xamarin.Forms.VisualElement.HeightRequest) 属性指定视图的大小。 或者，可以将视图包装在 [`StackLayout`](xref:Xamarin.Forms.StackLayout) 中，并将 [`HorizontalOptions`](xref:Xamarin.Forms.View.HorizontalOptions) 和 [`VerticalOptions`](xref:Xamarin.Forms.View.VerticalOptions) 属性设置为适当的值。
@@ -353,11 +353,11 @@ public class TitleViewPage : ContentPage
 
 ### <a name="limitations"></a>限制
 
-当在 [`NavigationPage`](xref:Xamarin.Forms.NavigationPage) 的导航栏中显示 [`View`](xref:Xamarin.Forms.View) 时，需要注意一些限制：
+当在 [`View`](xref:Xamarin.Forms.View) 的导航栏中显示 [`NavigationPage`](xref:Xamarin.Forms.NavigationPage) 时，需要注意一些限制：
 
 - 在 iOS 中，放置在 `NavigationPage` 导航栏中的视图会根据是否启用大标题显示在不同的位置。 有关启用大标题的详细信息，请参阅[显示大标题](~/xamarin-forms/platform/ios/page-large-title.md)。
 - 在 Android 上，只有在使用 app-compat 的应用程序中，才能在 `NavigationPage` 的导航栏中放置视图。
-- 不建议在 `NavigationPage` 的导航条中放置大而复杂的视图，如 [`ListView`](xref:Xamarin.Forms.ListView) 和 [`TableView`](xref:Xamarin.Forms.TableView)。
+- 不建议在 [ 的导航条中放置大而复杂的视图，如 `ListView`](xref:Xamarin.Forms.ListView)[ 和 `TableView`](xref:Xamarin.Forms.TableView)`NavigationPage`。
 
 ## <a name="related-links"></a>相关链接
 

@@ -8,11 +8,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 06/14/2017
 ms.openlocfilehash: 9353cffd924688058c1495b9258cc7f0e0ce7b82
-ms.sourcegitcommit: d0e6436edbf7c52d760027d5e0ccaba2531d9fef
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75489201"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78910816"
 ---
 # <a name="introduction-to-ios-8"></a>iOS 8 简介
 
@@ -26,7 +26,7 @@ iOS 7 直观地更改了用户和开发人员所期望的整个 iOS 用户界面
 
 此外，iOS 8 中已弃用了几个 Api，本文档末尾详细介绍了这些 Api。
 
-## <a name="requirements"></a>需求
+## <a name="requirements"></a>要求
 
 在 Visual Studio for Mac 中创建 iOS 8 应用需要以下各项：
 
@@ -161,7 +161,7 @@ iOS 8 包含用于创建用户界面（统一情节提要）的一种新易用�
 
 - **[UISearchDisplayController](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UISearchDisplayController_Class/index.html#//apple_ref/occ/cl/UISearchDisplayController)** –此项已由 UISearchController 在 iOS8 中替换。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>总结
 本文介绍了 iOS 8 中 Apple 引入的一些新功能。
 
 ## <a name="related-links"></a>相关链接
