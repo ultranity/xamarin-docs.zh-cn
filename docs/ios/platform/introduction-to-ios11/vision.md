@@ -8,11 +8,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 08/31/2017
 ms.openlocfilehash: b58e7b1fffed3253d9765401d52f16b751db134d
-ms.sourcegitcommit: 2fbe4932a319af4ebc829f65eb1fb1816ba305d3
+ms.sourcegitcommit: eedc6032eb5328115cb0d99ca9c8de48be40b6fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73032068"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78910836"
 ---
 # <a name="vision-framework-in-xamarinios"></a>Xamarin 中的远景框架
 

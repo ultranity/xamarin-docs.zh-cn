@@ -6,12 +6,12 @@ ms.assetid: 044FF669-0B81-4186-97A5-148C8B56EE9C
 author: davidortinau
 ms.author: daortin
 ms.date: 03/29/2017
-ms.openlocfilehash: 5e36a66949c55a85d84cbbb17fa4d276e3af1eee
-ms.sourcegitcommit: acbaedbcb78bb5629d4a32e3b00f11540c93c216
+ms.openlocfilehash: 2dea16633181d6b1120a5f9a90da685df66e5451
+ms.sourcegitcommit: 9ee02a2c091ccb4a728944c1854312ebd51ca05b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76980425"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79031012"
 ---
 # <a name="advanced-manual-real-world-example"></a>高级（手动）实际示例
 
@@ -124,7 +124,10 @@ Done.
 
 你会注意到，我们向目标 Sharpie 传递了一个 `-scope build/Headers` 参数。 由于 C 和目标-C 库必须 `#import` 或 `#include` 作为库的实现细节的其他头文件（而不是要绑定的 API），因此 `-scope` 参数告诉客观 Sharpie 忽略未在 `-scope` 目录内某个文件中定义的任何 API。
 
-对于完全实现的库，你会发现 `-scope` 参数通常是可选的，但在显式提供此参数时，不会造成任何伤害。
+对于完全实现的库，你会发现 `-scope` 参数通常是可选的，但在显式提供此参数时，不会造成任何伤害。 
+
+> [!TIP]
+> 如果库的标头导入任何 iOS SDK 标头（例如 `#import <Foundation.h>`），则需要设置作用域，否则客观 Sharpie 将为导入的 iOS SDK 标头生成绑定定义，从而导致在编译绑定项目时可能会生成错误的大绑定。 
 
 此外，我们还指定 `-c -Ibuild/headers`。 首先，`-c` 参数告诉客观 Sharpie 停止解释命令行参数并直接将任何后续参数传递_到 clang 编译器_。 因此，`-Ibuild/Headers` 是一个 clang 编译器参数，该参数指示 clang 在 "`build/Headers`" 下搜索包含位置，这是 POP 标题的实际位置。 如果没有此参数，clang 将不知道在何处查找 `POP.h` `#import`的文件。 _几乎所有的 "问题" 都是使用客观 Sharpie 可归结，来找出要传递到 clang 的内容_。
 
