@@ -8,11 +8,11 @@ author: davidortinau
 ms.author: daortin
 ms.date: 09/13/2016
 ms.openlocfilehash: e5a61af4cd8a09df3ffddb74658f646aa8edfa1f
-ms.sourcegitcommit: 2fbe4932a319af4ebc829f65eb1fb1816ba305d3
+ms.sourcegitcommit: ce4670de51e24116a944c778ee64585bd0aae0e1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73032085"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79088969"
 ---
 # <a name="visual-design-updates-in-ios-11"></a>IOS 11 中的视觉对象设计更新
 
@@ -51,7 +51,7 @@ iOS 11 使你可以更轻松地将搜索控制器直接添加到导航栏。 创
 NavigationItem.SearchController = searchController;
 ```
 
-[通过搜索栏![大型导航标题](visual-design-images/image8-sml.png)](visual-design-images/image8-sml.png#lightbox)
+[通过搜索栏 ![大型导航标题](visual-design-images/image8-sml.png)](visual-design-images/image8-sml.png#lightbox)
 
 根据你的应用程序的功能，你可能需要也可能不希望在用户滚动列表时隐藏搜索栏。 您可以使用 `HidesSearchBarWhenScrolling` 属性调整此属性。
 

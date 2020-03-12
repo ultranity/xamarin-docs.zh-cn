@@ -6,12 +6,12 @@ ms.assetid: BBE47BA8-78BC-6A2B-63BA-D1A45CB1D3A5
 author: davidortinau
 ms.author: daortin
 ms.date: 03/23/2017
-ms.openlocfilehash: e1fa76faf0313a21061af585052a3b137243db55
-ms.sourcegitcommit: d0e6436edbf7c52d760027d5e0ccaba2531d9fef
+ms.openlocfilehash: c8b4dcbfbf65bc4059125404b0d20ed35fa31f29
+ms.sourcegitcommit: ce4670de51e24116a944c778ee64585bd0aae0e1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75488642"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79088928"
 ---
 # <a name="part-4---dealing-with-multiple-platforms"></a>第 4 部分 - 处理多个平台
 
@@ -71,7 +71,7 @@ ms.locfileid: "75488642"
 
 使用共享代码中定义的接口或基类，并在平台特定的项目中实现或扩展。 使用类抽象编写和扩展共享代码尤其适用于可移植类库，因为它们具有可供其使用的有限的框架子集，并且不能包含编译器指令以支持特定于平台的代码分支。
 
-#### <a name="interfaces"></a>接口
+#### <a name="interfaces"></a>界面
 
 使用接口可以实现特定于平台的类，这些类仍可传递到共享库以利用通用代码。
 
@@ -158,10 +158,12 @@ Xamarin 定义可用于检测 iOS 设备 `__IOS__`。
 
 #### <a name="mac"></a>Mac
 
-目前没有内置的 Xamarin 符号，但你可以在 Mac 应用项目选项中添加自己的，> 在 "**定义符号**" 框中**生成 > 编译器**，或编辑 **.csproj**文件并添加（例如 `__MAC__`）
+Xamarin 会定义 `__MACOS__`，仅可用于对 macOS 进行编译：
 
-```xml
-<PropertyGroup><DefineConstants>__MAC__;$(DefineConstants)</DefineConstants></PropertyGroup>
+```csharp
+#if __MACOS__
+// macOS-specific code
+#endif
 ```
 
 #### <a name="universal-windows-platform-uwp"></a>通用 Windows 平台 (UWP)
